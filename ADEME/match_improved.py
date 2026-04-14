@@ -445,73 +445,6 @@ def distribution_checks(df, list_columns):
     )
 
 
-def validate_matches(master_df, min_disclosed_rate=0.1):
-    """
-    Validates matching quality by comparing disclosed DPEs with matched ADEME DPEs.
-
-    Args:
-        master_df: DataFrame with both disclosed_dpe and ademe_dpe columns
-        min_disclosed_rate: Minimum rate of disclosed DPEs required for validation
-
-    Returns:
-        Dictionary with validation metrics
-    """
-    logger.info("📊 Running match validation...")
-
-    total = len(master_df)
-    has_match = master_df["ademe_dpe"].notna().sum()
-    has_disclosed = master_df["disclosed_dpe"].notna().sum()
-
-    match_rate = has_match / total if total > 0 else 0
-    disclosed_rate = has_disclosed / total if total > 0 else 0
-
-    logger.info(f"   Match rate: {match_rate:.1%} ({has_match}/{total})")
-    logger.info(f"   Disclosed rate: {disclosed_rate:.1%} ({has_disclosed}/{total})")
-
-    # Compare disclosed vs matched (where both exist)
-    both = master_df.dropna(subset=["disclosed_dpe", "ademe_dpe"])
-
-    if len(both) == 0:
-        logger.warning(
-            "   ⚠️ No records with both disclosed and matched DPE for validation"
-        )
-        return {
-            "total_records": total,
-            "match_rate": match_rate,
-            "disclosed_rate": disclosed_rate,
-            "validation_sample": 0,
-            "exact_match_rate": None,
-            "within_1_letter_rate": None,
-        }
-
-    exact_matches = (both["disclosed_dpe"] == both["ademe_dpe"]).sum()
-    exact_match_rate = exact_matches / len(both)
-
-    # Within 1 letter (e.g., C vs D)
-    letter_diff = (
-        both["disclosed_dpe"].str[0].apply(ord) - both["ademe_dpe"].str[0].apply(ord)
-    ).abs()
-    within_1 = (letter_diff <= 1).sum()
-    within_1_rate = within_1 / len(both)
-
-    logger.info(f"   Validation sample: {len(both)} records")
-    logger.info(f"   ✅ Exact match rate: {exact_match_rate:.1%}")
-    logger.info(f"   📍 Within 1 letter: {within_1_rate:.1%}")
-
-    if disclosed_rate < min_disclosed_rate:
-        logger.warning(
-            f"   ⚠️ Low disclosed rate ({disclosed_rate:.1%}) - validation may not be reliable"
-        )
-
-    return {
-        "total_records": total,
-        "match_rate": match_rate,
-        "disclosed_rate": disclosed_rate,
-        "validation_sample": len(both),
-        "exact_match_rate": exact_match_rate,
-        "within_1_letter_rate": within_1_rate,
-    }
-
 
 def match(df, searcher_df, saved=True, min_score_threshold=0.3, directory="lisings"):
     """
@@ -685,11 +618,6 @@ def match(df, searcher_df, saved=True, min_score_threshold=0.3, directory="lisin
     logger.info(f"   Low-confidence matches filtered: {low_score_count:,}")
     logger.info(f"{'='*60}\n")
 
-    # Validation
-    if "disclosed_dpe" in master.columns:
-        # validation = validate_matches(master)
-        logger.info("")
-
     # Export to GCS
     if saved and not master.empty:
         try:
@@ -699,7 +627,7 @@ def match(df, searcher_df, saved=True, min_score_threshold=0.3, directory="lisin
 
             export_to_gcs(
                 bucket_name="ma-data-dev",
-                blob_name=f"ADEME/{directory}/AVM_DATA/{dept_code}/SALES_ENRICHED_SUBREGION_CODE_{dept_code}.csv",
+                blob_name=f"ADEME/{directory}/LISTING_DATA/{dept_code}/LISTINGS_ENRICHED_SUBREGION_CODE_{dept_code}.csv",
                 new_df=master.reset_index(drop=True)[
                     [
                         "sale_id",
@@ -716,19 +644,19 @@ def match(df, searcher_df, saved=True, min_score_threshold=0.3, directory="lisin
 
             export_to_gcs(
                 bucket_name="ma-data-dev",
-                blob_name=f"ADEME/{directory}/AVM_DATA/{dept_code}/SALES_ENRICHED_HISTORIC_SUBREGION_CODE_{dept_code}.csv",
+                blob_name=f"ADEME/{directory}/LISTING_DATA/{dept_code}/LISTINGS_ENRICHED_HISTORIC_SUBREGION_CODE_{dept_code}.csv",
                 new_df=historic.reset_index(drop=True),
             )
 
             export_to_gcs(
                 bucket_name="ma-data-dev",
-                blob_name=f"ADEME/{directory}/AVM_DATA/{dept_code}/SALES_ENRICHED_DISTRIBUTION_SUBREGION_CODE_{dept_code}.csv",
+                blob_name=f"ADEME/{directory}/LISTING_DATA/{dept_code}/LISTINGS_ENRICHED_DISTRIBUTION_SUBREGION_CODE_{dept_code}.csv",
                 new_df=distribution.reset_index(drop=True),
             )
 
             export_to_gcs(
                 bucket_name="ma-data-dev",
-                blob_name=f"ADEME/{directory}/AVM_DATA/{dept_code}/SALES_ENRICHED_STATISTICS_SUBREGION_CODE_{dept_code}.csv",
+                blob_name=f"ADEME/{directory}/LISTING_DATA/{dept_code}/LISTINGS_ENRICHED_STATISTICS_SUBREGION_CODE_{dept_code}.csv",
                 new_df=distribution_checks(
                     distribution,
                     [

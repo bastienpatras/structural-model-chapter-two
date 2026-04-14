@@ -1,12 +1,28 @@
+from __future__ import annotations
+
+import os
 import pickle
 from io import BytesIO
 import numpy as np
 import pandas as pd
 import psycopg2
 import geopandas as gpd
+from dotenv import find_dotenv, load_dotenv
 from google.cloud import storage
 from shapely import wkt
 from pathlib import Path
+
+load_dotenv(find_dotenv())
+
+
+def get_db_uri() -> str:
+    """Build a psycopg2-compatible URI from environment variables."""
+    host     = os.environ.get("DB_HOST", "localhost")
+    port     = os.environ.get("DB_PORT", "4444")
+    user     = os.environ.get("DB_USER", "ma_data")
+    password = os.environ.get("DB_PASSWORD", "")
+    dbname   = os.environ.get("DB_NAME", "listing_dev")
+    return f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
 
 
 # ---------------------------------------------------------------------------
@@ -196,7 +212,7 @@ def get_observations_filtered_sell(
         return df_apa
 
     elif item_type == 'HOUSE':
-        df_ma = preprocess_df(observations.copy(), 300)
+        df_ma = preprocess_df(observations.copy(), 15)
         df_ma = df_ma.loc[
             (df_ma['price'].between(20000, 2000000)) &
             ((df_ma['area'] / df_ma['rooms']).between(8, 50))
@@ -278,7 +294,7 @@ def process_rooms(data):
 
 
 def process_cellar(data):
-    data['cellar'] = data['cellar'].fillna(False)
+    data['cellar'] = data['cellar'].fillna(0).astype(int)
     return data
 
 
@@ -365,7 +381,7 @@ def get_cluster_mapped(df: pd.DataFrame) -> gpd.GeoDataFrame:
 
 def get_clusters(
     data: pd.DataFrame,
-    clusters_path: str = "These/Bastien/DIFFINDISC/geo-culsters.plk",
+    clusters_path: str = os.environ.get("GCS_CLUSTERS_PATH", "These/Bastien/DIFFINDISC/geo-culsters.plk"),
 ) -> pd.DataFrame:
     """
     Merge urban-area cluster attributes (CATEAAV2020_LABEL, distance) into listings.
@@ -381,6 +397,13 @@ def get_clusters(
     keep = ['cog'] + [c for c in ['cateaav2020_label', 'distance', 'cluster_id', 'cluster_key']
                       if c in geo_raw.columns]
     geo_raw = geo_raw[keep].drop_duplicates(subset=['cog'])
+
+    # Split cluster_id into prefix (cateaav2020 code) and city-centre COG (market_id).
+    # Format: {N-char prefix}{5-char COG} — take last 5 chars so the split is robust
+    # to any prefix length rather than assuming a fixed 2-char offset.
+    raw = geo_raw["cluster_id"].astype(str)
+    geo_raw["cluster_key"] = raw                          # preserve original
+    geo_raw["cluster_id"]  = raw.str[-5:]                 # city-centre COG → market_id
 
     return pd.merge(data, geo_raw, on='cog', how='left')
 
@@ -410,6 +433,8 @@ def process_data(
 ):
     data = process_energy_consumption(data, by_cat)
     data = process_built_year(data)
+    # Preserve raw numeric floor for ADEME matching before binning
+    data['floor_num'] = pd.to_numeric(data['floor'], errors='coerce')
     data = process_floor(data)
     data = process_elevator(data)
     data = process_rooms(data)
@@ -430,8 +455,7 @@ def process_data(
 
 def prepare_listings_for_estimation(
     df_raw: pd.DataFrame,
-    market_geo_col: str = 'iris_id',
-    reference_year: int | None = None,
+    market_geo_col: str = 'cluster_id',
     by_cat: bool = False,
     nb_month: int = 3,
     clusters_path: str | None = None,
@@ -440,16 +464,11 @@ def prepare_listings_for_estimation(
     Transform raw SeLoger listings (from get_observations_filtered_sell) into
     the schema expected by data_prep.py.
 
-    This function must be called BEFORE process_data() so that built_year is
-    still a numeric integer (needed to compute continuous age).
-
     Parameters
     ----------
     df_raw         : output of get_observations_filtered_sell() — unprocessed
     market_geo_col : geo column to use as market_id.
-                     Options: 'iris_id', 'city_id', 'neighborhood_id', 'borough_id'
-    reference_year : year used to compute age = reference_year − built_year.
-                     Defaults to the latest start_date year in the data.
+                     Options: 'cluster_id', 'iris_id', 'city_id', 'neighborhood_id', 'borough_id'
     by_cat         : passed to process_data() for EPC grouping
     nb_month       : passed to process_data() for time-period granularity
     clusters_path  : GCS path to the urban-area cluster pickle (e.g.
@@ -460,7 +479,7 @@ def prepare_listings_for_estimation(
     Returns
     -------
     pd.DataFrame with columns:
-      listing_id, market_id, log_price, d, epc_score, size_m2, age,
+      listing_id, market_id, log_price, d, epc_score, size_m2, built_year,
       rooms, floor, elevator, cellar, bathrooms,
       [cateaav2020_label, distance]  — when clusters_path is provided
 
@@ -471,22 +490,16 @@ def prepare_listings_for_estimation(
     - epc_score         : numeric 1–7 (A=1 … G=7); NaN when d=0
     - market_id         : df_raw[market_geo_col] (rows with null market_id dropped)
     - size_m2           : listing area in m²
-    - age               : reference_year − built_year (NaN for invalid values)
+    - built_year        : construction period category (e.g. '1946_1974') produced
+                          by process_built_year(); auto-dummified by statsmodels
     - cateaav2020_label : urban-area classification (categorical, hedonic control)
     - distance          : distance to urban centre in km (continuous, hedonic control)
     """
     df = df_raw.copy()
-    df['start_date'] = pd.to_datetime(df['start_date'])
-
-    # ── age (compute BEFORE process_data categorises built_year) ─────────────
-    if reference_year is None:
-        reference_year = int(df['start_date'].dt.year.max())
-
-    df['age'] = reference_year - df['built_year'].astype(float)
-    df.loc[df['age'] < 0,   'age'] = np.nan   # built in the future → invalid
-    df.loc[df['age'] > 300, 'age'] = np.nan   # implausibly old
 
     # ── hedonic preprocessing + optional cluster enrichment ──────────────────
+    # built_year is categorised into period bins by process_built_year() inside
+    # process_data(); keep raw integer until then so the column is not lost.
     df = process_data(df, by_cat=by_cat, nb_month=nb_month, clusters_path=clusters_path)
 
     # ── market_id ─────────────────────────────────────────────────────────────
@@ -513,13 +526,44 @@ def prepare_listings_for_estimation(
     # ── size_m2 ───────────────────────────────────────────────────────────────
     df = df.rename(columns={'area': 'size_m2'})
 
+    # ── item_type: clean to APARTMENT / HOUSE for ADEME matching ─────────────
+    if 'item_type' in df.columns:
+        df['item_type'] = (
+            df['item_type']
+            .map({'ITEM_TYPE.APARTMENT': 'APARTMENT', 'ITEM_TYPE.HOUSE': 'HOUSE'})
+            .fillna(df['item_type'])
+        )
+
+    # ── Drop rows missing mandatory ADEME matching fields ────────────────────
+    # address_id and size_m2 are required for all item types.
+    # floor_num is only mandatory for APARTMENT: houses don't have a floor number
+    # and ADEME matching falls back to area+address matching when floor is absent.
+    _is_apartment = (
+        df["item_type"].iloc[0].upper() == "APARTMENT"
+        if "item_type" in df.columns and len(df) > 0
+        else True
+    )
+    _mandatory_cols = ['address_id', 'size_m2'] + (['floor_num'] if _is_apartment else [])
+    mandatory = [c for c in _mandatory_cols if c in df.columns]
+    before = len(df)
+    df = df.dropna(subset=mandatory)
+    dropped = before - len(df)
+    if dropped:
+        print(f"Dropped {dropped:,} rows missing mandatory matching fields "
+              f"({dropped / before:.1%} of {before:,})")
+
     # ── Select output columns ────────────────────────────────────────────────
-    base    = ['listing_id', 'market_id', 'log_price', 'd', 'epc_score', 'size_m2', 'age']
+    base    = ['listing_id', 'market_id', 'log_price', 'd', 'epc_score', 'EPC', 'size_m2', 'built_year']
+    geo     = [c for c in ['region_id', 'subregion_id', 'city_id', 'neighborhood_id', 'borough_id']
+               if c in df.columns]
     hedonic = [c for c in ['rooms', 'floor', 'elevator', 'cellar', 'bathrooms', 'parking_count']
                if c in df.columns]
-    cluster = [c for c in ['cateaav2020_label', 'distance', 'cluster_id']
+    cluster = [c for c in ['cateaav2020_label', 'distance', 'cluster_id', 'geometry']
                if c in df.columns]
-    return df[base + hedonic + cluster].reset_index(drop=True)
+    # Kept for ADEME enrichment step (enrich_listings.py); dropped after K is added.
+    matching = [c for c in ['address_id', 'street_id', 'cog', 'item_type', 'start_date', 'floor_num']
+                if c in df.columns]
+    return df[base + geo + hedonic + cluster + matching].reset_index(drop=True)
 
 
 # ---------------------------------------------------------------------------
@@ -533,11 +577,10 @@ def collect_and_save_listings(
     item_type: str,
     month_count: int,
     uri: str,
-    save_path: str | Path = 'data/listings.parquet',
+    save_path: str | Path = 'data/listings_APARTMENT.parquet',
     market_geo_col: str = 'iris_id',
     by_cat: bool = False,
     nb_month: int = 3,
-    reference_year: int | None = None,
     clusters_path: str | None = None,
 ) -> pd.DataFrame:
     """
@@ -552,11 +595,10 @@ def collect_and_save_listings(
     item_type         : 'APARTMENT' or 'HOUSE'
     month_count       : lookback window in months
     uri               : database connection URI (psycopg2 format)
-    save_path         : output Parquet path (default: 'data/listings.parquet')
+    save_path         : output Parquet path (default: 'data/listings_APARTMENT.parquet')
     market_geo_col    : geo column used as market_id in data_prep
     by_cat            : if True, group EPC into ABC/DE/FG
     nb_month          : time-period granularity for hedonic dummies
-    reference_year    : year for computing property age
     clusters_path     : GCS path to the urban-area cluster pickle; when provided,
                         cateaav2020_label and distance are added as hedonic controls
 
@@ -577,7 +619,6 @@ def collect_and_save_listings(
     df_out = prepare_listings_for_estimation(
         df_raw,
         market_geo_col=market_geo_col,
-        reference_year=reference_year,
         by_cat=by_cat,
         nb_month=nb_month,
         clusters_path=clusters_path,
@@ -589,3 +630,49 @@ def collect_and_save_listings(
     print(f"Saved {len(df_out):,} listings → {save_path}")
 
     return df_out
+
+
+# ---------------------------------------------------------------------------
+# CLI entry point — reads all parameters from .env
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    geo_ids_raw = os.environ.get("LISTINGS_GEO_IDS", "").strip().strip("[]")
+    if not geo_ids_raw:
+        raise SystemExit("Error: LISTINGS_GEO_IDS is not set in .env")
+
+    geo_id    = tuple(int(x.strip()) for x in geo_ids_raw.split(",") if x.strip())
+    geo_label = os.environ.get("LISTINGS_GEO_LABEL", "subregion_id")
+    date_to   = os.environ.get("LISTINGS_DATE_TO", "2024-12-01")
+    item_type = os.environ.get("LISTINGS_ITEM_TYPE", "APARTMENT")
+    month_count = int(os.environ.get("LISTINGS_MONTH_COUNT", "12"))
+    nb_month    = int(os.environ.get("LISTINGS_NB_MONTH", "3"))
+    by_cat      = os.environ.get("LISTINGS_BY_CAT", "0") == "1"
+    save_path   = os.environ.get("LISTINGS_SAVE_PATH", "data/listings_APARTMENT.parquet")
+    market_geo_col = os.environ.get("LISTINGS_MARKET_GEO_COL", "subregion_id")
+    clusters_path  = os.environ.get("GCS_CLUSTERS_PATH") or None
+
+    # Auto-tag save_path with item_type (e.g. data/listings_APARTMENT.parquet →
+    # data/listings_APARTMENT.parquet) so apartment and house files don't overwrite each other.
+    _p = Path(save_path)
+    if item_type.upper() not in _p.stem.upper():
+        save_path = str(_p.parent / f"{_p.stem}_{item_type.upper()}{_p.suffix}")
+
+    uri = get_db_uri()
+
+    print(f"Collecting {item_type} listings  |  geo_label={geo_label}  |  {len(geo_id)} IDs")
+    print(f"Window: {month_count} months up to {date_to}  |  save → {save_path}")
+
+    collect_and_save_listings(
+        geo_id=geo_id,
+        geo_label=geo_label,
+        date_to=date_to,
+        item_type=item_type,
+        month_count=month_count,
+        uri=uri,
+        save_path=save_path,
+        market_geo_col=market_geo_col,
+        by_cat=by_cat,
+        nb_month=nb_month,
+        clusters_path=clusters_path,
+    )

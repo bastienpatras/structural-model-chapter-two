@@ -1,0 +1,22 @@
+# Core scientific stack — numpy 2.x required for cluster pickle compatibility
+numpy>=2.0
+pandas>=2.0
+scipy>=1.13          # 1.13+ supports numpy 2.x
+statsmodels>=0.14
+matplotlib>=3.7
+plotly>=5.18
+
+# Database
+psycopg2-binary>=2.9
+sqlalchemy>=2.0      # pandas 2.x dropped support for sqlalchemy 1.x
+
+# GCS / cloud
+google-cloud-storage>=2.0
+pyarrow>=13.0        # parquet read/write
+
+# Geo
+geopandas>=1.0
+shapely>=2.0
+
+# Environment
+python-dotenv>=1.0
