@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -52,6 +52,13 @@ Michael~J. Fishman and Kathleen~M. Hagerty.
 \newblock \doi{10.1093/jleo/19.1.45}.
 \newblock URL \url{https://www.jstor.org/stable/3555046}.
 
+\bibitem[Friggit(2013)]{friggit_marche_2013}
+Jacques Friggit.
+\newblock Le march\'{e} immobilier r\'{e}sidentiel fran\c{c}ais: prix, volumes
+  et marges de n\'{e}gociation.
+\newblock Note de conjoncture, Conseil G\'{e}n\'{e}ral de l'Environnement et du
+  D\'{e}veloppement Durable (CGEDD), 2013.
+
 \bibitem[Frondel et~al.(2018)Frondel, Gerster, and Vance]{frondel_power_2018}
 Manuel Frondel, Andreas Gerster, and Colin Vance.
 \newblock The {Power} of {Mandatory} {Quality} {Disclosure}: {Evidence} from
@@ -68,6 +75,13 @@ Franz Fuerst, Pat McAllister, Anupam Nanda, and Peter Wyatt.
 \newblock \doi{10.1016/j.enpol.2016.01.024}.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0301421516300970}.
+
+\bibitem[Genesove and Mayer(2001)]{genesove_loss_2001}
+David Genesove and Christopher Mayer.
+\newblock Loss aversion and seller behavior: Evidence from the housing market.
+\newblock \emph{The Quarterly Journal of Economics}, 116\penalty0 (4):\penalty0
+  1233--1260, 2001.
+\newblock \doi{10.1162/003355301753265561}.
 
 \bibitem[Gerarden et~al.(2017)Gerarden, Newell, and
   Stavins]{gerarden_assessing_2017}
@@ -151,6 +165,13 @@ George Loewenstein, Cass~R. Sunstein, and Russell Golman.
 \newblock URL
   \url{https://www.annualreviews.org/doi/10.1146/annurev-economics-080213-041341}.
 
+\bibitem[Merlo and Ortalo-Magn\'{e}(2004)]{merlo_bargaining_2004}
+Antonio Merlo and Fran\c{c}ois Ortalo-Magn\'{e}.
+\newblock Bargaining over residential real estate: Evidence from {England}.
+\newblock \emph{Journal of Urban Economics}, 56\penalty0 (2):\penalty0
+  192--216, 2004.
+\newblock \doi{10.1016/j.jue.2004.05.002}.
+
 \bibitem[Milgrom(1981)]{milgrom_good_1981}
 Paul Milgrom.
 \newblock Good {News} and {Bad} {News}: {Representation} {Theorems} and
@@ -191,5 +212,10 @@ Marie-Laure Nauleau.
 \newblock \doi{10.1016/j.eneco.2014.08.007}.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0140988314001571}.
+
+\bibitem[Patras(2024)]{patras_mandatory_2024}
+Bastien Patras.
+\newblock Mandatory {Disclosure} and {Housing} {Market} {Dynamics}.
+\newblock Working Paper, Sciences Po Paris, 2024.
 
 \end{thebibliography}

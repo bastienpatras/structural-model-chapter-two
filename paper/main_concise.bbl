@@ -1,0 +1,195 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Allcott and Greenstone(2012)]{allcott_is_2012}
+Hunt Allcott and Michael Greenstone.
+\newblock Is {There} an {Energy} {Efficiency} {Gap}?
+\newblock \emph{Journal of Economic Perspectives}, 26\penalty0 (1):\penalty0
+  3--28, February 2012.
+\newblock ISSN 0895-3309.
+\newblock \doi{10.1257/jep.26.1.3}.
+\newblock URL \url{https://www.aeaweb.org/articles?id=10.1257/jep.26.1.3}.
+
+\bibitem[Ben-Shahar and Schneider(2011)]{benshahar_failure_2011}
+Omri Ben-Shahar and Carl~E. Schneider.
+\newblock The {Failure} of {Mandated} {Disclosure}.
+\newblock \emph{University of Pennsylvania Law Review}, 159\penalty0
+  (3):\penalty0 647--749, 2011.
+\newblock ISSN 0041-9907.
+\newblock URL
+  \url{https://scholarship.law.upenn.edu/penn_law_review/vol159/iss3/1/}.
+
+\bibitem[Brounen and Kok(2011)]{brounen_kok_2011}
+Dirk Brounen and Nils Kok.
+\newblock On the {Economics} of {Energy} {Labels} in the {Housing} {Market}.
+\newblock \emph{Journal of Environmental Economics and Management}, 62\penalty0
+  (2):\penalty0 166--179, 2011.
+\newblock ISSN 0095-0696.
+\newblock \doi{10.1016/j.jeem.2011.05.006}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0095069611000691}.
+
+\bibitem[Dye(1985)]{dye_disclosure_1985}
+Ronald~A. Dye.
+\newblock Disclosure of {Nonproprietary} {Information}.
+\newblock \emph{Journal of Accounting Research}, 23\penalty0 (1):\penalty0
+  123--145, 1985.
+\newblock ISSN 0021-8456.
+\newblock \doi{10.2307/2490910}.
+\newblock URL \url{https://www.jstor.org/stable/2490910}.
+
+\bibitem[Fishman and Hagerty(2003)]{fishman_mandatory_2003}
+Michael~J. Fishman and Kathleen~M. Hagerty.
+\newblock Mandatory versus {Voluntary} {Disclosure} in {Markets} with
+  {Informed} and {Uninformed} {Customers}.
+\newblock \emph{Journal of Law, Economics, \& Organization}, 19\penalty0
+  (1):\penalty0 45--63, 2003.
+\newblock ISSN 8756-6222.
+\newblock \doi{10.1093/jleo/19.1.45}.
+\newblock URL \url{https://www.jstor.org/stable/3555046}.
+
+\bibitem[Frondel et~al.(2018)Frondel, Gerster, and Vance]{frondel_power_2018}
+Manuel Frondel, Andreas Gerster, and Colin Vance.
+\newblock The {Power} of {Mandatory} {Quality} {Disclosure}: {Evidence} from
+  the {German} {Housing} {Market}, May 2018.
+\newblock URL \url{https://papers.ssrn.com/abstract=2796532}.
+
+\bibitem[Fuerst et~al.(2016)Fuerst, McAllister, Nanda, and
+  Wyatt]{fuerst_energy_2016}
+Franz Fuerst, Pat McAllister, Anupam Nanda, and Peter Wyatt.
+\newblock Energy {Performance} {Ratings} and {House} {Prices} in {Wales}: {An}
+  {Empirical} {Study}.
+\newblock \emph{Energy Policy}, 92:\penalty0 20--33, 2016.
+\newblock ISSN 0301-4215.
+\newblock \doi{10.1016/j.enpol.2016.01.024}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0301421516300970}.
+
+\bibitem[Gerarden et~al.(2017)Gerarden, Newell, and
+  Stavins]{gerarden_assessing_2017}
+Todd~D. Gerarden, Richard~G. Newell, and Robert~N. Stavins.
+\newblock Assessing the {Energy}-{Efficiency} {Gap}.
+\newblock \emph{Journal of Economic Literature}, 55\penalty0 (4):\penalty0
+  1486--1525, December 2017.
+\newblock ISSN 0022-0515.
+\newblock \doi{10.1257/jel.20161360}.
+\newblock URL \url{https://www.aeaweb.org/articles?id=10.1257/jel.20161360}.
+
+\bibitem[Gillingham and Palmer(2014)]{gillingham_palmer_2014}
+Kenneth Gillingham and Karen Palmer.
+\newblock Bridging the {Energy} {Efficiency} {Gap}: {Policy} {Insights} from
+  {Economic} {Theory} and {Empirical} {Evidence}.
+\newblock \emph{Review of Environmental Economics and Policy}, 8\penalty0
+  (1):\penalty0 18--38, 2014.
+\newblock ISSN 1750-6816.
+\newblock \doi{10.1093/reep/ret021}.
+\newblock URL \url{https://academic.oup.com/reep/article/8/1/18/1558137}.
+
+\bibitem[Grossman(1981)]{grossman_informational_1981}
+Sanford~J. Grossman.
+\newblock The {Informational} {Role} of {Warranties} and {Private} {Disclosure}
+  about {Product} {Quality}.
+\newblock \emph{The Journal of Law and Economics}, 24\penalty0 (3):\penalty0
+  461--483, December 1981.
+\newblock ISSN 0022-2186.
+\newblock \doi{10.1086/466995}.
+\newblock URL \url{https://www.journals.uchicago.edu/doi/abs/10.1086/466995}.
+\newblock Publisher: The University of Chicago Press.
+
+\bibitem[Hyland et~al.(2013)Hyland, Lyons, and Lyons]{hyland_lyons_2013}
+Marie Hyland, Ronan~C. Lyons, and Seán Lyons.
+\newblock The {Value} of {Domestic} {Building} {Energy} {Efficiency} --
+  {Evidence} from {Ireland}.
+\newblock \emph{Energy Economics}, 40:\penalty0 943--952, 2013.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2013.06.020}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0140988313001096}.
+
+\bibitem[Jung and Kwon(1988)]{jung_kwon_1988}
+Woojin Jung and Young~K. Kwon.
+\newblock Disclosure {When} the {Market} is {Unsure} of {Information}
+  {Endowment} of {Managers}.
+\newblock \emph{Journal of Accounting Research}, 26\penalty0 (1):\penalty0
+  146--153, 1988.
+\newblock ISSN 0021-8456.
+\newblock \doi{10.2307/2491118}.
+\newblock URL \url{https://www.jstor.org/stable/2491118}.
+
+\bibitem[Levitt and Syverson(2008)]{levitt_syverson_2008}
+Steven~D. Levitt and Chad Syverson.
+\newblock Market {Distortions} when {Agents} are {Better} {Informed}: {The}
+  {Value} of {Information} in {Real} {Estate} {Transactions}.
+\newblock \emph{Review of Economics and Statistics}, 90\penalty0 (4):\penalty0
+  599--611, 2008.
+\newblock ISSN 0034-6535.
+\newblock \doi{10.1162/rest.90.4.599}.
+\newblock URL
+  \url{https://www.mitpressjournals.org/doi/abs/10.1162/rest.90.4.599}.
+
+\bibitem[Lizzeri(1999)]{lizzeri_1999}
+Alessandro Lizzeri.
+\newblock Information {Revelation} and {Certification} {Intermediaries}.
+\newblock \emph{RAND Journal of Economics}, 30\penalty0 (2):\penalty0 214--231,
+  1999.
+\newblock ISSN 0741-6261.
+\newblock \doi{10.2307/2556067}.
+\newblock URL \url{https://www.jstor.org/stable/2556067}.
+
+\bibitem[Loewenstein et~al.(2014)Loewenstein, Sunstein, and
+  Golman]{loewenstein_disclosure_2014}
+George Loewenstein, Cass~R. Sunstein, and Russell Golman.
+\newblock Disclosure: {Psychology} {Changes} {Everything}.
+\newblock \emph{Annual Review of Economics}, 6\penalty0 (1):\penalty0 391--419,
+  August 2014.
+\newblock ISSN 1941-1383, 1941-1391.
+\newblock \doi{10.1146/annurev-economics-080213-041341}.
+\newblock URL
+  \url{https://www.annualreviews.org/doi/10.1146/annurev-economics-080213-041341}.
+
+\bibitem[Milgrom(1981)]{milgrom_good_1981}
+Paul Milgrom.
+\newblock Good {News} and {Bad} {News}: {Representation} {Theorems} and
+  {Applications}.
+\newblock \emph{Bell Journal of Economics}, 12\penalty0 (2):\penalty0 380--391,
+  1981.
+\newblock ISSN 0361-915X.
+\newblock URL
+  \url{https://econpapers.repec.org/article/rjebellje/v_3a12_3ay_3a1981_3ai_3aautumn_3ap_3a380-391.htm}.
+\newblock Publisher: The RAND Corporation.
+
+\bibitem[Myers(2020)]{myers_asymmetric_2020}
+Erica Myers.
+\newblock Asymmetric information in residential rental markets: {Implications}
+  for the energy efficiency gap.
+\newblock \emph{Journal of Public Economics}, 190:\penalty0 104251, October
+  2020.
+\newblock ISSN 0047-2727.
+\newblock \doi{10.1016/j.jpubeco.2020.104251}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0047272720301158}.
+
+\bibitem[Myers et~al.(2022)Myers, Puller, and West]{myers_mandatory_2022}
+Erica Myers, Steven~L. Puller, and Jeremy West.
+\newblock Mandatory {Energy} {Efficiency} {Disclosure} in {Housing} {Markets}.
+\newblock \emph{American Economic Journal: Economic Policy}, 14\penalty0
+  (4):\penalty0 453--487, November 2022.
+\newblock ISSN 1945-7731, 1945-774X.
+\newblock \doi{10.1257/pol.20200539}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/pol.20200539}.
+
+\bibitem[Nauleau(2014)]{nauleau_2014}
+Marie-Laure Nauleau.
+\newblock Free-{Riding} on {Tax} {Credits} for {Home} {Insulation} in {France}:
+  {An} {Econometric} {Assessment} {Using} {Panel} {Data}.
+\newblock \emph{Energy Economics}, 46:\penalty0 78--92, 2014.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2014.08.007}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0140988314001571}.
+
+\end{thebibliography}

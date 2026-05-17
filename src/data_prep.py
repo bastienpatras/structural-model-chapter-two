@@ -23,9 +23,13 @@ Data requirements (not yet available; placeholders provided):
     - theta_i              : true (verified) EPC quality; binarised here at threshold
 """
 
+import json
+import logging
 import numpy as np
 import pandas as pd
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Section A — Placeholder data loading
@@ -601,3 +605,131 @@ def make_synthetic_data(
     }
 
     return df, market_stats, true_params
+
+
+# ---------------------------------------------------------------------------
+# Section E — Market centroids for spatial visualisation
+# ---------------------------------------------------------------------------
+
+def compute_market_levels(
+    df             : pd.DataFrame,
+    log_price_col  : str = "log_price",
+    area_col       : str = "size_m2",
+    market_col     : str = "market_id",
+) -> pd.DataFrame:
+    """
+    Per-market price and size benchmarks used to translate nominal renovation
+    costs (€/m²) into the model's log-price units.
+
+    Note: `log_price` in the listings parquet is `log(price / area)` (see
+    `load_listings` docstring), so `exp(log_price)` is price per m² in €.
+
+    Returns
+    -------
+    pd.DataFrame indexed by market_id with columns:
+        price_per_m2_eur : exp(median log_price) per market (€/m²)
+        median_area_m2   : median listing area per market (m²)
+        n_listings       : number of listings per market
+    """
+    out = (
+        df.groupby(market_col, observed=False)
+        .agg(
+            log_price_median=(log_price_col, "median"),
+            median_area_m2  =(area_col, "median"),
+            n_listings      =(log_price_col, "size"),
+        )
+    )
+    out["price_per_m2_eur"] = np.exp(out["log_price_median"])
+    return out[["price_per_m2_eur", "median_area_m2", "n_listings"]]
+
+
+def _load_dept_centroids(geojson_path: str | Path) -> dict[str, tuple[float, float]]:
+    """
+    Load département centroids (lat, lon) keyed by dept code (string with
+    leading zero, e.g. '01', '75', '2A').
+    """
+    try:
+        from shapely.geometry import shape
+    except ImportError as exc:
+        raise ImportError(
+            "shapely is required to compute département centroids. "
+            "Install with `pip install shapely`."
+        ) from exc
+
+    with open(geojson_path) as fh:
+        gj = json.load(fh)
+
+    out: dict[str, tuple[float, float]] = {}
+    for feat in gj["features"]:
+        code = str(feat["properties"]["code"])
+        geom = shape(feat["geometry"])
+        c    = geom.centroid
+        out[code] = (float(c.y), float(c.x))  # (lat, lon)
+    return out
+
+
+def compute_market_centroids(
+    listings_df  : pd.DataFrame,
+    geojson_path : str | Path = "data/geo/departements.geojson",
+    market_col   : str = "market_id",
+    dept_col     : str = "dept",
+    cache_path   : str | Path | None = None,
+) -> pd.DataFrame:
+    """
+    Compute one (lat, lon) coordinate per market for spatial visualisation.
+
+    The listings parquet does not contain raw geocoordinates; we use each
+    listing's département centroid and take the listings-weighted mean across
+    departments per market. Resolution is sufficient for a bubble-map visual.
+
+    Parameters
+    ----------
+    listings_df  : DataFrame with columns `market_id` and `dept`.
+    geojson_path : path to a département-level GeoJSON (with `properties.code`).
+    cache_path   : if given, write the result as CSV.
+
+    Returns
+    -------
+    DataFrame indexed by market_id with columns: lat, lon, n_listings, modal_dept.
+    """
+    dept_centroids = _load_dept_centroids(geojson_path)
+
+    work = listings_df[[market_col, dept_col]].copy()
+    work[dept_col] = work[dept_col].astype(str).str.zfill(2)
+
+    rows = []
+    for m, g in work.groupby(market_col):
+        counts  = g[dept_col].value_counts()
+        n_total = int(counts.sum())
+
+        lat_sum, lon_sum, w_sum = 0.0, 0.0, 0
+        for dept_code, n in counts.items():
+            coord = dept_centroids.get(dept_code)
+            if coord is None:
+                continue
+            lat, lon = coord
+            lat_sum += lat * n
+            lon_sum += lon * n
+            w_sum   += n
+
+        if w_sum == 0:
+            logger.warning(f"[centroids] market {m}: no dept matched, skipping")
+            continue
+
+        rows.append({
+            "market_id" : m,
+            "lat"       : lat_sum / w_sum,
+            "lon"       : lon_sum / w_sum,
+            "n_listings": n_total,
+            "modal_dept": str(counts.idxmax()),
+        })
+
+    out = pd.DataFrame(rows).set_index("market_id")
+
+    if cache_path is not None:
+        cache_path = Path(cache_path)
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        out.to_csv(cache_path)
+        logger.info(f"[centroids] wrote {cache_path}  (N={len(out)})")
+
+    return out

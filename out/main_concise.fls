@@ -1,0 +1,655 @@
+PWD /Users/bpatras/structural-model-chapter-two/paper
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
+INPUT main_concise.tex
+OUTPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.log
+INPUT ./bp-template-concise.cls
+INPUT bp-template-concise.cls
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/size10.clo
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/size10.clo
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/size10.clo
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/inputenc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/inputenc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/geometry/geometry.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/geometry/geometry.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/keyval.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/keyval.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/ifvtex.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/ifvtex.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/iftex.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/iftex.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/geometry/geometry.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/geometry/geometry.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/geometry/geometry.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcolor/xcolor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcolor/xcolor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/color.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/color.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/color.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-def/pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-def/pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-def/pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/mathcolor.ltx
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/mathcolor.ltx
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/mathcolor.ltx
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/graphicx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/graphicx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/graphics.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/graphics.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/trig.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/trig.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/float/float.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/float/float.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/color.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsmath.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsmath.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsopn.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amstext.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amstext.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsgen.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsgen.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsbsy.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsbsy.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsmath/amsopn.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/array.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/array.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/tabularx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/tabularx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/lscape.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/lscape.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfutil-common.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfutil-latex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/pgf.revision.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/pgf.revision.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgf.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathutil.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathparser.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.random.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathcalc.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmathfloat.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfint.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/math/pgfmath.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/math/pgfmath.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/circuitikz/circuitikz.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/circuitikz/circuitikz.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmodulebending.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcirc.defines.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircutils.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircpath.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircshapes.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircmonopoles.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircbipoles.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcirctripoles.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircquadpoles.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircmultipoles.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcirclabel.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircvoltage.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcirccurrent.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/circuitikz/pgfcircflow.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/eurosym/eurosym.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/eurosym/eurosym.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lipsum/lipsum.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lipsum/lipsum.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3kernel/expl3.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3kernel/expl3.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lipsum/lipsum.ltd.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lipsum/lipsum.ltd.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjustbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjustbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xkeyval/xkeyval.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xkeyval/xkvutils.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/trimclip.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/trimclip.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/collectbox/collectbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/collectbox/collectbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/tc-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/tc-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/tc-pdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varwidth/varwidth.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varwidth/varwidth.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varwidth/varwidth.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/parskip/parskip.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/parskip/parskip.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ragged2e/ragged2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ragged2e/ragged2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/enumitem/enumitem.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/enumitem/enumitem.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcolorbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcolorbox.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/verbatim.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/verbatim.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/environ/environ.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/environ/environ.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/trimspaces/trimspaces.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/trimspaces/trimspaces.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbraster.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbskins.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzfill.image.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzfill.image.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzfill-common.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzfill-common.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbbreakable.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pdfcol/pdfcol.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pdfcol/pdfcol.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbhooks.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbtheorems.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbfitting.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcblistings.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstpatch.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstpatch.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstpatch.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstmisc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstmisc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstmisc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcblistingscore.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbprocessing.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listingsutf8/listingsutf8.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listingsutf8/listingsutf8.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/stringenc/stringenc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/stringenc/stringenc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbexternal.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbmagazine.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbvignette.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+OUTPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tcolorbox/tcbposter.code.tex
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/caption.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/caption.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/caption3.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/caption3.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/subcaption.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/caption/subcaption.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natbib/natbib.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natbib/natbib.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/hyperref.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/hyperref.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hycolor/hycolor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hycolor/hycolor.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/auxhook/auxhook.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/auxhook/auxhook.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/nameref.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/nameref.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/refcount/refcount.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/refcount/refcount.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/pd1enc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/pd1enc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/pd1enc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/intcalc/intcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/intcalc/intcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/puenc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/puenc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/puenc.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/url.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/url.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/bitset/bitset.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/bitset/bitset.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/atbegshi/atbegshi.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/atbegshi-ltx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/atbegshi-ltx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/hpdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/hpdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/hyperref/hpdftex.def
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/atveryend/atveryend.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/atveryend-ltx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/atveryend-ltx.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpage.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpage.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpage2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpage2e.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpageclassic.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/lastpage/lastpageclassic.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/threeparttable/threeparttable.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/threeparttable/threeparttable.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/endnotes/endnotes.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/endnotes/endnotes.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/colortbl/colortbl.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/colortbl/colortbl.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/makecell/makecell.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/makecell/makecell.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss10.tfm
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.aux
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.aux
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.aux
+OUTPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.aux
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+OUTPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr6.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT ./fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT ./fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmtt8.tfm
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT ./fig/visuals/equilibirum_outcomes.png
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT ./fig/visuals/model_dynamics.png
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/ts1cmss.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/ts1cmss.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/ts1cmss.fd
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/jknappen/ec/tcss1000.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi9.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/eurosym/feymr10.tfm
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/eurosym/feymr10.tfm
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT ./fig/visuals/fig_subsidy_grid.pdf
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/jknappen/ec/tcss0800.tfm
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_regime_breakdown.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R250.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/visuals/fig_subsidy_map_R500.pdf
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/house/index/event-study-efficient.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/house/index/event-study-intensive.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/apartment/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/event-study/house/index/event-study-missing.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT ./fig/visuals/model_mechanics_overview_h.png
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.bbl
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.bbl
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.bbl
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.aux
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/structural-model-chapter-two/out/main_concise.out
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcss0800.pk
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcss0800.pk
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcss1000.pk
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcss1000.pk
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/eurosym/feymr10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/eurosym/feymr10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb

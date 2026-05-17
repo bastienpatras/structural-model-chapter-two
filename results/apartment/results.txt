@@ -1,0 +1,80 @@
+
+======================================================================
+  MANDATORY DISCLOSURE AND HOUSING MARKET DYNAMICS
+======================================================================
+  Property type  : APARTMENT
+  Estimation date: 2026-05-15
+
+  ──────────────────────────────────────────────────────────────────
+  I. SAMPLE
+  ──────────────────────────────────────────────────────────────────
+  Total listings (estimation sample)             834,816
+  Markets (estimation sample)                        263
+
+  Group                                     N          Share
+    Truthful Disclosure                       666,014    79.8%
+    Uninformed                                139,299    16.7%
+    Strategic Hiding                           29,503     3.5%
+
+  Mean σ̂₀ (hiding rate, informed low-qual.)0.077
+  Std  σ̂₀                                  0.048
+  Mean π̂  (informed-seller share)          0.518
+  Mean θ̄  (quality share, informed)        0.265
+
+  ──────────────────────────────────────────────────────────────────
+  II. HEDONIC REGRESSION  (Step 1)
+  ──────────────────────────────────────────────────────────────────
+  β̂₁  EPC quality premium (log pts)        0.0358
+  N (truthful disclosers)                   398,441
+
+  ──────────────────────────────────────────────────────────────────
+  II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)
+  ──────────────────────────────────────────────────────────────────
+  Markets with DiD estimates                          68
+  Markets with β̂₁_m > 0 (usable)                     43
+
+  β̂₁_m  market-level EPC premium           
+    mean  (log pts)                         0.0169
+    median                                  0.0186
+    std                                     0.0421
+    [p10, p90]                              [-0.0355, 0.0671]
+
+  Δ̂_m  non-disclosure premium (upper bound on ĉ₀_m)
+    mean  (log pts)                         0.0691
+    median                                  0.0629
+    std                                     0.0616
+    [p10, p90]                              [0.0023, 0.1565]
+
+  ──────────────────────────────────────────────────────────────────
+  III. STRUCTURAL ESTIMATES  (Two-step: ρ̂ from DiD, ĉ₀ inverted)
+  ──────────────────────────────────────────────────────────────────
+
+  Parameter                                     Mean    Median       Std  [p10, p90]
+  ──────────────────────────────────────────────────────────────────
+  ρ̂_m  EPC-sensitive buyer share             0.9500    1.0000    0.2179  [1.0000, 1.0000]
+  ĉ₀_m  hiding cost  (log pts)                0.0162    0.0125    0.0125  [0.0054, 0.0334]
+  σ̂₀_m  equilibrium hiding rate              0.0766    0.0722    0.0476  [0.0351, 0.1234]
+  ê*_m  equilibrium pool quality              0.2522    0.2343    0.0949  [0.1464, 0.4105]
+
+  ──────────────────────────────────────────────────────────────────
+  IV. ECONOMIC MAGNITUDES
+  ──────────────────────────────────────────────────────────────────
+  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0340
+  Non-disclosure premium — upper bound (log pts)0.0050
+  Non-disclosure premium — Partial Pooling (log pts)0.0086
+  Hiding cost ĉ₀  as % of disclosed-low price1.62%
+
+  Interpretation: at the market mean, a low-quality informed
+  seller forgoes ~1.62 log pts (~1.6% of property
+  value) to conceal her EPC score. The share of EPC-sensitive
+  buyers averages 95.0% across markets.
+
+  ──────────────────────────────────────────────────────────────────
+  V. EQUILIBRIUM REGIME DISTRIBUTION
+  ──────────────────────────────────────────────────────────────────
+    mixed_strategy                            38  (95.0%)
+    full_unraveling                            2  (5.0%)
+
+======================================================================
+  END OF RESULTS — APARTMENT
+======================================================================

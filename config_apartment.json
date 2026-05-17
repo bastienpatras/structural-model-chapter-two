@@ -1,0 +1,16 @@
+{
+    "property_type"      : "APARTMENT",
+    "listings_path"      : "data/listings_enriched_APARTMENT.parquet",
+    "index_path"         : "data/index_APARTMENT.csv",
+    "did_min_volume"     : 20,
+    "controls"           : ["built_year", "floor", "rooms", "elevator", "cellar", "city_id", "distance"],
+    "epc_threshold"      : 3.0,
+    "weighting_scheme"   : "optimal_gmm",
+    "n_restarts"         : 5,
+    "c0_init"            : 0.005,
+    "n_boot"             : 0,
+    "actual_reno_costs"  : null,
+    "cost_per_m2_grid"      : [250, 500, 1000],
+    "cost_per_m2_canonical" : 500,
+    "output_dir"         : "results/apartment"
+}

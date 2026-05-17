@@ -15,6 +15,8 @@
 \usepackage{xcolor}
 \definecolor{SPred}{HTML}{d01c32}
 \definecolor{SPgrey}{HTML}{79797C}
+\colorlet{dkblue}{cyan!50!gray}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
 
 \usepackage{graphicx}
 \usepackage{float}

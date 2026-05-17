@@ -297,8 +297,12 @@ def estimate_rho_c0(
     Estimator
     ---------
         ê*_m  = (1 − π̂_m)·θ̂_m / [π̂_m·(1 − θ̂_m)·σ̂₀_m + (1 − π̂_m)]
-        ρ̂_m   = DiD_Δ_m / (DiD_β₁_m · ê*_m)
-        ĉ₀_m  = DiD_Δ_m
+        ρ̂_m   = DiD_Δ_m / (DiD_β₁_m · ê*_m)          [eq:rho_estimator]
+        ĉ₀_m  = ρ̂_m · DiD_β₁_m · ê*_m                [eq:pp_sigma inverted]
+
+    Note: DiD_Δ_m is an upper bound on c₀_m (it pools strategic hiders with
+    uninformed non-disclosers). The structural estimate ĉ₀_m uses ê*_m
+    evaluated at the observed σ̂₀_m, consistent with the model equilibrium.
 
     Parameters
     ----------
@@ -355,8 +359,11 @@ def estimate_rho_c0(
         )
     df["rho_hat"] = df["rho_hat"].clip(0.0, 1.0)
 
-    # ── c₀_m = DiD_delta (equilibrium hiding cost = observed hiding premium) ──
-    df["c0_hat"] = df["DiD_delta"].clip(lower=0.0)
+    # ── ĉ₀_m = ρ̂_m · β₁_m · ê*_m  (two-step inversion of eq:pp_sigma) ──────
+    # DiD_delta is an upper bound on c₀ (it pools strategic hiders with
+    # uninformed sellers); the structural estimate uses the model-consistent
+    # belief ê*_m evaluated at the observed mixing rate σ̂₀_m.
+    df["c0_hat"] = (df["rho_hat"] * df["DiD_beta1"] * df["e_star"]).clip(lower=0.0)
 
     n_identified = df["rho_hat"].notna().sum()
     logger.info(

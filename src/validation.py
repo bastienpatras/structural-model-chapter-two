@@ -215,13 +215,13 @@ def overidentification_test(
     estimating the full variance-covariance matrix of moments.
     """
     M = msm_result.n_markets
-    n_moments_total = 4 * M
+    n_moments_total = 3 * M   # m₃, m₄, m₅
     n_params_total  = 2 * M  # M ρ_m's + M c₀_m's
     df_J            = n_moments_total - n_params_total
 
     # Approximate total sample size
     n_obs = sum(
-        dm.n1 + dm.n2 + dm.n3 + dm.n4_informed
+        dm.n3 + dm.n4_informed + dm.n5_informed
         for dm in data_moments.values()
     )
 

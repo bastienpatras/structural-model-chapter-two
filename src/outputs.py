@@ -30,6 +30,23 @@ FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 PLOTLY_TEMPLATE = "simple_white"
 
+# Regime → display name and color. Codebase regime names map to paper labels:
+#   "full_unraveling"     ↔ Cost-Deterred Hiding (CDH)
+#   "mixed_strategy"      ↔ Partial Pooling      (PP)
+#   "partial_separation"  ↔ Complete Adverse Selection (CAS)
+REGIME_LABELS = {
+    "mixed_strategy"    : "Partial Pooling",
+    "full_unraveling"   : "Cost-Deterred Hiding",
+    "partial_separation": "Complete Adverse Selection",
+}
+REGIME_COLORS = {
+    "mixed_strategy"    : "#1D3461",   # navy
+    "full_unraveling"   : "#1BA3C6",   # teal
+    "partial_separation": "#d01c32",   # SPred (paper red)
+}
+APT_COLOR = "#1D3461"   # navy
+HSE_COLOR = "#d01c32"   # SPred
+
 
 # ---------------------------------------------------------------------------
 # Section A — Descriptive statistics table (Table 1 equivalent)
@@ -176,49 +193,57 @@ def table_estimates(
     return tbl
 
 
-def table_moment_fit(
-    data_moments : dict,
-    model_moments: dict,
-    save_latex   : bool = True,
+def table_market_estimates(
+    data_moments  : dict,
+    model_moments : dict,
+    msm_result    : object,
+    did_estimates : object | None = None,
+    save_latex    : bool = True,
 ) -> pd.DataFrame:
     """
-    Table: Data vs model-implied moments — Table 6 of the paper.
+    Table: Market-level structural estimates — Table 6 of the paper.
 
-    Shows how well the model fits each moment across markets.
+    Columns (per market):
+      β̂₁_m  : DiD EPC quality premium (first-stage input)
+      Δ̂_m   : DiD non-disclosure premium (first-stage input; upper bound on ĉ₀_m)
+      σ̂₀_m  : hiding rate, informed low-quality sellers (active moment)
+      ê*_m   : equilibrium pool quality (from σ̂₀_m via belief function)
+      ρ̂_m   : estimated EPC-sensitive buyer share (from DiD, two-step)
+      ĉ₀_m  : estimated hiding cost (inverted from σ̂₀_m)
+      σ̂₁_m  : hiding rate, informed high-quality sellers (model validation: should ≈ 0)
+      Regime : equilibrium regime
     """
+    did_df = did_estimates.did if did_estimates is not None else None
+
     rows = []
     for m in sorted(data_moments.keys()):
         dm = data_moments[m]
         mm = model_moments.get(m)
         rows.append({
-            "Market"    : m,
-            "m₁ data"  : dm.m1,
-            "m₁ model" : mm.m1_model if mm else np.nan,
-            "m₁ diff"  : dm.m1 - mm.m1_model if mm else np.nan,
-            "m₂ data"  : dm.m2,
-            "m₂ model" : mm.m2_model if mm else np.nan,
-            "m₂ diff"  : dm.m2 - mm.m2_model if mm else np.nan,
-            "m₃ data"  : dm.m3,
-            "m₃ model" : mm.m3_model if mm else np.nan,
-            "m₃ diff"  : dm.m3 - mm.m3_model if mm else np.nan,
-            "m₄ data"  : dm.m4,
-            "m₄ model" : mm.m4_model if mm else np.nan,
-            "m₄ diff"  : dm.m4 - mm.m4_model if mm else np.nan,
-            "Eq. type"  : mm.eq_type if mm else "—",
+            "Market"                              : m,
+            r"$\hat{\beta}_{1,m}$"               : float(did_df.loc[m, "DiD_beta1"])
+                                                   if did_df is not None and m in did_df.index else np.nan,
+            r"$\hat{\Delta}_m$"                  : float(did_df.loc[m, "DiD_delta"])
+                                                   if did_df is not None and m in did_df.index else np.nan,
+            r"$\hat{\sigma}_{0,m}$"              : dm.m4,
+            r"$\hat{e}^*_m$"                     : mm.e_star if mm else np.nan,
+            r"$\hat{\rho}_m$"                    : msm_result.rho_hat.get(m, np.nan),
+            r"$\hat{c}_{0,m}$"                   : msm_result.c0_hat.get(m, np.nan),
+            r"$\hat{\sigma}_{1,m}$"              : dm.m5,
+            "Regime"                              : mm.eq_type if mm else "---",
         })
 
     tbl = pd.DataFrame(rows).set_index("Market")
 
-    # Summary row
-    numeric_cols = [c for c in tbl.columns if c != "Eq. type"]
+    numeric_cols = [c for c in tbl.columns if c != "Regime"]
     summary = tbl[numeric_cols].mean().rename("Mean")
     tbl_out = pd.concat([tbl, pd.DataFrame([summary])])
 
-    logger.info("=== Table: Moment Fit ===\n" + tbl_out.round(4).to_string())
+    logger.info("=== Table: Market Estimates ===\n" + tbl_out.round(4).to_string())
 
     if save_latex:
-        path = TABLES_DIR / "table_moment_fit.tex"
-        tbl_out.round(4).to_latex(path, float_format="%.4f")
+        path = TABLES_DIR / "table_market_estimates.tex"
+        tbl_out.round(4).to_latex(path, float_format="%.4f", escape=False)
         logger.info(f"  → Saved to {path}")
 
     return tbl_out
@@ -602,29 +627,566 @@ def figure_belief_function(
     return fig
 
 
+def _market_estimates_from_grid(grid_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Collapse a long-format subsidy grid back to one row per market (R̄_m is
+    invariant across cost-grid rows). Used by `export_market_estimates`.
+    """
+    if grid_df.empty:
+        return grid_df.copy()
+    keep = [
+        "market_id",
+        "R_bar_log_pts", "R_bar_eur_per_m2",
+        "price_per_m2_eur", "median_area_m2", "n_listings",
+        "regime", "rho_m", "c0_m", "pi_m", "theta_bar_m",
+        "sigma_0_m", "e_star_m", "beta_1_m",
+    ]
+    available = [c for c in keep if c in grid_df.columns]
+    return grid_df[available].drop_duplicates(subset=["market_id"]).reset_index(drop=True)
+
+
+def export_market_estimates(
+    grid_df        : pd.DataFrame,
+    summary_df     : pd.DataFrame,
+    output_dir     : str | Path,
+    budget_df      : pd.DataFrame | None = None,
+    centroids_df   : pd.DataFrame | None = None,
+) -> None:
+    """
+    Persist per-market calibrated parameters and the subsidy grid as CSVs.
+
+    Output files (under `output_dir`):
+      - market_estimates.csv  (one row per market)
+      - subsidy_grid.csv      (long format, one row per market × cost_per_m2)
+      - subsidy_summary.csv   (per cost-scheme aggregates incl. regime breakdown)
+      - budget_grid.csv       (weighted total per cost-scheme, if budget_df given)
+      - market_centroids.csv  (if centroids_df given)
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    me_path = output_dir / "market_estimates.csv"
+    _market_estimates_from_grid(grid_df).to_csv(me_path, index=False)
+    logger.info(f"  → wrote {me_path}  (N={len(_market_estimates_from_grid(grid_df))})")
+
+    sg_path = output_dir / "subsidy_grid.csv"
+    grid_df.to_csv(sg_path, index=False)
+    logger.info(f"  → wrote {sg_path}  (rows={len(grid_df)})")
+
+    ss_path = output_dir / "subsidy_summary.csv"
+    summary_df.to_csv(ss_path, index=False)
+    logger.info(f"  → wrote {ss_path}  (rows={len(summary_df)})")
+
+    if budget_df is not None:
+        bg_path = output_dir / "budget_grid.csv"
+        budget_df.to_csv(bg_path, index=False)
+        logger.info(f"  → wrote {bg_path}")
+
+    if centroids_df is not None:
+        cc_path = output_dir / "market_centroids.csv"
+        centroids_df.to_csv(cc_path)
+        logger.info(f"  → wrote {cc_path}")
+
+
+# ---------------------------------------------------------------------------
+# Section J — Renovation subsidy figures and tables
+# ---------------------------------------------------------------------------
+
+def _filter_canonical(grid_df: pd.DataFrame, cost_per_m2: float) -> pd.DataFrame:
+    """Pick the grid row with `cost_per_m2` closest to the requested value."""
+    if grid_df.empty:
+        return grid_df
+    available = grid_df["cost_per_m2"].unique()
+    pick      = float(min(available, key=lambda x: abs(x - cost_per_m2)))
+    return grid_df[grid_df["cost_per_m2"] == pick].copy()
+
+
+def figure_renovation_threshold_distribution(
+    grid_apt : pd.DataFrame | None,
+    grid_hse : pd.DataFrame | None,
+    save     : bool = True,
+) -> go.Figure | None:
+    """
+    Histogram of the renovation threshold R̄_m across markets, by property type.
+    Bars coloured by equilibrium regime (PP / CDH / CAS).
+    """
+    parts = []
+    if grid_apt is not None and not grid_apt.empty:
+        parts.append(("Apartments", _market_estimates_from_grid(grid_apt)))
+    if grid_hse is not None and not grid_hse.empty:
+        parts.append(("Houses", _market_estimates_from_grid(grid_hse)))
+
+    if not parts:
+        return None
+
+    fig = make_subplots(rows=1, cols=len(parts),
+                        subplot_titles=[p[0] for p in parts],
+                        shared_yaxes=False)
+
+    for col, (label, df) in enumerate(parts, start=1):
+        for reg, sub in df.groupby("regime"):
+            fig.add_trace(
+                go.Histogram(
+                    x         = sub["R_bar_eur_per_m2"],
+                    name      = REGIME_LABELS.get(reg, reg),
+                    marker    = dict(color=REGIME_COLORS.get(reg, "#888"),
+                                      line=dict(color="white", width=0.5)),
+                    opacity   = 0.85,
+                    nbinsx    = 20,
+                    legendgroup = reg,
+                    showlegend  = (col == 1),
+                ),
+                row=1, col=col,
+            )
+        fig.update_xaxes(title_text="R̄_m (€/m² equivalent)", row=1, col=col)
+        fig.update_yaxes(title_text="# markets" if col == 1 else "", row=1, col=col)
+
+    fig.update_layout(
+        template=PLOTLY_TEMPLATE,
+        barmode="stack",
+        width=1100, height=460,
+        legend=dict(orientation="h", y=-0.18),
+    )
+
+    if save:
+        path = FIGURES_DIR / "figure_renovation_threshold.html"
+        fig.write_html(str(path))
+        logger.info(f"  → Saved to {path}")
+    return fig
+
+
+def figure_subsidy_grid(
+    grid_apt : pd.DataFrame | None,
+    grid_hse : pd.DataFrame | None,
+    save     : bool = True,
+) -> go.Figure | None:
+    """
+    Small-multiples histogram of S*_m across markets, in €/m².
+    Rows: property type. Columns: cost_per_m2 grid values (ascending).
+    Vertical line at S*=0 marks markets that need no subsidy.
+    """
+    panels = []
+    if grid_apt is not None and not grid_apt.empty:
+        panels.append(("Apartments", APT_COLOR, grid_apt))
+    if grid_hse is not None and not grid_hse.empty:
+        panels.append(("Houses",     HSE_COLOR, grid_hse))
+
+    if not panels:
+        return None
+
+    cost_values = sorted({
+        float(c) for _, _, g in panels for c in g["cost_per_m2"].unique()
+    })
+    n_rows = len(panels)
+    n_cols = len(cost_values)
+
+    fig = make_subplots(
+        rows=n_rows, cols=n_cols,
+        subplot_titles=[f"R̂ = {c:.0f} €/m²" for c in cost_values] * 1,
+        row_titles=[p[0] for p in panels],
+        shared_xaxes="columns", shared_yaxes=False,
+        horizontal_spacing=0.04, vertical_spacing=0.13,
+    )
+
+    for r, (label, color, grid) in enumerate(panels, start=1):
+        for c, ch in enumerate(cost_values, start=1):
+            sub = grid[np.isclose(grid["cost_per_m2"], ch)]
+            if sub.empty:
+                continue
+            fig.add_trace(
+                go.Histogram(
+                    x       = sub["S_star_eur_per_m2"],
+                    marker  = dict(color=color, line=dict(color="white", width=0.4)),
+                    opacity = 0.85,
+                    nbinsx  = 18,
+                    showlegend = False,
+                ),
+                row=r, col=c,
+            )
+            fig.add_vline(x=0, line=dict(color="black", dash="dot", width=1),
+                          row=r, col=c)
+            fig.update_xaxes(title_text="S*_m (€/m²)" if r == n_rows else "",
+                             row=r, col=c)
+            if c == 1:
+                fig.update_yaxes(title_text="# markets", row=r, col=c)
+
+    fig.update_layout(
+        template=PLOTLY_TEMPLATE,
+        width=240*n_cols + 80, height=320*n_rows + 90,
+        title=dict(text="Minimum incentive-compatible subsidy S*_m across markets (€/m²), by renovation cost scheme",
+                   x=0.02, xanchor="left"),
+    )
+
+    if save:
+        path = FIGURES_DIR / "figure_subsidy_grid.html"
+        fig.write_html(str(path))
+        logger.info(f"  → Saved to {path}")
+    return fig
+
+
+def figure_threshold_vs_beta1(
+    grid_apt : pd.DataFrame | None,
+    grid_hse : pd.DataFrame | None,
+    save     : bool = True,
+) -> go.Figure | None:
+    """
+    Scatter R̄_m vs β̂_{1,m}, colored by regime. 45° line as reference.
+    PP markets should sit close to the 45° line (verified-quality premium collapse).
+    """
+    parts = []
+    if grid_apt is not None and not grid_apt.empty:
+        parts.append(("Apartments", _market_estimates_from_grid(grid_apt)))
+    if grid_hse is not None and not grid_hse.empty:
+        parts.append(("Houses", _market_estimates_from_grid(grid_hse)))
+
+    if not parts:
+        return None
+
+    fig = make_subplots(rows=1, cols=len(parts),
+                        subplot_titles=[p[0] for p in parts],
+                        horizontal_spacing=0.08)
+
+    all_vals = pd.concat([p[1] for p in parts])
+    lo = float(min(all_vals["R_bar_log_pts"].min(), all_vals["beta_1_m"].min(), 0.0))
+    hi = float(max(all_vals["R_bar_log_pts"].max(), all_vals["beta_1_m"].max()) * 1.05)
+
+    for col, (label, df) in enumerate(parts, start=1):
+        for reg, sub in df.groupby("regime"):
+            fig.add_trace(
+                go.Scatter(
+                    x = sub["beta_1_m"], y = sub["R_bar_log_pts"],
+                    mode="markers",
+                    name=REGIME_LABELS.get(reg, reg),
+                    marker=dict(color=REGIME_COLORS.get(reg, "#888"),
+                                size=9, line=dict(width=0.5, color="black")),
+                    legendgroup=reg, showlegend=(col == 1),
+                    hovertemplate=("market=%{customdata}<br>"
+                                   "β̂₁=%{x:.4f}<br>R̄=%{y:.4f}<extra></extra>"),
+                    customdata=sub["market_id"],
+                ),
+                row=1, col=col,
+            )
+        fig.add_trace(
+            go.Scatter(x=[lo, hi], y=[lo, hi],
+                       mode="lines", line=dict(color="gray", dash="dash"),
+                       name="45°", showlegend=(col == 1), legendgroup="ref"),
+            row=1, col=col,
+        )
+        fig.update_xaxes(title_text="β̂₁ (verified-quality premium)",
+                         range=[lo, hi], row=1, col=col)
+        fig.update_yaxes(title_text="R̄_m (renovation threshold)" if col == 1 else "",
+                         range=[lo, hi], row=1, col=col)
+
+    fig.update_layout(
+        template=PLOTLY_TEMPLATE,
+        width=1100, height=520,
+        legend=dict(orientation="h", y=-0.18),
+    )
+
+    if save:
+        path = FIGURES_DIR / "figure_threshold_vs_beta1.html"
+        fig.write_html(str(path))
+        logger.info(f"  → Saved to {path}")
+    return fig
+
+
+def _jitter_centroids(df: pd.DataFrame, scale: float = 0.18) -> pd.DataFrame:
+    """
+    Deterministic radial jitter for centroids that share coordinates (e.g.,
+    multiple markets sharing a département centroid). The jitter is keyed on
+    `market_id` so re-runs are reproducible.
+    """
+    if df.empty or "market_id" not in df.columns:
+        return df
+    df = df.copy()
+    key = df.groupby(["lat", "lon"]).cumcount()
+    n_per_cell = df.groupby(["lat", "lon"])["market_id"].transform("size")
+    angle = 2 * np.pi * key / n_per_cell.clip(lower=1)
+    radius = scale * np.where(n_per_cell > 1, np.sqrt(key + 1) / np.sqrt(n_per_cell), 0.0)
+    df["lat"] = df["lat"] + radius * np.cos(angle)
+    df["lon"] = df["lon"] + radius * np.sin(angle)
+    return df
+
+
+def figure_subsidy_bubble_map(
+    grid_apt      : pd.DataFrame | None,
+    grid_hse      : pd.DataFrame | None,
+    centroids_apt : pd.DataFrame | None,
+    centroids_hse : pd.DataFrame | None,
+    cost_per_m2_apt : float = 500.0,
+    cost_per_m2_hse : float = 500.0,
+    save          : bool = True,
+) -> go.Figure | None:
+    """
+    Two-panel bubble map of S*_m (in €/m²) at one canonical cost scheme per
+    property type. `go.Scattergeo` with mercator centred on France. Bubble
+    color and size encode S*_m; markets with S* = 0 are shown small in grey.
+    """
+    panels = []
+    if grid_apt is not None and centroids_apt is not None:
+        panels.append(("Apartments", grid_apt, centroids_apt, cost_per_m2_apt))
+    if grid_hse is not None and centroids_hse is not None:
+        panels.append(("Houses", grid_hse, centroids_hse, cost_per_m2_hse))
+
+    if not panels:
+        return None
+
+    fig = make_subplots(
+        rows=1, cols=len(panels),
+        specs=[[{"type": "geo"} for _ in panels]],
+        subplot_titles=[f"{name} (R̂ = {c:.0f} €/m²)" for name, _, _, c in panels],
+        horizontal_spacing=0.02,
+    )
+
+    for col, (label, grid, centroids, ch) in enumerate(panels, start=1):
+        canonical = _filter_canonical(grid, ch)
+        merged = canonical.merge(
+            centroids.reset_index(), on="market_id", how="inner",
+        )
+        if merged.empty:
+            continue
+        merged = _jitter_centroids(merged)
+
+        s   = merged["S_star_eur_per_m2"].fillna(0.0).to_numpy()
+        pos = s > 0
+        size_max = max(float(s.max()), 1e-9)
+        sizes = 6 + 30 * (s / size_max)
+
+        # zero-subsidy markets: small grey dots
+        if (~pos).any():
+            sub = merged.loc[~pos]
+            fig.add_trace(
+                go.Scattergeo(
+                    lon=sub["lon"], lat=sub["lat"],
+                    mode="markers",
+                    marker=dict(size=6, color="#bbbbbb",
+                                line=dict(width=0.4, color="white"),
+                                opacity=0.6),
+                    name="S* = 0",
+                    legendgroup="zero", showlegend=(col == 1),
+                    hovertemplate=("%{customdata}<br>S*=0<extra></extra>"),
+                    customdata=sub["market_id"],
+                ),
+                row=1, col=col,
+            )
+
+        # positive-subsidy markets: colored by S*
+        if pos.any():
+            sub = merged.loc[pos]
+            fig.add_trace(
+                go.Scattergeo(
+                    lon=sub["lon"], lat=sub["lat"],
+                    mode="markers",
+                    marker=dict(
+                        size=sizes[pos],
+                        color=sub["S_star_eur_per_m2"],
+                        colorscale="Reds",
+                        cmin=0.0,
+                        cmax=float(s.max()),
+                        showscale=(col == len(panels)),
+                        colorbar=dict(title="S* (€/m²)"),
+                        line=dict(width=0.5, color="black"),
+                        opacity=0.9,
+                    ),
+                    name="S* > 0",
+                    legendgroup="pos", showlegend=(col == 1),
+                    hovertemplate=(
+                        "market=%{customdata[0]}<br>"
+                        "S*=%{marker.color:.0f} €/m²<extra></extra>"
+                    ),
+                    customdata=sub[["market_id"]],
+                ),
+                row=1, col=col,
+            )
+
+        fig.update_geos(
+            projection_type="mercator",
+            center=dict(lat=46.5, lon=2.5),
+            lonaxis=dict(range=[-5.5, 10.5]),
+            lataxis=dict(range=[41.0, 51.5]),
+            showcountries=True, countrycolor="#444",
+            showcoastlines=False,
+            showland=True, landcolor="#f5f5f5",
+            row=1, col=col,
+        )
+
+    fig.update_layout(
+        template=PLOTLY_TEMPLATE,
+        width=1200, height=620,
+        title=dict(text="Spatial distribution of the minimum incentive-compatible subsidy",
+                   x=0.02, xanchor="left"),
+    )
+
+    if save:
+        path = FIGURES_DIR / "figure_subsidy_map.html"
+        fig.write_html(str(path))
+        logger.info(f"  → Saved to {path}")
+    return fig
+
+
+def figure_subsidy_regime_breakdown(
+    grid_apt : pd.DataFrame | None,
+    grid_hse : pd.DataFrame | None,
+    save     : bool = True,
+) -> go.Figure | None:
+    """
+    Stacked bar: x = R̂ grid, y = count of markets with S* > 0, coloured by
+    equilibrium regime, faceted by property type. Shows which regimes the
+    subsidy binds in at each cost level.
+    """
+    panels = []
+    if grid_apt is not None and not grid_apt.empty:
+        panels.append(("Apartments", grid_apt))
+    if grid_hse is not None and not grid_hse.empty:
+        panels.append(("Houses", grid_hse))
+
+    if not panels:
+        return None
+
+    fig = make_subplots(rows=1, cols=len(panels),
+                        subplot_titles=[p[0] for p in panels],
+                        shared_yaxes=False,
+                        horizontal_spacing=0.10)
+
+    for col, (label, grid) in enumerate(panels, start=1):
+        positive = grid[grid["S_star_eur_per_m2"] > 0]
+        counts = (
+            positive.groupby(["cost_per_m2", "regime"])
+            .size().unstack(fill_value=0)
+            .sort_index()
+        )
+        for reg in counts.columns:
+            fig.add_trace(
+                go.Bar(
+                    x=counts.index, y=counts[reg],
+                    name=REGIME_LABELS.get(reg, reg),
+                    marker=dict(color=REGIME_COLORS.get(reg, "#888")),
+                    legendgroup=reg, showlegend=(col == 1),
+                ),
+                row=1, col=col,
+            )
+        fig.update_xaxes(title_text="R̂ (€/m²)", row=1, col=col)
+        fig.update_yaxes(title_text="# markets with S* > 0" if col == 1 else "",
+                         row=1, col=col)
+
+    fig.update_layout(
+        template=PLOTLY_TEMPLATE,
+        barmode="stack",
+        width=1100, height=480,
+        legend=dict(orientation="h", y=-0.18),
+    )
+
+    if save:
+        path = FIGURES_DIR / "figure_subsidy_regime_breakdown.html"
+        fig.write_html(str(path))
+        logger.info(f"  → Saved to {path}")
+    return fig
+
+
+def table_subsidy_summary(
+    summary_apt : pd.DataFrame | None,
+    summary_hse : pd.DataFrame | None,
+    save_latex  : bool = True,
+) -> str | None:
+    """
+    Two-panel LaTeX table summarising the subsidy grid. Rows = renovation cost
+    schemes (€/m²); columns: N total, N with S* > 0, share, mean S*_eur_per_m2
+    conditional on S*>0, median, p75, mean total-unit subsidy.
+
+    Footnote: S* is the minimum incentive-compatible bound, not equilibrium
+    take-up — see paper Definition `def:minimum_subsidy` and the Ramsey remark.
+    """
+    if summary_apt is None and summary_hse is None:
+        return None
+
+    def _panel(df: pd.DataFrame, panel_label: str) -> str:
+        if df is None or df.empty:
+            return ""
+        d = df[df["regime"] == "all"].copy().sort_values("cost_per_m2")
+        d["share_positive"] = (100 * d["share_positive"]).round(1)
+        for c in ("mean_S_per_m2_positive", "median_S_per_m2", "p75_S_per_m2",
+                  "mean_S_per_unit_positive"):
+            d[c] = d[c].round(1)
+
+        body = "\n".join(
+            f"    {int(row.cost_per_m2)} & {int(row.N_total)} & {int(row.N_positive)} & "
+            f"{row.share_positive:.1f}\\% & {row.mean_S_per_m2_positive:.0f} & "
+            f"{row.median_S_per_m2:.0f} & {row.p75_S_per_m2:.0f} & "
+            f"{row.mean_S_per_unit_positive:,.0f} \\\\"
+            for row in d.itertuples()
+        )
+        return (
+            f"  \\multicolumn{{8}}{{l}}{{\\textit{{Panel {panel_label}}}}} \\\\\n"
+            f"  \\midrule\n{body}\n  \\midrule\n"
+        )
+
+    header = (
+        "\\begin{tabular}{lccccccc}\n"
+        "  \\toprule\\toprule\n"
+        "  $\\hat R$ (\\euro/m\\textsuperscript{2}) & $N_{\\text{total}}$ & $N_{S>0}$ & "
+        "Share $S>0$ & Mean $S^* | S>0$ (\\euro/m\\textsuperscript{2}) "
+        "& Median $S^*$ (\\euro/m\\textsuperscript{2}) "
+        "& P75 $S^*$ (\\euro/m\\textsuperscript{2}) "
+        "& Mean $S^*$ per unit (\\euro) \\\\\n"
+        "  \\midrule\n"
+    )
+    body = ""
+    if summary_apt is not None:
+        body += _panel(summary_apt, "A: Apartments")
+    if summary_hse is not None:
+        body += _panel(summary_hse, "B: Houses")
+    footer = "  \\bottomrule\\bottomrule\n\\end{tabular}\n"
+    tex = header + body + footer
+
+    if save_latex:
+        path = TABLES_DIR / "table_subsidy_grid.tex"
+        path.write_text(tex)
+        logger.info(f"  → Saved to {path}")
+
+    return tex
+
+
 def produce_all_outputs(
-    df            : pd.DataFrame,
-    market_stats  : pd.DataFrame,
-    data_moments  : dict,
-    msm_result    : object,
-    hedonic_params: object,
-    subsidy_df    : pd.DataFrame | None = None,
-    se_dict       : dict | None = None,
+    df               : pd.DataFrame,
+    market_stats     : pd.DataFrame,
+    data_moments     : dict,
+    msm_result       : object,
+    hedonic_params   : object,
+    subsidy_df       : pd.DataFrame | None = None,
+    se_dict          : dict | None = None,
+    did_params       : object | None = None,
+    did_estimates    : object | None = None,
+    subsidy_grid_df  : pd.DataFrame | None = None,
+    subsidy_summary  : pd.DataFrame | None = None,
+    subsidy_budget   : pd.DataFrame | None = None,
+    centroids_df     : pd.DataFrame | None = None,
+    output_dir       : str | Path | None = None,
+    sibling_grid     : pd.DataFrame | None = None,
+    sibling_centroids: pd.DataFrame | None = None,
+    sibling_summary  : pd.DataFrame | None = None,
+    sibling_label    : str = "HOUSE",
+    self_label       : str = "APARTMENT",
+    cost_per_m2_canonical : float = 500.0,
 ) -> None:
     """
     Produce all tables and figures in one call.
+
+    The sibling_* arguments let a single call render the two-panel
+    subsidy figures (apartments + houses side by side) when both pipelines
+    have already been run. When sibling_* is None, single-panel versions are
+    produced.
     """
     logger.info("=" * 60)
     logger.info("PRODUCING TABLES AND FIGURES")
     logger.info("=" * 60)
 
-    # Tables
+    # ---------- Tables / figures unrelated to subsidies ---------------------
     table_descriptive_stats(df, market_stats)
     table_market_stats(market_stats)
     table_estimates(msm_result, se_dict=se_dict)
-    table_moment_fit(data_moments, msm_result.model_moments)
+    table_market_estimates(data_moments, msm_result.model_moments,
+                           msm_result, did_estimates=did_estimates)
 
-    # Figures
     figure_belief_function(theta_bar=float(market_stats["theta_bar_hat"].mean()))
     figure_premium_by_market(market_stats, rho_hat=msm_result.rho_hat)
     figure_rho_distribution(msm_result.rho_hat, market_stats)
@@ -634,7 +1196,40 @@ def produce_all_outputs(
         beta_1    = hedonic_params.beta_1,
         scale     = list(msm_result.model_moments.values())[0].e_star,  # proxy
     )
+
     if subsidy_df is not None:
         figure_subsidies(subsidy_df)
+
+    # ---------- Subsidy grid: persistence ----------------------------------
+    if subsidy_grid_df is not None and output_dir is not None:
+        export_market_estimates(
+            grid_df      = subsidy_grid_df,
+            summary_df   = subsidy_summary if subsidy_summary is not None else pd.DataFrame(),
+            output_dir   = output_dir,
+            budget_df    = subsidy_budget,
+            centroids_df = centroids_df,
+        )
+
+    # ---------- Subsidy grid: figures + table ------------------------------
+    if subsidy_grid_df is not None:
+        is_apt = (self_label.upper() == "APARTMENT")
+        grid_apt = subsidy_grid_df if is_apt else sibling_grid
+        grid_hse = subsidy_grid_df if not is_apt else sibling_grid
+        cent_apt = centroids_df if is_apt else sibling_centroids
+        cent_hse = centroids_df if not is_apt else sibling_centroids
+        sum_apt  = subsidy_summary if is_apt else sibling_summary
+        sum_hse  = subsidy_summary if not is_apt else sibling_summary
+
+        figure_renovation_threshold_distribution(grid_apt, grid_hse)
+        figure_subsidy_grid(grid_apt, grid_hse)
+        figure_threshold_vs_beta1(grid_apt, grid_hse)
+        figure_subsidy_regime_breakdown(grid_apt, grid_hse)
+        figure_subsidy_bubble_map(
+            grid_apt=grid_apt, grid_hse=grid_hse,
+            centroids_apt=cent_apt, centroids_hse=cent_hse,
+            cost_per_m2_apt=cost_per_m2_canonical,
+            cost_per_m2_hse=cost_per_m2_canonical,
+        )
+        table_subsidy_summary(sum_apt, sum_hse)
 
     logger.info(f"[outputs] All results saved to {RESULTS_DIR}")

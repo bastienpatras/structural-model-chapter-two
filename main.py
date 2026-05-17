@@ -64,14 +64,16 @@ def setup_logging(level: str = "INFO") -> None:
 # ── Project modules ──────────────────────────────────────────────────────────
 from src.data_prep   import (load_listings, load_ademe, merge_datasets,
                               classify_listings, compute_market_stats,
-                              make_synthetic_data)
+                              make_synthetic_data, compute_market_centroids,
+                              compute_market_levels)
 from src.hedonic     import (estimate_hedonic, compute_hiding_premium,
                               estimate_rho_direct, calibrate_demand_scale,
                               calibrate_demand_scale_m)
 from src.moments     import extract_data_moments, moment_summary_table
 from src.estimation  import (build_valuation_params, estimate_msm,
                               estimate_c0_bounds, compute_market_subsidies,
-                              bootstrap_se)
+                              compute_subsidy_grid, aggregate_subsidy_summary,
+                              aggregate_budget, bootstrap_se)
 from src.event_study import load_price_indices, compute_did, estimate_rho_c0
 from src.validation  import run_all_validation
 from src.outputs     import produce_all_outputs
@@ -364,7 +366,10 @@ def run_pipeline(use_synthetic: bool = False, run_bootstrap: bool = True) -> dic
         f"ĉ₀_init={np.mean(list(c0_init_dict.values())):.4f}"
     )
 
-    # Step 3d: MSM estimation
+    # Step 3d: MSM estimation — two-step when DiD ρ̂_m is available
+    # (fix_rho=True: fixes ρ̂_m from DiD first stage, inverts eq:pp_sigma
+    #  analytically for ĉ₀_m; fix_rho=False: joint optimisation as robustness)
+    use_twostep = did_params is not None
     msm_result = estimate_msm(
         data_moments     = data_moments,
         market_params    = market_params,
@@ -374,6 +379,7 @@ def run_pipeline(use_synthetic: bool = False, run_bootstrap: bool = True) -> dic
         rho_init         = rho_init,
         c0_init          = c0_init_dict,
         n_restarts       = CONFIG["n_restarts"],
+        fix_rho          = use_twostep,
     )
 
     # Step 3e: Direct estimator for c₀ bounds (Eq. 129)
@@ -427,6 +433,7 @@ def run_pipeline(use_synthetic: bool = False, run_bootstrap: bool = True) -> dic
             hedonic_params = hedonic_params,
             market_params  = market_params,
             n_boot         = CONFIG["n_boot"],
+            rho_hat_fixed  = msm_result.rho_hat if use_twostep else None,
         )
         se_dict = {
             "rho_se"     : boot_result["rho_se"],
@@ -443,16 +450,73 @@ def run_pipeline(use_synthetic: bool = False, run_bootstrap: bool = True) -> dic
         actual_reno_costs= CONFIG["actual_reno_costs"],
     )
 
+    cost_per_m2_grid = CONFIG.get("cost_per_m2_grid", [250, 500, 1000])
+    cost_per_m2_canonical = float(CONFIG.get("cost_per_m2_canonical", 500.0))
+
+    market_levels   = compute_market_levels(df_est)
+    subsidy_grid_df = compute_subsidy_grid(
+        market_stats     = market_stats,
+        market_params    = market_params,
+        rho_hat          = msm_result.rho_hat,
+        c0_hat           = msm_result.c0_hat,
+        cost_per_m2_grid = cost_per_m2_grid,
+        market_levels    = market_levels,
+    )
+    subsidy_summary = aggregate_subsidy_summary(subsidy_grid_df)
+    market_weights  = df_est.groupby("market_id").size()
+    subsidy_budget  = aggregate_budget(subsidy_grid_df, market_weights)
+
+    # Market centroids for the bubble map (cached as CSV)
+    try:
+        cache_centroids = Path(CONFIG["output_dir"]).parent.parent / "data" / "geo" / \
+                          f"market_centroids_{CONFIG['property_type'].lower()}.csv"
+        centroids_df = compute_market_centroids(
+            listings_df  = df_est,
+            cache_path   = cache_centroids,
+        )
+    except Exception as exc:
+        logger.warning(f"[centroids] failed ({exc}); skipping bubble map")
+        centroids_df = None
+
+    # Try to load the sibling property type's grid + centroids so the two-panel
+    # subsidy figures can be rendered in a single call.
+    sibling_label = "HOUSE" if CONFIG["property_type"].upper() == "APARTMENT" else "APARTMENT"
+    sibling_dir   = Path(CONFIG["output_dir"]).parent / sibling_label.lower()
+    sibling_grid = None
+    sibling_summary = None
+    sibling_centroids = None
+    sib_grid_path = sibling_dir / "subsidy_grid.csv"
+    sib_sum_path  = sibling_dir / "subsidy_summary.csv"
+    sib_cent_path = Path("data/geo") / f"market_centroids_{sibling_label.lower()}.csv"
+    if sib_grid_path.exists():
+        sibling_grid = pd.read_csv(sib_grid_path)
+        if sib_sum_path.exists():
+            sibling_summary = pd.read_csv(sib_sum_path)
+        if sib_cent_path.exists():
+            sibling_centroids = pd.read_csv(sib_cent_path).set_index("market_id")
+        logger.info(f"[outputs] Found sibling estimates at {sibling_dir}; two-panel figures will be rendered.")
+
     produce_all_outputs(
-        df             = df_est,
-        market_stats   = market_stats,
-        data_moments   = data_moments,
-        msm_result     = msm_result,
-        hedonic_params = hedonic_params,
-        subsidy_df     = subsidy_df,
-        se_dict        = se_dict,
-        did_params     = did_params,
-        did_estimates  = did_estimates,
+        df              = df_est,
+        market_stats    = market_stats,
+        data_moments    = data_moments,
+        msm_result      = msm_result,
+        hedonic_params  = hedonic_params,
+        subsidy_df      = subsidy_df,
+        se_dict         = se_dict,
+        did_params      = did_params,
+        did_estimates   = did_estimates,
+        subsidy_grid_df = subsidy_grid_df,
+        subsidy_summary = subsidy_summary,
+        subsidy_budget  = subsidy_budget,
+        centroids_df    = centroids_df,
+        output_dir      = CONFIG["output_dir"],
+        sibling_grid      = sibling_grid,
+        sibling_centroids = sibling_centroids,
+        sibling_summary   = sibling_summary,
+        sibling_label     = sibling_label,
+        self_label             = CONFIG["property_type"].upper(),
+        cost_per_m2_canonical  = cost_per_m2_canonical,
     )
 
     # =========================================================================
@@ -471,6 +535,10 @@ def run_pipeline(use_synthetic: bool = False, run_bootstrap: bool = True) -> dic
         "msm_result"         : msm_result,
         "c0_bounds"          : c0_bounds,
         "subsidy_df"         : subsidy_df,
+        "subsidy_grid_df"    : subsidy_grid_df,
+        "subsidy_summary"    : subsidy_summary,
+        "subsidy_budget"     : subsidy_budget,
+        "centroids_df"       : centroids_df,
         "validation_results" : validation_results,
         "se_dict"            : se_dict,
         "true_params"        : true_params,     # None if real data

@@ -30,7 +30,7 @@ import pandas as pd
 from scipy.optimize import minimize, differential_evolution, brentq
 from scipy.stats import norm
 from dataclasses import dataclass, field
-from typing import Callable
+from typing import Callable, Sequence
 import warnings
 
 logger = logging.getLogger(__name__)
@@ -292,17 +292,26 @@ def estimate_msm(
     n_restarts   : int = 5,
     seed         : int = 0,
     drop_moments : list[int] | None = None,
+    fix_rho      : bool = False,
 ) -> MSMResult:
     """
-    MSM estimation of (ρ_m, c₀_m) — estimation appendix forthcoming.
+    MSM estimation of (ρ_m, c₀_m).
 
-        (ρ̂_m, ĉ₀_m) = argmin_{ρ∈[0,1]^M, c₀≥0^M} Q(ρ, c₀)
+    Two modes, selected by ``fix_rho``:
 
-    Parameter vector: [ρ_1,...,ρ_M, c₀_1,...,c₀_M]
+    fix_rho=False (robustness / joint mode):
+        Jointly optimises over [ρ_1,...,ρ_M, φ_1,...,φ_M]. Use only when
+        multiple moments are active; with a single active moment the system
+        is under-identified and estimates depend on the warm-start.
 
-    Identification: ρ_m is pinned by price moments 1–3; c₀_m is pinned by
-    moment 4 (the hiding rate σ̂₀_m) given ρ̂_m. The system remains
-    overidentified (4 moments, 2 unknowns per market).
+    fix_rho=True  (two-step mode, primary estimator):
+        Fixes ρ̂_m from ``rho_init`` (the DiD first stage) and analytically
+        inverts the equilibrium indifference condition for c₀_m:
+
+            ĉ₀_m = ρ̂_m · β₁_m · e(σ̂₀_m)   [eq:pp_sigma inverted]
+
+        No optimisation is performed. The system is exactly identified:
+        one free parameter (c₀_m), one moment (σ̂₀_m).
 
     Parameters
     ----------
@@ -323,6 +332,59 @@ def estimate_msm(
     """
     markets = sorted(data_moments.keys())
     M       = len(markets)
+
+    # -------------------------------------------------------------------------
+    # Two-step mode: fix ρ̂_m from rho_init, invert eq:pp_sigma analytically
+    # -------------------------------------------------------------------------
+    if fix_rho:
+        if rho_init is None:
+            raise ValueError("fix_rho=True requires rho_init to be provided.")
+
+        rho_hat: dict = {}
+        c0_hat:  dict = {}
+        for m in markets:
+            pi_m    = float(market_stats.loc[m, "pi_hat"])
+            th_m    = float(market_stats.loc[m, "theta_bar_hat"])
+            sig_m   = float(market_stats.loc[m, "sigma_0_hat"])
+            rho_m   = float(rho_init.get(m, np.nan))
+            beta1_m = market_params[m].beta_1
+            e_star  = belief_function(sig_m, pi_m, th_m)
+            rho_hat[m] = rho_m
+            c0_hat[m]  = float(np.clip(rho_m * beta1_m * e_star, 0.0, None))
+
+        model_moments_hat: dict = {}
+        eq_types:          dict = {}
+        for m in markets:
+            pi_m = float(market_stats.loc[m, "pi_hat"])
+            th_m = float(market_stats.loc[m, "theta_bar_hat"])
+            mm   = compute_model_moments(
+                rho=rho_hat[m], c0=c0_hat[m],
+                pi=pi_m, theta_bar=th_m,
+                params=market_params[m],
+                market_id=m,
+            )
+            model_moments_hat[m] = mm
+            eq_types[m]          = mm.eq_type
+
+        logger.info(
+            f"[MSM two-step] ĉ₀ mean={np.nanmean(list(c0_hat.values())):.6f} "
+            f"std={np.nanstd(list(c0_hat.values())):.6f} | "
+            f"ρ̂ mean={np.nanmean(list(rho_hat.values())):.4f} (fixed from DiD)"
+        )
+        return MSMResult(
+            rho_hat        = rho_hat,
+            c0_hat         = c0_hat,
+            Q_star         = 0.0,
+            n_markets      = M,
+            model_moments  = model_moments_hat,
+            eq_types       = eq_types,
+            converged      = True,
+            message        = "two-step closed-form inversion (fix_rho=True)",
+        )
+
+    # -------------------------------------------------------------------------
+    # Joint optimisation mode (robustness / fix_rho=False)
+    # -------------------------------------------------------------------------
 
     # Build weighting matrices (5×5 per market; specified moments zeroed out)
     weighting = build_weighting_matrix(
@@ -505,22 +567,24 @@ def bootstrap_se(
     n_boot        : int = 500,
     seed          : int = 42,
     weighting_scheme: str = "inverse_variance",
+    rho_hat_fixed : dict | None = None,
 ) -> dict:
     """
-    Compute bootstrap standard errors for (ρ̂_m, ĉ₀) — estimation appendix forthcoming.
+    Compute bootstrap standard errors for (ρ̂_m, ĉ₀).
 
-    Algorithm (as in paper, estimation appendix forthcoming):
-    1. For b = 1, ..., B:
-       a. Resample listings within each market with replacement
-       b. Re-estimate hedonic regression → β̂₁^b
-       c. Re-compute market statistics → π̂_m^b, θ̂_m^b, σ̂_{0,m}^b
-       d. Re-run MSM → (ρ̂_m^b, ĉ₀^b)
-    2. Standard errors = std across bootstrap samples
+    Two modes depending on whether ``rho_hat_fixed`` is provided:
 
-    Note: full re-estimation including the hedonic is computationally expensive.
-    A faster approximation re-uses the point estimate of β̂₁ and only resamples
-    to estimate variance of the moments (parametric bootstrap). The full version
-    is implemented here; toggle with `reestimate_hedonic=True/False`.
+    Two-step mode (rho_hat_fixed is not None):
+        ρ_m is held fixed at the point estimate in each bootstrap draw.
+        Only σ̂_{0,m} is resampled, propagating its uncertainty to ĉ₀_m via
+        the closed-form inversion ĉ₀_m = ρ̂_m · β₁_m · e(σ̂_{0,m}^b).
+        Bootstrap SEs for ρ̂_m from the DiD first stage must be computed
+        separately (e.g., by bootstrapping compute_did()).
+
+    Joint mode (rho_hat_fixed is None):
+        Re-runs the full joint MSM in each bootstrap draw. Requires multiple
+        active moments to be identified; otherwise SEs reflect warm-start
+        sensitivity rather than genuine sampling uncertainty.
 
     Parameters
     ----------
@@ -561,18 +625,33 @@ def bootstrap_se(
         except Exception:
             continue
 
-        # Re-estimate MSM on bootstrap sample (using fixed hedonic params for speed)
         try:
-            result_boot = estimate_msm(
-                data_moments    = dm_boot,
-                market_params   = market_params,
-                market_stats    = market_stats,
-                weighting_scheme= weighting_scheme,
-                df              = df_boot,
-                c0_init         = 0.03,
-                n_restarts      = 1,
-                seed            = b,
-            )
+            if rho_hat_fixed is not None:
+                # Two-step bootstrap: fix ρ̂_m at point estimate, only resample σ̂₀_m
+                # ĉ₀_m^b = ρ̂_m · β₁_m · e(σ̂_{0,m}^b)
+                result_boot = estimate_msm(
+                    data_moments    = dm_boot,
+                    market_params   = market_params,
+                    market_stats    = market_stats,
+                    weighting_scheme= weighting_scheme,
+                    df              = df_boot,
+                    rho_init        = rho_hat_fixed,
+                    c0_init         = 0.03,
+                    n_restarts      = 1,
+                    seed            = b,
+                    fix_rho         = True,
+                )
+            else:
+                result_boot = estimate_msm(
+                    data_moments    = dm_boot,
+                    market_params   = market_params,
+                    market_stats    = market_stats,
+                    weighting_scheme= weighting_scheme,
+                    df              = df_boot,
+                    c0_init         = 0.03,
+                    n_restarts      = 1,
+                    seed            = b,
+                )
             for m in markets:
                 rho_boot_mat[m].append(result_boot.rho_hat.get(m, np.nan))
                 c0_boot_mat[m].append(result_boot.c0_hat.get(m, np.nan))
@@ -603,6 +682,52 @@ def bootstrap_se(
 # Section F — Renovation threshold and optimal subsidies (estimation appendix forthcoming)
 # ---------------------------------------------------------------------------
 
+def _compute_threshold_row(
+    m              : str | int,
+    market_stats   : pd.DataFrame,
+    market_params  : dict,
+    rho_hat        : dict,
+    c0_hat         : dict,
+) -> dict | None:
+    """
+    Solve the equilibrium once for market m and return the renovation threshold
+    and the calibrated parameters used to compute it. Returns None if any input
+    is missing or the equilibrium solver fails.
+
+    Shared by `compute_market_subsidies` (single R̂) and `compute_subsidy_grid`
+    (R̂ grid) — guarantees the threshold is identical in both code paths and
+    avoids re-solving the equilibrium per grid value.
+    """
+    pi_m  = float(market_stats.loc[m, "pi_hat"])
+    th_m  = float(market_stats.loc[m, "theta_bar_hat"])
+    rho_m = rho_hat.get(m, np.nan)
+    c0_m  = c0_hat.get(m, np.nan)
+    pm    = market_params.get(m)
+
+    if pm is None or np.isnan(rho_m) or np.isnan(c0_m):
+        return None
+
+    try:
+        eq      = solve_equilibrium(rho_m, c0_m, pi_m, th_m, pm)
+        R_bar_m = renovation_threshold(rho_m, pi_m, th_m, c0_m, pm)
+    except Exception as exc:
+        logger.warning(f"_compute_threshold_row({m}): equilibrium failed ({exc})")
+        return None
+
+    return {
+        "market_id"   : m,
+        "R_bar_m"     : float(R_bar_m),
+        "regime"      : eq.eq_type,
+        "sigma_0_m"   : float(eq.sigma_0_star),
+        "e_star_m"    : float(eq.e_star),
+        "rho_m"       : float(rho_m),
+        "c0_m"        : float(c0_m),
+        "pi_m"        : pi_m,
+        "theta_bar_m" : th_m,
+        "beta_1_m"    : float(pm.beta_1),
+    }
+
+
 def compute_market_subsidies(
     market_stats       : pd.DataFrame,
     market_params      : dict,
@@ -611,68 +736,203 @@ def compute_market_subsidies(
     actual_reno_costs  : pd.Series | None = None,
 ) -> pd.DataFrame:
     """
-    Compute market-specific renovation thresholds and optimal subsidies — Eqs. (eq:threshold) and (eq:subsidy).
+    Compute market-specific renovation thresholds and optimal subsidies for a
+    single value of R̂ per market — Eqs. (eq:threshold) and (eq:subsidy).
+
+    For sensitivity over a grid of R̂ values, use `compute_subsidy_grid` instead.
 
     Steps:
-    1. Estimate renovation threshold R̄_m = Π*(d=1,θ=1) - Π*(d=0) + c₀_m (Eq. (eq:threshold))
-    2. Compare to actual renovation cost R̂_m (from engineering data / surveys)
-    3. Optimal subsidy: S*_m = max{R̂_m - R̄_m, 0}              (Eq. (eq:subsidy))
+    1. Renovation threshold R̄_m = Π*(d=1,θ=1) - Π*(d=0) + c₀_m  (eq:threshold)
+    2. Subsidy S*_m = max{R̂_m - R̄_m, 0}                         (eq:subsidy)
 
     Parameters
     ----------
     market_stats      : market-level statistics
     market_params     : dict {market_id → ValuationParams}
     rho_hat           : dict {market_id → float} estimated ρ̂_m
-    c0_hat            : dict {market_id → float} estimated ĉ₀_m (market-specific)
-    actual_reno_costs : pd.Series {market_id → float} actual renovation cost R̂_m
-                        If None, placeholder NaN values are used.
-
-    Returns
-    -------
-    pd.DataFrame with columns: R_bar_m, R_hat_m, S_star_m, per market
+    c0_hat            : dict {market_id → float} estimated ĉ₀_m
+    actual_reno_costs : pd.Series {market_id → float}; NaN if missing.
     """
     rows = []
     for m in market_stats.index:
-        pi_m  = float(market_stats.loc[m, "pi_hat"])
-        th_m  = float(market_stats.loc[m, "theta_bar_hat"])
-        rho_m = rho_hat.get(m, np.nan)
-        c0_m  = c0_hat.get(m, np.nan)
-        pm    = market_params.get(m)
-
-        if pm is None or np.isnan(rho_m) or np.isnan(c0_m):
+        base = _compute_threshold_row(m, market_stats, market_params, rho_hat, c0_hat)
+        if base is None:
             rows.append({"market_id": m, "R_bar_m": np.nan,
                          "R_hat_m": np.nan, "S_star_m": np.nan})
             continue
 
-        # Renovation threshold R̄_m (Eq. (eq:threshold))
-        try:
-            R_bar_m = renovation_threshold(rho_m, pi_m, th_m, c0_m, pm)
-        except Exception:
-            R_bar_m = np.nan
-
-        # Actual renovation cost R̂_m (external data; placeholder here)
         if actual_reno_costs is not None and m in actual_reno_costs.index:
             R_hat_m = float(actual_reno_costs.loc[m])
         else:
-            # Placeholder: assume actual cost equals threshold (S* = 0 as default)
-            # Replace with engineering estimates from ADEME technical studies or
-            # MaPrimeRénov' claims data (estimation appendix forthcoming)
             R_hat_m = np.nan
 
-        # Optimal subsidy S*_m (Eq. (eq:subsidy))
-        if not np.isnan(R_hat_m) and not np.isnan(R_bar_m):
-            S_star_m = optimal_subsidy(R_hat_m, R_bar_m)
+        if not np.isnan(R_hat_m):
+            S_star_m = optimal_subsidy(R_hat_m, base["R_bar_m"])
         else:
             S_star_m = np.nan
 
-        rows.append({
-            "market_id": m,
-            "R_bar_m"  : R_bar_m,
-            "R_hat_m"  : R_hat_m,
-            "S_star_m" : S_star_m,
-            "rho_m"    : rho_m,
-            "pi_m"     : pi_m,
-            "theta_bar_m": th_m,
-        })
+        rows.append({**base, "R_hat_m": R_hat_m, "S_star_m": S_star_m})
 
     return pd.DataFrame(rows).set_index("market_id")
+
+
+def compute_subsidy_grid(
+    market_stats     : pd.DataFrame,
+    market_params    : dict,
+    rho_hat          : dict,
+    c0_hat           : dict,
+    cost_per_m2_grid : Sequence[float],
+    market_levels    : pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Compute the renovation threshold R̄_m and the minimum incentive-compatible
+    subsidy S*_m(c) = max{c - R̄_m^{€/m²}, 0} for each market and each cost
+    scheme c (€/m²) in `cost_per_m2_grid` — Eqs. (eq:threshold), (eq:subsidy),
+    Lemma `lem:threshold_regimes`.
+
+    The structural model is in log-price units; this function translates a
+    nominal renovation-cost grid (€/m²) into the model's scale market-by-market
+    using each market's listing price per m² (from `market_levels`). Since the
+    listings parquet uses `log_price = log(price / area)`, the price per m² is
+    `exp(median log_price)` per market.
+
+    Conversion identity (per market m, per cost scheme c):
+        r_hat_log_pts   = c / price_per_m2_m                  (dimensionless)
+        S_star_log_pts  = max(r_hat_log_pts - R̄_m, 0)
+        S_star_eur_m2   = S_star_log_pts × price_per_m2_m     (€/m²)
+        S_star_eur_unit = S_star_eur_m2  × median_area_m2_m   (€ per dwelling)
+
+    Parameters
+    ----------
+    market_levels : pd.DataFrame indexed by market_id, with columns
+                    `price_per_m2_eur`, `median_area_m2`, `n_listings`
+                    (output of `data_prep.compute_market_levels`).
+
+    Returns
+    -------
+    Long-format pd.DataFrame, one row per (market_id, cost_per_m2). Columns:
+        market_id, cost_per_m2, r_hat_log_pts,
+        R_bar_log_pts, R_bar_eur_per_m2,
+        S_star_log_pts, S_star_eur_per_m2, S_star_eur_per_unit,
+        price_per_m2_eur, median_area_m2, n_listings,
+        regime, rho_m, c0_m, pi_m, theta_bar_m,
+        sigma_0_m, e_star_m, beta_1_m
+    """
+    base_rows = []
+    for m in market_stats.index:
+        base = _compute_threshold_row(m, market_stats, market_params, rho_hat, c0_hat)
+        if base is None or m not in market_levels.index:
+            continue
+        lvl = market_levels.loc[m]
+        base["price_per_m2_eur"] = float(lvl["price_per_m2_eur"])
+        base["median_area_m2"]   = float(lvl["median_area_m2"])
+        base["n_listings"]       = int(lvl["n_listings"])
+        base["R_bar_log_pts"]    = base.pop("R_bar_m")
+        base["R_bar_eur_per_m2"] = base["R_bar_log_pts"] * base["price_per_m2_eur"]
+        base_rows.append(base)
+
+    cols = [
+        "market_id", "cost_per_m2", "r_hat_log_pts",
+        "R_bar_log_pts", "R_bar_eur_per_m2",
+        "S_star_log_pts", "S_star_eur_per_m2", "S_star_eur_per_unit",
+        "price_per_m2_eur", "median_area_m2", "n_listings",
+        "regime", "rho_m", "c0_m", "pi_m", "theta_bar_m",
+        "sigma_0_m", "e_star_m", "beta_1_m",
+    ]
+    if not base_rows:
+        return pd.DataFrame(columns=cols)
+
+    base_df = pd.DataFrame(base_rows)
+    grid    = pd.DataFrame({"cost_per_m2": [float(c) for c in cost_per_m2_grid]})
+    out     = base_df.merge(grid, how="cross")
+    out["r_hat_log_pts"]       = out["cost_per_m2"] / out["price_per_m2_eur"]
+    out["S_star_log_pts"]      = (out["r_hat_log_pts"] - out["R_bar_log_pts"]).clip(lower=0.0)
+    out["S_star_eur_per_m2"]   = out["S_star_log_pts"]   * out["price_per_m2_eur"]
+    out["S_star_eur_per_unit"] = out["S_star_eur_per_m2"] * out["median_area_m2"]
+    return out[cols].reset_index(drop=True)
+
+
+def aggregate_subsidy_summary(grid_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Per-cost-scheme summary statistics over markets. Returns a long-format
+    DataFrame with columns:
+        cost_per_m2, regime, N_total, N_positive, share_positive,
+        mean_S_per_m2_positive, median_S_per_m2, p75_S_per_m2,
+        mean_S_per_unit_positive, median_S_per_unit
+    `regime == "all"` aggregates across regimes; the others give the per-regime
+    breakdown. Conditional means use only markets with S* > 0 to avoid the
+    zero-mass at the kink.
+    """
+    cols = [
+        "cost_per_m2", "regime", "N_total", "N_positive", "share_positive",
+        "mean_S_per_m2_positive", "median_S_per_m2", "p75_S_per_m2",
+        "mean_S_per_unit_positive", "median_S_per_unit",
+    ]
+    if grid_df.empty:
+        return pd.DataFrame(columns=cols)
+
+    def _stats(group):
+        s_m2   = group["S_star_eur_per_m2"].dropna()
+        s_unit = group["S_star_eur_per_unit"].dropna()
+        pos_m2   = s_m2[s_m2 > 0]
+        pos_unit = s_unit[s_unit > 0]
+        n = len(s_m2)
+        return pd.Series({
+            "N_total"                  : int(n),
+            "N_positive"               : int((s_m2 > 0).sum()),
+            "share_positive"           : float((s_m2 > 0).mean()) if n else np.nan,
+            "mean_S_per_m2_positive"   : float(pos_m2.mean())   if len(pos_m2)   else 0.0,
+            "median_S_per_m2"          : float(s_m2.median())   if n             else np.nan,
+            "p75_S_per_m2"             : float(s_m2.quantile(0.75)) if n         else np.nan,
+            "mean_S_per_unit_positive" : float(pos_unit.mean()) if len(pos_unit) else 0.0,
+            "median_S_per_unit"        : float(s_unit.median()) if n             else np.nan,
+        })
+
+    overall = (
+        grid_df.groupby("cost_per_m2", group_keys=False)
+        .apply(_stats, include_groups=False)
+        .reset_index()
+    )
+    overall.insert(1, "regime", "all")
+
+    by_regime = (
+        grid_df.groupby(["cost_per_m2", "regime"], group_keys=False)
+        .apply(_stats, include_groups=False)
+        .reset_index()
+    )
+
+    return pd.concat([overall, by_regime], ignore_index=True)[cols]
+
+
+def aggregate_budget(
+    grid_df : pd.DataFrame,
+    weights : pd.Series,
+) -> pd.DataFrame:
+    """
+    Total fiscal cost of the subsidy programme at each cost scheme:
+        B(c) = Σ_m w_m · S*_m^{€/unit}(c)
+    where the weight `w_m` is the number of dwellings the regulator would
+    subsidise per market (defaults to listings count). One row per `cost_per_m2`.
+    """
+    cols = ["cost_per_m2", "total_subsidy_eur", "weight_sum",
+            "mean_subsidy_per_unit_eur"]
+    if grid_df.empty:
+        return pd.DataFrame(columns=cols)
+
+    w = weights.reindex(grid_df["market_id"]).fillna(0.0).to_numpy()
+    work = grid_df.copy()
+    work["weighted_S"] = work["S_star_eur_per_unit"].to_numpy() * w
+
+    out = (
+        work.groupby("cost_per_m2", group_keys=False)
+        .agg(total_subsidy_eur=("weighted_S", "sum"))
+        .reset_index()
+    )
+    weight_total = float(weights.sum())
+    out["weight_sum"]                = weight_total
+    out["mean_subsidy_per_unit_eur"] = np.where(
+        weight_total > 0,
+        out["total_subsidy_eur"] / weight_total,
+        np.nan,
+    )
+    return out[cols]
