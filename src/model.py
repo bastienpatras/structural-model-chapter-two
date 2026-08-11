@@ -466,32 +466,39 @@ def solve_equilibrium(
 # ---------------------------------------------------------------------------
 
 def equilibrium_premium(
+    sigma_0  : float,
     pi       : float,
     theta_bar: float,
     rho      : float,
     beta_1   : float,
 ) -> float:
     """
-    Closed-form non-disclosure premium in the partial-separation equilibrium — Eq. (eq:premium).
+    Non-disclosure premium = ρ · β₁ · e(σ₀)  for a given hiding rate σ₀.
 
-        p₀* - p₁* ∝ β₁ · e* = β₁ · (1-π)θ̄ / (1 - πθ̄)
+    The three equilibrium benchmarks follow by substituting the regime-specific σ₀:
 
-    This is the model's key testable prediction: non-disclosure commands a premium
-    that is positive (Proposition (prop:premium)), decreasing in π (Proposition (prop:pi)),
-    and increasing in ρ (Proposition (prop:rho), through β₁).
+      σ₀ = 0   →  CDH upper bound:  ρβ₁θ̄               (cleanest pool, no strategic hiders)
+      σ₀ = σ₀* →  PP premium:       ρβ₁e(σ₀*) = c₀     (indifference condition)
+      σ₀ = 1   →  CAS lower bound:  ρβ₁(1-π)θ̄/(1-πθ̄)  (most contaminated pool)
+
+    The strict ordering CDH > PP > CAS follows because e is strictly decreasing in σ₀
+    (Lemma 3.1).  The PP premium equals c₀ by the indifference condition, invariant
+    to π and ρ (Proposition (prop:equilibrium)).
 
     Parameters
     ----------
-    pi, theta_bar : market composition parameters
-    rho           : share of EPC-sensitive buyers (enters through β₁ weighting)
-    beta_1        : EPC price premium from hedonic regression
+    sigma_0   : hiding rate of informed low-quality sellers (0 → CDH, σ₀* → PP, 1 → CAS)
+    pi        : share of informed sellers
+    theta_bar : population mean quality
+    rho       : share of EPC-sensitive buyers
+    beta_1    : structural EPC quality premium (hedonic estimate, market-specific)
 
     Returns
     -------
-    float : approximate log-price premium for non-disclosers vs low-quality disclosers
+    float : log-price premium for non-disclosers vs disclosed low-quality (E/F/G) sellers
     """
-    e_star = belief_function(1.0, pi, theta_bar)   # partial-separation belief
-    return float(beta_1 * e_star)
+    e = belief_function(sigma_0, pi, theta_bar)
+    return float(rho * beta_1 * e)
 
 
 # ---------------------------------------------------------------------------

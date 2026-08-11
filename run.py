@@ -57,6 +57,7 @@ from src.estimation  import (build_valuation_params, estimate_msm,
                               estimate_c0_bounds, compute_market_subsidies,
                               compute_subsidy_grid, aggregate_subsidy_summary,
                               aggregate_budget, bootstrap_se)
+from src.model       import belief_function
 from src.event_study import load_price_indices, compute_did, estimate_rho_c0
 from src.outputs     import produce_all_outputs
 
@@ -418,25 +419,50 @@ def print_results(r: dict) -> str:
 
     # ── Economic magnitudes ──────────────────────────────────────────────────
     sub_hdr("IV. ECONOMIC MAGNITUDES")
-    mean_beta1 = hp.beta_1
     mean_rho   = np.mean(rho_vals)
     mean_c0    = np.mean(c0_vals)
-    mean_estar = (np.mean([did_par.e_star[m] for m in did_par.e_star.index
-                           if not np.isnan(did_par.e_star[m])])
-                  if did_par is not None else np.nan)
-    mean_sigma = mkt["sigma_0_hat"].mean()
     mean_pi    = mkt["pi_hat"].mean()
     mean_tb    = mkt["theta_bar_hat"].mean()
+    mean_sigma = mkt["sigma_0_hat"].mean()
 
-    # Non-disclosure premium (upper bound at Complete Adverse Selection boundary)
-    prem_ub = mean_rho * mean_beta1 * (1 - mean_pi) * mean_tb / (1 - mean_pi * mean_tb)
-    # At observed mixing rate (Partial Pooling)
-    prem_pp = mean_rho * mean_beta1 * mean_estar if not np.isnan(mean_estar) else np.nan
+    # Compute regime bounds using estimated c₀ and equilibrium belief directly.
+    # Since c₀ = ρβ₁e(σ₀*) by the indifference condition, the CDH upper bound
+    # and CAS lower bound are c₀ × (θ̄/e*) and c₀ × (e(1)/e*) respectively,
+    # avoiding reliance on the national hedonic β̂₁ which is not market-specific.
+    c0_arr, pi_arr, tb_arr, sig_arr = [], [], [], []
+    for m in ms.c0_hat:
+        c0_m = ms.c0_hat.get(m, np.nan)
+        if np.isnan(c0_m):
+            continue
+        pi_m  = float(mkt.loc[m, "pi_hat"])        if m in mkt.index else np.nan
+        tb_m  = float(mkt.loc[m, "theta_bar_hat"]) if m in mkt.index else np.nan
+        sig_m = float(mkt.loc[m, "sigma_0_hat"])   if m in mkt.index else np.nan
+        if any(np.isnan([pi_m, tb_m, sig_m])):
+            continue
+        c0_arr.append(c0_m); pi_arr.append(pi_m)
+        tb_arr.append(tb_m); sig_arr.append(sig_m)
 
-    row("Mean ρ̂ × β̂₁  (price sensitivity, log pts)", _fmt(mean_rho * mean_beta1, 4))
-    row("Non-disclosure premium — upper bound (log pts)", _fmt(prem_ub, 4))
-    if not np.isnan(prem_pp):
-        row("Non-disclosure premium — Partial Pooling (log pts)", _fmt(prem_pp, 4))
+    if c0_arr:
+        e_star_arr = [belief_function(s, p, t) for s, p, t in zip(sig_arr, pi_arr, tb_arr)]
+        e1_arr     = [belief_function(1.0, p, t) for p, t in zip(pi_arr, tb_arr)]
+        # CDH upper bound = ρβ₁θ̄ = c₀ × (θ̄ / e*)
+        prem_cdh = float(np.mean([c * tb / es for c, tb, es
+                                   in zip(c0_arr, tb_arr, e_star_arr) if es > 0]))
+        # PP premium = c₀ (invariant to market composition)
+        prem_pp  = float(np.mean(c0_arr))
+        # CAS lower bound = ρβ₁e(1) = c₀ × (e(1) / e*)
+        prem_cas = float(np.mean([c * e1 / es for c, e1, es
+                                   in zip(c0_arr, e1_arr, e_star_arr) if es > 0]))
+    else:
+        prem_cdh = prem_pp = prem_cas = np.nan
+
+    row("Mean ρ̂ × β̂₁  (price sensitivity, log pts)", _fmt(mean_rho * hp.beta_1, 4))
+    row("Non-disclosure premium — CDH upper bound (log pts)", _fmt(prem_cdh, 4))
+    row("Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)", _fmt(prem_pp, 4))
+    row("Non-disclosure premium — CAS lower bound (log pts)", _fmt(prem_cas, 4))
+    row("Ordering check  CDH > PP > CAS",
+        f"{'✓' if prem_cdh > prem_pp > prem_cas else '✗'} "
+        f"({_fmt(prem_cdh,4)} > {_fmt(prem_pp,4)} > {_fmt(prem_cas,4)})")
     row("Hiding cost ĉ₀  as % of disclosed-low price", _fmt(mean_c0 * 100, 2) + "%")
     lines.append("")
     lines.append("  Interpretation: at the market mean, a low-quality informed")
