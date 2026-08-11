@@ -57,21 +57,24 @@ the data contribution — the vantage point becomes the reason (a) needs no defe
    French seller — typical fee range and whether it is legally the seller's obligation. I will
    not invent a figure. What is the right number and source?
 
-2. **¶10, the nested-model comparison.** The corpus treats this as the strongest defence of a
-   structural specification: estimate the restricted model that shuts down your mechanism, and
-   compare fit penalised for parameters. The natural restriction here is **ρ_m = 1 for all
-   markets** — full EPC sensitivity, i.e. the classical homogeneous-buyer benchmark — against
-   your estimated heterogeneous-ρ model. I have not yet checked whether anything like this
-   exists in `src/estimation.py`. Three options:
-   - implement it (new estimation work, strongest outcome)
-   - substitute the existing pooled-hedonic comparison already in the paper
-   - omit and accept the weaker position
+2. **¶10, the specification test.** ~~Possibly new estimation work.~~ **Resolved — no new work
+   needed.** I checked `src/estimation.py`: the primary estimator (`fix_rho=True`) performs no
+   optimisation and is exactly identified (one parameter, one moment), so it cannot yield a fit
+   statistic, and the joint mode is documented as under-identified with one active moment.
 
-   This is the one item that could add real work. Worth deciding early.
+   But you already have the right object: **σ̂₁ = 0 is an overidentifying restriction holding in
+   all 140 markets** — a model-implied restriction not used in estimation that the data could
+   have rejected. That is functionally the corpus's nested-model comparison. ¶10 should present
+   it as the specification test.
+
+   Optional cheap addition: the ρ_m = 1 restriction (homogeneous-buyer benchmark) as a
+   secondary comparison, reusing existing machinery.
 
 3. **¶9, which findings lead.** Your own review document argues σ̂₁ = 0 across all 140 markets
-   is the paper's strongest result and is currently under-placed. I agree — it is a clean
-   model-validation result of the kind this literature rewards. Should ¶9 lead with it?
+   is the paper's strongest result and is currently under-placed. I agree — and gap 2 above
+   makes the case stronger: the same result is *also* the paper's specification test. Two
+   independent conventions point to promoting it. My recommendation is that ¶9 leads with it.
+   Confirm?
 
 4. **¶1 headline number.** Blocked on the `DIAGNOSIS.md` item: the abstract/intro/conclusion
    headline 7/3 log points cited to Chapter 1, while §2.1 reports 4.4/3.7. I need to know which

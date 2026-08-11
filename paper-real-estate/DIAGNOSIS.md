@@ -26,8 +26,44 @@ the front matter**, not the content.
 | Scope disclaimer present | ✗ **absent** — and see the ρ̂ note below |
 | Introduction closes on generalizability | ✗ closes on the roadmap |
 | Descriptive findings enumerated in the introduction | ✗ the four stylized facts are deferred to §2 |
-| Nested-model fit comparison | ⚠ **not yet checked** in the body |
-| Every proposition has an economic gloss + testable implication | ⚠ **not yet checked** — 9 propositions/corollaries in the appendix |
+| Nested-model fit comparison | ✗ not possible from the primary estimator — but the paper already holds the right object. See below |
+| Every proposition has an economic gloss + testable implication | ✗ 8 of 10 have a gloss; `cor:rho` and `prop:pi` have none |
+
+## The specification test already exists — it just isn't framed as one
+
+`estimate_msm(fix_rho=True)`, the primary estimator, performs **no optimisation**: it
+analytically inverts the equilibrium indifference condition, with one free parameter (c₀_m)
+against one moment (σ̂₀_m). The system is exactly identified, so the moment is matched by
+construction and no fit statistic exists. A classical nested-model comparison is therefore
+unavailable from the primary estimator, and the joint mode (`fix_rho=False`) is documented in
+`src/estimation.py` as under-identified with a single active moment and warm-start dependent.
+
+But the paper already has the object the corpus convention is reaching for: **σ̂₁ = 0 is an
+overidentifying restriction**, and it holds in all 140 markets. Functionally that *is* the
+specification test — a model-implied restriction, not used in estimation, that the data could
+have rejected and does not.
+
+Recommendation: **do not build a new estimator.** Reframe σ̂₁ = 0 explicitly as the model's
+specification test, report it as such, and promote it to the main body. Optionally add the
+cheap ρ_m = 1 restriction (the homogeneous-buyer benchmark) as a secondary comparison, since
+it reuses existing machinery.
+
+Note that this converges with the recommendation to lead the findings with σ̂₁ = 0: the same
+result is simultaneously the paper's strongest empirical finding *and* its specification test.
+Two independent conventions point at promoting it.
+
+## Propositions missing an economic reading
+
+Ten theorem-like environments in the main text. Eight are followed by a paragraph of
+economic interpretation. Two are not:
+
+- **`cor:rho`** (effect of ρ on the premium) and **`prop:pi`** (equilibrium effect of π) are
+  stacked back to back, separated only by *"Proof. See Appendix."* Each needs a one-sentence
+  economic reading and a testable implication with an exhibit pointer.
+
+`prop:pi`'s statement does carry some interpretation inline ("the equilibrium moves toward the
+Cost-Deterred Hiding regime"), so the gap is smaller there — but neither names what the result
+predicts in the data.
 
 ## Two factual issues found en route
 
