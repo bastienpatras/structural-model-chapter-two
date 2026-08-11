@@ -411,20 +411,34 @@ INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
-INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/apartment/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
+INPUT ./fig/stylized_facts/house/fig_price_levels.pdf
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
+INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/eurosym/feymr10.tfm
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
+INPUT ./fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf
 INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
 INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
 INPUT ./fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf
@@ -443,7 +457,6 @@ INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
 INPUT ./fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf
@@ -505,7 +518,6 @@ INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
 INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
 INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
 INPUT ./fig/visuals/fig_subsidy_threshold_distribution.pdf
-INPUT /Users/bpatras/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/eurosym/feymr10.tfm
 INPUT ./fig/visuals/fig_subsidy_grid.pdf
 INPUT ./fig/visuals/fig_subsidy_grid.pdf
 INPUT ./fig/visuals/fig_subsidy_grid.pdf
