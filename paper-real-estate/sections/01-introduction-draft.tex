@@ -1,0 +1,208 @@
+% =====================================================================
+% §1 INTRODUCTION — reframed draft for real-estate/finance audiences
+% Follows the 14-paragraph funnel in
+%   skills/realestate-finance-writing/references/introduction.md
+% Companion change log: 01-introduction-changes.md
+% =====================================================================
+
+\section{Introduction}
+\label{sec:intro}
+
+% ---------- ¶1  puzzle, then the theoretical benchmark ----------
+Mandatory disclosure is the standard regulatory response to asymmetric information about
+product quality. Yet the case for mandating disclosure is contested, because theory suggests
+markets may not need it: when quality is verifiable, the unraveling result of
+\citet{grossman_informational_1981} and \citet{milgrom_good_1981} holds that sellers disclose
+voluntarily, since buyers rationally read silence as the worst possible news. All but the very
+worst sellers therefore disclose, and disclosure becomes effectively universal without a
+mandate. Whether this result describes real markets remains unsettled. It rests on strong
+assumptions, and it is difficult to test, because in most settings where quality is verifiable
+disclosure has long been compulsory.
+
+% ---------- ¶2  "to learn about X, we examine Y" ----------
+To examine whether unraveling describes a market where quality is verifiable but silence is
+common, we study the French residential housing market around the July~2021 enforcement of
+Energy Performance Certificate (EPC) disclosure. Under the \emph{loi Climat et
+R\'esilience}, a property's \emph{diagnostic de performance \'energ\'etique} (DPE) became
+legally opposable: a seller who advertises an energy score is bound by it, and buyers acquired
+legal recourse against misstatement. The reform changed what a disclosed score means without
+changing the underlying housing stock, the cost of obtaining a certificate, or the legal
+consequences of remaining silent. It therefore isolates the demand-side value of the signal, and
+it does so in a market where the certificate is issued and archived by a national agency rather
+than by the seller or the listing platform.
+
+% ---------- ¶3  what theory predicts here, and why this market adjudicates ----------
+Applied to this setting, unraveling makes a sharp prediction. Once the DPE is credible, sellers
+of energy-efficient properties should publish their score to separate themselves; sellers of
+mediocre properties should then publish to avoid being pooled with worse ones; and the process
+should continue until listings without a score are confined to the very bottom of the quality
+distribution, priced at or below the worst disclosed grade. French housing is a suitable
+testbed for this prediction because the disclosed attribute is a single certified index with a
+clear mapping into a running cost buyers face directly, because the certificate is verifiable
+against an independent public registry, and because a large stock of properties entered the
+post-reform market without one.
+
+% ---------- ¶4  the assumption audit ----------
+The unraveling prediction rests on four assumptions: (a)~buyers know that sellers possess
+private information about quality; (b)~disclosure is costless; (c)~disclosure is credible; and
+(d)~buyers are homogeneous in how much they value the disclosed attribute. Three of the four are
+either directly satisfied in this setting or can be dispensed with. Assumption~(c) holds by
+construction after July~2021: the DPE is issued by a certified third-party diagnostician,
+archived in the registry of the \emph{Agence de la Transition \'Ecologique} (ADEME), and legally
+binding on the seller. Assumption~(b) is close to satisfied: a DPE is a one-off outlay of
+roughly 100--250~\euro{} according to ADEME's own estimates, negligible relative to
+residential transaction values, and it is the seller's obligation rather than the buyer's.
+Assumption~(a), which the theoretical literature treats as a maintained hypothesis, we do not
+need to assume at all: by matching listings to the ADEME registry we observe directly which
+sellers hold a certificate at the moment of listing, and 48.8\% of apartment sellers do not.
+Silence in this market is therefore not always a choice, a possibility first identified by
+\citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}, and here it is measured
+rather than inferred.
+
+% ---------- ¶5  isolate the assumption at stake ----------
+The descriptiveness of unraveling in this market accordingly hinges on assumption~(d).
+Unlike disclosure costs and disclosure credibility, which a large literature has examined,
+the homogeneity of buyer valuations has received little attention, even though it governs the
+entire strength of the disclosure incentive: the penalty a seller suffers from withholding is
+proportional to the share of buyers who price the withheld attribute. Housing makes the
+assumption particularly implausible. A buyer of a rarely-occupied second home in a mild climate
+may rationally ignore an energy score that a buyer of a primary residence in a cold region
+prices directly, as may an investor facing the impending rental prohibition on the worst-rated
+properties. Evidence across many regulated markets shows that disclosure interventions fail
+precisely when recipients are inattentive or heterogeneous in their response
+\citep{loewenstein_disclosure_2014, benshahar_failure_2011}, and
+\citet{fishman_mandatory_2003} show formally that mandated disclosure can be ineffective, or
+welfare-reducing, when buyers differ in their capacity to use the disclosed information. We
+therefore let the share of buyers who price the EPC vary across local markets and estimate it.
+
+% ---------- ¶6  data and vantage point  [PRESERVED from current ¶6] ----------
+Testing a theory of strategic concealment requires observing both sides of the information
+asymmetry at once: the seller's true information, the seller's disclosure choice, and the
+market's response. Most empirical work observes only one or two. Studies of information
+asymmetry in housing infer agent advantages from equilibrium price deviations
+\citep{levitt_syverson_2008}; analyses of certification intermediaries characterise incentives
+without observing individual information endowments \citep{lizzeri_1999}; and work on the
+energy-efficiency gap proxies for seller awareness through indirect variation in energy prices
+\citep{myers_asymmetric_2020}. We observe all three. Our data combine residential listing
+records for hundreds of thousands of French properties, with prices, characteristics, and each
+seller's disclosure decision; transaction records capturing realised sale prices and
+time-on-market; and the ADEME registry of certified audits, compiled independently of the
+listing market. Matching across the three sources reveals whether each seller possessed a
+certified audit at listing time, which buyers can never observe. Every listing can then be
+placed in one of four groups: truthful disclosers, strategic hiders who hold a certificate and
+omit it, genuinely uninformed sellers for whom no certificate exists, and rare misreporters
+whose displayed score diverges from the registry. The information structure of the disclosure
+game is observed rather than inferred, a vantage point that to our knowledge is unique in this
+literature.
+
+% ---------- ¶7  descriptive findings, enumerated ----------
+The matched data yield four descriptive findings. First, silence commands a premium rather than
+a penalty: relative to the pre-reform baseline, listings without a score trade approximately
+6.9\% above disclosed energy-intensive properties for apartments and 3.4\% for houses, the
+opposite of the sign unraveling predicts. Second, the premium emerged with the reform. The
+composition-adjusted gap between non-disclosing and energy-intensive listings sat near zero
+before July~2021 ($+0.002$ for apartments, $+0.008$ for houses), consistent with buyers treating
+an absent score as equivalent to the worst displayed one while the DPE carried no legal weight,
+and widened monotonically thereafter. Third, non-disclosure is dominated by sellers who cannot
+disclose: among apartment listings, 79.8\% disclose truthfully, 16.7\% are genuinely uninformed,
+and only 3.5\% hold a certificate and withhold it, with the corresponding house shares 90.4\%,
+8.5\% and 1.1\%. Fourth, the non-disclosure rate varies widely across local markets. Together
+these facts are inconsistent with unraveling as a description of this market, while pointing to
+the mechanism that defeats it: the pool of silent sellers is dominated by the uninformed, which
+blunts the inference buyers can draw from silence and shelters the few who conceal
+deliberately.
+
+% ---------- ¶8  model motivation ----------
+To recover the forces behind these patterns, we build and estimate a model of the disclosure
+game that allows for, but does not impose, strategic concealment. Sellers differ in whether they
+hold a certified audit and in the quality it would reveal; buyers differ in whether they price
+energy performance. Informed sellers of poor properties choose between publishing a bad score
+and accepting the price buyers assign to silence, and that choice depends on how contaminated
+the silent pool is by sellers who simply have no certificate. Because the composition of the
+silent pool is itself the outcome of those choices, the model is closed by a fixed point in
+buyer beliefs, and it nests the classical benchmark: when audit coverage and buyer sensitivity
+are both high, the silent pool empties and the Grossman--Milgrom outcome is recovered. For
+intermediate values, which is where the French data sit, the model predicts partial pooling in
+which some informed sellers conceal and silence carries a premium.
+
+% ---------- ¶9  what the model finds ----------
+The estimates deliver one sharp validation and two structural magnitudes. The model implies that
+informed sellers of \emph{high}-quality properties never conceal, and the data bear this out in
+every one of the 140~markets we estimate: the high-quality hiding rate is zero throughout. Since
+this restriction is implied by the model but never used in estimation, it is a specification test
+the data could have rejected and does not. Turning to magnitudes, the share of buyers who price
+energy performance averages 95.0\% across apartment markets and 71.8\% across house markets, and
+the cost of withholding a certificate settles at approximately 1.6\% of property value for
+apartments and 1.8\% for houses -- a strikingly narrow range across two segments that trade very
+differently. The model also explains why the observed premium so greatly exceeds this
+concealment cost: roughly 83\% of silent apartment sellers and 89\% of silent house sellers are
+uninformed, and they earn the pooled premium without concealing anything, inflating the
+non-disclosure premium above what strategic concealment alone would produce. In the partial-pooling
+regime the premium collapses to a single sufficient statistic -- the concealment cost itself,
+invariant to market composition -- which is what permits recovering that cost from an observed
+price gap.
+
+% ---------- ¶10  robustness and the specification test ----------
+Our inferences survive the natural alternatives. The concealment cost is bounded from two
+independent directions for house markets, and the tighter bound from the equilibrium inversion
+lies strictly inside the reduced-form bound, so the two are compatible with a common underlying
+parameter. The cross-segment pattern is itself an out-of-sample check: houses display a
+threefold larger quality premium, and the model predicts that a larger forgone premium should
+lower concealment, which is what we observe -- the hiding rate among informed house sellers is
+half that of apartments. We report sensitivity to the volume filter, the treatment of markets at
+the parameter boundary, and the linear approximation to the profit gain, and we are explicit
+about what the design does not deliver: in most markets the data are consistent with full buyer
+sensitivity but cannot pin down how close to one it lies, so the recovered concealment cost is an
+upper bound rather than a point estimate.
+
+% ---------- ¶11  contribution 1 ----------
+Our paper contributes to the literature on disclosure by testing the unraveling result in a
+market where the informed and uninformed can be told apart. Prior work has examined the
+consequences of uncertainty about information endowment \citep{dye_disclosure_1985,
+jung_kwon_1988}, of disclosure costs, and of disclosure credibility, but has generally had to
+treat sellers' information as latent. By observing it directly we can decompose silence into
+inability and choice, and show that the first dominates the second by an order of magnitude
+while the second is what sustains the price premium. The finding that silence is rewarded rather
+than punished is not a failure of the theory so much as a demonstration of how sensitive its
+central prediction is to an assumption that is rarely examined.
+
+% ---------- ¶12  contribution 2 + scope disclaimer ----------
+Our paper also provides an information-based account of the residential energy-efficiency gap
+\citep{allcott_is_2012, gerarden_assessing_2017}. The standard diagnosis appeals to split
+incentives, credit constraints, and inattention to future energy costs. We identify a
+complementary channel internal to the disclosure game: a seller holding a poor rating can
+renovate and publish a good one, earning the quality premium, or stay silent and earn the
+non-disclosure premium instead, so the premium to opacity acts as an opportunity cost of
+renovation and raises the private hurdle above engineering cost. This has an unexpected policy
+implication. Because the equilibrium absorbs enforcement through the fraction of sellers who
+conceal, the renovation threshold depends only on the price gap between disclosed quality
+levels and is independent of enforcement intensity: renovation subsidies, enforcement against
+concealment, and investment in audit coverage act on three distinct margins and are complements
+rather than substitutes, contrary to the conventional treatment in
+\citet{gillingham_palmer_2014}. We do not claim to have estimated the one true model of housing
+disclosure; we propose one way of reading these data through a workhorse framework, and we are
+explicit throughout about which parameters are point-identified and which are bounded.
+
+% ---------- ¶13  related literature, three strands ----------
+Our paper draws on three strands of work. It belongs to the literature that estimates
+disclosure models structurally in order to assess the descriptiveness of classical disclosure
+theory and to recover primitives such as information endowment, disclosure costs, and beliefs.
+It is closely related to the extensive evidence on the capitalisation of energy labels in
+housing, which documents robust premia for efficient properties wherever labels have been
+studied \citep{brounen_kok_2011, hyland_lyons_2013, fuerst_energy_2016, frondel_power_2018,
+myers_mandatory_2022}; that literature establishes that labels are priced, whereas our question
+is why their \emph{absence} is priced favourably. And it builds on work on information
+asymmetry in real-estate markets, where the informational advantage of one side of the
+transaction has been inferred from prices and time-on-market \citep{levitt_syverson_2008,
+lizzeri_1999}.
+
+% ---------- ¶14  generalizability, conceded then defended ----------
+The features that make this setting informative also bound it. French EPC disclosure is a
+single mandate, in one country, covering one verifiable attribute, and the low audit coverage
+that lets us separate inability from choice is itself a feature of a young disclosure regime.
+The mechanism, however, is not specific to energy labels. Wherever a disclosure mandate is
+introduced before the infrastructure that makes disclosure feasible is universal, a pool of
+genuinely uninformed non-disclosers will exist, and that pool will shelter strategic
+concealment and dull the incentive to disclose. That configuration characterises a broad class
+of emerging disclosure regimes, from climate-risk and emissions reporting to supply-chain and
+sustainability disclosure, in which mandates routinely precede measurement capacity.
