@@ -212,9 +212,12 @@ def make_fact2(cfg: PropertyConfig, outdir: Path) -> tuple[Path, float, float, f
 def make_fact3(cfg: PropertyConfig, outdir: Path) -> Path:
     """3-group decomposition using estimation-sample shares from results.txt."""
     segments = [
-        ("Truthful disclosure (K=1, d=1)", cfg.share_truthful, BBLUE, "white"),
-        ("Uninformed (K=0, d=0)", cfg.share_uninformed, "#9e9e9e", "black"),
-        ("Strategic hiding (K=1, d=0)", cfg.share_hiding, SPRED, "white"),
+        # Note: share_truthful is ALL disclosers (d=1), verified and unmatched alike,
+        # because classify_listings(unverified_disclosers="honest") folds (d=1, K=0)
+        # into truthful_disclosure. Labelling this "K=1, d=1" would misstate it.
+        ("Discloses a score (d=1)", cfg.share_truthful, BBLUE, "white"),
+        ("Silent, no registry record (d=0, K=0)", cfg.share_uninformed, "#9e9e9e", "black"),
+        ("Strategic hiding (d=0, K=1)", cfg.share_hiding, SPRED, "white"),
     ]
 
     fig, ax = plt.subplots(figsize=(6.5, 2.0))

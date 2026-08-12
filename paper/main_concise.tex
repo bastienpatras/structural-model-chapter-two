@@ -144,7 +144,7 @@ Classical unraveling further predicts that, once disclosure is mandatory and ver
 \subsection{Direct Decomposition of the Listing Pool by Information Status}
 \label{ss:fact3}
 
-A central methodological contribution of this paper is that, by matching every listing against the ADEME registry, we can directly observe whether a seller is informed ($K=1$, audit exists) or uninformed ($K=0$, no audit on record). Crossing this latent information status with the seller's disclosure choice $d \in \{0,1\}$ yields a four-cell classification of which only three cells are economically distinct: truthful disclosers ($K=1, d=1$), strategically hiding sellers ($K=1, d=0$), and genuinely uninformed sellers ($K=0, d=0$).\footnote{The fourth cell ($K=0, d=1$), comprising sellers who display an EPC score without a matched ADEME record, is dominated by registry-match failures rather than genuine misreporting and is excluded from the estimation sample (see Section~\ref{sec:data}).} Figure~\ref{fig:fact3_decomposition} reports the resulting decomposition for both segments. In apartments (panel~(a)), $79.8\%$ of listings are truthful disclosers, $16.7\%$ are genuinely uninformed, and $3.5\%$ are strategically hiding. In houses (panel~(b)), the corresponding shares are $90.4\%$, $8.5\%$, and $1.1\%$. Houses systematically display higher baseline disclosure and a smaller strategic-hiding share, but the qualitative structure is identical: a non-trivial mass of strategic hiders coexists with a much larger mass of genuinely uninformed sellers in both segments.
+A central methodological contribution of this paper is that, by matching every listing against the ADEME registry, we can directly observe whether a seller is informed ($K=1$, audit exists) or uninformed ($K=0$, no audit on record). Crossing this latent information status with the seller's disclosure choice $d \in \{0,1\}$ yields a four-cell classification of which only three cells are economically distinct: truthful disclosers ($K=1, d=1$), strategically hiding sellers ($K=1, d=0$), and genuinely uninformed sellers ($K=0, d=0$).\footnote{The fourth cell ($K=0$, $d=1$) comprises sellers who display an EPC score for which no matching record appears in the public ADEME registry. These listings are treated as truthful disclosers, consistent with the no-falsification assumption: a score published by the owner is taken at face value, and only omission is treated as a strategic act. Two institutional features explain the size of this group. First, the public registry contains only certificates issued from July 2021 onward, whereas a certificate issued earlier could still be legally valid at the time of listing. Under \emph{d\'ecret} n\textsuperscript{o}~2020-1610 of 17 December 2020, certificates issued between 1 January 2013 and 31 December 2017 remained valid until 31 December 2022, and those issued between 1 January 2018 and 30 June 2021 until 31 December 2024, while certificates issued from 1 July 2021 are valid for ten years. A seller listing during our sample window could therefore display a still-valid certificate that is absent from the registry by construction. Second, the model assumes no falsification. Consistent with the first explanation, the share of listings in this cell falls monotonically as the registry accumulates post-reform certificates: from $62.5\%$ of apartment listings in 2021Q3 to $18.4\%$ in 2024Q4, and from $73.1\%$ to $43.7\%$ for houses.} Figure~\ref{fig:fact3_decomposition} reports the resulting decomposition for both segments. In apartments (panel~(a)), $79.8\%$ of listings are truthful disclosers, $16.7\%$ are genuinely uninformed, and $3.5\%$ are strategically hiding. In houses (panel~(b)), the corresponding shares are $90.4\%$, $8.5\%$, and $1.1\%$. Houses systematically display higher baseline disclosure and a smaller strategic-hiding share, but the qualitative structure is identical: a non-trivial mass of strategic hiders coexists with a much larger mass of genuinely uninformed sellers in both segments.
 
 \begin{figure}[H]
     \centering
@@ -398,6 +398,16 @@ Complete Adverse Selection & $c_0<\Delta(e(1))$                             & $1
 Partial Pooling            & $\Delta(e(1))\leq c_0\leq\Delta(\bar{\theta})$ & $(0,1)$ & Solves $\Phi(\sigma_0^*)=0$                             & $\rho\beta_1 e(\sigma_0^*)$ \\
 \bottomrule\bottomrule
 \end{tabular}
+\vspace{0.5em}
+\begin{minipage}{\linewidth}
+\footnotesize\textit{Notes.} Shares of the full listing sample of each property type, computed from the
+listing--registry match. The ``disclosed, unmatched'' group displays an EPC score for which no record
+appears in the public ADEME registry, which contains only certificates issued from July~2021 onward;
+these listings are classified as truthful disclosers under the no-falsification assumption. Sellers
+with no post-2021 registry record ($K=0$) therefore account for 48.8\% of apartment and 61.1\% of
+house listings, the large majority of whom do disclose a score. Columns may not sum to exactly 100\%
+because of rounding.
+\end{minipage}
 \end{table}
 
 Neither corner solution fits the data: universal concealment would require the non-disclosure premium to exceed $c_0$ even against the most contaminated pool, while universal disclosure would require concealment to be unprofitable even against the cleanest. What we observe instead is an interior equilibrium in which some low-quality sellers disclose and the remainder pool with uninformed non-disclosers. Substituting~\eqref{eq:Phi} into $\Phi(\sigma_0^*)=0$ yields the closed-form hiding rate:
@@ -507,17 +517,17 @@ Combining the listing disclosure decision $d$ with the ADEME information status 
 \toprule\toprule
 \textbf{Group} & \textbf{Interpretation} & $d$ & $K$ & \textbf{Apartments} & \textbf{Houses} \\
 \midrule
-Truthful disclosers  & Informed seller reveals $\theta$      & 1 & 1 & 49.3\% & 37.8\% \\
+Truthful disclosers  & Informed seller reveals $\theta$        & 1 & 1 & 47.7\% & 39.2\% \\
 Strategic hiders     & Informed seller conceals $\theta$     & 0 & 1 & \textbf{3.5\%}  & \textbf{1.1\%}  \\
-Genuinely uninformed & No audit exists; forced non-disclosure  & 0 & 0 & 44.9\% & 59.7\% \\
-Non-certifiable discl. & Displays EPC without verified audit   & 1 & 0 & 2.3\%  & 1.4\%  \\
+Genuinely uninformed & Silent; no registry record              & 0 & 0 & 16.7\% & 8.6\% \\
+Disclosed, unmatched & Displays EPC; no post-2021 registry record & 1 & 0 & 32.2\% & 51.2\% \\
 \midrule
 Total                &                                         &   &   & 843,621 & 687,878 \\
 \bottomrule\bottomrule
 \end{tabular}
 \end{table}
 
-\noindent Two features stand out. First, strategic hiding is rare but economically meaningful: 3.5\% of apartment listings and 1.1\% of house listings come from informed sellers who chose not to disclose. Among informed sellers ($K=1$), the hiding rate is 6.9\% for apartments and 2.7\% for houses. Second, uninformed sellers are common: 44.9\% of apartment listings and 59.7\% of house listings are from sellers with no verified audit, the pool of non-disclosers who provide involuntary cover for strategic hiders and whose presence is the key friction in the model.
+\noindent Three features stand out. First, strategic hiding is rare but economically meaningful: 3.5\% of apartment listings and 1.1\% of house listings come from informed sellers who chose not to disclose. Pooling across listings, the hiding rate among informed sellers ($K=1$) is 6.9\% for apartments and 2.7\% for houses; the corresponding unweighted means across markets, reported as $\hat\sigma_{0,m}$ in the results, are 7.7\% and 3.7\%. Second, silence is uncommon relative to non-verification: only 16.7\% of apartment listings and 8.6\% of house listings are silent sellers with no registry record, and these are the non-disclosers who provide involuntary cover for strategic hiders. Third, and quantitatively dominant, 32.2\% of apartment listings and 51.2\% of house listings display a score with no matching registry record. Taken together, sellers without a post-2021 registry record account for 48.8\% of apartment listings and 61.1\% of house listings, but the large majority of them do disclose a score.
 
 % ============================================================
 \section{Identification}
