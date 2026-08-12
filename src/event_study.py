@@ -76,6 +76,7 @@ EPC_LABEL_MAP   = {
 def load_price_indices(
     path: str,
     market_col: str = "cluster_id",
+    high_group: str = "ABCD",
 ) -> pd.DataFrame:
     """
     Load the hedonic price index file and return a clean long-format DataFrame.
@@ -90,6 +91,43 @@ def load_price_indices(
     df["epc_cat"] = df["EPC"].map(EPC_LABEL_MAP)
     df = df.rename(columns={market_col: "market_id"})
     df["market_id"] = df["market_id"].astype(str)
+
+    # ── High-group definition ────────────────────────────────────────────────
+    # The index file carries three disclosed categories: Efficient (A/B/C),
+    # Balanced (D) and Intensive (E/F/G).
+    #
+    # "ABC"  — legacy. The DiD contrasts Efficient against Intensive and D is
+    #          dropped entirely. This makes the DiD quality contrast inconsistent
+    #          with the structural theta, which is binary over ALL grades: whatever
+    #          epc_threshold is chosen, D sits on one side of theta but on neither
+    #          side of beta_1. rho = delta / (beta_1 * e_star) then multiplies a
+    #          premium measured on one quality scale by a belief measured on another.
+    #
+    # "ABCD" — default. Merge Balanced into the high group so the DiD contrast is
+    #          A/B/C/D vs E/F/G, matching epc_threshold = 4.0 and the loi Climat
+    #          rental-ban discontinuity that the model uses to justify binary theta.
+    #
+    # The merge is a volume-weighted average of PRICE LEVELS (€/m²), which is the
+    # correct aggregation because `prices` is a level. Averaging the separately
+    # normalised `final_index` series would not be meaningful.
+    if high_group == "ABCD":
+        hi = df["epc_cat"].isin(["ABC", "D"])
+        if hi.any():
+            sub = df.loc[hi].copy()
+            sub["_pv"] = sub["prices"] * sub["volume"]
+            merged = (sub.groupby(["market_id", "date"], as_index=False)
+                         .agg(_pv=("_pv", "sum"), volume=("volume", "sum")))
+            merged["prices"]  = merged["_pv"] / merged["volume"].replace(0, np.nan)
+            merged["epc_cat"] = "ABC"          # internal name for "the high group"
+            merged = merged.drop(columns="_pv").dropna(subset=["prices"])
+            df = pd.concat([df.loc[~hi], merged], ignore_index=True, sort=False)
+            logger.info(
+                f"[event_study] high_group='ABCD': merged Efficient+Balanced into "
+                f"{len(merged):,} market×month high-group observations "
+                f"(volume-weighted price levels)"
+            )
+    elif high_group != "ABC":
+        raise ValueError(f"high_group must be 'ABC' or 'ABCD', got {high_group!r}")
 
     # Use log of the hedonic reference price (€/m²) — directly comparable to the
     # listing-price hedonic β₁_m. log(prices) gives the log listing price level

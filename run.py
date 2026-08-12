@@ -102,7 +102,8 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     did_estimates = None
     index_path    = cfg.get("index_path")
     if index_path and Path(index_path).exists():
-        index_df      = load_price_indices(index_path)
+        index_df      = load_price_indices(index_path,
+                                           high_group=cfg.get("high_group", "ABCD"))
         did_estimates = compute_did(index_df, min_volume=cfg["did_min_volume"])
         did_params    = estimate_rho_c0(did_estimates, market_stats)
 

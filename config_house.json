@@ -23,5 +23,6 @@
     ],
     "cost_per_m2_canonical": 500,
     "output_dir": "results/house",
-    "hider_theta": "impose_zero"
+    "hider_theta": "impose_zero",
+    "high_group": "ABCD"
 }

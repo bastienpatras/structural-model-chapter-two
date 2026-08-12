@@ -16,13 +16,13 @@
     Uninformed                                 58,421     8.6%
     Strategic Hiding                            7,490     1.1%
 
-  Mean σ̂₀ (hiding rate, informed low-qual.)0.073
-  Std  σ̂₀                                  0.069
+  Mean σ̂₀ (hiding rate, informed low-qual.)0.068
+  Std  σ̂₀                                  0.059
   Mean σ̂₁ (hiding rate, informed high-qual.)0.000
   Std  σ̂₁                                  0.000
     σ̂₁/σ̂₀  (model predicts 0)             0.000
-  Mean π̂  (informed-seller share)          0.417
-  Mean θ̄  (quality share, informed)        0.602
+  Mean π̂  (informed-seller share)          0.419
+  Mean θ̄  (quality share, informed)        0.605
 
   ──────────────────────────────────────────────────────────────────
   II. HEDONIC REGRESSION  (Step 1)
@@ -33,20 +33,20 @@
   ──────────────────────────────────────────────────────────────────
   II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)
   ──────────────────────────────────────────────────────────────────
-  Markets with DiD estimates                         113
-  Markets with β̂₁_m > 0 (usable)                    107
+  Markets with DiD estimates                         114
+  Markets with β̂₁_m > 0 (usable)                    104
 
   β̂₁_m  market-level EPC premium           
-    mean  (log pts)                         0.0580
-    median                                  0.0544
-    std                                     0.0382
-    [p10, p90]                              [0.0166, 0.1087]
+    mean  (log pts)                         0.0507
+    median                                  0.0474
+    std                                     0.0401
+    [p10, p90]                              [0.0049, 0.1044]
 
   Δ̂_m  non-disclosure premium (upper bound on ĉ₀_m)
-    mean  (log pts)                         0.0338
-    median                                  0.0292
-    std                                     0.0476
-    [p10, p90]                              [-0.0282, 0.0990]
+    mean  (log pts)                         0.0341
+    median                                  0.0308
+    std                                     0.0475
+    [p10, p90]                              [-0.0279, 0.0988]
 
   ──────────────────────────────────────────────────────────────────
   III. STRUCTURAL ESTIMATES  (Two-step: ρ̂ from DiD, ĉ₀ inverted)
@@ -54,32 +54,32 @@
 
   Parameter                                     Mean    Median       Std  [p10, p90]
   ──────────────────────────────────────────────────────────────────
-  ρ̂_m  EPC-sensitive buyer share             0.6377    0.9735    0.4293  [0.0000, 1.0000]
-  ĉ₀_m  hiding cost  (log pts)                0.0428    0.0410    0.0395  [0.0000, 0.0870]
-  σ̂₀_m  equilibrium hiding rate              0.0730    0.0535    0.0689  [0.0268, 0.1497]
+  ρ̂_m  EPC-sensitive buyer share             0.6807    1.0000    0.4176  [0.0000, 1.0000]
+  ĉ₀_m  hiding cost  (log pts)                0.0445    0.0451    0.0373  [0.0000, 0.0877]
+  σ̂₀_m  equilibrium hiding rate              0.0681    0.0513    0.0586  [0.0247, 0.1477]
   σ̂₁_m  high-quality hiding (pred. 0)        0.0000    0.0000    0.0000  [0.0000, 0.0000]
-  ê*_m  equilibrium pool quality              0.5896    0.5806    0.1073  [0.4755, 0.7318]
+  ê*_m  equilibrium pool quality              0.5883    0.5752    0.1075  [0.4644, 0.7315]
 
   ──────────────────────────────────────────────────────────────────
   IV. ECONOMIC MAGNITUDES
   ──────────────────────────────────────────────────────────────────
-  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0465
-  Non-disclosure premium — CDH upper bound (log pts)0.0436
-  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0428
-  Non-disclosure premium — CAS lower bound (log pts)0.0350
-  Ordering check  CDH > PP > CAS            ✓ (0.0436 > 0.0428 > 0.0350)
-  Hiding cost ĉ₀  as % of disclosed-low price4.28%
+  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0497
+  Non-disclosure premium — CDH upper bound (log pts)0.0453
+  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0445
+  Non-disclosure premium — CAS lower bound (log pts)0.0361
+  Ordering check  CDH > PP > CAS            ✓ (0.0453 > 0.0445 > 0.0361)
+  Hiding cost ĉ₀  as % of disclosed-low price4.45%
 
   Interpretation: at the market mean, a low-quality informed
-  seller forgoes ~4.28 log pts (~4.3% of property
+  seller forgoes ~4.45 log pts (~4.5% of property
   value) to conceal her EPC score. The share of EPC-sensitive
-  buyers averages 63.8% across markets.
+  buyers averages 68.1% across markets.
 
   ──────────────────────────────────────────────────────────────────
   V. EQUILIBRIUM REGIME DISTRIBUTION
   ──────────────────────────────────────────────────────────────────
-    mixed_strategy                            75  (75.0%)
-    full_unraveling                           25  (25.0%)
+    mixed_strategy                            76  (78.4%)
+    full_unraveling                           21  (21.6%)
 
 ======================================================================
   END OF RESULTS — HOUSE
