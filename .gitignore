@@ -208,3 +208,5 @@ __marimo__/
 
 # Diagnostic pipeline runs (sigma_1 investigation, 2026-08-12)
 results/_sigma1test_*/
+
+results/_robust/
