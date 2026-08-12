@@ -47,134 +47,9 @@ Standard unraveling theory predicts that mandatory disclosure separates high-qua
 
 \input{sections/01-introduction-draft}
 
-% ============================================================
-\section{Setting and Stylized Facts}
-\label{sec:facts}
-% ============================================================
+\input{sections/02-unraveling-draft}
 
-This section presents four stylized facts that motivate the theoretical framework developed in Section~\ref{sec:model}. The facts are drawn from a panel of 843{,}621 apartment listings and 687{,}878 house listings covering metropolitan France between July 2021 and December 2024, sourced from SeLoger, France's leading residential listings platform, and matched at the property level to the registry maintained by the \emph{Agence de la Transition \'Ecologique} (ADEME), France's national agency for ecological transition. The ADEME registry is the official, legally authoritative repository of every certified DPE issued in France; because audit certification is centralized there rather than left to the listing platform or the seller, the registry provides an independent, third-party measure of whether each property has been audited at the time of listing. Matching listings against this registry lets us observe directly, for the first time in the empirical disclosure literature, whether each seller is informed about her property's energy performance, separately from whether she chooses to disclose. This constitutes the central data contribution of the paper. Details of data construction, matching procedure, and sample restrictions are deferred to Section~\ref{sec:data}; here we focus on the empirical regularities themselves. Each figure presents apartments and houses side by side. The two segments differ markedly in the level of audit coverage and in the magnitude of the documented effects, but they display the same qualitative patterns, a robustness that we exploit throughout the paper. Each fact is paired with a specific structural feature that the model in Section~\ref{sec:model} must accommodate.
-
-\subsection{Non-Disclosing Listings Command a Price Premium, Widened by the 2021 Reform}
-\label{ss:fact1}
-
-The starting puzzle is that silence about energy performance commands a price premium relative to the worst certified scores in both property types. Figure~\ref{fig:price_levels} plots the volume-weighted average of market-level hedonic price indices per square metre for each EPC disclosure category from January 2019 to June 2024, where each index holds property characteristics constant within a local market so that comparisons across disclosure categories reflect differences in the disclosure decision rather than differences in property type or location. For apartments (panel~(a)), non-disclosing listings occupy the highest price tier across the \emph{entire} sample window: the ordering Non-disclosed $>$ Efficient (A/B/C) $>$ Energy-intensive (E/F/G) is visible as early as 2019, well before the reform, and the gap widens sharply after July 2021. For houses (panel~(b)), the pre-reform picture differs: non-disclosers begin near the bottom of the price distribution and rise toward the middle post-reform, reflecting the higher baseline audit coverage in the house segment documented in Section~\ref{ss:fact3}. The pre-reform level premium for apartments is consistent with the concentration of non-audited stock in high-price urban markets. Figure~\ref{fig:fact1_premium} isolates the \emph{change} in the gap: it plots difference-in-differences estimates of the hedonic-controlled log price gap between non-disclosing and energy-intensive listings, purging observable composition differences and measured relative to the pre-reform baseline. Because the estimates are normalised to that baseline, the pre-reform coefficients are informative about trends rather than levels. They average $+0.002$ log points for apartments and $+0.008$ for houses and display no discernible drift, indicating that the two series evolved in parallel before July 2021. This is precisely the identifying assumption the design requires; it is not a claim that non-disclosing and energy-intensive listings were priced alike, and Figure~\ref{fig:price_levels} shows that for apartments they were not. After July 2021, when DPE certificates became legally opposable under \emph{loi Climat et R\'esilience}, the estimates shift abruptly upward and stabilize around $+0.044$ log points for apartments and $+0.037$ log points for houses by mid-2024. The reform therefore does not create the level difference so much as widen it sharply, in both the raw series and the composition-adjusted estimates. Classical unraveling predicts the opposite sign: silence should signal bad news and trade \emph{below} verified low-quality listings.
-
-\begin{figure}[H]
-    \centering
-    \caption{Price per m\textsuperscript{2} by EPC disclosure category}
-    \label{fig:price_levels}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/apartment/fig_price_levels.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/house/fig_price_levels.pdf}
-    \end{subfigure}
-    \begin{minipage}{0.95\textwidth}
-        \footnotesize\textit{Notes.} Volume-weighted national average of market-level hedonic price indices per square metre (\euro) by EPC disclosure category, January 2019 to June 2024. Price indices are constructed in \citet{patras_mandatory_2024} using hedonic regressions estimated separately within each \emph{zone d'emploi} (INSEE clusters of municipalities), covering 110 local markets. National series are obtained by aggregating market-level indices by listing volume. Series are smoothed with a centred three-month moving average. The vertical dashed line marks the July 2021 DPE reform. Source: \citet{patras_mandatory_2024}; authors' calculations.
-    \end{minipage}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \caption{Non-disclosure price premium around the July 2021 DPE reform}
-    \label{fig:fact1_premium}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/apartment/fig_fact1_nondiscl_premium_eventstudy.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/house/fig_fact1_nondiscl_premium_eventstudy.pdf}
-    \end{subfigure}
-    \begin{minipage}{0.95\textwidth}
-        \footnotesize\textit{Notes.} Monthly volume-weighted log gap between the price index of non-disclosing listings and certified energy-intensive (E/F/G) listings, January 2019 to June 2024. The vertical dashed line marks the legal opposability of the DPE (July 2021). The thick line is a centred three-month moving average. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
-    \end{minipage}
-\end{figure}
-
-\subsection{Non-Disclosure Persists Long After Mandatory Disclosure}
-\label{ss:fact2}
-
-Classical unraveling further predicts that, once disclosure is mandatory and verifiable, the share of non-disclosing listings should converge rapidly toward zero. The French data reject this prediction in both segments, though with different magnitudes. Figure~\ref{fig:fact2_missing} plots the monthly share of listings without a certified EPC from October 2018 through July 2024. For apartments (panel~(a)), the share averages $35.9\%$ before the reform and $33.8\%$ afterward; over the final twelve months of the sample, it stabilizes at $28.9\%$. For houses (panel~(b)), the corresponding numbers are $24.6\%$ pre-reform, $14.4\%$ post-reform, and a final-twelve-month mean of $9.7\%$. Houses thus display better baseline audit coverage and faster post-reform convergence, but in both segments the share remains structurally bounded away from zero more than three years after disclosure became legally required. Almost three-tenths of apartment listings and one-tenth of house listings still come to market without a certified audit, indicating that a substantial fraction of sellers cannot disclose, because they do not possess a certified audit at the time of listing.
-
-\begin{figure}[H]
-    \centering
-    \caption{Persistence of non-disclosure after the DPE reform}
-    \label{fig:fact2_missing}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/apartment/fig_fact2_missing_share_timeseries.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/house/fig_fact2_missing_share_timeseries.pdf}
-    \end{subfigure}
-    \begin{minipage}{0.95\textwidth}
-        \footnotesize\textit{Notes.} Monthly share of listings without a certified EPC, October 2018 to July 2024. The horizontal dashed line marks each segment's final-twelve-month mean ($0.29$ apartments, $0.10$ houses). The vertical dashed line marks the July 2021 reform date. Volumes are summed across markets within each segment. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
-    \end{minipage}
-\end{figure}
-
-\subsection{Direct Decomposition of the Listing Pool by Information Status}
-\label{ss:fact3}
-
-A central methodological contribution of this paper is that, by matching every listing against the ADEME registry, we can directly observe whether a seller is informed ($K=1$, audit exists) or uninformed ($K=0$, no audit on record). Crossing this latent information status with the seller's disclosure choice $d \in \{0,1\}$ yields a four-cell classification of which only three cells are economically distinct: truthful disclosers ($K=1, d=1$), strategically hiding sellers ($K=1, d=0$), and genuinely uninformed sellers ($K=0, d=0$).\footnote{The fourth cell ($K=0, d=1$), comprising sellers who display an EPC score without a matched ADEME record, is dominated by registry-match failures rather than genuine misreporting and is excluded from the estimation sample (see Section~\ref{sec:data}).} Figure~\ref{fig:fact3_decomposition} reports the resulting decomposition for both segments. In apartments (panel~(a)), $79.8\%$ of listings are truthful disclosers, $16.7\%$ are genuinely uninformed, and $3.5\%$ are strategically hiding. In houses (panel~(b)), the corresponding shares are $90.4\%$, $8.5\%$, and $1.1\%$. Houses systematically display higher baseline disclosure and a smaller strategic-hiding share, but the qualitative structure is identical: a non-trivial mass of strategic hiders coexists with a much larger mass of genuinely uninformed sellers in both segments.
-
-\begin{figure}[H]
-    \centering
-    \caption{Three-group decomposition of the listing pool}
-    \label{fig:fact3_decomposition}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/apartment/fig_fact3_three_group_decomposition.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/house/fig_fact3_three_group_decomposition.pdf}
-    \end{subfigure}
-    \begin{minipage}{0.95\textwidth}
-        \footnotesize\textit{Notes.} Shares from the estimation sample of each property type: 834{,}816 apartment listings and 677{,}011 house listings, after registry-match cleaning and market-size filtering. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
-    \end{minipage}
-\end{figure}
-
-\noindent Two features of this decomposition are central to the analysis. First, the non-disclosing pool ($d=0$) is mechanically composite in both segments: roughly five-sixths of apartment non-disclosers and seven-eighths of house non-disclosers are genuinely uninformed, while the remainder are strategically concealing. The vast majority of silent listings are silent by constraint, not by choice. Second, the relative weight of these two subgroups varies substantially across property types and, as we show below, across local markets, with direct implications for the equilibrium informativeness of non-disclosure.
-
-\subsection{Substantial Cross-Market Heterogeneity in Non-Disclosure}
-\label{ss:fact4}
-
-Figure~\ref{fig:fact4_map} maps the apartment (panel~(a)) and house (panel~(b)) non-disclosure rates at the d\'epartement level. For apartments, the rate ranges from $6.5\%$ in Aube to $40.9\%$ in Corse-du-Sud, with a cross-d\'epartement median of $16.5\%$; high values cluster in southern France, Corsica, and parts of the Parisian region (Seine-Saint-Denis at $32.1\%$). For houses, the range is $5.4\%$ in Essonne to $37.4\%$ in Paris, with a median of $10.0\%$; the Paris d\'epartement is an outlier on the high end, while southern and rural d\'epartements lie closer to the metropolitan baseline. The geographic patterns differ across the two segments, reflecting the different local composition of each property type's listing pool, but the underlying message is identical: within-segment cross-d\'epartement dispersion is large in both cases. This heterogeneity rules out a national-level treatment of the information environment in either segment: any credible structural exercise must allow the depth of audit coverage and the salience of EPC information to vary by local market.
-
-\begin{figure}[H]
-    \centering
-    \caption{Non-disclosure rate by d\'epartement, July 2021 to December 2024}
-    \label{fig:fact4_map}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/apartment/fig_fact5_nondiscl_rate_map.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses}
-        \includegraphics[width=\textwidth]{fig/stylized_facts/house/fig_fact5_nondiscl_rate_map.pdf}
-    \end{subfigure}
-    \begin{minipage}{0.95\textwidth}
-        \footnotesize\textit{Notes.} Shares are computed on listings with a valid d\'epartement code; d\'epartements with fewer than 200 listings within each segment are shown in light grey, and overseas d\'epartements are omitted. Classification: quantiles ($k=5$) on metropolitan France, computed separately within each panel so the breakpoints reflect each segment's distribution. Projection: Lambert-93 (EPSG:2154). Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; d\'epartement boundaries from \texttt{france-geojson} (G.~David, 2024).
-    \end{minipage}
-\end{figure}
-
-\subsection{What the Facts Demand of the Theory}
-\label{ss:facts_demand}
-
-Taken together, the four stylized facts impose tight discipline on any candidate theory of EPC disclosure. The documented non-disclosure premium rules out classical full-unraveling models with skeptical buyers, in which silence must trade at or below the worst certified score. The persistence of non-disclosure after the reform rules out frictionless implementations in which enforcement is complete and disclosure is universal at any positive cost of concealment. The composite nature of the non-disclosing pool requires the theory to recognize that silence aggregates two economically distinct subpopulations: informed sellers who choose to conceal unfavorable information, and uninformed sellers who cannot disclose because no certified audit exists. Their joint mass determines the informational content of non-disclosure and cannot be collapsed into a single type. Finally, the substantial cross-market heterogeneity in non-disclosure rates and price gaps rules out a uniform national treatment of these structural parameters: estimation must be conducted market by market. The model developed in the next section is designed to satisfy these four requirements simultaneously.
+\input{sections/03-setting-draft}
 
 % ============================================================
 \section{Model}
@@ -185,18 +60,9 @@ The model is a housing-market application of \citet{dye_disclosure_1985}, as equ
 
 \subsection{Motivating Intuition}
 
-The two failures interact and reinforce each other. When the informed-seller share and the EPC-sensitive buyer share are both interior, the non-disclosing pool consists of two economically distinct groups: informed sellers who choose to conceal unfavorable information, and uninformed sellers who cannot disclose because no certified audit exists. Buyers observe only whether a score is present; they cannot distinguish between these groups. A higher uninformed-seller share dilutes the adverse inference buyers draw from non-disclosure, raising the expected quality of the non-disclosing pool and making concealment more attractive for informed low-quality sellers. The result is not merely that non-disclosure persists: silence commands a \textit{premium}. Uninformed sellers do not intend to provide cover; they have no choice. But their mandatory presence in the pool is precisely what makes silence ambiguous and concealment privately rational. Critically, the two parameters are independently movable by policy: the informed-seller share can be raised through audit infrastructure investment, the EPC-sensitive buyer share through energy price reforms or buyer education, and each instrument has distinct, characterizable effects on equilibrium outcomes.
+The two departures established in Section~\ref{sec:unraveling} interact and reinforce each other. When the informed-seller share and the EPC-sensitive buyer share are both interior, the non-disclosing pool consists of two economically distinct groups: informed sellers who choose to conceal unfavorable information, and uninformed sellers who cannot disclose because no certified audit exists. Buyers observe only whether a score is present; they cannot distinguish between these groups. A higher uninformed-seller share dilutes the adverse inference buyers draw from non-disclosure, raising the expected quality of the non-disclosing pool and making concealment more attractive for informed low-quality sellers. The result is not merely that non-disclosure persists: silence commands a \textit{premium}. Uninformed sellers do not intend to provide cover; they have no choice. But their mandatory presence in the pool is precisely what makes silence ambiguous and concealment privately rational. Critically, the two parameters are independently movable by policy: the informed-seller share can be raised through audit infrastructure investment, the EPC-sensitive buyer share through energy price reforms or buyer education, and each instrument has distinct, characterizable effects on equilibrium outcomes.
 
-\vspace{0.8em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{fig/visuals/equilibirum_outcomes.png}
-    \caption{Equilibrium outcomes under seller information and buyer sensitivity heterogeneity}
-    \label{fig:equilibrium_outcomes}
-\end{figure}
-
-\noindent France operates in the bottom-right cell: incomplete audit coverage combined with positive buyer EPC-sensitivity. Matching residential listings to the ADEME registry reveals that 48.8\% of apartment listings had no certified energy audit on record at the time of the reform, placing the informed-seller share well below one. On the demand side, the July 2021 reform rendered EPC scores legally opposable, shifting the effective EPC-sensitive buyer share from near zero (when the DPE was merely informational) to a strictly positive level that varies across markets and climates. Even when the EPC-sensitive buyer share is close to one, as estimated for most apartment markets post-reform, the partial-information condition of incomplete audit coverage is sufficient to sustain the premium: as long as a non-trivial share of non-disclosers are genuinely uninformed, buyers cannot fully penalize silence, and the non-disclosure premium persists in equilibrium. Full unraveling requires both conditions to hold simultaneously; France satisfies only one.
+\noindent France operates in the bottom-right cell of Figure~\ref{fig:equilibrium_outcomes}: incomplete audit coverage combined with positive buyer EPC-sensitivity. Matching residential listings to the ADEME registry reveals that 48.8\% of apartment listings had no certified energy audit on record at the time of the reform, placing the informed-seller share well below one. On the demand side, the July 2021 reform rendered EPC scores legally opposable, shifting the effective EPC-sensitive buyer share from near zero (when the DPE was merely informational) to a strictly positive level that varies across markets and climates. Even when the EPC-sensitive buyer share is close to one, as estimated for most apartment markets post-reform, the partial-information condition of incomplete audit coverage is sufficient to sustain the premium: as long as a non-trivial share of non-disclosers are genuinely uninformed, buyers cannot fully penalize silence, and the non-disclosure premium persists in equilibrium. Full unraveling requires both conditions to hold simultaneously; France satisfies only one.
 
 \subsection{Environment and Timing}
 
@@ -464,42 +330,6 @@ An increase in $c_0$ shifts $\Phi(\sigma_0) = \Delta(e(\sigma_0)) - c_0$ uniform
 The premium in~\eqref{eq:premium} generates a transfer from EPC-sensitive buyers to the non-disclosing pool, but it does not accrue symmetrically within that pool. The informed low-quality hider receives the premium but nets zero: the indifference condition $\Delta(e(\sigma_0^*))=c_0$ ensures that the gross revenue gain from concealment is exactly consumed by the hiding cost. The uninformed seller, who bears no hiding cost, is the residual claimant and pockets the full premium $c_0$ as a pure rent. The welfare cost of the equilibrium therefore has two distinct components. First, an allocative distortion: EPC-sensitive buyers pay a positive premium for assets whose true energy performance falls below the pooled belief $e(\sigma_0^*)$, a misallocation that would be eliminated if the concealed information were transmitted. Second, a deadweight loss: the hiding cost $c_0$ is incurred by informed sellers at listing time without any counterpart in buyer valuations. This is a social loss only to the extent that $c_0$ represents real resources destroyed (legal fees, prolonged negotiation, administrative burden); any portion that is a transfer, such as the expected value of a fine accruing to the state, is a redistribution rather than a loss. We do not identify this split, so the deadweight-loss component is an upper bound. A formal efficiency characterization of these two components and the optimal subsidy that addresses them is developed in Section~\ref{sec:policy}.
 
 % ============================================================
-\section{Data}
-\label{sec:data}
-% ============================================================
-
-\subsection{Sources and Sample Construction}
-
-The empirical analysis draws on two sources matched at the listing level, together with transaction records used separately. Listing records are sourced from SeLoger, a major French residential real-estate platform covering sales across metropolitan France. For each listing, we observe the listing price, property characteristics ($X_i$: area, number of rooms, floor, construction era, location), the disclosure indicator $d\in\{0,1\}$, and, when $d=1$, the displayed EPC letter (A through G). Transaction records are not matched to individual listings; we use them to estimate the mapping from listing price to realized sale price ($\gamma_0$ and $\gamma_1$ in equation~\eqref{eq:payoff}), which supports treating the listing price as the relevant outcome for the disclosure decision. The ADEME registry is the official national database of certified Diagnostic de Performance Énergétique (DPE) audits, maintained by France's environment and energy management agency and reported by accredited third-party assessors. We match listings to the ADEME registry using address, property type, area, and floor, assigning to each listing an indicator $K=1$ if a certified audit record exists at the time of listing, and $K=0$ otherwise. For the structural estimation, listings for which no address is available are dropped, as the ADEME match requires a geocoded address; these account for a small share of the total sample.
-
-The full listing sample covers 2021Q3 to 2024Q4, the post-reform period during which EPC disclosure is legally binding and DPE scores are credible to buyers. The apartment sample comprises 843,621 listings and the house sample 687,878 listings. For structural estimation we restrict to 2022 to 2024: the H2~2021 period (the six months immediately following the reform) is excluded because the market had not yet fully repriced the DPE (hedonic estimates of $\hat\beta_1$ are near zero or negative in that window), yielding 767,000 apartment listings and 633,000 house listings for the structural sample. For 51.2\% of apartment listings and 40.3\% of house listings, the ADEME match yields $K=1$; the remainder are classified as genuinely uninformed ($K=0$, no verified audit on record). For identification of market-level price indices, we use the panel of hedonic price indices constructed in \citet{patras_mandatory_2024}, covering 110 markets (attraction zones, \textit{zones d'emploi}) with monthly observations from October 2018 through July 2024.
-
-\subsection{Four-Group Classification}
-
-Combining the listing disclosure decision $d$ with the ADEME information status $K$ generates four mutually exclusive groups, summarized in Table~\ref{tab:groups}.
-
-\begin{table}[H]
-\centering
-\caption{Classification of listings and sample composition}
-\label{tab:groups}
-\small\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{llcccc}
-\toprule\toprule
-\textbf{Group} & \textbf{Interpretation} & $d$ & $K$ & \textbf{Apartments} & \textbf{Houses} \\
-\midrule
-Truthful disclosers  & Informed seller reveals $\theta$      & 1 & 1 & 49.3\% & 37.8\% \\
-Strategic hiders     & Informed seller conceals $\theta$     & 0 & 1 & \textbf{3.5\%}  & \textbf{1.1\%}  \\
-Genuinely uninformed & No audit exists; forced non-disclosure  & 0 & 0 & 44.9\% & 59.7\% \\
-Non-certifiable discl. & Displays EPC without verified audit   & 1 & 0 & 2.3\%  & 1.4\%  \\
-\midrule
-Total                &                                         &   &   & 843,621 & 687,878 \\
-\bottomrule\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent Two features stand out. First, strategic hiding is rare but economically meaningful: 3.5\% of apartment listings and 1.1\% of house listings come from informed sellers who chose not to disclose. Among informed sellers ($K=1$), the hiding rate is 6.9\% for apartments and 2.7\% for houses. Second, uninformed sellers are common: 44.9\% of apartment listings and 59.7\% of house listings are from sellers with no verified audit, the pool of non-disclosers who provide involuntary cover for strategic hiders and whose presence is the key friction in the model.
-
-% ============================================================
 \section{Identification}
 \label{sec:identification}
 % ============================================================
@@ -510,9 +340,7 @@ The July 2021 DPE reform provides this variation, and the two-step approach uses
 
 \subsection{The July 2021 Reform as a Natural Experiment}
 
-Before July 2021, the French DPE was a paper exercise. Scores were methodologically inconsistent across assessors, carried no legal weight, and were routinely ignored in negotiations: a buyer who later discovered a disclosed rating was misleading had no legal recourse. The reform of July 1, 2021 changed the regime fundamentally. It standardized the methodology, imposed stricter accreditation requirements on assessors, and, most importantly, rendered disclosed EPC ratings legally opposable: a buyer can now use a disclosed rating as grounds for price renegotiation or legal action. The DPE became, for the first time, a document with contractual force.
-
-This shift is the source of identification: it created a precise, legally documented change in the value of a disclosed EPC score to buyers, with a known implementation date of July 1, 2021. Crucially, the reform operated on the \emph{demand} side --- the weight a disclosed rating carries in buyers' valuations and legal recourse --- and not on the seller's cost of withholding. The obligation to provide a DPE at sale, and the compliance and liability exposure attached to coming to market without the required diagnostic, were already in force under loi ALUR (Article L271-4 CCH) well before 2021. These are precisely the components of the concealment cost $c_{0,m}$. What July 2021 changed was not whether a seller must disclose, nor the cost she bears for withholding, but how much a \emph{disclosed} rating now matters to the buyer. The reform therefore shifts $\rho_m$ while leaving $c_{0,m}$, governed by the pre-existing disclosure mandate, unchanged across the reform date. This is what licenses reading the DiD change in the premium as the demand response that identifies $\rho_m$, holding the hiding cost fixed. Whether the supply side of the market responded concurrently is a maintained assumption we cannot directly test with the data at hand; we return to it below.\footnote{An alternative strategy based on a Bartik instrument (interacting wholesale gas price variation with the pre-reform share of low-efficiency properties per market) fails at the first stage ($F$-statistic: 1.0 to 1.6). The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike driven by the Russian invasion of Ukraine, removing the demand-side variation the instrument was designed to exploit.}
+The change in the legal status of the DPE described in Section~\ref{ss:institutions} is the source of identification: it created a precise, legally documented change in the value of a disclosed EPC score to buyers, with a known implementation date of July 1, 2021. Crucially, the reform operated on the \emph{demand} side --- the weight a disclosed rating carries in buyers' valuations and legal recourse --- and not on the seller's cost of withholding. The obligation to provide a DPE at sale, and the compliance and liability exposure attached to coming to market without the required diagnostic, were already in force under loi ALUR (Article L271-4 CCH) well before 2021. These are precisely the components of the concealment cost $c_{0,m}$. What July 2021 changed was not whether a seller must disclose, nor the cost she bears for withholding, but how much a \emph{disclosed} rating now matters to the buyer. The reform therefore shifts $\rho_m$ while leaving $c_{0,m}$, governed by the pre-existing disclosure mandate, unchanged across the reform date. This is what licenses reading the DiD change in the premium as the demand response that identifies $\rho_m$, holding the hiding cost fixed. Whether the supply side of the market responded concurrently is a maintained assumption we cannot directly test with the data at hand; we return to it below.\footnote{An alternative strategy based on a Bartik instrument (interacting wholesale gas price variation with the pre-reform share of low-efficiency properties per market) fails at the first stage ($F$-statistic: 1.0 to 1.6). The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike driven by the Russian invasion of Ukraine, removing the demand-side variation the instrument was designed to exploit.}
 
 The identifying assumption is the standard parallel-trends condition: in the absence of the reform, the cross-group price gaps $\beta_{1,m,t}$ (energy-efficient vs.\ energy-intensive disclosed properties) and $\Delta_{m,t}$ (undisclosed vs.\ energy-intensive) would have continued on their pre-reform trajectory. The DiD does not require that buyers were entirely inattentive to EPC scores before July 2021; it requires only that their relative pricing of disclosure groups was not already trending. Any post-reform shift in the gaps, relative to that pre-reform baseline, is then attributable to the change in buyer incentives induced by legal opposability.
 

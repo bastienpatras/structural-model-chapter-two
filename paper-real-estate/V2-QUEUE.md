@@ -23,13 +23,19 @@ Nothing here blocks the section-by-section rewrite.
 
 ## Identification — substantive
 
-4. **Report the pre-reform *level* of the composition-adjusted gap.**
-   The corrected §2.1 now says the pre-reform coefficients establish parallel trends, which is
-   what the DiD design requires. But the structural step sets ρ̂ = Δ̂ / (β̂₁ · ê\*) and relies on
-   ρ_pre ≈ 0 (the DPE was not legally opposable before July 2021). Parallel trends do not
-   establish that. If the composition-adjusted *level* gap was already positive for apartments,
-   Δ̂ identifies ρ_post − ρ_pre rather than ρ_post, and ρ̂ is attenuated downward — which matters
-   given that apartment ρ̂ is already clipped at 1 in 38 of 40 markets.
+4. **~~ρ̂ is attenuated because parallel trends do not establish ρ_pre ≈ 0.~~ Withdrawn — I was
+   wrong.** §6.1 already handles this explicitly: *"The DiD does not require that buyers were
+   entirely inattentive to EPC scores before July 2021; it requires only that their relative
+   pricing of disclosure groups was not already trending."* It further argues the bias runs
+   *upward* (both a supply-side shift and any opposability-induced change in c₀ would inflate Δ̂
+   and hence ρ̂), which is why ρ̂ is presented as an upper bound. My attenuation claim contradicted
+   that and does not survive.
+
+   What remains, much smaller: the corrected §2.1 now states that apartments had a pre-reform
+   *level* premium, and Figure 1 makes it visible. A reader may wonder whether that indicates
+   ρ_pre > 0. One sentence in §3.3 or §4.4 attributing the level premium to composition — the
+   concentration of non-audited stock in high-price urban markets, which is already the paper's
+   explanation — would close the question. Worth adding; not a defect.
 
 5. **Promote the stability-of-the-undisclosed-share identification argument.**
    The share of undisclosed listings is stable over time, especially for apartments (documented
