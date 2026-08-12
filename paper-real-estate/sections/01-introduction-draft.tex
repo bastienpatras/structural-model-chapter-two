@@ -54,7 +54,8 @@ roughly 100--250~\euro{} according to ADEME's own estimates, negligible relative
 residential transaction values, and it is the seller's obligation rather than the buyer's.
 Assumption~(a), which the theoretical literature treats as a maintained hypothesis, we do not
 need to assume at all: by matching listings to the ADEME registry we observe directly which
-sellers hold a certificate at the moment of listing, and 48.8\% of apartment sellers do not.
+sellers hold a certificate at the moment of listing, and among the apartment listings we can
+match at the address level, 48.8\% hold none.
 Silence in this market is therefore not always a choice, a possibility first identified by
 \citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}, and here it is measured
 rather than inferred.
@@ -83,30 +84,41 @@ asymmetry in housing infer agent advantages from equilibrium price deviations
 \citep{levitt_syverson_2008}; analyses of certification intermediaries characterise incentives
 without observing individual information endowments \citep{lizzeri_1999}; and work on the
 energy-efficiency gap proxies for seller awareness through indirect variation in energy prices
-\citep{myers_asymmetric_2020}. We observe all three. Our data combine residential listing
-records for hundreds of thousands of French properties, with prices, characteristics, and each
-seller's disclosure decision; transaction records capturing realised sale prices and
-time-on-market; and the ADEME registry of certified audits, compiled independently of the
-listing market. Matching across the three sources reveals whether each seller possessed a
-certified audit at listing time, which buyers can never observe. Every listing can then be
-placed in one of four groups: truthful disclosers, strategic hiders who hold a certificate and
-omit it, genuinely uninformed sellers for whom no certificate exists, and rare misreporters
-whose displayed score diverges from the registry. The information structure of the disclosure
-game is observed rather than inferred, a vantage point that to our knowledge is unique in this
-literature.
+\citep{myers_asymmetric_2020}. We observe all three. Listing records from SeLoger, a major
+French residential platform, give the listing price, property characteristics, the seller's
+disclosure decision, and, when a score is displayed, the letter itself. The registry of the
+\emph{Agence de la Transition \'Ecologique} (ADEME) is the official national database of
+certified DPE audits, reported by accredited third-party assessors and compiled independently
+of the listing market. We match listings to the registry on address, property type, area, and
+floor, which identifies whether a certified audit existed at the time of listing -- the one
+thing buyers can never observe. Because the match requires a geocoded address, the matched
+sample is the subset of listings that can be located at the address level rather than the full
+listing universe. Within that matched sample, every listing falls into one of four groups:
+truthful disclosers, strategic hiders who hold a certificate and omit it, genuinely uninformed
+sellers for whom no certificate exists, and a small residual displaying a score without a
+verified audit. The information structure of the disclosure game is therefore observed rather
+than inferred, a vantage point that to our knowledge is unique in this literature. Transaction
+records enter separately and are not matched to individual listings: we use them to estimate
+the mapping from listing to realised sale price, which supports treating the listing price as
+the relevant outcome, since the negotiation margin in French residential sales is small and
+most properties transact at or near list price.
 
 % ---------- ¶7  descriptive findings, enumerated ----------
-The matched data yield four descriptive findings. First, silence commands a premium rather than
-a penalty: relative to the pre-reform baseline, listings without a score trade approximately
-6.9\% above disclosed energy-intensive properties for apartments and 3.4\% for houses, the
-opposite of the sign unraveling predicts. Second, the premium emerged with the reform. The
-composition-adjusted gap between non-disclosing and energy-intensive listings sat near zero
-before July~2021 ($+0.002$ for apartments, $+0.008$ for houses), consistent with buyers treating
-an absent score as equivalent to the worst displayed one while the DPE carried no legal weight,
-and widened monotonically thereafter. Third, non-disclosure is dominated by sellers who cannot
-disclose: among apartment listings, 79.8\% disclose truthfully, 16.7\% are genuinely uninformed,
-and only 3.5\% hold a certificate and withhold it, with the corresponding house shares 90.4\%,
-8.5\% and 1.1\%. Fourth, the non-disclosure rate varies widely across local markets. Together
+The data yield four descriptive findings, drawn from two distinct samples that we keep separate
+throughout. First, silence commands a premium rather than a penalty: estimated on the panel of
+market-level hedonic price indices, and relative to the pre-reform baseline, listings without a
+score trade approximately 6.9\% above disclosed energy-intensive properties for apartments and
+3.4\% for houses -- the opposite of the sign unraveling predicts. Second, the premium emerged
+with the reform. The composition-adjusted gap between non-disclosing and energy-intensive
+listings sat near zero before July~2021 ($+0.002$ for apartments, $+0.008$ for houses),
+consistent with buyers treating an absent score as equivalent to the worst displayed one while
+the DPE carried no legal weight, and widened monotonically thereafter. Third, turning to the
+address-matched listing sample, non-disclosure is overwhelmingly involuntary: sellers who hold a
+certificate and withhold it are only 3.5\% of apartment listings and 1.1\% of house listings,
+while the great majority of silent sellers have no certified audit at all.
+% FLAG: the truthful/uninformed split is reported inconsistently across sec 2.3 (79.8/16.7) and
+% tab:groups (49.3/44.9 + 2.3 non-certifiable). Deliberately omitted here pending resolution.
+Fourth, the non-disclosure rate varies widely across local markets. Together
 these facts are inconsistent with unraveling as a description of this market, while pointing to
 the mechanism that defeats it: the pool of silent sellers is dominated by the uninformed, which
 blunts the inference buyers can draw from silence and shelters the few who conceal
