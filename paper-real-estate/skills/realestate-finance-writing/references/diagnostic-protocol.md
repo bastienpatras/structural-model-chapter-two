@@ -32,6 +32,16 @@ Read the current section in full. Then report:
 - Which conventions it breaches, each named explicitly, with the specific text at fault.
 - What is already right — say so, and preserve it. A reframing that rewrites strong material
   wastes the author's time and erodes their voice.
+
+  **But "preserve" applies to structure and voice, never to facts.** Judging a paragraph
+  well-built is not the same as checking that its claims are true. Any paragraph carried
+  forward — especially a data or measurement paragraph — must still be audited claim by
+  claim against what the code and the data sections actually support. Ask specifically:
+  does every listed data source actually get used the way the sentence says? Is every source
+  described as *matched* genuinely matched at the unit of observation? Does the sample scope
+  named in the prose match the sample the numbers come from? A well-written overclaim
+  propagates silently precisely because it reads well, and the author's own draft is where
+  such overclaims are most likely to have gone unexamined.
 - The single highest-leverage change.
 
 Never rewrite before diagnosing. A rewrite the author cannot audit against a stated
