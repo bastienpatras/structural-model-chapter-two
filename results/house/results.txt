@@ -3,29 +3,32 @@
   MANDATORY DISCLOSURE AND HOUSING MARKET DYNAMICS
 ======================================================================
   Property type  : HOUSE
-  Estimation date: 2026-05-15
+  Estimation date: 2026-08-12
 
   ──────────────────────────────────────────────────────────────────
   I. SAMPLE
   ──────────────────────────────────────────────────────────────────
-  Total listings (estimation sample)             677,011
-  Markets (estimation sample)                        501
+  Total listings (estimation sample)             682,706
+  Markets (estimation sample)                        564
 
   Group                                     N          Share
-    Truthful Disclosure                       611,998    90.4%
-    Uninformed                                 57,584     8.5%
-    Strategic Hiding                            7,429     1.1%
+    Truthful Disclosure                       616,795    90.3%
+    Uninformed                                 58,421     8.6%
+    Strategic Hiding                            7,490     1.1%
 
-  Mean σ̂₀ (hiding rate, informed low-qual.)0.037
-  Std  σ̂₀                                  0.031
+  Mean σ̂₀ (hiding rate, informed low-qual.)0.073
+  Std  σ̂₀                                  0.069
+  Mean σ̂₁ (hiding rate, informed high-qual.)0.000
+  Std  σ̂₁                                  0.000
+    σ̂₁/σ̂₀  (model predicts 0)             0.000
   Mean π̂  (informed-seller share)          0.417
-  Mean θ̄  (quality share, informed)        0.285
+  Mean θ̄  (quality share, informed)        0.602
 
   ──────────────────────────────────────────────────────────────────
   II. HEDONIC REGRESSION  (Step 1)
   ──────────────────────────────────────────────────────────────────
-  β̂₁  EPC quality premium (log pts)        0.0632
-  N (truthful disclosers)                   265,711
+  β̂₁  EPC quality premium (log pts)        0.0730
+  N (truthful disclosers)                   267,556
 
   ──────────────────────────────────────────────────────────────────
   II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)
@@ -51,23 +54,26 @@
 
   Parameter                                     Mean    Median       Std  [p10, p90]
   ──────────────────────────────────────────────────────────────────
-  ρ̂_m  EPC-sensitive buyer share             0.7183    1.0000    0.4381  [0.0000, 1.0000]
-  ĉ₀_m  hiding cost  (log pts)                0.0180    0.0147    0.0194  [0.0000, 0.0380]
-  σ̂₀_m  equilibrium hiding rate              0.0374    0.0275    0.0313  [0.0153, 0.0683]
-  ê*_m  equilibrium pool quality              0.2767    0.2549    0.1136  [0.1600, 0.4250]
+  ρ̂_m  EPC-sensitive buyer share             0.6377    0.9735    0.4293  [0.0000, 1.0000]
+  ĉ₀_m  hiding cost  (log pts)                0.0428    0.0410    0.0395  [0.0000, 0.0870]
+  σ̂₀_m  equilibrium hiding rate              0.0730    0.0535    0.0689  [0.0268, 0.1497]
+  σ̂₁_m  high-quality hiding (pred. 0)        0.0000    0.0000    0.0000  [0.0000, 0.0000]
+  ê*_m  equilibrium pool quality              0.5896    0.5806    0.1073  [0.4755, 0.7318]
 
   ──────────────────────────────────────────────────────────────────
   IV. ECONOMIC MAGNITUDES
   ──────────────────────────────────────────────────────────────────
-  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0454
-  Non-disclosure premium — upper bound (log pts)0.0086
-  Non-disclosure premium — Partial Pooling (log pts)0.0126
-  Hiding cost ĉ₀  as % of disclosed-low price1.80%
+  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0465
+  Non-disclosure premium — CDH upper bound (log pts)0.0436
+  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0428
+  Non-disclosure premium — CAS lower bound (log pts)0.0350
+  Ordering check  CDH > PP > CAS            ✓ (0.0436 > 0.0428 > 0.0350)
+  Hiding cost ĉ₀  as % of disclosed-low price4.28%
 
   Interpretation: at the market mean, a low-quality informed
-  seller forgoes ~1.80 log pts (~1.8% of property
+  seller forgoes ~4.28 log pts (~4.3% of property
   value) to conceal her EPC score. The share of EPC-sensitive
-  buyers averages 71.8% across markets.
+  buyers averages 63.8% across markets.
 
   ──────────────────────────────────────────────────────────────────
   V. EQUILIBRIUM REGIME DISTRIBUTION

@@ -139,7 +139,7 @@ def merge_datasets(
     listings       : pd.DataFrame,
     ademe          : pd.DataFrame | None,
     epc_threshold  : float = 3.0,
-    hider_theta    : str   = "registry",
+    hider_theta    : str   = "impose_zero",
 ) -> pd.DataFrame:
     """
     Left-join listings to ADEME registry on listing_id.
@@ -156,12 +156,18 @@ def merge_datasets(
     listings : pd.DataFrame       — listing-level data (from load_listings)
     ademe    : pd.DataFrame | None — ADEME audit registry with K, epc_score;
                                      pass None to use K/epc_score already in listings
-    hider_theta : {"registry", "impose_zero"}
+    hider_theta : {"impose_zero", "registry"}
         How to assign theta to informed non-disclosers (d=0, K=1), who display no
-        score of their own. "registry" (default) binarises the certified registry
-        score, leaving σ̂₁ measured and the corollary σ₁* = 0 testable.
-        "impose_zero" assigns theta = 0 by revealed preference, which makes σ̂₁
-        identically zero by construction; retained only to reproduce legacy runs.
+        score of their own.
+
+        "impose_zero" (default, and the maintained specification) assigns theta = 0
+        by revealed preference: the model predicts σ₁* = 0, so an informed seller
+        who withholds is taken to be low quality. NOTE the consequence — σ̂₁ is then
+        identically zero by construction and is NOT a test of the corollary. It must
+        not be reported as model validation.
+
+        "registry" binarises the certified registry score instead, leaving σ̂₁
+        measured. Use for the robustness check on the σ₁* = 0 restriction.
 
     Returns
     -------
