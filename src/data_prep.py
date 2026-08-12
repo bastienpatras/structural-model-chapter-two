@@ -139,6 +139,7 @@ def merge_datasets(
     listings       : pd.DataFrame,
     ademe          : pd.DataFrame | None,
     epc_threshold  : float = 3.0,
+    hider_theta    : str   = "registry",
 ) -> pd.DataFrame:
     """
     Left-join listings to ADEME registry on listing_id.
@@ -155,6 +156,12 @@ def merge_datasets(
     listings : pd.DataFrame       — listing-level data (from load_listings)
     ademe    : pd.DataFrame | None — ADEME audit registry with K, epc_score;
                                      pass None to use K/epc_score already in listings
+    hider_theta : {"registry", "impose_zero"}
+        How to assign theta to informed non-disclosers (d=0, K=1), who display no
+        score of their own. "registry" (default) binarises the certified registry
+        score, leaving σ̂₁ measured and the corollary σ₁* = 0 testable.
+        "impose_zero" assigns theta = 0 by revealed preference, which makes σ̂₁
+        identically zero by construction; retained only to reproduce legacy runs.
 
     Returns
     -------
@@ -187,11 +194,39 @@ def merge_datasets(
         lambda x: binarise_epc(x, threshold=epc_threshold) if pd.notna(x) else np.nan
     )
 
-    # Strategic hiders (d=0, K=1) have theta=0 by revealed preference:
-    # the model predicts σ₁*=0 (high-quality informed sellers always disclose,
-    # Corollary (cor:hq_disclose)), so any informed non-discloser must be low quality.
+    # Quality of informed non-disclosers (d=0, K=1).
+    #
+    # These listings display no EPC score, so `epc_score` is missing for all of
+    # them and theta cannot be binarised from the listing itself. The registry,
+    # however, records their certified score: `ademe_epc_score` is populated for
+    # 100% of matched listings, hiders included.
+    #
+    #   "registry" (default) — binarise theta from the registry score. σ̂₁ is then
+    #       MEASURED, so the model's prediction σ₁* = 0 (Corollary cor:hq_disclose)
+    #       becomes a testable restriction.
+    #   "impose_zero" (legacy) — set theta = 0 by revealed preference, assuming the
+    #       corollary holds. Reproduces results prior to 2026-08, but makes
+    #       σ̂₁ identically zero by construction: `compute_market_stats` derives
+    #       σ̂₁ as the d=0 share among (K=1, theta=1) listings, and this assignment
+    #       empties that set. The restriction then cannot be violated, and the
+    #       model's own prediction is used to build the variable that confirms it.
     mask_hiders = (df["d"] == 0) & (df["K"] == 1)
-    df.loc[mask_hiders, "theta"] = 0
+    if hider_theta == "registry":
+        if "ademe_epc_score" not in df.columns:
+            raise ValueError(
+                "hider_theta='registry' requires an 'ademe_epc_score' column "
+                "(the certified registry score). Pass hider_theta='impose_zero' "
+                "to reproduce the legacy revealed-preference assignment."
+            )
+        df.loc[mask_hiders, "theta"] = df.loc[mask_hiders, "ademe_epc_score"].apply(
+            lambda x: binarise_epc(x, threshold=epc_threshold) if pd.notna(x) else np.nan
+        )
+    elif hider_theta == "impose_zero":
+        df.loc[mask_hiders, "theta"] = 0
+    else:
+        raise ValueError(
+            f"hider_theta must be 'registry' or 'impose_zero', got {hider_theta!r}"
+        )
 
     return df
 

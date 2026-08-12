@@ -77,7 +77,8 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     if year is not None:
         df = df[df["start_date"].dt.year == year].copy()
     if "group" not in df.columns:
-        df = merge_datasets(df, ademe=None, epc_threshold=cfg["epc_threshold"])
+        df = merge_datasets(df, ademe=None, epc_threshold=cfg["epc_threshold"],
+                            hider_theta=cfg.get("hider_theta", "registry"))
         df = classify_listings(df)
     market_stats = compute_market_stats(df, controls=controls)
     market_stats = market_stats[market_stats["estimable"]].copy()
@@ -347,6 +348,14 @@ def print_results(r: dict) -> str:
     lines.append("")
     row("Mean σ̂₀ (hiding rate, informed low-qual.)", _fmt(mkt["sigma_0_hat"].mean()))
     row("Std  σ̂₀",                                   _fmt(mkt["sigma_0_hat"].std()))
+    # σ̂₁ is the model's testable restriction: Corollary (cor:hq_disclose) predicts
+    # σ₁* = 0. Reported explicitly so the restriction is visible rather than assumed.
+    if "sigma_1_hat" in mkt.columns:
+        row("Mean σ̂₁ (hiding rate, informed high-qual.)", _fmt(mkt["sigma_1_hat"].mean()))
+        row("Std  σ̂₁",                                    _fmt(mkt["sigma_1_hat"].std()))
+        _s1, _s0 = mkt["sigma_1_hat"].mean(), mkt["sigma_0_hat"].mean()
+        row("  σ̂₁/σ̂₀  (model predicts 0)",
+            _fmt(_s1 / _s0) if _s0 and not np.isnan(_s0) else "n/a")
     row("Mean π̂  (informed-seller share)",             _fmt(mkt["pi_hat"].mean()))
     row("Mean θ̄  (quality share, informed)",           _fmt(mkt["theta_bar_hat"].mean()))
 
@@ -402,6 +411,9 @@ def print_results(r: dict) -> str:
     stat_row("ρ̂_m  EPC-sensitive buyer share",      rho_vals)
     stat_row("ĉ₀_m  hiding cost  (log pts)",         c0_vals)
     stat_row("σ̂₀_m  equilibrium hiding rate",        mkt["sigma_0_hat"].dropna().values)
+    if "sigma_1_hat" in mkt.columns:
+        stat_row("σ̂₁_m  high-quality hiding (pred. 0)",
+                 mkt["sigma_1_hat"].dropna().values)
     stat_row("ê*_m  equilibrium pool quality",
              [did_par.e_star[m] for m in did_par.e_star.index
               if not np.isnan(did_par.e_star[m])] if did_par is not None
