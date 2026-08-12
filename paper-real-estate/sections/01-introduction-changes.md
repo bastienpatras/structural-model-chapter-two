@@ -85,6 +85,67 @@ A related item for later: §5.2 reports the hiding rate among informed sellers a
 (full sample vs. the 2022–2024 structural sample across 40/100 markets) — but if so the paper
 should say which is which.
 
+## Revision 3 — pre-reform interpretation and decomposition authority (2026-08-12)
+
+### The pre-reform coefficients were misinterpreted
+
+The original §2.1 read a **level** conclusion off **difference-in-differences** estimates:
+
+> "Before the reform, the controlled gap fluctuates near zero in both segments (a mean of
+> $+0.002$ log points for apartments and $+0.008$ for houses), consistent with buyers treating
+> absent EPCs as equivalent to the worst displayed scores when the DPE carried no legal weight."
+
+Because the estimates are normalised to a pre-reform baseline, near-zero pre-period coefficients
+mean the two series **moved in parallel** — they say nothing about whether the levels were equal.
+The inference that buyers treated absent EPCs as equivalent to the worst displayed score is
+therefore unsupported, and it is contradicted by the paper's own Figure 1, which shows apartment
+non-disclosers occupying the top price tier from 2019 onward.
+
+The paragraph was also internally inconsistent: it stated that the controlled gap "purges
+observable composition differences," then drew a level conclusion from baseline-normalised
+estimates.
+
+Rewritten in **both** `paper/main_concise.tex` and `paper-real-estate/main.tex` to say: the
+pre-reform coefficients establish parallel trends, which is the identifying assumption the
+design requires; the reform widens an existing level difference rather than creating one; and the
+contrast with classical unraveling rests on the post-reform premium. Intro ¶7 fact 2 rewritten to
+match.
+
+**Identification note, for the §4.4 rewrite.** This distinction has a consequence worth
+addressing. The structural step sets ρ̂ = Δ̂ / (β̂₁ · ê\*), where Δ̂ is the *change* in the
+non-disclosure premium, and the exclusion restriction is that pre-reform ρ ≈ 0 because the DPE
+was not legally opposable. Parallel pre-trends do not establish that. What would is the
+pre-reform **level** of the composition-adjusted gap — if that level was already positive for
+apartments net of composition, then Δ̂ identifies ρ_post − ρ_pre rather than ρ_post, and ρ̂ is
+attenuated. Figure 1's apartment level premium is attributed to the concentration of non-audited
+stock in high-price urban markets, i.e. to composition; the hedonic-controlled level gap would
+settle the question but is not currently reported. Worth reporting.
+
+### Decomposition: §2 is authoritative (author's instruction)
+
+Fact 3 now uses §2.3's figures: apartments 79.8% truthful / 16.7% uninformed / 3.5% hiders;
+houses 90.4% / 8.5% / 1.1%. The `% FLAG` comment is removed.
+
+**Consequential follow-up, not yet actioned:** `tab:groups` in §5.2 now conflicts with the
+authoritative source and cannot simply be reworded — its numbers differ (apartments 49.3 / 3.5 /
+44.9 / 2.3, and a fourth non-certifiable category that §2.3 does not have, though §2.3 sums to
+100). Either the table is computed on the full listing universe while §2.3 uses the
+address-matched sample — in which case both need explicit sample labels — or the table is stale
+and needs regenerating. **I have not edited the table's numbers, since I cannot recompute them.**
+The same applies to §5.2's prose claim that the hiding rate among informed sellers is 6.9%/2.7%,
+against Table 1 Panel C's σ̂₀ of 7.7%/3.7%.
+
+### Data-description overclaims fixed in the original paper
+
+Both errors identified earlier now corrected in `paper/main_concise.tex` as well as the fork:
+
+- §5.1: "three sources matched at the listing level" → two matched sources plus transaction
+  records used separately for the listing-to-sale price mapping (γ₀, γ₁ in `eq:payoff`)
+- §5.1: the transaction/time-on-market matching claim removed
+- Original intro ¶6: the three-way enumeration collapsed to two sources, "matching properties
+  across all three sources" replaced with the actual match keys, address-geocoding scope stated,
+  and the transaction role described correctly
+
 ## Recommended bibliography additions
 
 Neither is in `DPE_library.bib`; I did not insert keys that would break the build.
