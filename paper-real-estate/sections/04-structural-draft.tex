@@ -26,7 +26,7 @@ status $K$ to recover $c_0$ and $\rho$ market by market.
 
 We allow for, but do not impose, strategic concealment. Nothing in the specification requires
 informed sellers to withhold: the hiding rate is an equilibrium object, the model admits full
-unravelling as a special case, and whether concealment occurs --- and how much --- is what the
+unravelling as a special case, and whether concealment occurs, and how much, is what the
 estimation determines.
 
 Two considerations motivate this structure. The first is resemblance. The facts in
@@ -51,14 +51,14 @@ The mechanism itself is the one set out in Section~\ref{sec:unraveling}: sellers
 disclose dilute the adverse inference buyers draw from silence, which makes withholding
 attractive to informed sellers of poor quality, whose entry the buyer cannot separate from
 the involuntarily silent. France sits in the bottom-right cell of
-Figure~\ref{fig:equilibrium_outcomes} --- incomplete registry coverage combined with positive
+Figure~\ref{fig:equilibrium_outcomes}: incomplete registry coverage combined with positive
 buyer EPC-sensitivity. Even where the EPC-sensitive buyer share approaches one, as it does in
 most apartment markets after the reform, incomplete coverage alone sustains the premium: so
 long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
 penalise silence. Full unravelling requires both conditions; France satisfies only one.
 
 Finally, we are explicit about what the model does not settle. It takes no stance on
-\emph{why} an informed seller withholds --- deliberate concealment and an unrecorded but
+\emph{why} an informed seller withholds, since deliberate concealment and an unrecorded but
 still-valid certificate are observationally similar in the listing data, and we do not
 attempt to separate them. It assumes no falsification, so a displayed score is taken at face
 value. And it maintains Corollary~\ref{cor:hq_disclose}, $\sigma_1^*=0$, rather than testing
@@ -329,7 +329,7 @@ by sellers hiding more rather than by the price gap widening. Part~(ii) adds tha
 widens the parameter window over which partial pooling survives. Empirically this predicts that
 across partial-pooling markets the non-disclosure premium should be uncorrelated with
 $\hat\rho_m$ while the hiding rate rises with it, and that markets with higher $\hat\rho_m$
-should be less likely to appear in a corner regime --- a pattern we can check directly against
+should be less likely to appear in a corner regime, a pattern we can check directly against
 the regime classification reported in Section~\ref{sec:results}.
 
 
@@ -367,7 +367,7 @@ The July 2021 DPE reform provides this variation, and the two-step approach uses
 
 \subsubsection{The July 2021 Reform as a Natural Experiment}
 
-The change in the legal status of the DPE described in Section~\ref{ss:institutions} is the source of identification: it created a precise, legally documented change in the value of a disclosed EPC score to buyers, with a known implementation date of July 1, 2021. Crucially, the reform operated on the \emph{demand} side --- the weight a disclosed rating carries in buyers' valuations and legal recourse --- and not on the seller's cost of withholding. The obligation to provide a DPE at sale, and the compliance and liability exposure attached to coming to market without the required diagnostic, were already in force under loi ALUR (Article L271-4 CCH) well before 2021. These are precisely the components of the concealment cost $c_{0,m}$. What July 2021 changed was not whether a seller must disclose, nor the cost she bears for withholding, but how much a \emph{disclosed} rating now matters to the buyer. The reform therefore shifts $\rho_m$ while leaving $c_{0,m}$, governed by the pre-existing disclosure mandate, unchanged across the reform date. This is what licenses reading the DiD change in the premium as the demand response that identifies $\rho_m$, holding the hiding cost fixed. Whether the supply side of the market responded concurrently is a maintained assumption we cannot directly test with the data at hand; we return to it below.\footnote{An alternative strategy based on a Bartik instrument (interacting wholesale gas price variation with the pre-reform share of low-efficiency properties per market) fails at the first stage ($F$-statistic: 1.0 to 1.6). The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike driven by the Russian invasion of Ukraine, removing the demand-side variation the instrument was designed to exploit.}
+The change in the legal status of the DPE described in Section~\ref{ss:institutions} is the source of identification: it created a precise, legally documented change in the value of a disclosed EPC score to buyers, with a known implementation date of July 1, 2021. Crucially, the reform operated on the \emph{demand} side, that is, on the weight a disclosed rating carries in buyers' valuations and legal recourse, and not on the seller's cost of withholding. The obligation to provide a DPE at sale, and the compliance and liability exposure attached to coming to market without the required diagnostic, were already in force under loi ALUR (Article L271-4 CCH) well before 2021. These are precisely the components of the concealment cost $c_{0,m}$. What July 2021 changed was not whether a seller must disclose, nor the cost she bears for withholding, but how much a \emph{disclosed} rating now matters to the buyer. The reform therefore shifts $\rho_m$ while leaving $c_{0,m}$, governed by the pre-existing disclosure mandate, unchanged across the reform date. This is what licenses reading the DiD change in the premium as the demand response that identifies $\rho_m$, holding the hiding cost fixed. Whether the supply side of the market responded concurrently is a maintained assumption we cannot directly test with the data at hand; we return to it below.\footnote{An alternative strategy based on a Bartik instrument (interacting wholesale gas price variation with the pre-reform share of low-efficiency properties per market) fails at the first stage ($F$-statistic: 1.0 to 1.6). The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike driven by the Russian invasion of Ukraine, removing the demand-side variation the instrument was designed to exploit.}
 
 The identifying assumption is the standard parallel-trends condition: in the absence of the reform, the cross-group price gaps $\beta_{1,m,t}$ (energy-efficient vs.\ energy-intensive disclosed properties) and $\Delta_{m,t}$ (undisclosed vs.\ energy-intensive) would have continued on their pre-reform trajectory. The DiD does not require that buyers were entirely inattentive to EPC scores before July 2021; it requires only that their relative pricing of disclosure groups was not already trending. Any post-reform shift in the gaps, relative to that pre-reform baseline, is then attributable to the change in buyer incentives induced by legal opposability.
 
@@ -497,9 +497,21 @@ sellers, this figure is an upper bound on the true concealment cost rather than 
 estimate of it. Panel~B translates these reduced-form inputs into seller-side parameters: $\hat\rho_m = 90.9\%$ for apartments and 68.1\% for
 houses indicate that nearly all buyers in the average market price energy performance into
 their offers, while the inverted hiding cost $\hat{c}_{0,m}$ settles at 3.4\% of property value for
-apartments and 4.5\% for houses --- an economically substantial margin, and one of the same
-order in both segments despite how differently they are traded. Panel~C
-illuminates the supply side: just over half of apartment sellers (50.7\%) and 41.9\% of house
+apartments and 4.5\% for houses. These are economically substantial magnitudes once set against
+the transaction costs a French buyer already faces. Notary fees on an existing dwelling run to
+roughly 7 to 8\% of the sale price, and lenders ordinarily require a personal contribution of at
+least 10\%.\footnote{Transfer duties (\emph{droits de mutation \`a titre on\'ereux}) were raised
+to a maximum of 6.31\% for transactions concluded from April 2025, an increase adopted by 84 of
+the 101 \emph{d\'epartements}, with first-time buyers exempt; total notary fees on an existing
+dwelling accordingly sit near 7 to 8\% of the price. The 10\% personal contribution is not a
+legal requirement but the threshold applied by most lenders, and is intended to cover precisely
+these ancillary costs.} The cost of withholding a certificate is therefore of the order of half
+the notary bill, and between a third and a half of the minimum deposit a bank would demand: not
+a rounding error in the transaction, but well short of the sums that routinely change hands
+around it. That two segments trading very differently land within roughly one percentage point
+of each other reinforces the reading that this cost is set by the disclosure regime rather than
+by the property. Panel~C
+turns to the supply side: just over half of apartment sellers (50.7\%) and 41.9\% of house
 sellers carry a post-2021 registry record at listing ($\hat\pi_m$), and among those, roughly
 six in ten hold a property rated A--D ($\hat{\bar\theta}_m = 62.5\%$ and $60.5\%$).
 The most striking contrast across property types lies in the strategic-hiding rate
@@ -514,6 +526,6 @@ The first-stage estimator $\hat\rho_m = \hat\Delta_m / (\hat\beta_{1,m} \cdot \h
 
 Under this convention, the concealment cost is economically material: 0.034 log points (approximately 3.4\% of property value) for apartments and 0.045 log points (4.5\%) for houses. That the two segments land within roughly one percentage point of each other suggests the cost is governed primarily by the legal disclosure regime and the state of registry coverage rather than by property-specific characteristics. The reduced-form premium provides an independent check: $\hat c_{0,m} \leq \hat\Delta_m$ holds market by market by construction, with equality exactly in the interior markets, so the inversion cannot exceed the bound the DiD imposes on it.
 
-The contrast between property types is itself informative. Houses have an energy-efficiency premium three times larger than apartments ($\hat\beta_{1,m} \approx 0.051$ vs.\ 0.017 log points), reflecting their larger surface areas and older building stock, which make heating costs directly material to buyers' running expenses. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (5.7\% vs.\ 14.0\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
+The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds: location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (5.7\% vs.\ 14.0\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
 
 One further check concerns the gap between the non-disclosure premium $\hat\Delta_m$ and the structural hiding cost $\hat{c}_{0,m}$. In the apartment markets where both are available, the raw DiD estimate exceeds the inverted hiding cost by a factor of roughly two. This systematic gap is not a contradiction: it is what the model predicts. Uninformed sellers (approximately 83\% of non-disclosers for apartments and 89\% for houses) earn a non-disclosure premium simply by being in the market, pooling with strategic hiders and inflating the undisclosed category's average price above what strategic concealment alone would generate. $\hat\Delta_m$ is the market-level average of this pooled premium; $\hat{c}_{0,m}$ is the cost borne by the marginal informed hider, recovered by targeting only the informed-seller hiding rate $\hat\sigma_{0,m}$ in the equilibrium inversion. The two objects measure different things, and the fact that $\hat\Delta_m$ greatly exceeds $\hat{c}_{0,m}$ is precisely the compositional mechanism the model is designed to capture.

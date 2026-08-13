@@ -138,7 +138,7 @@ which holds if and only if
 
 $\bar R$ is the total private return the market offers an informed low-quality seller for renovating and disclosing: the revenue gain from upgrading out of the non-disclosure pool to verified high-quality status, plus the hiding cost no longer paid. Absent a subsidy, renovation is privately optimal whenever $R(X) \le \bar R$. The minimum incentive-compatible subsidy is the gap $R(X) - \bar R$: the transfer required to restore private incentives when the engineering cost exceeds the market reward.
 
-The dependence of $\bar R$ on $c_0$ is the central object for policy. The original formula~\eqref{eq:threshold_condition} appears to make $\bar R$ increase one-for-one with the hiding cost, since the $+c_0$ term enters linearly. This appearance is misleading: $\Pi(d=0;e^*)$ is itself an equilibrium revenue evaluated at the equilibrium pool quality $e^* = e(\sigma_0^*)$, and the equilibrium hiding rate $\sigma_0^*$ adjusts to $c_0$. Once the equilibrium response is taken into account, $\bar R$ in the empirically dominant partial-pooling regime is \emph{invariant} to $c_0$: the apparent dependence is absorbed by the indifference condition. The following lemma makes this precise.
+The dependence of $\bar R$ on $c_0$ is the central object for policy. The original formula~\eqref{eq:threshold_condition} appears to make $\bar R$ increase one-for-one with the hiding cost, since the hiding cost enters that expression additively. This appearance is misleading: $\Pi(d=0;e^*)$ is itself an equilibrium revenue evaluated at the equilibrium pool quality $e^* = e(\sigma_0^*)$, and the equilibrium hiding rate $\sigma_0^*$ adjusts to $c_0$. Once the equilibrium response is taken into account, $\bar R$ in the empirically dominant partial-pooling regime is \emph{invariant} to $c_0$: the apparent dependence is absorbed by the indifference condition. The following lemma makes this precise.
 
 \subsection{The Renovation Threshold and the Minimum Incentive-Compatible Subsidy}
 
@@ -179,7 +179,7 @@ where $\hat{R}(X)$ denotes the actual renovation cost from engineering estimates
 \end{definition}
 
 \medskip\noindent\textbf{Remark ($S^*$ is incentive-compatibility, not welfare optimum).}\label{rem:welfare}
-The object $S^*$ is the minimum transfer that flips the marginal informed-low seller's decision rule from concealment to renovation, given everyone else's equilibrium behaviour. It is \emph{not} a Ramsey-optimal subsidy. A full welfare problem would maximise
+The object $S^*$ is the minimum transfer that flips the marginal informed-low seller's decision rule from concealment to renovation, given everyone else's equilibrium behaviour. It is \emph{not} a Ramsey-optimal subsidy in the sense of \citet{ramsey_taxation_1927}. A full welfare problem would maximise
 \[
     \max_S \; \int_X \mathbf{1}\{\hat R(X) \le \bar R + S\} \cdot \big[\Delta W(X) - \lambda S\big]\, dF(X),
 \]

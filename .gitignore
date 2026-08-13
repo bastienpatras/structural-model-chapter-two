@@ -210,3 +210,5 @@ __marimo__/
 results/_sigma1test_*/
 
 results/_robust/
+
+results/_boot/
