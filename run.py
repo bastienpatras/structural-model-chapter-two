@@ -169,8 +169,27 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
             market_params  = market_params,
             n_boot         = cfg["n_boot"],
             rho_hat_fixed  = msm_result.rho_hat if use_twostep else None,
+            controls       = controls,
         )
         se_dict = {"rho_se": boot["rho_se"], "c0_se": boot["c0_se"]}
+        # Persist the full draws, not just their standard deviations, so the
+        # sampling distribution of the estimates can be reported rather than
+        # only summarised. bootstrap_se() returns {market_id: [draw, ...]}.
+        _rows = []
+        for _m, _draws in boot["c0_boot"].items():
+            _rho_draws = boot["rho_boot"].get(_m, [])
+            for _b, _v in enumerate(_draws):
+                _rows.append({
+                    "market_id": _m,
+                    "draw"     : _b,
+                    "c0"       : _v,
+                    "rho"      : _rho_draws[_b] if _b < len(_rho_draws) else np.nan,
+                })
+        if _rows:
+            _bp = Path(cfg["output_dir"]) / "bootstrap_draws.csv"
+            _bp.parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(_rows).to_csv(_bp, index=False)
+            print(f"[4b] bootstrap draws saved to {_bp}")
 
     # ── Subsidies ───────────────────────────────────────────────────────────
     subsidy_df = compute_market_subsidies(

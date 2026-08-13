@@ -568,6 +568,7 @@ def bootstrap_se(
     seed          : int = 42,
     weighting_scheme: str = "inverse_variance",
     rho_hat_fixed : dict | None = None,
+    controls      : list | None = None,
 ) -> dict:
     """
     Compute bootstrap standard errors for (ρ̂_m, ĉ₀).
@@ -625,6 +626,20 @@ def bootstrap_se(
         except Exception:
             continue
 
+        # Re-compute the market-level statistics on the resample as well.
+        # This is essential, not cosmetic: the two-step inversion in
+        # estimate_msm(fix_rho=True) reads σ̂₀, π̂ and θ̄ from `market_stats`
+        # and never touches `data_moments`. Passing the original market_stats
+        # therefore holds ĉ₀ fixed across every draw and yields a standard
+        # error of exactly zero. Cells the resample fails to produce fall back
+        # to the point-estimate value so the estimator still runs.
+        from .data_prep import compute_market_stats as _cms
+        try:
+            ms_boot = _cms(df_boot, controls=controls)
+            ms_boot = ms_boot.reindex(market_stats.index).combine_first(market_stats)
+        except Exception:
+            ms_boot = market_stats
+
         try:
             if rho_hat_fixed is not None:
                 # Two-step bootstrap: fix ρ̂_m at point estimate, only resample σ̂₀_m
@@ -632,7 +647,7 @@ def bootstrap_se(
                 result_boot = estimate_msm(
                     data_moments    = dm_boot,
                     market_params   = market_params,
-                    market_stats    = market_stats,
+                    market_stats    = ms_boot,
                     weighting_scheme= weighting_scheme,
                     df              = df_boot,
                     rho_init        = rho_hat_fixed,
@@ -645,7 +660,7 @@ def bootstrap_se(
                 result_boot = estimate_msm(
                     data_moments    = dm_boot,
                     market_params   = market_params,
-                    market_stats    = market_stats,
+                    market_stats    = ms_boot,
                     weighting_scheme= weighting_scheme,
                     df              = df_boot,
                     c0_init         = 0.03,

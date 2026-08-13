@@ -143,13 +143,26 @@ def table_estimates(
 
     mean_c0_se = (np.mean(list(se_dict["c0_se"].values()))
                   if se_dict and isinstance(se_dict.get("c0_se"), dict) else np.nan)
+    # bootstrap_se() returns per-market dicts (rho_se, c0_se), not scalars.
+    # Resolve defensively so either shape works.
+    def _mean_se(key):
+        if not se_dict:
+            return np.nan
+        v = se_dict.get(key)
+        if isinstance(v, dict):
+            return float(np.nanmean(list(v.values()))) if v else np.nan
+        if isinstance(v, (int, float)):
+            return float(v)
+        return np.nan
+    mean_rho_se = _mean_se("rho_se")
 
     rows = [
         {
             "Parameter"  : "Mean ρ̂  (buyer sensitivity)",
             "Estimate"   : f"{mean_rho:.4f}",
             "Std Dev"    : f"({std_rho:.4f})",
-            "SE (boot)"  : f"({se_dict['rho_se_mean']:.4f})" if se_dict else "—",
+            "SE (boot)"  : (f"({mean_rho_se:.4f})"
+                            if not np.isnan(mean_rho_se) else "n/a"),
         },
         {
             "Parameter"  : "Mean ĉ₀_m  (hiding cost)",

@@ -386,7 +386,7 @@ def make_regime_breakdown(out_dir: Path) -> Path:
             vals = shares[:, list(counts.columns).index(r)]
             ax.bar(x, vals, bottom=bottom, color=REGIME_COLORS[r],
                    edgecolor="white", linewidth=0.4,
-                   label=REGIME_LABELS[r] + r" — $S^*>0$", width=0.7)
+                   label=REGIME_LABELS[r] + r": $S^*>0$", width=0.7)
             bottom += vals
         ax.bar(x, no_sub, bottom=bottom, color=no_sub_color,
                edgecolor="white", linewidth=0.4,
@@ -413,7 +413,7 @@ def make_regime_breakdown(out_dir: Path) -> Path:
         pd.concat([g["regime"] for g in grids.values()])
     )
     handles = [mpatches.Patch(color=REGIME_COLORS[r],
-                              label=REGIME_LABELS[r] + r" — $S^*>0$")
+                              label=REGIME_LABELS[r] + r": $S^*>0$")
                for r in all_regimes]
     handles.append(mpatches.Patch(color=no_sub_color, label=no_sub_label))
     fig.subplots_adjust(bottom=0.30)
