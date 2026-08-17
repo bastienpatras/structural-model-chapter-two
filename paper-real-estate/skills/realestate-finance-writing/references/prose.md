@@ -78,6 +78,42 @@ conclusion, quote it as a display block. The corpus block-quotes a trade publica
 1894 that anticipates its own finding. This is disproportionately persuasive and costs
 little.
 
+## Do not lean on the colon as a rhetorical hinge
+
+The most common tell in machine-drafted academic prose is not vocabulary, it is the repetition
+of a single sentence shape:
+
+> *[general claim], [concessive clause]:* *[specific elaboration]*
+
+For example, "the fourth assumption has received little attention, even though it governs the
+strength of the mechanism: what drives a seller to disclose is the revenue lost when buyers price
+silence pessimistically." The construction is not wrong. Used twenty times in one paper it becomes
+a signature, and readers register the monotony even when they cannot name it.
+
+Diagnose it by counting mid-sentence colons per thousand words *and* by reading them in sequence.
+If they all have the same shape, that is the problem, whatever the count. Raw density is a poor
+guide: a technical paper legitimately uses colons for enumerations, definitions and displayed
+setups.
+
+Keep colons for:
+
+- genuine enumerations, where a list follows ("falls into one of four groups: A, B, C, D")
+- introducing a definition or a displayed equation
+- table and figure notes
+
+Replace them elsewhere, and vary the replacement rather than substituting one tic for another:
+
+| Instead of the hinge | Use |
+|---|---|
+| claim: elaboration | two sentences, with the elaboration standing on its own |
+| claim: reason | "because", "since", "the reason is that" |
+| claim: restatement | a relative clause with "which" |
+| claim: example | "for example", "one instance is" |
+| claim: consequence | "so", "hence", "it follows that" |
+
+A useful discipline: after drafting, extract every colon with its surrounding clause and read the
+list. Any shape appearing more than twice or three times in a section needs breaking up.
+
 ## Avoid
 
 - Rhetorical questions

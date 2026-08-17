@@ -15,7 +15,7 @@
 To recover the forces behind the patterns documented in
 Section~\ref{sec:setting}, we specify and estimate a model of the seller's disclosure
 decision. The model is a housing-market application of \citet{dye_disclosure_1985}, as
-equilibrium-characterised by \citet{jung_kwon_1988}, with one structural addition:
+equilibrium-characterised by \citet{jung_kwon_1988}, with one structural addition,
 heterogeneity in buyer EPC sensitivity ($\rho$). The binary quality space
 ($\theta\in\{0,1\}$) and the seller-information heterogeneity ($\pi$) are adapted directly
 from those antecedents. What goes beyond them is the closed-form expression for the
@@ -25,12 +25,12 @@ regime (Proposition~\ref{prop:equilibrium}), the strict cross-regime ordering of
 status $K$ to recover $c_0$ and $\rho$ market by market.
 
 We allow for, but do not impose, strategic concealment. Nothing in the specification requires
-informed sellers to withhold: the hiding rate is an equilibrium object, the model admits full
+informed sellers to withhold. The hiding rate is an equilibrium object, the model admits full
 unravelling as a special case, and whether concealment occurs, and how much, is what the
 estimation determines.
 
 Two considerations motivate this structure. The first is resemblance. The facts in
-Section~\ref{sec:facts} line up with the Dye--Jung-Kwon configuration: a silent pool that is
+Section~\ref{sec:facts} line up with the Dye--Jung-Kwon configuration, in which a silent pool is
 overwhelmingly silent by constraint rather than by choice, a small but non-trivial mass of
 informed sellers who withhold, and a premium attached to silence rather than a penalty. The
 second is institutional. The binary quality space has an empirical anchor in the rental-ban
@@ -53,8 +53,8 @@ attractive to informed sellers of poor quality, whose entry the buyer cannot sep
 the involuntarily silent. France sits in the bottom-right cell of
 Figure~\ref{fig:equilibrium_outcomes}: incomplete registry coverage combined with positive
 buyer EPC-sensitivity. Even where the EPC-sensitive buyer share approaches one, as it does in
-most apartment markets after the reform, incomplete coverage alone sustains the premium: so
-long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
+most apartment markets after the reform, incomplete coverage alone sustains the premium, because
+so long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
 penalise silence. Full unravelling requires both conditions; France satisfies only one.
 
 Finally, we are explicit about what the model does not settle. It takes no stance on
@@ -62,10 +62,10 @@ Finally, we are explicit about what the model does not settle. It takes no stanc
 still-valid certificate are observationally similar in the listing data, and we do not
 attempt to separate them. It assumes no falsification, so a displayed score is taken at face
 value. And it maintains Corollary~\ref{cor:hq_disclose}, $\sigma_1^*=0$, rather than testing
-it: informed non-disclosers are assigned low quality by revealed preference, which is an
+it. Informed non-disclosers are assigned low quality by revealed preference, which is an
 assumption and not a result. Appendix~\ref{app:robustness} reports estimates that instead read
 the withheld quality from the registry, so the restriction can be assessed. Nor does the
-design pin down $\rho_m$ from the interior in most markets: the data are consistent with full
+design pin down $\rho_m$ from the interior in most markets, where the data are consistent with full
 buyer sensitivity but cannot establish how close to one it lies, and we maintain
 $\hat\rho_m = 1$ for those markets and treat $\hat c_{0,m}$ as an upper bound accordingly. We
 do not purport to estimate the one true model of housing disclosure; we propose one way of
@@ -324,7 +324,7 @@ The following comparative statics hold:
 
 \noindent Economically, a larger share of buyers who price the certificate raises what silence
 is worth wherever the hiding rate is at a corner, but inside the partial-pooling regime it does
-not: there the premium is pinned to the concealment cost, and an increase in $\rho$ is absorbed
+not. There the premium is pinned to the concealment cost, and an increase in $\rho$ is absorbed
 by sellers hiding more rather than by the price gap widening. Part~(ii) adds that higher $\rho$
 widens the parameter window over which partial pooling survives. Empirically this predicts that
 across partial-pooling markets the non-disclosure premium should be uncorrelated with
@@ -340,10 +340,11 @@ As $\pi$ increases, the lower boundary $\Delta(e(1))$ of the Partial Pooling int
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-\noindent In words: better registry coverage makes silence more informative, because a larger
+\noindent Put in words, better registry coverage makes silence more informative, because a larger
 fraction of non-disclosers are hiding by choice rather than by constraint. Buyers therefore
 discount silence more heavily, concealment becomes less attractive, and the market moves toward
-disclosure. The testable content is a cross-market comparative static: markets with higher
+disclosure. The testable content is a cross-market comparative static.
+Markets with higher
 $\hat\pi_m$ should display lower hiding rates $\hat\sigma_{0,m}$ and should be
 disproportionately represented among the markets classified as fully unravelling in
 Section~\ref{sec:results}.
@@ -504,9 +505,9 @@ the 101 \emph{d\'epartements}, with first-time buyers exempt; total notary fees 
 dwelling accordingly sit near 7 to 8\% of the price. The 10\% personal contribution is not a
 legal requirement but the threshold applied by most lenders, and is intended to cover precisely
 these ancillary costs.} The cost of withholding a certificate is therefore of the order of half
-the notary bill, and between a third and a half of the minimum deposit a bank would demand: not
-a rounding error in the transaction, but well short of the sums that routinely change hands
-around it. That two segments trading very differently land within roughly one percentage point
+the notary bill, and between a third and a half of the minimum deposit a bank would demand. It is
+not a rounding error in the transaction, though it remains well short of the sums that routinely
+change hands around it. That two segments trading very differently land within roughly one percentage point
 of each other reinforces the reading that this cost is set by the disclosure regime rather than
 by the property. Panel~C
 turns to the supply side: just over half of apartment sellers (50.7\%) and 41.9\% of house
@@ -524,6 +525,6 @@ The first-stage estimator $\hat\rho_m = \hat\Delta_m / (\hat\beta_{1,m} \cdot \h
 
 Under this convention, the concealment cost is economically material: 0.034 log points (approximately 3.4\% of property value) for apartments and 0.045 log points (4.5\%) for houses. That the two segments land within roughly one percentage point of each other suggests the cost is governed primarily by the legal disclosure regime and the state of registry coverage rather than by property-specific characteristics. The reduced-form premium provides an independent check: $\hat c_{0,m} \leq \hat\Delta_m$ holds market by market by construction, with equality exactly in the interior markets, so the inversion cannot exceed the bound the DiD imposes on it.
 
-The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds: location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (5.7\% vs.\ 14.0\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
+The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds, since location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (5.7\% vs.\ 14.0\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
 
 One further check concerns the gap between the non-disclosure premium $\hat\Delta_m$ and the structural hiding cost $\hat{c}_{0,m}$. In the apartment markets where both are available, the raw DiD estimate exceeds the inverted hiding cost by a factor of roughly two. This systematic gap is not a contradiction: it is what the model predicts. Uninformed sellers (approximately 83\% of non-disclosers for apartments and 89\% for houses) earn a non-disclosure premium simply by being in the market, pooling with strategic hiders and inflating the undisclosed category's average price above what strategic concealment alone would generate. $\hat\Delta_m$ is the market-level average of this pooled premium; $\hat{c}_{0,m}$ is the cost borne by the marginal informed hider, recovered by targeting only the informed-seller hiding rate $\hat\sigma_{0,m}$ in the equilibrium inversion. The two objects measure different things, and the fact that $\hat\Delta_m$ greatly exceeds $\hat{c}_{0,m}$ is precisely the compositional mechanism the model is designed to capture.
