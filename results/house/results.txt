@@ -3,7 +3,7 @@
   MANDATORY DISCLOSURE AND HOUSING MARKET DYNAMICS
 ======================================================================
   Property type  : HOUSE
-  Estimation date: 2026-08-12
+  Estimation date: 2026-09-14
 
   ──────────────────────────────────────────────────────────────────
   I. SAMPLE
@@ -55,7 +55,7 @@
   Parameter                                     Mean    Median       Std  [p10, p90]
   ──────────────────────────────────────────────────────────────────
   ρ̂_m  EPC-sensitive buyer share             0.6807    1.0000    0.4176  [0.0000, 1.0000]
-  ĉ₀_m  hiding cost  (log pts)                0.0445    0.0451    0.0373  [0.0000, 0.0877]
+  ĉ₀_m  hiding cost  (log pts)                0.0253    0.0235    0.0226  [0.0000, 0.0528]
   σ̂₀_m  equilibrium hiding rate              0.0681    0.0513    0.0586  [0.0247, 0.1477]
   σ̂₁_m  high-quality hiding (pred. 0)        0.0000    0.0000    0.0000  [0.0000, 0.0000]
   ê*_m  equilibrium pool quality              0.5883    0.5752    0.1075  [0.4644, 0.7315]
@@ -64,14 +64,14 @@
   IV. ECONOMIC MAGNITUDES
   ──────────────────────────────────────────────────────────────────
   Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0497
-  Non-disclosure premium — CDH upper bound (log pts)0.0453
-  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0445
-  Non-disclosure premium — CAS lower bound (log pts)0.0361
-  Ordering check  CDH > PP > CAS            ✓ (0.0453 > 0.0445 > 0.0361)
-  Hiding cost ĉ₀  as % of disclosed-low price4.45%
+  Non-disclosure premium — CDH upper bound (log pts)0.0258
+  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0253
+  Non-disclosure premium — CAS lower bound (log pts)0.0204
+  Ordering check  CDH > PP > CAS            ✓ (0.0258 > 0.0253 > 0.0204)
+  Hiding cost ĉ₀  as % of disclosed-low price2.53%
 
   Interpretation: at the market mean, a low-quality informed
-  seller forgoes ~4.45 log pts (~4.5% of property
+  seller forgoes ~2.53 log pts (~2.5% of property
   value) to conceal her EPC score. The share of EPC-sensitive
   buyers averages 68.1% across markets.
 

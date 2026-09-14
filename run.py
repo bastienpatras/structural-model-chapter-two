@@ -123,9 +123,22 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     market_stats = market_stats.loc[list(estimable)]
     df_est       = df_est[df_est["market_id"].isin(estimable)].copy()
 
+    # β1_m: use the DiD-identified premium (reform-induced, strips out pre-existing
+    # EPC-correlated price differences that the market-specific hedonic regression
+    # absorbs but that are not driven by buyer EPC sensitivity — see
+    # build_valuation_params' did_beta1 docstring). Previously this call omitted
+    # did_beta1 entirely, so c0_m/R_bar_m/S_star_m silently fell back to the
+    # market-specific hedonic beta_1_m instead of the DiD beta1_m that Table 4
+    # Panel A reports and eq:c0_estimator's own formula specifies — a paper-code
+    # mismatch confirmed via quality_reports/diagnostics/event-study-audit/.
     market_params = {
-        m: build_valuation_params(m, market_stats, hedonic_params,
-                                  scale=scale, scale_m=scale_m)
+        m: build_valuation_params(
+            m, market_stats, hedonic_params,
+            scale=scale, scale_m=scale_m,
+            did_beta1=(float(did_params.beta1_m[m])
+                       if did_params is not None and m in did_params.beta1_m.index
+                       else None),
+        )
         for m in estimable
     }
 

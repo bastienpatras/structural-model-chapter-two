@@ -14,9 +14,9 @@
   ρ̂_m  median                                 1.000         1.000
   ρ̂_m  std                                    0.282         0.418
 
-  ĉ₀_m  mean  (log pts)                       0.0342        0.0445
-  ĉ₀_m  median                                0.0272        0.0451
-  ĉ₀_m  std                                   0.0289        0.0373
+  ĉ₀_m  mean  (log pts)                       0.0227        0.0253
+  ĉ₀_m  median                                0.0253        0.0235
+  ĉ₀_m  std                                   0.0129        0.0226
 
   σ̂₀_m  mean  (hiding rate)                   0.152         0.068
   π̂_m   mean  (informed share)                0.507         0.419

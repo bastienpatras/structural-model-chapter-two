@@ -3,7 +3,7 @@
   MANDATORY DISCLOSURE AND HOUSING MARKET DYNAMICS
 ======================================================================
   Property type  : APARTMENT
-  Estimation date: 2026-08-12
+  Estimation date: 2026-09-14
 
   ──────────────────────────────────────────────────────────────────
   I. SAMPLE
@@ -55,7 +55,7 @@
   Parameter                                     Mean    Median       Std  [p10, p90]
   ──────────────────────────────────────────────────────────────────
   ρ̂_m  EPC-sensitive buyer share             0.9092    1.0000    0.2825  [0.9339, 1.0000]
-  ĉ₀_m  hiding cost  (log pts)                0.0342    0.0272    0.0289  [0.0044, 0.0815]
+  ĉ₀_m  hiding cost  (log pts)                0.0227    0.0253    0.0129  [0.0022, 0.0383]
   σ̂₀_m  equilibrium hiding rate              0.1515    0.1371    0.0980  [0.0612, 0.2755]
   σ̂₁_m  high-quality hiding (pred. 0)        0.0000    0.0000    0.0000  [0.0000, 0.0000]
   ê*_m  equilibrium pool quality              0.5929    0.5954    0.0989  [0.4784, 0.7292]
@@ -64,14 +64,14 @@
   IV. ECONOMIC MAGNITUDES
   ──────────────────────────────────────────────────────────────────
   Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0143
-  Non-disclosure premium — CDH upper bound (log pts)0.0362
-  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0342
-  Non-disclosure premium — CAS lower bound (log pts)0.0267
-  Ordering check  CDH > PP > CAS            ✓ (0.0362 > 0.0342 > 0.0267)
-  Hiding cost ĉ₀  as % of disclosed-low price3.42%
+  Non-disclosure premium — CDH upper bound (log pts)0.0239
+  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0227
+  Non-disclosure premium — CAS lower bound (log pts)0.0174
+  Ordering check  CDH > PP > CAS            ✓ (0.0239 > 0.0227 > 0.0174)
+  Hiding cost ĉ₀  as % of disclosed-low price2.27%
 
   Interpretation: at the market mean, a low-quality informed
-  seller forgoes ~3.42 log pts (~3.4% of property
+  seller forgoes ~2.27 log pts (~2.3% of property
   value) to conceal her EPC score. The share of EPC-sensitive
   buyers averages 90.9% across markets.
 
