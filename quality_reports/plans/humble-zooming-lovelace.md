@@ -231,3 +231,30 @@ recover the transcript or re-run the same derivation prompt against `micro-theor
 used is reconstructable from this plan's Context section plus the referee report) — do not
 paraphrase from memory, re-derive or re-fetch the verbatim text before drafting appendix prose from
 it, per this repo's own `research-agent-laws.md` (re-derive, don't re-ask from a fuzzy summary).
+
+## Phase 2 step 4-5 — DONE (2026-09-14)
+
+T locked at 10 (Bastien sourced French property holding-period data; sensitivity grid to report
+T=5/T=15 — not yet run). `run.py` wiring executed exactly as designed above: opt-in
+`rho_estimator` config key (`"ratio"`/`"anchored"`, validated against typos so a misspelling
+can't silently fall back to `"ratio"`), `anchor_p_E`/`anchor_r`/`anchor_T`/`anchor_kappa` keys.
+Both `config_apartment.json`/`config_house.json` now set `rho_estimator="anchored"`,
+p_E=0.21, r=0.0375, T=10 — this branch's deliverable, not merged to `paper-real-estate`.
+
+`python-reviewer` caught 3 more issues in the wiring: a crash risk at `outputs.py:1210`
+(`model_moments.values()[0]` on a possibly-empty dict) — fixed with a `belief_function`-based
+fallback; unvalidated `rho_estimator` string — fixed; the "ê*_m" results.txt row silently reading
+from the ratio estimator's object (wrong market set) in anchored mode — fixed. Full pipeline
+re-run clean (exit 0), default "ratio" path confirmed byte-identical (up to float noise) to
+pre-change output.
+
+**Results (T=10), both property types now flowing through the full pipeline:**
+- Apartments: n=45, ρ̂ mean=0.495 (1 violates ρ≤1), ĉ0 mean=2.41%, λ̂_m mean=0.061 (t=6.78 —
+  strongly rejects the over-ID restriction).
+- Houses: n=97, ρ̂ mean=0.458 (5 violate), ĉ0 mean=3.45%, λ̂_m mean=0.004 (t=1.10, not significant).
+- Diagnostics now surfaced in `results.txt` ("III-b" section) and saved to
+  `results/{apartment,house}/anchored_diagnostics.csv`, not silently discarded.
+
+**Not yet done:** T=5/T=15 sensitivity grid; bootstrap SEs for the anchored estimator (guarded
+with `NotImplementedError` if `n_boot>0` + anchored, since the existing `bootstrap_se` would
+silently produce SEs inconsistent with Proposition 2(ii)); Phase 3 (paper rewrite).

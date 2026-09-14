@@ -43,16 +43,19 @@ the rest of the paper's DiD-based identification strategy).
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import TYPE_CHECKING
 
 import numpy as np
 import pandas as pd
 
 from src.model import belief_function
+from src.moments import compute_model_moments
+from src.estimation import MSMResult
 
 if TYPE_CHECKING:
     from src.event_study import DiDEstimates
+    from src.model import ValuationParams
 
 logger = logging.getLogger(__name__)
 
@@ -352,4 +355,102 @@ def estimate_rho_c0_anchored(
         n_violate_bound = n_violate,
         n_total         = n_total,
         details         = df,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Bridge to the existing pipeline's MSMResult
+# ---------------------------------------------------------------------------
+
+def build_msm_result_from_anchored(
+    anchored     : AnchoredResult,
+    market_stats : pd.DataFrame,
+    market_params: dict,
+) -> MSMResult:
+    """
+    Package an AnchoredResult as an MSMResult, so it can be passed anywhere
+    the existing pipeline (compute_market_subsidies, compute_subsidy_grid,
+    produce_all_outputs, ...) expects estimate_msm()'s output.
+
+    Deliberately does NOT route through estimate_msm(fix_rho=True) -- that
+    function recomputes c0_hat = rho_hat*beta1_m*e_star internally
+    (estimation.py:353), which would silently reintroduce a rho-dependence
+    into c0 if fed the anchored rho_m as rho_init (Proposition 2(ii) says c0_m
+    should NOT depend on rho at all). Instead, rho_hat/c0_hat are taken
+    directly from `anchored`, and only the regime classification
+    (eq_types/model_moments, needed for Table 4/figure grouping downstream) is
+    computed via the existing compute_model_moments() helper -- reusing
+    market_params[m] (whose beta_1 is already DiD_beta1_m, i.e. B_m, per Phase
+    0's fix) with beta_1 swapped to beta1_anchor_m and rho set to the reported
+    anchored rho_m, so the internal trace is consistent with what's actually
+    reported. The regime/eq_star/sigma_0_star outputs are provably invariant
+    to this rho/beta1 decomposition (Corollary 1.2) as long as the product
+    rho_m*beta_1 equals B_m -- which it does by construction (rho_m =
+    B_m/beta1_anchor_m) -- so this is not an approximation.
+
+    Q_star is set to 0.0, matching the existing convention for the two-step
+    (non-optimised) estimator (estimation.py:373) -- this is a closed-form
+    inversion, not a fitted objective, under either estimator.
+
+    Parameters
+    ----------
+    anchored      : output of estimate_rho_c0_anchored()
+    market_stats  : indexed by market_id, must carry pi_hat, theta_bar_hat
+    market_params : {market_id: ValuationParams}, output of
+                    build_valuation_params() with did_beta1 passed (Phase 0)
+
+    Returns
+    -------
+    MSMResult, with rho_hat/c0_hat from `anchored` and eq_types/model_moments
+    computed consistently for regime classification. rho_se/c0_se are left
+    empty (populate via a bootstrap over this estimator separately, not yet
+    implemented -- see plan file Phase 2 verification section).
+    """
+    markets = list(anchored.rho_m.dropna().index)
+    missing_params = [m for m in markets if m not in market_params]
+    if missing_params:
+        logger.warning(
+            f"[rho_identification] {len(missing_params)} markets have an anchored "
+            "rho_m but no entry in market_params -- excluded from the MSMResult."
+        )
+        markets = [m for m in markets if m in market_params]
+
+    rho_hat: dict = {}
+    c0_hat: dict = {}
+    model_moments_hat: dict = {}
+    eq_types: dict = {}
+
+    for m in markets:
+        rho_m = float(anchored.rho_m[m])
+        c0_m  = float(anchored.c0_m[m]) if pd.notna(anchored.c0_m.get(m, np.nan)) else np.nan
+        rho_hat[m] = rho_m
+        c0_hat[m]  = c0_m
+
+        if pd.isna(c0_m):
+            continue  # can't classify a regime without a defined c0_m
+
+        pi_m = float(market_stats.loc[m, "pi_hat"])
+        th_m = float(market_stats.loc[m, "theta_bar_hat"])
+        params_m: "ValuationParams" = replace(market_params[m], beta_1=float(anchored.beta1_anchor[m]))
+        mm = compute_model_moments(
+            rho=rho_m, c0=c0_m, pi=pi_m, theta_bar=th_m, params=params_m, market_id=m,
+        )
+        model_moments_hat[m] = mm
+        eq_types[m]          = mm.eq_type
+
+    logger.info(
+        f"[rho_identification] MSMResult (anchored): {len(rho_hat)} markets  "
+        f"c0_hat mean={np.nanmean(list(c0_hat.values())):.6f}  "
+        f"rho_hat mean={np.nanmean(list(rho_hat.values())):.4f}"
+    )
+
+    return MSMResult(
+        rho_hat       = rho_hat,
+        c0_hat        = c0_hat,
+        Q_star        = 0.0,
+        n_markets     = len(rho_hat),
+        model_moments = model_moments_hat,
+        eq_types      = eq_types,
+        converged     = True,
+        message       = "anchored point-identified estimator (Assumption A / Propositions 2(ii), 4)",
     )

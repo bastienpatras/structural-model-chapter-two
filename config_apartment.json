@@ -26,5 +26,10 @@
     "cost_per_m2_canonical": 500,
     "output_dir": "results/apartment",
     "hider_theta": "impose_zero",
-    "high_group": "ABCD"
+    "high_group": "ABCD",
+    "rho_estimator": "anchored",
+    "anchor_p_E": 0.21,
+    "anchor_r": 0.0375,
+    "anchor_T": 10,
+    "anchor_kappa": 1.0
 }

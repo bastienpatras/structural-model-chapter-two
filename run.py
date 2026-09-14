@@ -48,7 +48,7 @@ def setup_logging() -> None:
 
 from src.data_prep   import (load_listings, merge_datasets, classify_listings,
                               compute_market_stats, compute_market_centroids,
-                              compute_market_levels)
+                              compute_market_levels, compute_energy_anchor)
 from src.hedonic     import (estimate_hedonic, compute_hiding_premium,
                               estimate_rho_direct, calibrate_demand_scale,
                               calibrate_demand_scale_m)
@@ -60,6 +60,8 @@ from src.estimation  import (build_valuation_params, estimate_msm,
 from src.model       import belief_function
 from src.event_study import load_price_indices, compute_did, estimate_rho_c0
 from src.outputs     import produce_all_outputs
+from src.rho_identification import (estimate_beta1_anchor, estimate_rho_c0_anchored,
+                                     build_msm_result_from_anchored)
 
 
 # ---------------------------------------------------------------------------
@@ -141,6 +143,7 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
         )
         for m in estimable
     }
+    market_levels = compute_market_levels(df_est)
 
     rho_init     = {}
     c0_init_dict = {}
@@ -156,23 +159,91 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
             and not np.isnan(did_params.c0_m[m])
         ) else cfg["c0_init"]
 
+    # ── Anchored rho/c0 estimator (opt-in, quality_reports/plans/humble-zooming-lovelace.md) ──
+    # The default "ratio" estimator above (did_params.rho_m) is a proven-degenerate
+    # ratio -- it recovers ~1 for any true rho_m because rho_m cancels between
+    # numerator and denominator under the model's own pricing equations
+    # (Proposition 1). "anchored" replaces it with a point-identified estimate
+    # using an external, non-price energy-cost anchor for beta_1 (Assumption A).
+    # Deliberately opt-in (default "ratio"): the anchor's calibration (p_E, r, T)
+    # is a real assumption that needs to be set explicitly per run, not silently
+    # defaulted -- see the config keys below.
+    rho_estimator = cfg.get("rho_estimator", "ratio")
+    if rho_estimator not in ("ratio", "anchored"):
+        raise ValueError(
+            f"Unknown rho_estimator {rho_estimator!r}; expected 'ratio' or 'anchored'. "
+            "A typo here would otherwise silently fall back to 'ratio', defeating the "
+            "point of making this an explicit, opt-in choice."
+        )
+    msm_result    = None
+    anchored_result = None
+    if rho_estimator == "anchored":
+        if did_estimates is None:
+            raise ValueError(
+                "rho_estimator='anchored' requires a DiD price-index panel "
+                "(index_path); none was provided."
+            )
+        for key in ("anchor_p_E", "anchor_r"):
+            if key not in cfg:
+                raise ValueError(
+                    f"rho_estimator='anchored' requires cfg['{key}'] -- the "
+                    "calibration is a real assumption and must be set explicitly, "
+                    "not silently defaulted. See quality_reports/plans/"
+                    "humble-zooming-lovelace.md Phase 1 for sourcing notes."
+                )
+        energy_anchor = compute_energy_anchor(df_est, epc_threshold=cfg["epc_threshold"])
+        beta1_anchor  = estimate_beta1_anchor(
+            market_levels, energy_anchor,
+            p_E   = cfg["anchor_p_E"],
+            r     = cfg["anchor_r"],
+            T     = cfg.get("anchor_T"),   # None = perpetuity
+            kappa = cfg.get("anchor_kappa", 1.0),
+        )
+        anchored_result = estimate_rho_c0_anchored(did_estimates, market_stats, beta1_anchor)
+        msm_result = build_msm_result_from_anchored(anchored_result, market_stats, market_params)
+        if msm_result.n_markets == 0:
+            raise ValueError(
+                f"Anchored estimator produced 0 markets for {ptype}; check the "
+                "anchor calibration (anchor_p_E/anchor_r/anchor_T) and the energy "
+                "consumption gap."
+            )
+        n_missing_regime = msm_result.n_markets - len(msm_result.model_moments)
+        if n_missing_regime > 0:
+            print(
+                f"[anchored] WARNING: {n_missing_regime}/{msm_result.n_markets} markets have "
+                "rho_hat/c0_hat but no regime classification (c0_m was undefined, e.g. "
+                "e_star<=0) -- excluded from the regime-distribution table and from "
+                "table_market_estimates' model-moments columns for those markets."
+            )
+
     use_twostep = did_params is not None
-    msm_result  = estimate_msm(
-        data_moments     = data_moments,
-        market_params    = market_params,
-        market_stats     = market_stats,
-        weighting_scheme = cfg["weighting_scheme"],
-        df               = df_est,
-        rho_init         = rho_init,
-        c0_init          = c0_init_dict,
-        n_restarts       = cfg["n_restarts"],
-        fix_rho          = use_twostep,
-    )
+    if msm_result is None:
+        msm_result = estimate_msm(
+            data_moments     = data_moments,
+            market_params    = market_params,
+            market_stats     = market_stats,
+            weighting_scheme = cfg["weighting_scheme"],
+            df               = df_est,
+            rho_init         = rho_init,
+            c0_init          = c0_init_dict,
+            n_restarts       = cfg["n_restarts"],
+            fix_rho          = use_twostep,
+        )
 
     c0_bounds = estimate_c0_bounds(market_stats, market_params, msm_result.rho_hat)
 
     # ── Bootstrap (optional) ────────────────────────────────────────────────
     se_dict = None
+    if cfg.get("n_boot", 0) > 0 and rho_estimator == "anchored":
+        raise NotImplementedError(
+            "Bootstrap SEs are not yet adapted for rho_estimator='anchored' -- "
+            "bootstrap_se() internally recomputes c0 via estimate_msm's old "
+            "rho*beta1*e_star formula (estimation.py:353), which would silently "
+            "produce SEs inconsistent with the anchored point estimates "
+            "(Proposition 2(ii)'s c0_m does not depend on rho). Set n_boot=0 for "
+            "anchored runs until a bootstrap over estimate_rho_c0_anchored() is "
+            "implemented."
+        )
     if cfg.get("n_boot", 0) > 0:
         print(f"[4b] Bootstrap SE  (B={cfg['n_boot']})")
         boot = bootstrap_se(
@@ -216,7 +287,6 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     cost_per_m2_grid       = cfg.get("cost_per_m2_grid", [250, 500, 1000])
     cost_per_m2_canonical  = float(cfg.get("cost_per_m2_canonical", 500.0))
 
-    market_levels    = compute_market_levels(df_est)
     subsidy_grid_df  = compute_subsidy_grid(
         market_stats     = market_stats,
         market_params    = market_params,
@@ -243,6 +313,10 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     if year is not None:
         out_dir = out_dir / str(year)
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    if anchored_result is not None:
+        anchored_result.details.to_csv(out_dir / "anchored_diagnostics.csv")
+        print(f"[outputs] anchored diagnostics saved to {out_dir / 'anchored_diagnostics.csv'}")
 
     # If the sibling property type was already estimated, load its cached CSVs
     # so the two-panel subsidy figures can be rendered in this single pass.
@@ -298,6 +372,7 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
         did_params      = did_params,
         data_moments    = data_moments,
         msm_result      = msm_result,
+        anchored_result = anchored_result,
         c0_bounds       = c0_bounds,
         subsidy_df      = subsidy_df,
         subsidy_grid_df = subsidy_grid_df,
@@ -401,7 +476,14 @@ def print_results(r: dict) -> str:
         row("N (truthful disclosers)",        f"{hp.n_obs:,}")
 
     # ── DiD event study ──────────────────────────────────────────────────────
-    sub_hdr("II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)")
+    rho_estimator_label = r.get("cfg", {}).get("rho_estimator", "ratio")
+    did_step_label = (
+        "II. DiD EVENT STUDY  (Step 2 — raw price-gap moments B_m, Δ_m; "
+        "ρ̂_m identified in Section III via the energy-cost anchor, not from these alone)"
+        if rho_estimator_label == "anchored"
+        else "II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)"
+    )
+    sub_hdr(did_step_label)
     if did_est is not None:
         did = did_est.did
         n_did    = did["DiD_beta1"].notna().sum()
@@ -417,7 +499,12 @@ def print_results(r: dict) -> str:
         row("  std",              _fmt(beta1_m.std(), 4))
         row("  [p10, p90]",       f"[{_fmt(beta1_m.quantile(.10),4)}, {_fmt(beta1_m.quantile(.90),4)}]")
         lines.append("")
-        row("Δ̂_m  non-disclosure premium (upper bound on ĉ₀_m)", "")
+        delta_label = (
+            "Δ̂_m  non-disclosure premium (over-identifying diagnostic, see λ̂_m below)"
+            if rho_estimator_label == "anchored"
+            else "Δ̂_m  non-disclosure premium (upper bound on ĉ₀_m)"
+        )
+        row(delta_label, "")
         row("  mean  (log pts)",  _fmt(delta_m.mean(), 4))
         row("  median",           _fmt(delta_m.median(), 4))
         row("  std",              _fmt(delta_m.std(), 4))
@@ -426,7 +513,12 @@ def print_results(r: dict) -> str:
         lines.append("  DiD stage skipped (index file not found).")
 
     # ── Structural estimates ─────────────────────────────────────────────────
-    sub_hdr("III. STRUCTURAL ESTIMATES  (Two-step: ρ̂ from DiD, ĉ₀ inverted)")
+    struct_hdr = (
+        "III. STRUCTURAL ESTIMATES  (Anchored: ρ̂ = B_m/β̂₁,m^anchor, ĉ₀ = B_m·ê*_m)"
+        if rho_estimator_label == "anchored"
+        else "III. STRUCTURAL ESTIMATES  (Two-step: ρ̂ from DiD, ĉ₀ inverted)"
+    )
+    sub_hdr(struct_hdr)
     lines.append("")
     lines.append(f"  {'Parameter':<42}{'Mean':>8}  {'Median':>8}  {'Std':>8}  {'[p10, p90]'}")
     lines.append(f"  {'─'*66}")
@@ -447,10 +539,21 @@ def print_results(r: dict) -> str:
     if "sigma_1_hat" in mkt.columns:
         stat_row("σ̂₁_m  high-quality hiding (pred. 0)",
                  mkt["sigma_1_hat"].dropna().values)
-    stat_row("ê*_m  equilibrium pool quality",
-             [did_par.e_star[m] for m in did_par.e_star.index
-              if not np.isnan(did_par.e_star[m])] if did_par is not None
-             else mkt["theta_bar_hat"].dropna().values)
+    # In anchored mode, source e_star from anchored_result.details (indexed over
+    # the further-restricted did ∩ market_stats ∩ beta1_anchor set that actually
+    # backs rho_hat/c0_hat) rather than did_par.e_star (the ratio estimator's
+    # object, computed unconditionally above but over a different market set) --
+    # otherwise this row's market count can silently disagree with the rho_hat/
+    # c0_hat rows immediately above it in the same table.
+    anchored_for_estar = r.get("anchored_result")
+    if rho_estimator_label == "anchored" and anchored_for_estar is not None:
+        e_star_vals = anchored_for_estar.details["e_star"].dropna().values
+    elif did_par is not None:
+        e_star_vals = [did_par.e_star[m] for m in did_par.e_star.index
+                       if not np.isnan(did_par.e_star[m])]
+    else:
+        e_star_vals = mkt["theta_bar_hat"].dropna().values
+    stat_row("ê*_m  equilibrium pool quality", e_star_vals)
 
     if se:
         lines.append("")
@@ -461,6 +564,23 @@ def print_results(r: dict) -> str:
             row("  SE(ρ̂_m)  mean across markets", _fmt(np.mean(rho_se_vals), 4))
         if c0_se_vals:
             row("  SE(ĉ₀_m) mean across markets", _fmt(np.mean(c0_se_vals), 4))
+
+    anchored = r.get("anchored_result")
+    if anchored is not None:
+        lines.append("")
+        sub_hdr("III-b. ANCHORED ESTIMATOR DIAGNOSTICS "
+                "(quality_reports/plans/humble-zooming-lovelace.md Appendix D)")
+        row("Markets with a defined ρ̂_m (anchored)", f"{anchored.n_total:>12,}")
+        row("  of which violate ρ̂_m ≤ 1 (testable inequality, NOT clipped)",
+            f"{anchored.n_violate_bound:>12,}")
+        row("Concentration Λ̄' = mean(ρ̂(1-ρ̂)), ρ̂∈[0,1] only",
+            _fmt(anchored.concentration, 4) + "  (near 0 ⇒ too saturated for a covariate index)")
+        lam = anchored.lambda_m.dropna()
+        if len(lam) > 0:
+            row("λ̂_m = Δ̂_m − B_m·ê*_m  (over-identifying wedge, Lemma 3)", "")
+            row("  mean  (log pts)", _fmt(lam.mean(), 4))
+            row("  t-stat vs H0: mean(λ̂_m)=0  (simple, not optimal-GMM)",
+                _fmt(anchored.j_stat, 2))
 
     # ── Economic magnitudes ──────────────────────────────────────────────────
     sub_hdr("IV. ECONOMIC MAGNITUDES")

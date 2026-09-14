@@ -18,6 +18,8 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from pathlib import Path
 
+from src.model import belief_function
+
 logger = logging.getLogger(__name__)
 
 RESULTS_DIR  = Path(__file__).parent.parent / "results"
@@ -1203,11 +1205,26 @@ def produce_all_outputs(
     figure_belief_function(theta_bar=float(market_stats["theta_bar_hat"].mean()))
     figure_premium_by_market(market_stats, rho_hat=msm_result.rho_hat)
     figure_rho_distribution(msm_result.rho_hat, market_stats)
+    if msm_result.model_moments:
+        scale_proxy = list(msm_result.model_moments.values())[0].e_star
+    else:
+        # No market has a regime classification (e.g. every anchored-estimator
+        # market had an undefined c0_m) -- fall back to the belief function at
+        # market-mean statistics rather than indexing into an empty dict.
+        logger.warning(
+            "[outputs] msm_result.model_moments is empty -- figure_equilibrium_phase_diagram's "
+            "scale proxy falls back to belief_function at market-mean statistics."
+        )
+        scale_proxy = belief_function(
+            float(market_stats["sigma_0_hat"].mean()),
+            float(market_stats["pi_hat"].mean()),
+            float(market_stats["theta_bar_hat"].mean()),
+        )
     figure_equilibrium_phase_diagram(
         c0_hat    = float(np.mean(list(msm_result.c0_hat.values()))),
         theta_bar = float(market_stats["theta_bar_hat"].mean()),
         beta_1    = hedonic_params.beta_1,
-        scale     = list(msm_result.model_moments.values())[0].e_star,  # proxy
+        scale     = scale_proxy,
     )
 
     if subsidy_df is not None:

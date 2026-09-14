@@ -31,7 +31,7 @@
   N (truthful disclosers)                   267,556
 
   ──────────────────────────────────────────────────────────────────
-  II. DiD EVENT STUDY  (Step 2 — identification of ρ̂_m)
+  II. DiD EVENT STUDY  (Step 2 — raw price-gap moments B_m, Δ_m; ρ̂_m identified in Section III via the energy-cost anchor, not from these alone)
   ──────────────────────────────────────────────────────────────────
   Markets with DiD estimates                         114
   Markets with β̂₁_m > 0 (usable)                    104
@@ -42,44 +42,54 @@
     std                                     0.0401
     [p10, p90]                              [0.0049, 0.1044]
 
-  Δ̂_m  non-disclosure premium (upper bound on ĉ₀_m)
+  Δ̂_m  non-disclosure premium (over-identifying diagnostic, see λ̂_m below)
     mean  (log pts)                         0.0341
     median                                  0.0308
     std                                     0.0475
     [p10, p90]                              [-0.0279, 0.0988]
 
   ──────────────────────────────────────────────────────────────────
-  III. STRUCTURAL ESTIMATES  (Two-step: ρ̂ from DiD, ĉ₀ inverted)
+  III. STRUCTURAL ESTIMATES  (Anchored: ρ̂ = B_m/β̂₁,m^anchor, ĉ₀ = B_m·ê*_m)
   ──────────────────────────────────────────────────────────────────
 
   Parameter                                     Mean    Median       Std  [p10, p90]
   ──────────────────────────────────────────────────────────────────
-  ρ̂_m  EPC-sensitive buyer share             0.6807    1.0000    0.4176  [0.0000, 1.0000]
-  ĉ₀_m  hiding cost  (log pts)                0.0253    0.0235    0.0226  [0.0000, 0.0528]
+  ρ̂_m  EPC-sensitive buyer share             0.4576    0.3933    0.2665  [0.1764, 0.8527]
+  ĉ₀_m  hiding cost  (log pts)                0.0345    0.0306    0.0202  [0.0121, 0.0673]
   σ̂₀_m  equilibrium hiding rate              0.0681    0.0513    0.0586  [0.0247, 0.1477]
   σ̂₁_m  high-quality hiding (pred. 0)        0.0000    0.0000    0.0000  [0.0000, 0.0000]
-  ê*_m  equilibrium pool quality              0.5883    0.5752    0.1075  [0.4644, 0.7315]
+  ê*_m  equilibrium pool quality              0.5952    0.5820    0.1017  [0.4867, 0.7313]
+
+
+  ──────────────────────────────────────────────────────────────────
+  III-b. ANCHORED ESTIMATOR DIAGNOSTICS (quality_reports/plans/humble-zooming-lovelace.md Appendix D)
+  ──────────────────────────────────────────────────────────────────
+  Markets with a defined ρ̂_m (anchored)              97
+    of which violate ρ̂_m ≤ 1 (testable inequality, NOT clipped)           5
+  Concentration Λ̄' = mean(ρ̂(1-ρ̂)), ρ̂∈[0,1] only0.1954  (near 0 ⇒ too saturated for a covariate index)
+  λ̂_m = Δ̂_m − B_m·ê*_m  (over-identifying wedge, Lemma 3)
+    mean  (log pts)                         0.0044
+    t-stat vs H0: mean(λ̂_m)=0  (simple, not optimal-GMM)1.10
 
   ──────────────────────────────────────────────────────────────────
   IV. ECONOMIC MAGNITUDES
   ──────────────────────────────────────────────────────────────────
-  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0497
-  Non-disclosure premium — CDH upper bound (log pts)0.0258
-  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0253
-  Non-disclosure premium — CAS lower bound (log pts)0.0204
-  Ordering check  CDH > PP > CAS            ✓ (0.0258 > 0.0253 > 0.0204)
-  Hiding cost ĉ₀  as % of disclosed-low price2.53%
+  Mean ρ̂ × β̂₁  (price sensitivity, log pts)0.0334
+  Non-disclosure premium — CDH upper bound (log pts)0.0351
+  Non-disclosure premium — Partial Pooling = ĉ₀ (log pts)0.0345
+  Non-disclosure premium — CAS lower bound (log pts)0.0276
+  Ordering check  CDH > PP > CAS            ✓ (0.0351 > 0.0345 > 0.0276)
+  Hiding cost ĉ₀  as % of disclosed-low price3.45%
 
   Interpretation: at the market mean, a low-quality informed
-  seller forgoes ~2.53 log pts (~2.5% of property
+  seller forgoes ~3.45 log pts (~3.5% of property
   value) to conceal her EPC score. The share of EPC-sensitive
-  buyers averages 68.1% across markets.
+  buyers averages 45.8% across markets.
 
   ──────────────────────────────────────────────────────────────────
   V. EQUILIBRIUM REGIME DISTRIBUTION
   ──────────────────────────────────────────────────────────────────
-    mixed_strategy                            76  (78.4%)
-    full_unraveling                           21  (21.6%)
+    mixed_strategy                            97  (100.0%)
 
 ======================================================================
   END OF RESULTS — HOUSE
