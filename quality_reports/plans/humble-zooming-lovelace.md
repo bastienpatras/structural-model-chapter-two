@@ -72,24 +72,52 @@ external scale the derivation's Proposition 4 requires.
 
 β1_m = κ · A_m / P_m, where A_m = (Ē0,m − Ē1,m) · p^E · a(r,T), a(r,T) = [1−(1+r)^(−T)]/r
 
-1. **Verify (gate before any code):** does the ADEME registry source data (`ADEME/`) carry raw
-   certified energy-consumption values (kWh_ep/m²/yr), not just the letter grade? DPE registries
-   standardly do (`consommation_energie` field); confirm the exact column name and coverage before
-   building on it.
-2. If present: extend `src/data_prep.py`'s market-stats aggregation (near `compute_market_stats`)
-   to compute Ē0,m, Ē1,m (mean consumption by quality band, per market, from matched ADEME
-   records only — i.e., K=1 listings, so this doesn't reintroduce a price-data dependency).
+**Revised after investigation (2026-09-14): no raw per-listing kWh data available without a live
+GCS pull.** The ADEME registry is fetched from Google Cloud Storage (`ADEME/tools.py`'s
+`read_csv_from_gcs`, geocoded address-level DPE data by department) and the current matching
+pipeline (`ADEME/enrich_listings.py`) only retains the **letter grade** (`K`, `ademe_epc_letter`/
+`ademe_epc_score`), not raw consumption values — confirmed no cached raw-consumption extract
+exists locally in `data/`. A fresh GCS pull touches confidential, geocoded, address-level data
+(`.claude/rules/confidential-data.md` scope) and needs its own credentials/authorization — not
+attempted here. **Adopted instead: a band-midpoint anchor**, using only already-local data:
+
+1. **Band midpoints are public, fixed, nationally-standardized** — the post-2021 French DPE
+   methodology defines primary-energy consumption thresholds per letter (A ≤70, B 71–110,
+   C 111–180, D 181–250, E 251–330, F 331–420, G >420 kWh_ep/m²/yr). Use documented midpoints
+   (open-ended G band needs a defensible upper reference, not just a guess) as a citable, public
+   calibration table — no new data acquisition, no confidentiality exposure.
+2. Compute Ē0,m (weighted avg. of E/F/G midpoints) and Ē1,m (weighted avg. of A/B/C/D midpoints)
+   **per market, weighted by that market's actual within-band letter distribution among ALL K=1
+   listings — both disclosed (d=1) AND hidden (d=0)**, not disclosed-only (same selection-bias
+   argument as before: pooling both groups is what avoids re-introducing it). First confirm the
+   TRUE ADEME-matched letter (`ademe_epc_score` or equivalent, set in `src/data_prep.py`'s
+   `merge_datasets`) is populated for K=1,d=0 (strategic-hiding) listings too, not only for
+   disclosed ones — this is a much lighter check than the original raw-consumption-merge question,
+   since it's local data already in the pipeline, not a new field.
 3. Calibrate p^E (energy price, €/kWh), r (discount rate), T (horizon) as **national constants**
-   for the first pass (not market-varying) — the derivation's own recommendation ("κ=1 in the
-   baseline… report sensitivity over a grid"); local variation in β1_m already comes through
-   Ē0,m−Ē1,m and P_m (already in `market_stats` via `compute_market_levels`). Source p^E from a
-   public reference (e.g. CRE/INSEE average residential electricity+gas price), document the
-   source and the calibration grid in the config.
-4. If raw consumption values are **not** available in the current ADEME extract: fall back to
-   Variant III from the derivation (subgroup normalization — ρ_m=1 imposed on an ex-ante
-   rental-ban-dominated subgroup of markets, giving a √M-consistent β̂1) rather than blocking the
-   whole branch on a new data acquisition. Flag this as a scope decision to confirm once step 1's
-   verification result is known.
+   for the first pass — market-level variation in β1_m now comes through each market's actual
+   letter-band mix (step 2) and P_m (already in `market_stats`). Source p^E from a public
+   reference (e.g. CRE/INSEE average residential electricity+gas price); document the source and
+   report a calibration sensitivity grid, not a single point.
+
+   **Status (2026-09-14), validated on real data:** p^E≈€0.21/kWh (CRE/Eurostat 2022-2024
+   average, blended primary-energy-equivalent — DPE bands are kWh_ep primary energy, not billed
+   kWh; a proper heating-vector-weighted conversion needs per-listing heating-type data we don't
+   have, flag as a simplification), r≈3.75% (contemporary French mortgage rate). **T is the open
+   item**: apartment mean ρ̂ ranges from 0.50 (T=10, 2% violate ρ≤1) down to 0.15 (perpetuity, 0%
+   violate) — highly sensitive, not a nuisance parameter. Bastien is sourcing actual French
+   property holding-period data (INSEE *Enquête Logement*; Notaires de France/CGEDD durée de
+   détention avant revente) rather than assuming a long "efficient capitalization" horizon —
+   consistent with the energy-efficiency-gap literature (Hausman 1979, Allcott & Wozny 2014)
+   finding buyers empirically behave as if using shorter horizons. Full sensitivity grid and
+   sourcing notes: native memory `rho_anchor_calibration.md`. **Do not lock T until that number is
+   in hand** — re-run the same validation script pattern (§ this file, agent transcript
+   2026-09-14) once available.
+4. Coarseness caveat to carry into Phase 3: this loses within-band variation (e.g. a market's A–D
+   mix skewed toward A vs. toward D reads the same only insofar as the letter *distribution* is
+   used, but every A property gets the same midpoint regardless of true position within the band)
+   — flag this explicitly as a limitation, and note the raw-microdata version (requiring GCS
+   access) remains available as a future refinement if/when that access is authorized.
 
 ## Phase 2 — Code: the point-identified estimator
 
@@ -114,12 +142,26 @@ becomes a labeled diagnostic, not the estimator):
      test rather than an estimation nuisance).
    - The c0-homogeneity diagnostic (§2.3): scatter ê_m vs 1/B_m across PP markets, and the
      corresponding common-c0 estimate, as a robustness cross-check.
-4. Wire into `run.py`: new config key (e.g. `"rho_estimator": "anchored"` vs the legacy
-   `"ratio"`), inserted after the existing `did_params = estimate_rho_c0(...)` call (`run.py:108`)
-   — call the new estimator, and pass its `rho_m`/`c0_m` into `rho_init`/`c0_init_dict`
-   (`run.py:132-144`) in place of `did_params.rho_m`/`did_params.c0_m`. Keep `did_params` computed
-   as before (source of the diagnostics above and of B_m/Δ_m themselves) — this is an additive
-   change, not a deletion of `estimate_rho_c0`.
+4. **Status (2026-09-14): module built and validated (`src/rho_identification.py`,
+   `estimate_beta1_anchor` + `estimate_rho_c0_anchored`), full `run.py` wiring deliberately
+   deferred until T is locked (see Phase 1 status note above).** Tested end-to-end on real data,
+   both property types (T=10 placeholder): apartments n=49, mean ρ̂=0.498, 1 violation of ρ≤1;
+   houses n=104, mean ρ̂=0.455, 6 violations; ĉ₀_m now computed correctly via Proposition 2(ii)
+   for both (apartment mean 2.37%, house mean 3.39%); λ̂_m wedge and a simple one-sample-t
+   diagnostic (not a full optimal-GMM J-test yet) also validated.
+
+   **A real wiring subtlety, resolved on paper but not yet executed:** naively passing the
+   anchored ρ̂_m into `run.py`'s existing `rho_init` and letting `estimate_msm(fix_rho=True)` run
+   as before would silently reintroduce a ρ-dependence into ĉ₀ (`estimation.py:353` computes
+   `rho_m * beta1_m * e_star`, so feeding it the anchored ρ̂_m gives
+   ĉ₀ = (β̂1,m^DiD)²/β̂1,m^anchor · ê*_m — NOT Proposition 2(ii)'s B_m·ê*_m). The correct wiring
+   bypasses `estimate_msm` for anchored mode entirely and constructs a compatible `MSMResult`
+   directly from `AnchoredResult` (`estimation.py:262-280`: `rho_hat`, `c0_hat` are plain
+   `dict[market_id, float]` — straightforward to populate from `AnchoredResult.rho_m`/`.c0_m`) —
+   but `eq_types` (regime classification, feeds Table 4/figure grouping) also needs populating
+   consistently via `model.solve_equilibrium`-style classification, not left empty, since
+   downstream code groups by regime. **Do this wiring once T is locked, not before** — avoids
+   validating throwaway plumbing against a provisional calibration.
 5. `src/outputs.py`: extend `_market_estimates_from_grid`'s hardcoded `keep` list
    (`outputs.py:650-656`) to add `rho_m_anchored, lambda_m, regime_j_stat` (or similar) alongside
    existing columns, so `market_estimates.csv`/`subsidy_grid.csv` carry both the old (diagnostic)

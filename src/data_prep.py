@@ -406,6 +406,110 @@ def compute_market_stats(df: pd.DataFrame, controls: list[str] | None = None) ->
 
 
 # ---------------------------------------------------------------------------
+# Section C.1 — Energy-consumption anchor for beta_1 identification
+# ---------------------------------------------------------------------------
+#
+# Official post-2021 French DPE primary-energy consumption bands (kWh_ep/m^2/yr),
+# per the reformed "methode 3CL-DPE" (arrete du 8 octobre 2021). The G band is
+# open-ended; 500 kWh/m^2/yr is used here as a documented placeholder pending a
+# properly cited reference for the paper -- revisit during Phase 3 drafting
+# (quality_reports/plans/humble-zooming-lovelace.md), do not treat as final.
+DPE_BAND_MIDPOINT_KWH_M2_YR = {
+    1: 35.0,    # A: <=70
+    2: 90.5,    # B: 71-110
+    3: 145.5,   # C: 111-180
+    4: 215.5,   # D: 181-250
+    5: 290.5,   # E: 251-330
+    6: 375.5,   # F: 331-420
+    7: 500.0,   # G: >420 (open-ended; placeholder, see comment above)
+}
+
+
+def compute_energy_anchor(
+    df            : pd.DataFrame,
+    epc_threshold : float = 4.0,
+    band_midpoints: dict | None = None,
+    market_col    : str = "market_id",
+) -> pd.DataFrame:
+    """
+    Market-level energy-consumption gap (Ebar_0,m - Ebar_1,m), the non-price
+    input to the structural beta_1 anchor (Assumption A,
+    quality_reports/plans/humble-zooming-lovelace.md Phase 1). Non-price and
+    non-ratio by construction: built entirely from the ADEME-certified letter
+    grade, independent of prices and of rho.
+
+    Pools BOTH disclosed (d=1) and hidden (d=0) K=1 listings, using the TRUE
+    ADEME-matched letter (`ademe_epc_score`), not the `theta` column -- theta
+    can be corrupted for hiders under hider_theta="impose_zero" (forced to 0
+    regardless of true registry score), which would silently reintroduce
+    selection bias here if used instead of ademe_epc_score directly.
+
+    Parameters
+    ----------
+    df             : listing-level DataFrame, output of merge_datasets (must
+                     carry K, ademe_epc_score, market_id)
+    epc_threshold  : quality cutoff on the 1-7 ordinal score (A=1...G=7);
+                     score <= epc_threshold is "high quality" (theta=1)
+    band_midpoints : {ordinal_score: kWh_ep/m^2/yr}; defaults to
+                     DPE_BAND_MIDPOINT_KWH_M2_YR
+    market_col     : market identifier column
+
+    Returns
+    -------
+    pd.DataFrame indexed by market_id:
+        e_bar_0_kwh : mean consumption midpoint, low-quality (score > threshold)
+                      K=1 listings
+        e_bar_1_kwh : mean consumption midpoint, high-quality (score <= threshold)
+                      K=1 listings
+        n_k1_low    : count backing e_bar_0_kwh
+        n_k1_high   : count backing e_bar_1_kwh
+    """
+    if band_midpoints is None:
+        band_midpoints = DPE_BAND_MIDPOINT_KWH_M2_YR
+
+    if "ademe_epc_score" not in df.columns:
+        raise ValueError(
+            "compute_energy_anchor requires 'ademe_epc_score' (the true ADEME-"
+            "matched letter, populated for K=1 listings regardless of "
+            "disclosure) -- pass the output of merge_datasets with the ADEME "
+            "registry attached, not a listings-only DataFrame."
+        )
+
+    informed = df[df["K"] == 1].copy()
+    informed["e_kwh"] = informed["ademe_epc_score"].map(band_midpoints)
+    n_unmapped = informed["e_kwh"].isna().sum()
+    if n_unmapped > 0:
+        logger.warning(
+            f"[energy_anchor] {n_unmapped}/{len(informed)} K=1 listings have an "
+            "ademe_epc_score outside the mapped 1-7 range -- dropped."
+        )
+    informed = informed.dropna(subset=["e_kwh"])
+    informed["quality_high"] = informed["ademe_epc_score"] <= epc_threshold
+
+    rows = []
+    for m, grp in informed.groupby(market_col, observed=False):
+        low  = grp.loc[~grp["quality_high"], "e_kwh"]
+        high = grp.loc[ grp["quality_high"], "e_kwh"]
+        rows.append({
+            "market_id":   m,
+            "e_bar_0_kwh": low.mean()  if len(low)  > 0 else np.nan,
+            "e_bar_1_kwh": high.mean() if len(high) > 0 else np.nan,
+            "n_k1_low":    len(low),
+            "n_k1_high":   len(high),
+        })
+
+    out = pd.DataFrame(rows).set_index("market_id")
+    gap_mean = (out["e_bar_0_kwh"] - out["e_bar_1_kwh"]).mean()
+    logger.info(
+        f"[energy_anchor] {len(out)} markets  "
+        f"mean gap (Ebar0-Ebar1)={gap_mean:.1f} kWh/m2/yr  "
+        f"median n_k1_low={out['n_k1_low'].median():.0f}  "
+        f"median n_k1_high={out['n_k1_high'].median():.0f}"
+    )
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Section D — Synthetic data generator (for testing the pipeline)
 # ---------------------------------------------------------------------------
 
