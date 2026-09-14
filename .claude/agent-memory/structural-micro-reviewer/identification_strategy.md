@@ -1,8 +1,20 @@
 ---
 name: identification_strategy
-description: Detailed notes on the DiD + MSM identification strategy and its known weaknesses, updated 2026-04-21
+description: Detailed notes on the DiD + MSM identification strategy and its known weaknesses, updated 2026-04-21 — LARGELY SUPERSEDED, see review_2026-09 note below before relying on this
 type: project
 ---
+
+**⚠ Status note (2026-09-14, see [[review_2026-09_paper_code_review]] for full detail):** several
+items below are now stale relative to `paper-real-estate/sections/04-structural-draft.tex` and
+`src/estimation.py` at rev `ee0e311`. Specifically: the "critical directional error" on ĉ₀_m's
+upper/lower bound (line ~62 below) is confirmed fixed — the paper now correctly calls ĉ₀_m an
+upper bound throughout. The "joint MSM vs. two-step narrative" tension (lines 23-28) is resolved:
+`estimate_msm(fix_rho=True)` is now explicitly documented as "the primary estimator" (closed-form
+two-step inversion, no joint optimisation); `fix_rho=False` joint mode is explicitly labeled
+robustness-only. The σ̂₁=0 "validation" claim (line 67-68 below) is **no longer made in the
+paper** — §4.1 now explicitly disclaims it as an imposed assumption, not a tested restriction. Re-
+read the current section text before citing any of the pre-2026-09 findings below as live paper
+claims — they were accurate readings of an earlier draft, not of the current one.
 
 **DiD event study (first stage — ρ_m):**
 - Pre-reform (≤ Jun 2021): DPE not legally opposable, ρ_m ≈ 0

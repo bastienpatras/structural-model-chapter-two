@@ -1,0 +1,94 @@
+% =====================================================================
+% APPENDIX — robustness to the quality threshold and to the sigma_1 = 0
+% restriction. Referenced from §4.1.
+% =====================================================================
+
+\section{Robustness: The Quality Threshold and the $\sigma_1^*=0$ Restriction}
+\label{app:robustness}
+
+Two maintained choices in the baseline specification deserve separate scrutiny, because each
+is an assumption rather than an estimate.
+
+The first is where the binary quality space is cut. The baseline places the boundary between
+D and E, so that $\theta=1$ corresponds to grades A--D. This follows the rental-ban
+discontinuity of \emph{loi Climat et R\'esilience} discussed in
+Section~\ref{ss:institutions}, and it is the cut for which the price-index contrast and the
+listing-level quality measure refer to the same partition of grades. The natural alternative
+places the boundary between C and D.
+
+The second is the treatment of informed sellers who withhold. Because such a listing displays
+no score, its quality cannot be read from the listing itself. The baseline assigns
+$\theta=0$ by revealed preference, invoking Corollary~\ref{cor:hq_disclose}. That assignment
+is an assumption, and its consequence is worth stating plainly. It makes
+$\hat\sigma_{1,m}$ identically zero by construction, so the corollary cannot be assessed
+against the baseline estimates. The alternative reads the withheld grade from the ADEME
+registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured.
+
+Table~\ref{tab:robustness} crosses the two choices.
+
+\begin{table}[H]
+\centering
+\caption{Sensitivity to the quality threshold and to the $\sigma_1$ assignment}
+\label{tab:robustness}
+\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{c}@{}}
+\toprule\toprule
+\textbf{Specification} & $N$ & $\hat\rho_m$ & $\hat c_{0,m}$ & $\hat\sigma_{0,m}$ & $\hat\sigma_{1,m}$ & $\hat{\bar\theta}_m$ \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel A: Apartments}} \\[2pt]
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 45 & 90.9\% & 3.42\% & 14.0\% & n/a & 62.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 45 & 90.8\% & 3.75\% &  5.5\% & 5.1\% & 65.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 40 & 95.0\% & 1.62\% &  7.1\% & n/a & 26.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 40 & 95.0\% & 1.75\% &  4.8\% & 6.5\% & 28.4\% \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel B: Houses}} \\[2pt]
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 97 & 68.1\% & 4.45\% &  5.7\% & n/a & 60.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 97 & 67.7\% & 4.59\% &  2.2\% & 2.1\% & 61.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 100 & 71.8\% & 1.80\% &  3.0\% & n/a & 28.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 100 & 71.7\% & 1.88\% &  1.9\% & 2.5\% & 29.3\% \\
+\bottomrule\bottomrule
+\end{tabular*}
+\vspace{0.5em}
+\begin{minipage}{\linewidth}
+\footnotesize\textit{Notes.} Market-level means. ``$\sigma_1$ imposed'' assigns $\theta=0$ to
+informed non-disclosers by revealed preference, which forces $\hat\sigma_{1,m}=0$ in every
+market; the column reads n/a there because the quantity is assumed rather than estimated.
+``$\sigma_1$ from registry'' binarises the withheld grade from the ADEME record. The quality
+threshold also governs the price-index contrast. A--D vs E/F/G merges the \emph{Efficient} and
+\emph{Balanced} index series by transaction volume, while A--C vs E/F/G contrasts
+\emph{Efficient} against \emph{Intensive} and omits \emph{Balanced}. Market counts differ
+across rows because the minimum-volume filter is applied to the high-group series, which is
+larger under the A--D contrast.
+\end{minipage}
+\end{table}
+
+Three results follow.
+
+First, the structural estimates are insensitive to the $\sigma_1$ assignment. Holding the
+threshold fixed, relaxing the restriction moves $\hat\rho_m$ by less than a tenth of a
+percentage point in both segments, and moves $\hat c_{0,m}$ from 3.42\% to 3.75\% for
+apartments and from 4.45\% to 4.59\% for houses. The concealment cost is therefore not an
+artefact of the revealed-preference assignment, even though $\hat\sigma_{0,m}$ itself is
+sensitive to it. Imposing $\theta=0$ places every informed non-discloser in the low-quality
+group and roughly doubles the measured hiding rate.
+
+Second, the restriction $\sigma_1^*=0$ is not satisfied exactly, but the model's predicted
+\emph{ordering} holds under the maintained threshold. With quality read from the registry and
+the cut at the rental-ban boundary, $\hat\sigma_{1,m} = 5.1\%$ against
+$\hat\sigma_{0,m} = 5.5\%$ for apartments, and $2.1\%$ against $2.2\%$ for houses. Informed
+sellers of low-quality properties withhold more often than informed sellers of high-quality
+ones, as the model requires, though the gap is narrow. Under the C--D cut the ordering
+reverses in both segments ($6.5\%$ against $4.8\%$, and $2.5\%$ against $1.9\%$). The
+threshold that the institutional setting selects is thus also the one under which the
+behavioural restriction survives, which we read as support for the baseline cut rather than
+as independent confirmation of the corollary.
+
+Third, the threshold matters a great deal for the level of the concealment cost, and this is
+the paper's most consequential specification choice. Moving the cut from C--D to D--E raises
+$\hat c_{0,m}$ from roughly 1.6--1.8\% of property value to 3.4--4.6\%. The mechanism is
+transparent. With A--D counted as high quality, the average quality of the non-disclosing
+pool $\hat e^*_m$ roughly doubles, and $c_{0,m} = \rho_m\beta_{1,m}e^*_m$ scales with it.
+Readers who prefer the narrower definition of ``high quality'' should therefore read the
+concealment cost as the smaller figure throughout; the qualitative results (the ordering
+across segments, the boundary saturation in $\hat\rho_m$, and the regime classification)
+are unaffected.

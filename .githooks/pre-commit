@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+#
+# Pre-commit gate for structural-model-chapter-two, ported from the
+# rental-disclosure-claude academic-workflow template on 2026-09-13.
+#
+# Install once per clone:   ./scripts/install-hooks.sh
+# (sets core.hooksPath=.githooks so git finds this version-controlled hook.)
+#
+# It runs the backtest suite (surface-sync, skill integrity, model-version
+# currency, links, spec-conformance, staleness, repo-hygiene, derived-counts,
+# ledger-coverage, hook-battery) against the STAGED changes and aborts the
+# commit on failure.
+#
+# The numeric quality-score gate (>= 80, from the rental-disclosure-claude
+# lecture-material rubric in quality_score.py) is DEFERRED for this project —
+# quality_score.py was written for Quarto/Beamer/R lecture materials and has
+# not been adapted to paper prose. See CLAUDE.md "Quality gates" section.
+# Revisit once/if a prose-specific rubric is written.
+#
+# Escape hatch (use sparingly; record the reason in the commit message):
+#   git commit --no-verify ...           # skip ALL hooks (last resort)
+#
+set -uo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || {
+    echo "pre-commit: not inside a git work tree" >&2
+    exit 2
+}
+cd "$REPO_ROOT" || exit 2
+
+# Validate the STAGED index, not the working tree, by stashing unstaged
+# *tracked* changes — but ONLY when it is safe. If any single file has BOTH
+# staged and unstaged changes (the `git add -p` workflow), a `stash --keep-index`
+# + `pop` round-trip can conflict and write literal conflict markers into your
+# file. In that case we skip the stash and validate the working tree as-is (with
+# a warning) rather than risk corrupting your work. Untracked files are never
+# stashed (avoids slow stashes of large data dirs). A failed pop is loud +
+# recoverable, never silently swallowed.
+_STASHED=0
+_staged="$(git diff --cached --name-only 2>/dev/null | sort)"
+_unstaged="$(git diff --name-only 2>/dev/null | sort)"
+_overlap="$(comm -12 <(printf '%s\n' "$_staged") <(printf '%s\n' "$_unstaged") | grep -c . || true)"
+if [ "${_overlap:-0}" -gt 0 ] 2>/dev/null; then
+    echo "ℹ pre-commit: ${_overlap} file(s) have both staged and unstaged changes —" >&2
+    echo "  validating the WORKING TREE (not the pure staged index) to avoid a stash conflict." >&2
+elif [ -n "$_unstaged" ]; then
+    if git stash push --keep-index --quiet --message "pre-commit-gate" 2>/dev/null; then
+        _STASHED=1
+        trap 'if [ "$_STASHED" = "1" ]; then git stash pop --quiet 2>/dev/null || echo "⚠ pre-commit: could not auto-restore unstaged changes — recover with: git stash pop" >&2; fi' EXIT
+    fi
+fi
+
+FAIL=0
+
+echo "── pre-commit: backtest (full gate suite — see scripts/backtest.sh) ──"
+./scripts/backtest.sh
+[ $? -ne 0 ] && FAIL=1
+
+if [ "$FAIL" -ne 0 ]; then
+    echo "" >&2
+    echo "✗ pre-commit gate failed — commit aborted." >&2
+    echo "  Fix the findings above, or (sparingly) bypass with --no-verify." >&2
+    exit 1
+fi
+
+echo ""
+echo "✓ pre-commit gates passed."
+exit 0
