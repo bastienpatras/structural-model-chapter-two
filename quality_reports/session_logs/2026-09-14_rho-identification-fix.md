@@ -75,3 +75,16 @@ throwaway plumbing against a provisional calibration.
 Waiting on user's tenure/holding-period number to finalize T, then: wire the estimator into
 `run.py` (Phase 2 step 4-5), re-run both property types, then Phase 3 (paper rewrite — Table 4,
 identification section, robustness appendix, abstract/conclusion, §5 prose).
+
+### Phase 2 step 4-5 — done (commit ef30718)
+
+T locked at 10 (user's call). Wired into `run.py` (opt-in `rho_estimator` config key, validated),
+`config_apartment.json`/`config_house.json` now set `rho_estimator="anchored"`. python-reviewer
+caught 3 more issues in the wiring (all fixed): `outputs.py:1210` crash risk on empty
+`model_moments`, unvalidated `rho_estimator` string, wrong-estimator `e_star` in results.txt.
+Full pipeline re-run clean, default path confirmed byte-identical to pre-change (no regression).
+
+New results: apartments n=45 ρ̂=0.495 (1 violation), ĉ0=2.41%; houses n=97 ρ̂=0.458 (5 violations),
+ĉ0=3.45%. Diagnostics (λ̂_m, concentration, J-stat) now in results.txt + anchored_diagnostics.csv.
+
+Next: T=5/T=15 sensitivity grid (not yet run), then Phase 3 (paper rewrite).
