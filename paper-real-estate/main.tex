@@ -60,23 +60,20 @@ Standard unraveling theory predicts that mandatory disclosure separates high-qua
 
 \subsection{Motivation}
 
-The core model treats $\theta$ as exogenous. From a policy perspective, the key distortion is that informed low-quality sellers can earn rents by pooling with the uninformed instead of upgrading the underlying asset. A seller with $\theta=0$ faces three options: hide at cost $c_0$ and capture a share of the non-disclosure premium, disclose her low quality and accept the discount, or renovate at cost $R(X)$ and disclose verified high quality. The wedge that renovation must overcome is the verified-quality premium $\Pi(d{=}1,\theta{=}1) - \Pi(d{=}1,\theta{=}0)$: the price difference between disclosed high and disclosed low quality. Whenever the engineering cost of renovation exceeds this verified-quality premium, the seller declines to invest, and a renovation subsidy is the natural instrument to close the gap.
+The core model treats $\theta$ as exogenous, but the policy question is what happens once it becomes a choice. An informed seller who holds a low-quality certificate has three ways to respond to the disclosure regime: pay $c_0$ to hide it and hope to share in the non-disclosure premium, disclose the low score and take the discount that comes with it, or renovate at engineering cost $R(X)$ and disclose a verified high score instead. What renovation has to clear is the verified-quality premium, the price gap between a disclosed high-quality listing and a disclosed low-quality one. Whenever renovating costs more than that premium, the seller declines to invest, and a subsidy is the natural instrument for closing the gap.
 
-A subtler point, developed formally below, is that the renovation threshold's apparent dependence on the hiding cost is illusory in the partial-pooling regime. The renovation comparison pits renovate-and-disclose against hiding: an informed low-quality seller never strictly prefers to disclose her low quality when a positive opacity premium exists, since hiding yields the inflated non-disclosure pool revenue at the cost $c_0$, and that premium-net-of-cost is weakly positive whenever any seller hides in equilibrium. Strategy~1 (disclose-low) is therefore weakly dominated by Strategy~2 (hide), and the threshold $\bar R = \Pi(d{=}1,\theta{=}1) - \Pi(d{=}0;e^*) + c_0$ comes from comparing renovation to hiding alone. The $+c_0$ in this formula is misleading: $\Pi(d{=}0;e^*)$ is itself an equilibrium revenue that adjusts to the hiding cost through the equilibrium hiding rate $\sigma_0^*$. In partial pooling, the indifference condition $\Pi(d{=}0;e^*) - c_0 = \Pi(d{=}1,\theta{=}0)$ causes the $c_0$ term to cancel exactly, and the threshold collapses to the verified-quality premium $\Pi(d{=}1,\theta{=}1)-\Pi(d{=}1,\theta{=}0)$. The regulator nevertheless retains a meaningful disclosure-policy lever: \emph{verification production}, that is, the rate at which sellers obtain EPC audits and enter the informed population $\pi$. This margin does not affect the marginal seller's renovation threshold either, but it scales the population of sellers subject to that threshold and, over time, converts the housing stock from uninformed to verified status. The three resulting policy instruments (renovation subsidies, hiding-cost enforcement, and verification enforcement) act on three different margins of the seller's problem and are best understood as complements rather than substitutes.
+A subtler point runs through the rest of this section, and it is worth flagging before the formal argument: the renovation threshold looks, at first pass, as though it should rise one-for-one with the hiding cost $c_0$, and it does not. The reason starts with which alternative renovation is actually competing against. An informed low-quality seller who is weighing renovation is not really choosing between renovating and disclosing her true low quality; she is choosing between renovating and hiding, because disclosing low quality is itself a strategy no informed seller would take over hiding once the non-disclosure pool carries a positive premium. Hiding delivers the inflated pool price at cost $c_0$, and that premium net of cost is weakly positive whenever anyone hides in equilibrium at all, so disclosing low quality is weakly dominated and drops out of the comparison. The threshold that remains is pinned by renovate-versus-hide, and on its face the hiding cost enters that threshold additively, as something a seller escapes by renovating. But the hide payoff is not a primitive: it is an equilibrium object, and it moves with $c_0$ through the equilibrium hiding rate that $c_0$ itself helps determine. In the partial-pooling regime, the same indifference condition that pins that hiding rate forces the hiding-cost terms to cancel exactly, and the threshold collapses to the verified-quality premium alone, with no residual dependence on $c_0$ (Lemma~\ref{lem:threshold_regimes}, proven in Appendix~\ref{app:proofs}). The regulator nevertheless retains a meaningful disclosure-policy lever: \emph{verification production}, the rate at which sellers obtain EPC audits and enter the informed population $\pi$. This margin does not move the marginal seller's renovation threshold either, but it scales the population of sellers subject to that threshold and, over time, converts the housing stock from uninformed to verified status. Renovation subsidies, hiding-cost enforcement, and verification enforcement therefore act on three different margins of the seller's problem, and are best understood as complements rather than substitutes.
 
 \subsection{Extended Seller Problem}
 
-We introduce renovation $r\in\{0,1\}$ such that $\theta'=1$ if $r=1$ (for a $\theta=0$ seller). The informed low-quality seller's extended problem is:
+Formalizing this requires one addition to the model: a renovation choice $r\in\{0,1\}$ that upgrades an informed low-quality seller's true type to $\theta'=1$ when $r=1$. Her extended problem is
 \begin{equation}
     \max_{\{r,d,p^{\text{list}}\}}\;\Pi(r,d,p^{\text{list}}\mid\theta,X) = \phi(p^{\text{list}})\cdot\Gamma(p^{\text{list}}\mid d,\theta')-C(\theta',d)-(R(X,r)-S)
     \label{eq:seller_problem}
 \end{equation}
-The subsidy $S\geq 0$ reduces the effective renovation cost. Renovating and then hiding is strictly dominated by renovating and disclosing: a seller who upgrades to $\theta=1$ has no reason to conceal this.
+where a subsidy $S\geq 0$ reduces the effective renovation cost she faces.
 
-The three strategies available to an informed low-quality seller are summarized in
-Table~\ref{tab:strategies}. The fourth cell, $(r=1, d=0)$, is omitted: renovating
-and then hiding is strictly dominated by renovating and disclosing, since a verified
-$\theta=1$ seller earns strictly more by signalling her quality (Corollary~\ref{cor:hq_disclose}).
+Three strategies survive scrutiny, laid out in Table~\ref{tab:strategies}: disclose the low score as is, hide it, or renovate and disclose the resulting high score. A fourth combination, renovating and then hiding, is never worth considering, and Corollary~\ref{cor:hq_disclose} (proven in Appendix~\ref{app:proofs}) is exactly the result that rules it out — a verified $\theta=1$ seller strictly prefers to disclose, whatever the prevailing pool belief, so a seller who has already paid to renovate has no reason to then conceal what she paid for.
 
 \begin{table}[H]
 \centering
@@ -108,37 +105,14 @@ $\theta=1$ seller earns strictly more by signalling her quality (Corollary~\ref{
 at $\theta=0$). The gross revenue terms $\Pi(d,\theta)$ absorb the transaction cost
 $C(\theta',d)$ from eq.~\eqref{eq:seller_problem} and are distinct objects.
 $e(\sigma_0^*)$ denotes the equilibrium pool quality belief~\eqref{eq:belief_simplified}.
-The strategy $(r=1, d=0)$ is omitted as strictly dominated.\footnotemark
+The strategy $(r=1, d=0)$ is omitted as strictly dominated (Corollary~\ref{cor:hq_disclose}).
 \end{table}
 
 \vspace{-1em}
 
-\footnotetext{A seller who renovates to $\theta=1$ has no incentive to conceal:
-disclosed high quality commands $\Pi(d=1,\theta=1)>\Pi(d=0)$ for any $e(\sigma_0^*)<1$,
-incurring the same renovation cost $R(X)-S$ regardless of disclosure.
-Strategy~3 also dominates Strategy~1 whenever $R(X)-S<\Pi(d=1,\theta=1)-\Pi(d=1,\theta=0)$;
-but the policy analysis focuses on the transition from Strategy~2, since the concealment
-trap binds only for sellers who are already hiding.}
+Table~\ref{tab:strategies} also makes plain why Strategy~1 does not survive as a live alternative once Strategy~2 is on the table. Whenever the non-disclosure pool carries a positive opacity premium $\Delta(e^*) = \rho\beta_1 e^* > 0$, an informed low-quality seller prefers hiding to disclosing her true quality outright: the revenue gain from sitting in the non-disclosure pool at least covers what hiding costs her. In any equilibrium where some sellers hide at all, the equilibrium hiding rate satisfies $\Pi(d=0;e^*) - c_0 \ge \Pi(d=1,\theta=0)$, with equality exactly at the partial-pooling indifference point. Disclosing low quality is therefore weakly dominated by hiding, and the renovation decision collapses to a single comparison: Strategy~3 (renovate and disclose) against Strategy~2 (hide). (Renovating also dominates Strategy~1 directly whenever $R(X)-S<\Pi(d=1,\theta=1)-\Pi(d=1,\theta=0)$, but the policy-relevant margin is the transition away from Strategy~2, since the concealment trap binds only for sellers who are already hiding.) Renovating wins whenever the renovation cost net of subsidy stays below a threshold equal to the verified-quality premium plus the hiding cost the seller no longer has to pay — the object $\bar R(\pi,\rho,X)$ defined and analyzed formally below (eq.~\eqref{eq:threshold}). Absent a subsidy, renovation is privately optimal whenever $R(X)\le\bar R$; the minimum incentive-compatible subsidy is the shortfall $R(X)-\bar R$, the transfer needed to restore private incentives once the engineering cost outruns what the market rewards.
 
-\noindent The relevant non-renovation alternative is Strategy~2 (hide), not Strategy~1 (disclose-low). Whenever the non-disclosure pool commands a positive opacity premium $\Delta(e^*) = \rho\beta_1 e^* > 0$, informed low-quality sellers prefer hiding to disclosing low: the gross revenue gain from being in the non-disclosure pool at least covers the hiding cost. Formally, in any equilibrium with $\sigma_0^* > 0$ (Partial Pooling or Complete Adverse Selection), the equilibrium hiding rate satisfies $\Pi(d=0;e^*) - c_0 \ge \Pi(d=1,\theta=0)$, with equality at the partial-pooling indifference. Strategy~1 is therefore weakly dominated by Strategy~2, and the renovation decision reduces to a binary comparison between Strategy~3 (renovate-and-disclose) and Strategy~2 (hide). Strategy~3 dominates Strategy~2 if and only if
-\begin{equation}
-    \Pi(d=1,\theta=1) - \bigl[R(X)-S\bigr]
-    \;>\;
-    \Pi(d=0;e^*) - c_0,
-    \label{eq:threshold_condition}
-\end{equation}
-which holds if and only if
-\[
-    R(X) - S \;\leq\;
-    \underbrace{\Pi(d=1,\theta=1)-\Pi(d=0;e^*)}_{\text{market premium for verified high quality}}
-    +\underbrace{c_0}_{\text{hiding cost avoided}}
-    \;\equiv\;
-    \bar{R}(\pi,\rho,X).
-\]
-
-$\bar R$ is the total private return the market offers an informed low-quality seller for renovating and disclosing: the revenue gain from upgrading out of the non-disclosure pool to verified high-quality status, plus the hiding cost no longer paid. Absent a subsidy, renovation is privately optimal whenever $R(X) \le \bar R$. The minimum incentive-compatible subsidy is the gap $R(X) - \bar R$: the transfer required to restore private incentives when the engineering cost exceeds the market reward.
-
-The dependence of $\bar R$ on $c_0$ is the central object for policy. The original formula~\eqref{eq:threshold_condition} appears to make $\bar R$ increase one-for-one with the hiding cost, since the hiding cost enters that expression additively. This appearance is misleading: $\Pi(d=0;e^*)$ is itself an equilibrium revenue evaluated at the equilibrium pool quality $e^* = e(\sigma_0^*)$, and the equilibrium hiding rate $\sigma_0^*$ adjusts to $c_0$. Once the equilibrium response is taken into account, $\bar R$ in the empirically dominant partial-pooling regime is \emph{invariant} to $c_0$: the apparent dependence is absorbed by the indifference condition. The following lemma makes this precise.
+What makes $\bar R$ interesting for policy is exactly the point flagged in the motivation above: it looks, from the raw definition, as though it should move one-for-one with the hiding cost $c_0$, since $c_0$ enters as something the seller avoids by renovating. That appearance does not survive contact with equilibrium. The pool revenue a hider collects is not fixed — it is evaluated at the equilibrium pool quality $e^*=e(\sigma_0^*)$, and the hiding rate $\sigma_0^*$ itself adjusts to $c_0$. Once that adjustment is taken into account, $\bar R$ in the empirically dominant partial-pooling regime turns out to be invariant to $c_0$ altogether: the apparent dependence is exactly absorbed by the indifference condition that pins the hiding rate in the first place. The next section makes this precise.
 
 \subsection{The Renovation Threshold and the Minimum Incentive-Compatible Subsidy}
 
