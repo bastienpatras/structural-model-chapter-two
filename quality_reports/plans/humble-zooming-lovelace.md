@@ -274,3 +274,28 @@ dedicated proof-check pass before submission. Compiles cleanly, 2-pass, no undef
 robustness table, abstract/conclusion ρ̂ magnitude retraction, §5 policy-section prose
 (targeting language currently attributes to ρ what should attribute to b_m/anchor β1),
 `econ-academic-editor` + `realestate-finance-writing` pass, then Phase 4 review.
+
+## Phase 3 — §5 policy section done (commit 6a5179d), a real bug found along the way
+
+While refreshing §5's numbers, found and fixed a genuine bug: `compute_market_subsidies`/
+`compute_subsidy_grid`/`estimate_c0_bounds` were combining the TRUE anchored `rho_hat` (~0.5)
+with `market_params`'s DiD β1 for the equilibrium solve, while `c0_hat` had been computed
+assuming that product equals β1,m alone (i.e. implicitly ρ=1). This gave 44/45 apartment markets
+the wrong regime classification ("full_unraveling" instead of "mixed_strategy") and wrong
+R̄_m/S*_m values. Fixed in `run.py` (a `rho_hat_for_thresholds={m:1.0}` substitute passed
+specifically to those three functions, preserving b_m consistency; the real anchored `rho_hat`
+untouched for Table 4/reporting). Verified 100% "mixed_strategy" now, consistently.
+
+Regenerated: full pipeline, static subsidy figures, and the two choropleth maps
+(`cartopy-specialist` agent — also fixed two unrelated pre-existing layout bugs in
+`scripts/make_subsidy_map.py`). §5's prose rewritten with corrected numbers throughout, the
+CDH-vs-PP regime narrative retired (no CDH markets survive under the anchored estimator), and
+the ρ_m-vs-β1,m targeting-language conflation fixed. Conclusion's aggregate-budget citation
+corrected a second time (was €11.9bn/€35.1bn from the buggy run, now €9.8bn/€33.0bn correct).
+
+**Still open:** `A-robustness.tex`'s threshold-sensitivity table (still cites old baseline
+90.9%/3.42%/14.0%) needs the whole comparison re-run under the anchored estimator; the λ̂_m/J-test/
+concentration diagnostics table for the robustness appendix; `econ-academic-editor` +
+`realestate-finance-writing` polish pass; Phase 4 review. Minor housekeeping noted but not done:
+two stale unreferenced map PDFs, map file-size optimization (both low priority, from
+cartopy-specialist's report).
