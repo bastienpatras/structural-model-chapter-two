@@ -230,7 +230,22 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
             fix_rho          = use_twostep,
         )
 
-    c0_bounds = estimate_c0_bounds(market_stats, market_params, msm_result.rho_hat)
+    # renovation_threshold/solve_equilibrium compute Delta as rho_m*market_params[m].beta_1,
+    # i.e. they need the SAME b_m=rho*beta_1 product that c0_hat was built from
+    # (Proposition 2(ii): c0_hat = beta_1,m * e_star, implicitly b_m=beta_1,m,
+    # i.e. rho=1 paired with the DiD beta_1 already in market_params). Passing
+    # the true anchored rho_hat here (e.g. ~0.5) together with market_params'
+    # DiD beta_1 would give b_m = rho_hat*beta_1,m != beta_1,m -- a mismatch
+    # with what produced c0_hat, silently wrong R_bar_m/regime classification.
+    # rho and beta_1 are interchangeable as long as their product is preserved
+    # (Corollary 1.2) -- rho=1 with the unchanged DiD beta_1 is the simplest
+    # choice that keeps b_m consistent with c0_hat.
+    rho_hat_for_thresholds = (
+        {m: 1.0 for m in msm_result.rho_hat} if rho_estimator == "anchored"
+        else msm_result.rho_hat
+    )
+
+    c0_bounds = estimate_c0_bounds(market_stats, market_params, rho_hat_for_thresholds)
 
     # ── Bootstrap (optional) ────────────────────────────────────────────────
     se_dict = None
@@ -279,7 +294,7 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     subsidy_df = compute_market_subsidies(
         market_stats      = market_stats,
         market_params     = market_params,
-        rho_hat           = msm_result.rho_hat,
+        rho_hat           = rho_hat_for_thresholds,
         c0_hat            = msm_result.c0_hat,
         actual_reno_costs = cfg.get("actual_reno_costs"),
     )
@@ -290,7 +305,7 @@ def run_pipeline(cfg: dict, year: int | None = None) -> dict:
     subsidy_grid_df  = compute_subsidy_grid(
         market_stats     = market_stats,
         market_params    = market_params,
-        rho_hat          = msm_result.rho_hat,
+        rho_hat          = rho_hat_for_thresholds,
         c0_hat           = msm_result.c0_hat,
         cost_per_m2_grid = cost_per_m2_grid,
         market_levels    = market_levels,

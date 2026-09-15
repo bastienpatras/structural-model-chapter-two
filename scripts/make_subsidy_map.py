@@ -62,6 +62,22 @@ LAMBERT93 = ccrs.LambertConformal(
 )
 PLATE_CARREE = ccrs.PlateCarree()
 
+# Map extent for metropolitan France (incl. Corsica), in lon/lat degrees.
+# Module-level so the figure layout in `_render_one_map` can be sized to the
+# projected aspect ratio of exactly this window — see `_panel_aspect`.
+MAP_EXTENT = (-5.5, 10.0, 41.1, 51.4)
+
+# Figure-layout fractions. The axes band is bounded by these; its height is
+# then derived so that each panel's slot matches the map's own aspect, which
+# is what keeps Cartopy from shrinking the panel and leaving a dead band of
+# whitespace above and below it (equal-aspect GeoAxes are centred in their
+# slot, so any slack shows up as blank figure).
+LAYOUT_LEFT, LAYOUT_RIGHT = 0.02, 0.98
+LAYOUT_TOP = 0.90          # room above the axes for the two-line panel titles
+LAYOUT_WSPACE = 0.03
+LEGEND_BAND_IN = 1.10      # inches reserved at the bottom for the two legends
+TITLE_BAND_IN = 0.60       # inches the LAYOUT_TOP margin must cover
+
 try:
     found = fm.findfont("Fira Sans", fallback_to_default=False)
     if "FiraSans" not in os.path.basename(found):
@@ -240,7 +256,7 @@ def plot_panel(
     bin sequence in % (e.g., [0, 20, 40, 60, 80, 100]).
     """
 
-    ax.set_extent([-5.5, 10.0, 41.1, 51.4], crs=PLATE_CARREE)
+    ax.set_extent(list(MAP_EXTENT), crs=PLATE_CARREE)
 
     metro_4326 = metro_gdf.to_crs("EPSG:4326")
     feat = ShapelyFeature(
@@ -327,23 +343,26 @@ def build_legend(
       (2) Three reference bubbles sized by the verified-quality premium R̄_m
     """
     # ── Color legend: bins as % of R̂ ─────────────────────────────────────
+    # Ordered high→low so the ramp reads monotonically down each column
+    # (fig.legend fills column-major), with the grey "no subsidy" class last
+    # rather than heading a descending sequence it is not part of.
     color_handles = [
         mpatches.Patch(facecolor=cmap(i), edgecolor="#2b2b2b", linewidth=0.4)
         for i in range(len(pct_bins) - 1)
-    ]
+    ][::-1]
     color_labels = [
         f"{lo:.0f}% – {hi:.0f}%"
         for lo, hi in zip(pct_bins[:-1], pct_bins[1:])
-    ]
+    ][::-1]
     color_handles.append(
         mpatches.Patch(facecolor="#bdbdbd", edgecolor="#2b2b2b", linewidth=0.4)
     )
     color_labels.append(r"$S^*=0$  (no subsidy needed)")
 
     color_legend = fig.legend(
-        color_handles[::-1], color_labels[::-1],
+        color_handles, color_labels,
         title=r"Minimum subsidy $S^*_m$ as share of $\hat R$",
-        loc="lower left", bbox_to_anchor=(0.06, -0.04),
+        loc="lower left", bbox_to_anchor=(0.03, 0.015),
         ncol=2, frameon=False, fontsize=8.5, title_fontsize=9.5,
         alignment="left",
     )
@@ -365,7 +384,7 @@ def build_legend(
     size_legend = fig.legend(
         size_handles, size_labels,
         title=r"Verified-quality premium $\bar R_m$ (€/m²)",
-        loc="lower right", bbox_to_anchor=(0.94, -0.04),
+        loc="lower right", bbox_to_anchor=(0.97, 0.015),
         ncol=3, frameon=False, fontsize=8.5, title_fontsize=9.5,
         alignment="left", borderpad=0.6, labelspacing=1.0,
         scatterpoints=1, handletextpad=0.6, columnspacing=1.2,
@@ -376,6 +395,44 @@ def build_legend(
 # ---------------------------------------------------------------------------
 # Entrypoint
 # ---------------------------------------------------------------------------
+
+def _panel_aspect() -> float:
+    """Height/width of `MAP_EXTENT` once projected into Lambert-93.
+
+    Cartopy holds GeoAxes at equal aspect, so a slot whose aspect differs from
+    this ratio gets the panel shrunk and centred inside it, and the leftover
+    slack is rendered as blank figure. Deriving the layout from this number
+    keeps the panels flush regardless of how `MAP_EXTENT` is later changed.
+    """
+    lon0, lon1, lat0, lat1 = MAP_EXTENT
+    # Sample the window's edges (not just the corners): Lambert-93 is conic,
+    # so the projected bounding box of the extent is set by the mid-edge
+    # points, not the corner points alone.
+    lons = np.linspace(lon0, lon1, 25)
+    lats = np.linspace(lat0, lat1, 25)
+    grid_lon, grid_lat = np.meshgrid(lons, lats)
+    xyz = LAMBERT93.transform_points(
+        PLATE_CARREE, grid_lon.ravel(), grid_lat.ravel()
+    )
+    x, y = xyz[:, 0], xyz[:, 1]
+    return float((y.max() - y.min()) / (x.max() - x.min()))
+
+
+def _figure_geometry(fig_width: float = 10.5) -> tuple[tuple[float, float], float]:
+    """Figure size and `bottom` margin that make the axes slot aspect-exact."""
+    n_panels = 2
+    band_w = LAYOUT_RIGHT - LAYOUT_LEFT
+    # Width available to one panel, in inches, after the inter-panel gutter.
+    panel_w_in = fig_width * (band_w - LAYOUT_WSPACE * (n_panels - 1)) / n_panels
+    axes_h_in = panel_w_in * _panel_aspect()
+    # (LAYOUT_TOP - bottom) * H = axes_h_in and bottom * H = LEGEND_BAND_IN
+    fig_height = (axes_h_in + LEGEND_BAND_IN) / LAYOUT_TOP
+    # Guard: LAYOUT_TOP must actually leave room for the titles.
+    if (1.0 - LAYOUT_TOP) * fig_height < TITLE_BAND_IN:
+        fig_height = axes_h_in + LEGEND_BAND_IN + TITLE_BAND_IN
+    bottom = LEGEND_BAND_IN / fig_height
+    return (fig_width, fig_height), bottom
+
 
 def _render_one_map(
     cost_per_m2 : float,
@@ -400,9 +457,14 @@ def _render_one_map(
         SUBSIDY_RAMP_5[: len(pct_bins) - 1], name="subsidy",
     )
 
+    figsize, bottom = _figure_geometry()
     fig, axes = plt.subplots(
-        1, 2, figsize=(11, 6.2),
+        1, 2, figsize=figsize,
         subplot_kw={"projection": LAMBERT93},
+    )
+    fig.subplots_adjust(
+        left=LAYOUT_LEFT, right=LAYOUT_RIGHT, top=LAYOUT_TOP,
+        bottom=bottom, wspace=LAYOUT_WSPACE,
     )
 
     if apt is not None:
@@ -427,7 +489,6 @@ def _render_one_map(
         axes[1].set_axis_off()
         axes[1].set_title("Houses — no data", loc="left", fontsize=11, pad=8)
 
-    fig.subplots_adjust(bottom=0.20)
     build_legend(fig, pct_bins, cmap, premium_lo, premium_hi)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)

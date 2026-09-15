@@ -3,7 +3,7 @@
   MANDATORY DISCLOSURE AND HOUSING MARKET DYNAMICS
 ======================================================================
   Property type  : HOUSE
-  Estimation date: 2026-09-14
+  Estimation date: 2026-09-15
 
   ──────────────────────────────────────────────────────────────────
   I. SAMPLE
