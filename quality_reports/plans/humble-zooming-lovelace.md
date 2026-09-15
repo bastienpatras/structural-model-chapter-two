@@ -258,3 +258,19 @@ pre-change output.
 **Not yet done:** T=5/T=15 sensitivity grid; bootstrap SEs for the anchored estimator (guarded
 with `NotImplementedError` if `n_boot>0` + anchored, since the existing `bootstrap_se` would
 silently produce SEs inconsistent with Proposition 2(ii)); Phase 3 (paper rewrite).
+
+## Phase 3 progress (2026-09-15)
+
+**Step 1 done (commit `70da8de`):** formal propositions added to
+`sections/A-robustness.tex` (new appendix "Identification of ρ_m: A Formal Treatment") —
+Proposition (scale non-identification), Corollary (old ratio estimator = specification-test
+statistic), Proposition (what's identified without an anchor), Lemma (model-implied bounds),
+Assumption A, Proposition (point identification under the anchor). Written directly (the
+deriving `micro-theorist` agent's transcript expired, could not resume) — flagged for a
+dedicated proof-check pass before submission. Compiles cleanly, 2-pass, no undefined refs.
+
+**Still to do:** rewrite §4.3 identification narrative (retract composition-bias story, replace
+`eq:rho_estimator`, update Table 4 with anchored numbers), `A-robustness.tex`'s J-test/λ̂_m
+robustness table, abstract/conclusion ρ̂ magnitude retraction, §5 policy-section prose
+(targeting language currently attributes to ρ what should attribute to b_m/anchor β1),
+`econ-academic-editor` + `realestate-finance-writing` pass, then Phase 4 review.
