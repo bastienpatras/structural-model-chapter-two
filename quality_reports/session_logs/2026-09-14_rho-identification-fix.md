@@ -88,3 +88,25 @@ New results: apartments n=45 ρ̂=0.495 (1 violation), ĉ0=2.41%; houses n=97 ρ
 ĉ0=3.45%. Diagnostics (λ̂_m, concentration, J-stat) now in results.txt + anchored_diagnostics.csv.
 
 Next: T=5/T=15 sensitivity grid (not yet run), then Phase 3 (paper rewrite).
+
+### 2026-09-15: post-reform dynamics diagnostic + Phase 3 starting point
+
+Ran year-by-year post-reform trajectory (T=2022/2023/2024 DiD windows) at user's request —
+saved to `quality_reports/diagnostics/rho-anchor-dynamics/` (commit `d411732`). Headline: the
+apartment/house asymmetry in λ̂_m is a diverging trend across the whole post-reform period
+(apartments t=6.87→7.28→6.76 stays significant; houses t=2.82→1.78→1.10 converges to fitting).
+
+**Starting Phase 3** (paper rewrite). Tried to resume the `micro-theorist` agent
+(id `a5b6701d606be9b3e`) that produced the original derivation, to get clean LaTeX-ready
+Propositions 1/2/4 + Lemma 3 + Corollaries 1.1/1.2 for the appendix — **transcript expired, could
+not resume**. Confirmed theorem-environment style to match: `\begin{lemma}[Name]\label{lem:...}`
+/ `\begin{proposition}[Name]\label{prop:...}`, proofs as `\subsection*{Proof of X}` +
+`\begin{proof}...\end{proof}` (see `main.tex:153,192,556-594`).
+
+Decision point (not yet acted on, flagged for the user): either (a) write the propositions
+directly, drawing on strong existing grounding (Propositions 2(ii)/4 are implemented and
+numerically validated in `src/rho_identification.py`; all of them have been stated precisely and
+consistently multiple times this session) with a dedicated proof-check pass before treating as
+submission-ready, or (b) pay for a fresh full derivation re-run. Leaning (a) given the cost of
+(b) and the strength of the existing grounding, but this is a real judgment call on math destined
+for a paper appendix — surfacing to the user rather than deciding unilaterally.
