@@ -508,40 +508,63 @@ for house sellers.
 
 \subsubsection{Structural Estimates and Economic Interpretation}
 
-Under the anchored estimator, $\hat\rho_m$ is a point estimate market by market, not a value
-clipped to a boundary: the mean is $0.495$ for apartments and $0.458$ for houses, with genuine
-interior dispersion (cross-market standard deviation $0.25$ and $0.27$ respectively) rather than
-the mass point at unity a ratio-based construction mechanically produces. The constraint
-$\rho_m\leq1$ --- equivalently $\hat\beta_{1,m}\leq\hat\beta_{1,m}^{\mathrm{anchor}}$ --- is a
-testable implication under this estimator, and it is violated in only 1 of 45 apartment markets
-and 5 of 97 house markets: the energy-cost anchor is, in the overwhelming majority of markets,
-large enough on its own terms to rationalise the observed disclosed-price gap without appealing
-to full buyer sensitivity. A mechanical consequence of Equation~\eqref{eq:anchored_estimator_main} is worth
-flagging directly: because $\hat c_{0,m}$ is defined as $\hat\beta_{1,m}$ times a belief
-$\hat e^*_m(\hat\sigma_{0,m})$ that is itself bounded within $[e(1),\bar\theta_m]$ by
-construction, $\hat c_{0,m}$ can never fall outside the Partial Pooling band, and every market in
-our sample is classified as Partial Pooling under this estimator. Cost-Deterred Hiding and
-Complete Adverse Selection remain possible corner regimes in the model, but the classification
-into them is only ever a property of a clipped $\hat\rho_m$; under a point-identified $\hat\rho_m$
-it cannot arise here, and we do not report regime heterogeneity as an empirical finding.
+Buyer sensitivity emerges from the anchor as a genuine point estimate in each market rather than
+as a value pressed against a boundary. About half the buyers in the average market price energy
+performance into their offers --- $0.495$ for apartments, $0.458$ for houses --- and markets
+spread around those averages in a way the estimator does not manufacture, with a cross-market
+standard deviation of $0.25$ and $0.27$ respectively. A ratio-based construction returns nothing
+of the kind; it piles the whole distribution onto the upper bound. That bound is now something
+the data can refuse. Since the sensitive share cannot exceed one, the anchored estimate requires
+the disclosed-price gap to stay below the energy-bill benchmark, and the requirement fails in
+only 1 of 45 apartment markets and 5 of 97 house markets. Almost everywhere, the running-cost
+saving an efficient dwelling delivers is large enough on its own terms to account for the price
+advantage certified efficiency commands, without supposing that every buyer is paying attention.
 
-The concealment cost is economically material: 0.024 log points (approximately 2.4\% of
-property value) for apartments and 0.035 log points (3.5\%) for houses. That the two segments
-land within roughly one percentage point of each other continues to suggest the cost is governed
-primarily by the legal disclosure regime rather than by property-specific characteristics.
-The inequality $\hat c_{0,m}\leq\hat\Delta_m$ does \emph{not} hold by construction under this
-estimator, and does not need to: $c_{0,m}$ and $\Delta_m$ are estimated from
-independent moments, and their gap, $\hat\lambda_m\equiv\hat\Delta_m-\hat c_{0,m}$, is itself the
-model's over-identifying restriction (Lemma~\ref{lem:model_bounds}). We take that restriction
-seriously rather than resolving it by fiat. For apartments the wedge is large (mean $6.1$ log
-points) and precisely estimated ($t=6.78$ against a zero null): the non-disclosure premium
-substantially exceeds what the disclosed-price gap and the registry-measured belief predict it
-should equal in Partial Pooling. For houses the wedge is small (mean $0.4$ log points) and
-statistically indistinguishable from zero ($t=1.10$): the restriction is not rejected. Both
-findings are robust to truncating the DiD post-window to one or two years after the reform
-rather than the full three (Appendix~\ref{app:robustness}), so neither is an artefact of the
-particular endpoint chosen; if anything, the apartment wedge widens and the house wedge narrows
-further as the post-reform window lengthens, a divergence rather than a coincidence of the final
-year of data.
+One consequence of the closed-form estimator is worth stating plainly, because it closes off a
+finding the model might otherwise appear to offer. The concealment cost is the disclosed-price
+gap scaled by a belief that is itself confined, by construction, between the value it would take
+if every informed low-quality seller hid and the value it would take if none did. The cost can
+therefore never land outside the Partial Pooling band, and every market in the sample is
+classified as Partial Pooling. Cost-Deterred Hiding and Complete Adverse Selection remain
+possible corner regimes in the model, but a market can only be sorted into one of them when
+buyer sensitivity has been clipped to a boundary. With sensitivity point-identified, that
+sorting cannot arise here, and we report no regime heterogeneity as an empirical finding.
 
-The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds, since location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (6.8\% vs.\ 15.2\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
+The cost of keeping an unfavourable rating off the listing is economically material and
+strikingly similar across the two segments: 0.024 log points, roughly 2.4\% of property value,
+for apartments, and 0.035 log points, or 3.5\%, for houses. Two segments that otherwise trade
+very differently landing within about a percentage point of each other points to a cost set by
+the legal disclosure regime rather than by the property.
+
+Nothing in this construction forces the concealment cost to sit below the non-disclosure premium,
+and it need not. The two are built from different moments, and the distance between them is the
+model's over-identifying restriction (Lemma~\ref{lem:model_bounds}), which we report rather than
+resolve by fiat. In house markets that wedge averages $0.4$ log points and cannot be
+distinguished from zero ($t=1.10$), so the restriction survives. In apartment markets it is $6.1$
+log points and precisely estimated ($t=6.78$): non-disclosers there command substantially more
+than the disclosed-price gap and the registry-measured belief say they should under Partial
+Pooling. Truncating the post-reform window to one or two years instead of the full three leaves
+both results standing (Appendix~\ref{app:robustness}), so neither turns on the endpoint we
+happened to choose. If anything the two move apart as the window lengthens, the apartment wedge
+widening and the house wedge narrowing further --- a divergence rather than a coincidence of the
+final year of data.
+
+The contrast between the property types is itself informative. The energy-efficiency premium in
+house markets runs roughly three times what it does in apartments, 0.051 against 0.017 log
+points. We do not test why, and more than one channel fits. Houses are larger and older on
+average, so heating weighs more heavily in a buyer's running expenses. They also sit
+predominantly outside city centres, in markets where demand pressure is weaker and price
+formation depends less on locational scarcity, which leaves more of the price free to respond to
+an attribute such as energy performance. In tight urban apartment markets the opposite holds:
+location dominates valuation and compresses the share any single characteristic can claim.
+Separating these explanations would require variation we do not exploit here.
+
+What follows from the larger premium is easier to pin down. A seller who hides a poor rating in a
+house market forgoes more by doing so, and the data reflect that exactly. The hiding rate among
+informed low-quality sellers is well under half the apartment figure, 6.8\% against 15.2\%, and
+strategic hiders make up 1.1\% of house listings against 3.5\% of apartment listings. The
+non-disclosure premium follows in turn, 0.034 for houses against 0.069 for apartments, because a
+thinner pool of strategic hiders leaves buyers less pessimistic about what silence conceals.
+Higher quality premium, lower hiding rate, lower non-disclosure premium: the whole pattern is
+what the model's equilibrium comparative statics predict when markets differ in the return to
+verified quality.
