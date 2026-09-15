@@ -362,9 +362,11 @@ The premium in~\eqref{eq:premium} generates a transfer from EPC-sensitive buyers
 \subsection{Identification}
 \label{sec:identification}
 
-The two structural objects to identify are $\rho_m$, the market-specific share of EPC-sensitive buyers, and $c_{0,m}$, the seller hiding cost. The structural equation $\Delta_m = \rho_m \cdot \beta_{1,m} \cdot e^*_m$ relates these to observables: $\Delta_m$ and $\beta_{1,m}$ are equilibrium price gaps, and $e^*_m$ is directly observed from the ADEME registry. This might appear to make $\rho_m$ point-identified from a single cross-section via $\rho_m = \Delta_m / (\beta_{1,m} \cdot e^*_m)$. The problem is that cross-sectional price gaps reflect \emph{level} differences across markets, not the demand-induced component we need. Any market characteristic that simultaneously shapes the composition of the undisclosed pool and is correlated with buyer EPC-sensitivity would bias a cross-sectional estimate of $\rho_m$. Purging this confound requires variation that isolates the \emph{change} in price gaps attributable to buyers becoming EPC-sensitive, not their levels.
+The two structural objects to identify are $\rho_m$, the market-specific share of EPC-sensitive buyers, and $c_{0,m}$, the seller hiding cost. The structural equation $\Delta_m = \rho_m \cdot \beta_{1,m} \cdot e^*_m$ relates these to observables: $\Delta_m$ and $\beta_{1,m}$ are equilibrium price gaps, and $e^*_m$ is directly observed from the ADEME registry. This might appear to make $\rho_m$ point-identified via $\rho_m = \Delta_m / (\beta_{1,m} \cdot e^*_m)$, whether from a single cross-section or from a difference-in-differences contrast around the July~2021 reform. It is not: under the benchmark pricing rule, $\beta_{1,m}$ and $\Delta_m$ are \emph{both} equal to the composite $b_m\equiv\rho_m\beta_1$ times, respectively, $1$ and $e^*_m$ --- so the ratio returns $e^*_m/\hat e^*_m\approx 1$ for any true $\rho_m$, by construction, whether the price gaps entering it are cross-sectional levels or DiD changes. Appendix~\ref{app:rho_identification} (Proposition~\ref{prop:scale_nonid}) states this formally: $\rho_m$ and $\beta_1$ are identified only as their product $b_m$, by any price-based moment implied by the model, for any number of markets. Pooling markets does not help, because every market's moment condition is the same degenerate identity.
 
-The July 2021 DPE reform provides this variation, and the two-step approach uses it as follows. In the first step, a difference-in-differences estimator compares price gaps in each market before and after the reform, stripping out market-specific level differences and isolating the reform-induced shift in buyer demand locally. This yields $\hat\rho_m = \hat\Delta_m / (\hat\beta_{1,m} \cdot \hat{e}^*_m)$, where the hat quantities are DiD estimates (post minus pre period means). In the second step, the hiding cost $c_{0,m}$ is recovered from the equilibrium hiding rate $\hat\sigma_{0,m}$ via a closed-form inversion of the seller indifference condition (given the equilibrium characterized in Section~\ref{sec:model}). No additional external variation is required: $\hat\sigma_{0,m}$ is directly observed as the fraction of informed low-quality sellers who withhold their EPC, and the inversion is exact. Together, three observables $(\hat\beta_{1,m},\,\hat\Delta_m,\,\hat\sigma_{0,m})$ and one registry-based input $(\hat{e}^*_m)$ map to two structural parameters $(\hat\rho_m,\,\hat{c}_{0,m})$, market by market.
+What \emph{is} identified from price data alone is the composite $b_m$ and, via the equilibrium indifference condition, the hiding cost $c_{0,m}$ (Appendix~\ref{app:rho_identification}, Proposition~\ref{prop:what_identified}): in the empirically dominant Partial Pooling regime, $c_{0,m}=\beta_{1,m}\cdot e^*_m(\hat\sigma_{0,m})$, exactly, without reference to $\rho_m$ or $\beta_1$ separately. Recovering $\rho_m$ itself requires a source of variation external to the price system. Section~\ref{sec:beliefs} constructs one: a non-price, market-specific anchor for $\beta_1$ built from the ADEME-certified energy-consumption gap between verified high- and low-quality dwellings, which lets $\rho_m=\beta_{1,m}/\beta_{1,m}^{\mathrm{anchor}}$ be read off directly (Proposition~\ref{prop:anchored_identification}).
+
+The July 2021 DPE reform still does real work in this design, but a different kind: it is what makes $\beta_{1,m}$ and $\Delta_m$ market-level demand-side objects in the first place, isolated from pre-existing level differences across markets, rather than what identifies $\rho_m$.
 
 \subsubsection{The July 2021 Reform as a Natural Experiment}
 
@@ -401,12 +403,21 @@ To validate the parallel pre-trends assumption and characterise the dynamic prof
 \end{align}
 are set to zero at $k=-1$ (the last pre-reform month) by construction. Figure~\ref{fig:ATT} plots the cross-market means with 95\% confidence intervals over $k\in[-33,\,+36]$. The pre-reform coefficients ($k<0$) are statistically indistinguishable from zero for both gaps, confirming parallel pre-trends. The post-reform coefficients increase gradually from $k=0$, consistent with progressive capitalisation of the legally opposable DPE. The period-mean estimates in Equations~\eqref{eq:did_beta1} and \eqref{eq:did_delta} average these relative-month profiles over the respective windows.
 
-Given these estimates, the structural equation $\Delta_m = \rho_m\cdot\beta_{1,m}\cdot e^*_m$ (Equation~\eqref{eq:premium}) implies a closed-form estimator for buyer sensitivity. Since the reform shifts $\rho_m$ while $e^*_m$ is a supply-side object measured directly from the ADEME registry (Section~\ref{sec:beliefs} below), the DiD isolates the post-reform demand response:
+Given these estimates, the structural equation $\Delta_m = \rho_m\cdot\beta_{1,m}\cdot e^*_m$ (Equation~\eqref{eq:premium}) relates the observed price gaps to the structural parameters. As Appendix~\ref{app:rho_identification} shows formally, forming $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ does \emph{not} estimate $\rho_m$: because both $\hat\beta_{1,m}$ and $\hat\Delta_m$ equal the same composite $b_m\equiv\rho_m\beta_1$ (times, respectively, $1$ and $e^*_m$) under the model's own pricing rule, the ratio returns approximately one for any true $\rho_m$ --- a specification-test statistic for the over-identifying restriction $\Delta_m=\beta_{1,m}e^*_m$, not an estimate of buyer sensitivity. Empirically this shows up as almost every market clipping at the $\hat\rho_m=1$ boundary under the ratio construction, which an earlier draft of this paper read as ``boundary saturation'' rather than as what it is: the estimator returning its only possible value.
+
+Separating $\rho_m$ from $\beta_1$ therefore requires a source of variation external to the price system. We use the capitalised energy-cost saving a sensitive buyer attaches to verified high- versus low-quality certification, built entirely from ADEME-certified consumption bands rather than from prices (Assumption~\ref{assum:energy_anchor}, Appendix~\ref{app:rho_identification}):
 \begin{equation}
-    \hat\rho_m = \frac{\hat\Delta_m}{\hat\beta_{1,m} \cdot \hat{e}^*_m}
-    \label{eq:rho_estimator}
+    \hat\beta_{1,m}^{\mathrm{anchor}} = \kappa\cdot\frac{\hat A_m}{\hat P_m}, \qquad
+    \hat A_m = \big(\hat{\bar E}_{0,m}-\hat{\bar E}_{1,m}\big)\cdot p^E\cdot a(r,T),
+    \label{eq:energy_anchor_main}
 \end{equation}
-The constraint $\hat\rho_m \leq 1$ binds in the majority of markets. For apartments, the unconstrained ratio exceeds unity in all 40 markets (cross-market mean of approximately 7.7); for houses, 92 of 107 markets with $\hat\beta_{1,m}>0$ are clipped (cross-market mean ratio of approximately 0.58). Two compounding sources drive the excess: composition bias in $\hat\Delta_m$, because the non-disclosure price index pools strategic hiders with genuinely uninformed sellers and inflates the numerator; and thin-cell attenuation of $\hat\beta_{1,m}$, because sparse disclosure-group cells compress the denominator. These effects are quantitatively consistent with the magnitudes observed, but they preclude point identification of $\rho_m$ in most markets. In clipped markets, $\rho_m = 1$ is maintained as a working assumption, and $\hat{c}_{0,m}$ is interpreted as an upper bound: since the indifference condition $c_{0,m} = \rho_m\cdot\beta_{1,m}\cdot\hat{e}^*_m(\hat\sigma_{0,m})$ is strictly increasing in $\rho_m$, setting $\rho_m = 1$ overstates $c_{0,m}$ relative to any interior value. Point identification is achieved in 8 house markets where the inversion yields an interior solution; these are characterised separately in the Results.
+where $\hat{\bar E}_{0,m}$ and $\hat{\bar E}_{1,m}$ are mean certified primary-energy consumption (kWh$_{\mathrm{ep}}$/m$^2$/yr) among low- and high-quality ADEME-matched ($K=1$) listings, pooling both disclosed and strategically-hidden listings so as not to condition on the seller's own disclosure choice; $p^E$ and the annuity $a(r,T)$ convert the consumption gap into a present-value price-level willingness to pay. We calibrate $p^E\approx\text{\euro}0.21$/kWh (CRE/Eurostat, 2022--2024 average, blended across the national heating-vector mix) and $r\approx3.75\%$ (contemporary French mortgage rate); the horizon $T=10$ years reflects the typical property holding period rather than a longer capitalisation-efficient horizon, consistent with revealed short discounting of durable energy attributes documented in the energy-efficiency-gap literature.\footnote{See \citet{allcott_is_2012} for the survey pattern of buyers behaving, in revealed preference, as if applying shorter horizons than full-stream capitalisation would imply.} Given the anchor, $\rho_m$ is point identified (Proposition~\ref{prop:anchored_identification}):
+\begin{equation}
+    \hat\rho_m = \frac{\hat\beta_{1,m}}{\hat\beta_{1,m}^{\mathrm{anchor}}}, \qquad
+    \hat c_{0,m} = \hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m}),
+    \label{eq:anchored_estimator_main}
+\end{equation}
+and $\rho_m\leq1$ becomes a testable inequality ($\hat\beta_{1,m}\leq\hat\beta_{1,m}^{\mathrm{anchor}}$) rather than an imposed clip. For apartments, only 1 of 45 markets violates it (down from all 40 estimable markets under the ratio construction); for houses, 5 of 97. We report both the point estimate and, per Corollary~\ref{cor:ratio_specification_test} and Lemma~\ref{lem:model_bounds}, the measured wedge $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$ as a diagnostic on the model's own over-identifying restriction, rather than silently absorbing it into $\hat c_{0,m}$.
 
 \subsubsection{Measuring Equilibrium Beliefs}
 \label{sec:beliefs}
@@ -422,26 +433,16 @@ The numerator is the uninformed high-quality mass in the non-disclosing pool; th
 
 \subsubsection{Closed-Form Identification of $c_{0,m}$}
 
-One might expect $\hat{c}_{0,m} = \hat\Delta_m$, since the equilibrium indifference condition gives $c_{0,m} = \Delta_m$ for a marginal hider. This logic fails because the ``undisclosed'' category in the price index pools \emph{two heterogeneous groups}: strategic hiders ($K=1$, $\theta=0$, $d=0$), who are the economically relevant group, and genuinely uninformed sellers ($K=0$, $d=0$), who constitute approximately 85\% of all non-disclosers. $\hat\Delta_m$ is therefore a weighted average of the strategic hider premium and the uninformed-seller premium, an upper bound on $c_{0,m}$, not a point estimate.\footnote{A listing-level DiD targeting $K=1$ non-disclosers directly is infeasible: the listing data begin in 2021, providing no pre-reform baseline at the listing level.}
+A natural first guess is $\hat{c}_{0,m} = \hat\Delta_m$, since the equilibrium indifference condition gives $c_{0,m} = \Delta_m$ for a marginal hider in Partial Pooling. We do not use this. It would amount to reporting the raw non-disclosure premium as if it were an independent structural estimate, and Appendix~\ref{app:rho_identification} (Corollary~\ref{cor:ratio_specification_test}) shows the two are not, in general, close: $\Delta_m$ pools strategic hiders ($K=1,\theta=0,d=0$) with genuinely uninformed sellers ($K=0,d=0$), and whether this composition inflates $\Delta_m$ relative to what the model's own pooled belief already accounts for is precisely the over-identifying question the wedge $\hat\lambda_m$ below is built to test --- not something to resolve by construction.
 
-The route to $c_{0,m}$ uses the equilibrium hiding rate $\hat\sigma_{0,m}$ among informed low-quality sellers ($K=1$, $\theta=0$). This group is identified precisely by the ADEME match and is immune to contamination from uninformed sellers. In the Partial Pooling regime, the equilibrium indifference condition
+Instead, the route to $c_{0,m}$ uses the disclosed-price gap $\hat\beta_{1,m}$ directly, together with the equilibrium hiding rate $\hat\sigma_{0,m}$ among informed low-quality sellers ($K=1$, $\theta=0$), a group identified precisely by the ADEME match and immune to contamination from uninformed sellers. In the Partial Pooling regime, the equilibrium indifference condition $\Delta(e^*(\hat\sigma_{0,m});\rho_m)=c_{0,m}$ combined with $\hat\beta_{1,m}=\rho_m\beta_1$ (Proposition~\ref{prop:what_identified}(i)--(ii), Appendix~\ref{app:rho_identification}) gives the closed-form estimator already stated as Equation~\eqref{eq:anchored_estimator_main}:
 \begin{equation}
-    \Delta\!\left(e^*(\hat\sigma_{0,m})\,;\,\hat\rho_m\right) = c_{0,m}
-    \label{eq:indifference}
-\end{equation}
-has a unique solution in $c_{0,m}$ for any observed $\hat\sigma_{0,m}\in(0,1)$. Given the first-stage estimate $\hat\rho_m$, this yields the closed-form estimator:
-\begin{equation}
-    \hat{c}_{0,m} = \hat\rho_m \cdot \hat\beta_{1,m} \cdot \hat{e}^*_m(\hat\sigma_{0,m})
+    \hat{c}_{0,m} = \hat\beta_{1,m} \cdot \hat{e}^*_m(\hat\sigma_{0,m}),
     \label{eq:c0_estimator}
 \end{equation}
-where $\hat{e}^*_m(\hat\sigma_{0,m})$ is the belief evaluated at the observed mixing rate. The estimator is exact: one free parameter ($c_{0,m}$) is matched to one moment ($\hat\sigma_{0,m}$) via the equilibrium condition. No numerical optimisation is required.
+where $\hat{e}^*_m(\hat\sigma_{0,m})$ is the belief evaluated at the observed mixing rate. This estimator does not require $\rho_m$ --- or the energy-cost anchor --- at all: it is exact, one free parameter ($c_{0,m}$) matched to one moment ($\hat\sigma_{0,m}$) via the equilibrium condition, and it applies identically to apartments and houses. (An earlier draft used a ratio-based $\hat\rho_m$ inside this formula and, for houses only, reported $\hat\Delta_m$ as a second, looser upper bound; both moves are superseded by Proposition~\ref{prop:what_identified}, which shows $c_{0,m}$ never needed $\rho_m$ in the first place.)
 
-For house markets, the data provide two distinct upper bounds on $c_{0,m}$. The first is the equilibrium inversion under the maintained $\hat\rho_m = 1$ assumption:
-\begin{equation}
-    \hat{c}_{0,m}^{\,\text{inv}} = \hat\beta_{1,m} \cdot \hat{e}^*_m(\hat\sigma_{0,m})
-    \label{eq:c0_interval}
-\end{equation}
-The second is $\hat\Delta_m$, the DiD non-disclosure premium, which is an upper bound on $c_{0,m}$ because uninformed sellers (approximately 75\% of non-disclosers for houses) inflate the undisclosed pool's average price above what strategic hiders alone would generate. The cross-market means are $\hat{c}_{0,m}^{\,\text{inv}} = 0.018$ log points and $\hat\Delta_m = 0.034$ log points. Internal consistency requires $\hat{c}_{0,m}^{\,\text{inv}} \leq \hat\Delta_m$, which holds in all but a handful of markets. The tighter bound $\hat{c}_{0,m}^{\,\text{inv}} = 0.018$ is the preferred estimate and is used in the policy counterfactuals of Section~\ref{sec:policy}.
+The measured wedge $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$ is reported alongside $\hat c_{0,m}$ rather than folded into it. For apartments the wedge is large and precisely estimated (mean $6.1$ log points, $t=6.78$ against $H_0:\text{mean}(\hat\lambda_m)=0$): the model's over-identifying restriction $\Delta_m=c_{0,m}$ is decisively rejected in this segment. For houses the wedge is small and statistically indistinguishable from zero (mean $0.4$ log points, $t=1.10$): the restriction holds up. We read the apartment rejection honestly, as a genuine specification tension rather than sampling noise to be waved away --- Section~\ref{sec:results} and Appendix~\ref{app:robustness} return to it.
 
 The structural estimates use listing-level data from 2022 to 2024.\footnote{The year 2021 is excluded from the listing-level analysis because the market had not yet fully repriced the reform: the pooled hedonic estimate of $\hat\beta_{1}$ for apartments in H2~2021 is approximately $-0.012$, indicating the EPC quality premium had not yet turned positive, which renders the structural equation $\Delta_m = \rho_m\cdot\beta_{1,m}\cdot e^*_m$ unreliable for that period.} The estimation sample comprises 45 apartment markets and 97 house markets.
 
@@ -465,21 +466,22 @@ Table~\ref{tab:did_results} reports market-level estimates for both property typ
 \midrule
 \multicolumn{7}{l}{\textit{Panel A: DiD estimates from price index panel}} \\[2pt]
 $\hat\beta_{1,m}$ (energy-efficiency premium) & 1.7\% & 3.5 & 49  & 5.1\% & 4.0 & 104 \\
-$\hat\Delta_m$ (non-disclosure premium, UB)   & 6.9\% & 6.3 & 49  & 3.4\% & 4.8 & 104 \\
+$\hat\Delta_m$ (non-disclosure premium)       & 6.9\% & 6.3 & 49  & 3.4\% & 4.8 & 104 \\
 \midrule
-\multicolumn{7}{l}{\textit{Panel B: Two-step structural estimates, pooled 2022 to 2024}} \\[2pt]
-$\hat\rho_m$ (buyer EPC-sensitivity)          & 90.9\% & 28.6 & 45 & 68.1\% & 42.0 & 97 \\
-$\hat c_{0,m}$ (hiding cost)                  &  3.4\% &  2.9 & 45 &  4.5\% &  3.7 & 97 \\
+\multicolumn{7}{l}{\textit{Panel B: Anchored structural estimates, pooled 2022 to 2024}} \\[2pt]
+$\hat\rho_m$ (buyer EPC-sensitivity)          & 49.5\% & 25.0 & 45 & 45.8\% & 26.7 & 97 \\
+$\hat c_{0,m}$ (hiding cost)                  &  2.4\% &  1.2 & 45 &  3.5\% &  2.0 & 97 \\
+$\hat\lambda_m$ (over-ID wedge, $\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$) & 6.1\% & --- & 45 ($t=6.78$) & 0.4\% & --- & 97 ($t=1.10$) \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel C: Supply-side observables from ADEME match}} \\[2pt]
 $\hat\pi_m$ (registry-matched share)          & 50.7\% &  7.4 & 45 & 41.9\% &  4.4 & 97 \\
 $\hat{\bar\theta}_m$ (mean quality $K{=}1$)   & 62.5\% &  8.8 & 45 & 60.5\% & 10.4 & 97 \\
-$\hat\sigma_{0,m}$ (informed hiding rate)     & 14.0\% & 10.5 & 45 &  5.7\% &  6.5 & 97 \\
+$\hat\sigma_{0,m}$ (informed hiding rate)     & 15.2\% &  9.8 & 45 &  6.8\% &  5.9 & 97 \\
 \bottomrule\bottomrule
 \end{tabular*}
 \vspace{0.5em}
 \begin{minipage}{\linewidth}
-\footnotesize\textit{Notes.} Panel A: market-level DiD estimates from the price index panel (pre: Oct 2018 to Jun 2021; post: Jul 2021 to Jul 2024), volume-filtered at $\geq 20$ transactions/month/EPC category. $N=43$ apartment markets after excluding 25 with $\hat\beta_{1,m}\leq 0$; $N=107$ house markets after excluding 6. $\hat\Delta_m$ is an upper bound for $c_{0,m}$ because the undisclosed category pools strategic hiders and uninformed sellers. Panel B: two-step structural estimates using 2022 to 2024 listing data. $\hat\rho_m = \hat\Delta_m / (\hat\beta_{1,m} \cdot \hat{e}^*_m)$ from closed-form DiD inversion, clipped to $[0,1]$; $\hat{c}_{0,m}$ is recovered by equilibrium inversion from $\hat\sigma_{0,m}$ with $\hat\rho_m$ maintained at the clipped value (upper bound when $\hat\rho_m = 1$, since $c_{0,m} = \rho_m\cdot\hat\beta_{1,m}\cdot\hat{e}^*_m$ is increasing in $\rho_m$). Panel C: supply-side moments computed as sample frequencies from the ADEME match. Means in Panel~A and the $\hat c_{0,m}$ row of Panel~B are percentage changes (computed as $e^\delta - 1$, expressed in percent). Share parameters in Panels~B and~C ($\hat\rho_m$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$) are in percentage points. Standard-deviation columns are in the same units as the mean (percentage points).
+\footnotesize\textit{Notes.} Panel A: market-level DiD estimates from the price index panel (pre: Oct 2018 to Jun 2021; post: Jul 2021 to Jul 2024), volume-filtered at $\geq 20$ transactions/month/EPC category, $N=45$ apartment / $N=97$ house markets with $\hat\beta_{1,m}>0$ that also carry a valid registry-based structural estimate (Panels B--C); a further 4 apartment / 7 house markets pass the DiD filter alone (raising Panel~A's own $N$ to 49/104) but lack the ADEME coverage Panels~B--C require. $\hat\Delta_m$ is no longer treated as an upper bound for $c_{0,m}$; see Panel~B's $\hat\lambda_m$ row. Panel B: anchored structural estimates (Equation~\eqref{eq:anchored_estimator_main}, Appendix~\ref{app:rho_identification}). $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$, not clipped to $[0,1]$ (1 apartment / 5 house markets violate the bound; see Appendix~\ref{app:rho_identification}); $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m})$, independent of $\rho_m$. $\hat\lambda_m$ is the mean over-identifying wedge with its $t$-statistic against $H_0:\text{mean}(\hat\lambda_m)=0$ (a simple test, not optimal-GMM); it is not folded into $\hat c_{0,m}$. Panel C: supply-side moments computed as sample frequencies from the ADEME match. Means in Panel~A and the $\hat c_{0,m}$/$\hat\lambda_m$ rows of Panel~B are percentage changes (computed as $e^\delta - 1$, expressed in percent). Share parameters in Panels~B and~C ($\hat\rho_m$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$) are in percentage points. Standard-deviation columns are in the same units as the mean (percentage points).
 \end{minipage}
 \end{table}
 
@@ -491,22 +493,25 @@ apartments and 5.1\% for houses: disclosing an energy-efficient EPC score comman
 over disclosing an energy-intensive score, after the July~2021 reform. The non-disclosure premium
 $\hat\Delta_m$ (6.9\% for apartments and 3.4\% for houses) measures how much more
 non-disclosers earn over low-quality disclosed properties compared with the pre-reform
-baseline; because the undisclosed pool commingles strategic hiders with genuinely uninformed
-sellers, this figure is an upper bound on the true concealment cost rather than a direct
-estimate of it. Panel~B translates these reduced-form inputs into seller-side parameters: $\hat\rho_m = 90.9\%$ for apartments and 68.1\% for
-houses indicate that nearly all buyers in the average market price energy performance into
-their offers, while the inverted hiding cost $\hat{c}_{0,m}$ settles at 3.4\% of property value for
-apartments and 4.5\% for houses. These are economically substantial magnitudes once set against
-the transaction costs a French buyer already faces. Notary fees on an existing dwelling run to
+baseline; we no longer read this as an upper bound on the concealment cost, since $c_{0,m}$ is
+now identified independently of $\Delta_m$ (Panel~B; see the $\hat\lambda_m$ discussion below).
+Panel~B translates the disclosed-price gap into seller-side parameters via the energy-cost
+anchor: $\hat\rho_m = 49.5\%$ for apartments and 45.8\% for houses indicate that roughly half of
+buyers in the average market price energy performance into their offers --- a far more moderate,
+and far more plausible, reading than the near-universal sensitivity a ratio-based estimator
+mechanically returns (Appendix~\ref{app:rho_identification}) --- while the identified hiding
+cost $\hat{c}_{0,m}$ settles at 2.4\% of property value for apartments and 3.5\% for houses.
+These remain economically material magnitudes once set against the transaction costs a French
+buyer already faces. Notary fees on an existing dwelling run to
 roughly 7 to 8\% of the sale price, and lenders ordinarily require a personal contribution of at
 least 10\%.\footnote{Transfer duties (\emph{droits de mutation \`a titre on\'ereux}) were raised
 to a maximum of 6.31\% for transactions concluded from April 2025, an increase adopted by 84 of
 the 101 \emph{d\'epartements}, with first-time buyers exempt; total notary fees on an existing
 dwelling accordingly sit near 7 to 8\% of the price. The 10\% personal contribution is not a
 legal requirement but the threshold applied by most lenders, and is intended to cover precisely
-these ancillary costs.} The cost of withholding a certificate is therefore of the order of half
-the notary bill, and between a third and a half of the minimum deposit a bank would demand. It is
-not a rounding error in the transaction, though it remains well short of the sums that routinely
+these ancillary costs.} The cost of withholding a certificate is therefore of the order of a
+third of the notary bill, and roughly a quarter to a third of the minimum deposit a bank would
+demand: not a rounding error in the transaction, though well short of the sums that routinely
 change hands around it. That two segments trading very differently land within roughly one percentage point
 of each other reinforces the reading that this cost is set by the disclosure regime rather than
 by the property. Panel~C
@@ -514,17 +519,49 @@ turns to the supply side: just over half of apartment sellers (50.7\%) and 41.9\
 sellers carry a post-2021 registry record at listing ($\hat\pi_m$), and among those, roughly
 six in ten hold a property rated A--D ($\hat{\bar\theta}_m = 62.5\%$ and $60.5\%$).
 The most striking contrast across property types lies in the strategic-hiding rate
-$\hat\sigma_{0,m}$: 14.0\% of informed apartment sellers who hold an E/F/G rating choose to
-withhold it, versus 5.7\% for houses, a difference that mirrors the three-fold gap in
+$\hat\sigma_{0,m}$: 15.2\% of informed apartment sellers who hold an E/F/G rating choose to
+withhold it, versus 6.8\% for houses, a difference that mirrors the three-fold gap in
 $\hat\beta_{1,m}$, since a larger forgone quality premium makes concealment a costlier choice
 for house sellers.
 
 \subsubsection{Structural Estimates and Economic Interpretation}
 
-The first-stage estimator $\hat\rho_m = \hat\Delta_m / (\hat\beta_{1,m} \cdot \hat{e}^*_m)$, clipped to $[0,1]$, yields means of 0.909 for apartments and 0.681 for houses. These averages, however, conceal a pattern of boundary saturation. For apartments, 40 of the 42 partial-pooling markets reach the $\hat\rho_m = 1$ upper boundary; only the 3 full-unraveling markets pull the mean below unity. For houses, 54 of 76 partial-pooling markets reach the boundary, with 21 full-unraveling markets contributing $\hat\rho_m = 0$ and 22 markets achieving interior identification. The boundary reflects a structural feature of the data: the non-disclosure premium $\hat\Delta_m$ typically exceeds $\hat\beta_{1,m} \cdot \hat{e}^*_m$, so the data are consistent with full buyer EPC-sensitivity but cannot pin down exactly how close to one $\rho_m$ truly is. We maintain $\hat\rho_m = 1$ as the working assumption for these markets and treat $\hat{c}_{0,m}$ as an upper bound on the true hiding cost accordingly.
+Under the anchored estimator, $\hat\rho_m$ is a point estimate market by market, not a value
+clipped to a boundary: the mean is $0.495$ for apartments and $0.458$ for houses, with genuine
+interior dispersion (cross-market standard deviation $0.25$ and $0.27$ respectively) rather than
+the mass point at unity a ratio-based construction mechanically produces. The constraint
+$\rho_m\leq1$ --- equivalently $\hat\beta_{1,m}\leq\hat\beta_{1,m}^{\mathrm{anchor}}$ --- is a
+testable implication under this estimator, and it is violated in only 1 of 45 apartment markets
+and 5 of 97 house markets: the energy-cost anchor is, in the overwhelming majority of markets,
+large enough on its own terms to rationalise the observed disclosed-price gap without appealing
+to full buyer sensitivity. A mechanical consequence of Equation~\eqref{eq:c0_estimator} is worth
+flagging directly: because $\hat c_{0,m}$ is defined as $\hat\beta_{1,m}$ times a belief
+$\hat e^*_m(\hat\sigma_{0,m})$ that is itself bounded within $[e(1),\bar\theta_m]$ by
+construction, $\hat c_{0,m}$ can never fall outside the Partial Pooling band, and every market in
+our sample is classified as Partial Pooling under this estimator. The regime heterogeneity an
+earlier draft reported (Cost-Deterred Hiding and Complete Adverse Selection corner markets) was a
+feature of the old, clipped $\hat\rho_m$ entering the classification, not an independent
+empirical finding; we no longer report it as one.
 
-Under this convention, the concealment cost is economically material: 0.034 log points (approximately 3.4\% of property value) for apartments and 0.045 log points (4.5\%) for houses. That the two segments land within roughly one percentage point of each other suggests the cost is governed primarily by the legal disclosure regime and the state of registry coverage rather than by property-specific characteristics. The reduced-form premium provides an independent check: $\hat c_{0,m} \leq \hat\Delta_m$ holds market by market by construction, with equality exactly in the interior markets, so the inversion cannot exceed the bound the DiD imposes on it.
+The concealment cost is economically material: 0.024 log points (approximately 2.4\% of
+property value) for apartments and 0.035 log points (3.5\%) for houses. That the two segments
+land within roughly one percentage point of each other continues to suggest the cost is governed
+primarily by the legal disclosure regime rather than by property-specific characteristics.
+Unlike in an earlier draft, $\hat c_{0,m}\leq\hat\Delta_m$ does \emph{not} hold by construction
+under this estimator, and does not need to: $c_{0,m}$ and $\Delta_m$ are estimated from
+independent moments, and their gap, $\hat\lambda_m\equiv\hat\Delta_m-\hat c_{0,m}$, is itself the
+model's over-identifying restriction (Lemma~\ref{lem:model_bounds}). We take that restriction
+seriously rather than resolving it by fiat. For apartments the wedge is large (mean $6.1$ log
+points) and precisely estimated ($t=6.78$ against a zero null): the non-disclosure premium
+substantially exceeds what the disclosed-price gap and the registry-measured belief predict it
+should equal in Partial Pooling. For houses the wedge is small (mean $0.4$ log points) and
+statistically indistinguishable from zero ($t=1.10$): the restriction is not rejected. Both
+findings are robust to truncating the DiD post-window to one or two years after the reform
+rather than the full three (Appendix~\ref{app:robustness}), so neither is an artefact of the
+particular endpoint chosen; if anything, the apartment wedge widens and the house wedge narrows
+further as the post-reform window lengthens, a divergence rather than a coincidence of the final
+year of data.
 
-The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds, since location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (5.7\% vs.\ 14.0\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
+The contrast between property types is itself informative. Houses carry an energy-efficiency premium roughly three times that of apartments ($\hat\beta_{1,m} \approx 0.051$ against 0.017 log points). We do not test why, and more than one channel is consistent with the gap. Houses are larger and older on average, so heating costs weigh more heavily in a buyer's running expenses. They also sit predominantly outside city centres, in markets where demand pressure is weaker and where price formation depends less on locational scarcity, which leaves more of the price free to respond to an attribute such as energy performance. In tight urban apartment markets the opposite holds, since location dominates valuation and compresses the share attributable to any single characteristic. Separating these explanations would require variation we do not exploit here. A higher forgone premium makes concealment more expensive for low-quality sellers, and the data reflect this exactly: the hiding rate $\hat\sigma_{0,m}$ is well under half as large for houses (6.8\% vs.\ 15.2\%), and the share of strategic hiders is correspondingly lower (1.1\% vs.\ 3.5\% of all listings). The non-disclosure premium $\hat\Delta_m$ is also lower for houses (0.034 vs.\ 0.069), since a thinner pool of strategic hiders means buyers' beliefs about withheld quality are less pessimistic. The entire pattern (higher quality premium, lower hiding rate, lower non-disclosure premium) is the qualitative prediction of the model under equilibrium comparative statics across property types.
 
 One further check concerns the gap between the non-disclosure premium $\hat\Delta_m$ and the structural hiding cost $\hat{c}_{0,m}$. In the apartment markets where both are available, the raw DiD estimate exceeds the inverted hiding cost by a factor of roughly two. This systematic gap is not a contradiction: it is what the model predicts. Uninformed sellers (approximately 83\% of non-disclosers for apartments and 89\% for houses) earn a non-disclosure premium simply by being in the market, pooling with strategic hiders and inflating the undisclosed category's average price above what strategic concealment alone would generate. $\hat\Delta_m$ is the market-level average of this pooled premium; $\hat{c}_{0,m}$ is the cost borne by the marginal informed hider, recovered by targeting only the informed-seller hiding rate $\hat\sigma_{0,m}$ in the equilibrium inversion. The two objects measure different things, and the fact that $\hat\Delta_m$ greatly exceeds $\hat{c}_{0,m}$ is precisely the compositional mechanism the model is designed to capture.
