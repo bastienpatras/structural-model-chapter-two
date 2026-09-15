@@ -219,7 +219,8 @@ a `pyproject.toml` — the analogue of the dropped `r-package-reviewer`; see
 Curated for this project (paper/research workflows only — no lecture/slide skills were ported).
 
 - **Writing / review:** `/humanize` `/proofread` `/review-paper` (`--peer`) `/seven-pass-review`
-  `/respond-to-referees` `/verify-claims` `/submission-disclosures`
+  `/respond-to-referees` `/verify-claims` `/submission-disclosures` `/narrativize` (rewrite a
+  dense section into narrative prose, citing the appendix instead of reproducing it)
 - **Literature:** `/lit-review`, plus the two **global** skills `~/.claude/skills/literature-review`
   and `~/.claude/skills/realestate-finance-writing` (house style for *this exact paper*, built
   2026-08-11 from the Bourveau corpus review) and `~/.claude/skills/research-writing`

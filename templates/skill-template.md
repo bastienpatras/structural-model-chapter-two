@@ -452,4 +452,4 @@ When adapting this template to your domain:
 - **Purpose:** Starter for domain-specific skills
 - **Usage:** Copy to `.claude/skills/[name]/SKILL.md`, customize for your field
 
-For existing skills examples, see `.claude/skills/` directory (47 skills for LaTeX, Python, and research/writing workflows).
+For existing skills examples, see `.claude/skills/` directory (48 skills for LaTeX, Python, and research/writing workflows).
