@@ -139,32 +139,40 @@ intermediate values, which is where the French data sit, the model predicts part
 which some informed sellers conceal and silence carries a premium.
 
 % ---------- ¶9  what the model finds ----------
-The estimates deliver two structural magnitudes and one compositional result. The share of buyers
-who price energy performance averages 90.9\% across apartment markets and 68.1\% across house
-markets, and the cost of withholding a certificate settles at 3.4\% of property value for
-apartments and 4.5\% for houses. Both are economically substantial magnitudes, and of the same order
-in two segments that trade very differently. The model also explains why the observed premium so greatly exceeds this
-concealment cost. Roughly 83\% of silent apartment sellers and 89\% of silent house sellers are
-uninformed, and they earn the pooled premium without concealing anything, inflating the
-non-disclosure premium above what strategic concealment alone would produce. In the partial-pooling
-regime the premium collapses to a single sufficient statistic, the concealment cost itself,
-invariant to market composition, and that is what permits recovering that cost from an observed
-price gap. We maintain, rather than test, the model's prediction that informed sellers of
-high-quality properties never conceal; Appendix~\ref{app:robustness} relaxes it by reading the
-withheld grade from the registry and finds the structural estimates essentially unchanged.
+The estimates deliver two structural magnitudes and one specification test. Identifying buyer
+energy-sensitivity separately from the concealment cost requires a source of variation external
+to prices, since the two are shown to be identified only as their product by price moments
+alone (Appendix~\ref{app:rho_identification}); we construct one from the capitalised energy-cost
+saving a sensitive buyer attaches to verified high- versus low-quality certification, built from
+ADEME-certified consumption bands rather than from the price data itself. The resulting share of
+buyers who price energy performance averages 49.5\% across apartment markets and 45.8\% across
+house markets, and the cost of withholding a certificate settles at 2.4\% of property value for
+apartments and 3.5\% for houses. Both are economically substantial magnitudes, and of the same
+order in two segments that trade very differently. The model predicts, in the partial-pooling
+equilibrium that describes the bulk of French housing markets, that the non-disclosure premium
+should collapse to this concealment cost exactly, invariant to market composition; we test this
+prediction directly rather than impose it. It holds for houses: the gap between the observed
+premium and the identified concealment cost is small and statistically indistinguishable from
+zero. It does not hold for apartments: the premium exceeds the concealment cost by a wide and
+precisely estimated margin, a genuine specification tension we report rather than explain away.
+We maintain, rather than test, the model's prediction that informed sellers of high-quality
+properties never conceal; Appendix~\ref{app:robustness} relaxes it by reading the withheld grade
+from the registry and finds the structural estimates essentially unchanged.
 
 % ---------- ¶10  robustness and the specification test ----------
-Our inferences survive the natural alternatives. The concealment cost is bounded above by the
-reduced-form premium market by market, $\hat c_{0,m}\leq\hat\Delta_m$, with equality exactly in
-the markets where buyer sensitivity is identified from the interior, so the structural inversion
-cannot exceed the bound the reduced form places on it. The cross-segment pattern is itself an out-of-sample check. Houses display a
-threefold larger quality premium, and the model predicts that a larger forgone premium should
-lower concealment, which is what we observe. The hiding rate among informed house sellers is
-well under half that of apartments. We report sensitivity to the volume filter, the treatment of markets at
-the parameter boundary, and the linear approximation to the profit gain, and we are explicit
-about what the design does not deliver. In most markets the data are consistent with full buyer
-sensitivity but cannot pin down how close to one it lies, so the recovered concealment cost is an
-upper bound rather than a point estimate.
+Our inferences survive the natural alternatives. Buyer energy-sensitivity is genuinely point
+identified under the energy-cost anchor, not clipped to a boundary: the constraint that it
+cannot exceed one is violated in only 1 of 45 apartment markets and 5 of 97 house markets, a
+sharp improvement on a cross-sectional or difference-in-differences ratio construction, which we
+show formally cannot separate buyer sensitivity from the price data at all. The cross-segment
+pattern is itself an out-of-sample check. Houses display a threefold larger quality premium, and
+the model predicts that a larger forgone premium should lower concealment, which is what we
+observe. The hiding rate among informed house sellers is well under half that of apartments. We
+report sensitivity to the volume filter, the length of the post-reform window, the calibration of
+the energy-cost anchor, and the linear approximation to the profit gain, and we are explicit
+about what the design does not deliver: it identifies buyer sensitivity and the concealment cost
+market by market, but the apartment segment's rejection of the model's own indifference
+prediction is left as an open finding, not resolved by construction.
 
 % ---------- ¶11  contribution 1 ----------
 Our paper contributes to the literature on disclosure by testing the unraveling result in a
