@@ -92,3 +92,166 @@ Readers who prefer the narrower definition of ``high quality'' should therefore 
 concealment cost as the smaller figure throughout; the qualitative results (the ordering
 across segments, the boundary saturation in $\hat\rho_m$, and the regime classification)
 are unaffected.
+
+% =====================================================================
+% APPENDIX — formal identification of rho_m and c0_m. Referenced from
+% Section~\ref{sec:identification}.
+% =====================================================================
+
+\section{Identification of $\rho_m$: A Formal Treatment}
+\label{app:rho_identification}
+
+The market-by-market ratio $\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ used in an
+earlier draft of this paper is degenerate: it returns approximately $1$ regardless of the true
+buyer-sensitivity share, because $\rho_m$ cancels between numerator and denominator under the
+model's own pricing equations. This appendix states the identification failure formally, and
+the external anchor that resolves it.
+
+\subsection*{The scale non-identification result}
+
+Write $b_m\equiv\rho_m\beta_1$ for the composite parameter that governs every observable price
+implication of the model.
+
+\begin{proposition}[Scale non-identification of buyer sensitivity]
+\label{prop:scale_nonid}
+Under the benchmark pricing rule $\alpha_k=\beta_k$ (Section~\ref{sec:model}), fix any
+parameter vector with $\rho_m\in(0,1]$ and $\beta_1>0$ for all markets $m$, and any
+$\lambda\in(0,(\max_m\rho_m)^{-1}]$. The reparametrization $(\rho_m,\beta_1)\mapsto
+(\lambda\rho_m,\beta_1/\lambda)$ is admissible and induces an identical joint distribution of
+observed prices, an identical equilibrium hiding rate $\sigma_0^*$, and an identical
+equilibrium regime, in every market and every period. Consequently $\{\rho_m\}$ and $\beta_1$
+are not separately identified by any price-based moment implied by the model, for any number of
+markets $M$; only the composites $\{b_m\}$ and $\{c_{0,m}\}$ are.
+\end{proposition}
+
+\begin{proof}
+Every observable implication of the model is a function of $(\rho_m,\beta_1)$ through the
+product $b_m$ alone. For a disclosed listing, $p^*(d=1,\theta)=\beta_0+\rho_m\beta_1\theta
+=\beta_0+b_m\theta$. For a non-disclosed listing, $p^*(d=0)=\beta_0+\rho_m\beta_1
+e=\beta_0+b_m e$. The hiding incentive is $\Delta(\sigma_0)=\rho_m\beta_1 e(\sigma_0)-c_{0,m}
+=b_m e(\sigma_0)-c_{0,m}$, so the equilibrium $\sigma_0^*$ solving $\Delta(\sigma_0^*)=0$
+depends on $(\rho_m,\beta_1)$ only through $b_m$. The regime boundaries of
+Proposition~\ref{prop:equilibrium} ($c_{0,m}$ against $b_m\bar\theta_m$ and $b_m e(1)$) involve
+$(\rho_m,\beta_1)$ the same way. Since $b_m=\rho_m\beta_1=(\lambda\rho_m)(\beta_1/\lambda)$ is
+invariant under the stated map and $c_{0,m}$ is untouched, the reparametrized vector reproduces
+every observable channel exactly. Admissibility requires $\lambda\rho_m\le1$ for all $m$, i.e.\
+$\lambda\le(\max_m\rho_m)^{-1}$.
+\end{proof}
+
+\begin{corollary}[The raw ratio is a specification-test statistic, not an estimator]
+\label{cor:ratio_specification_test}
+$\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ satisfies $\mathrm{plim}\,\hat\rho_m=1$
+for every true $\rho_m\in(0,1]$, since under the model $\hat\Delta_m=b_m e^*_m$ and
+$\hat\beta_{1,m}=b_m$ share the same composite $b_m$ by
+Proposition~\ref{prop:scale_nonid}. It is the sample analogue of the over-identifying
+restriction $\Delta_m=\beta_{1,m}\,e^*_m$ (Lemma~\ref{lem:model_bounds} below), not an
+estimate of buyer sensitivity; its deviation from unity is a specification-test statistic, and
+clipping it to $[0,1]$ suppresses that test rather than estimating anything.
+\end{corollary}
+
+\subsection*{What is identified without an external anchor}
+
+\begin{proposition}[Identification of the composite and of $c_0$]
+\label{prop:what_identified}
+Given consistent estimates of $(\pi_m,\bar\theta_m,\sigma_{0,m})$ from the ADEME registry match
+and $\hat\beta_{1,m}$ from the disclosed-price DiD:
+\begin{enumerate}[label=(\roman*)]
+    \item $b_m$ is point identified: $b_m=\beta_{1,m}$.
+    \item If $\sigma_{0,m}\in(0,1)$ (Partial Pooling), $c_{0,m}$ is point identified,
+        \emph{without reference to $\rho_m$ or $\beta_1$ separately}:
+        $c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)$.
+    \item If $\sigma_{0,m}=0$ (Cost-Deterred Hiding), $c_{0,m}\ge\beta_{1,m}\bar\theta_m$; if
+        $\sigma_{0,m}=1$ (Complete Adverse Selection), $c_{0,m}\le\beta_{1,m}\,e(1)$.
+    \item $\Delta_m$ is an over-identifying restriction: $\Delta_m=\beta_{1,m}\,e(\sigma_{0,m})$,
+        i.e.\ $\Delta_m=c_{0,m}$ in Partial Pooling.
+    \item $\rho_m$ itself is not identified (Proposition~\ref{prop:scale_nonid}).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is the disclosed-price equation $\beta_{1,m}=p^*(d=1,\theta=1)-p^*(d=1,\theta=0)=b_m$.
+(ii): in Partial Pooling the indifference condition
+$\Delta(e(\sigma_0^*))=c_{0,m}$ reads $b_m\,e(\sigma_{0,m})=c_{0,m}$; substitute $b_m=\beta_{1,m}$
+from (i). (iii) follows from the regime boundaries of Proposition~\ref{prop:equilibrium}
+evaluated at $b_m=\beta_{1,m}$. (iv) combines (i) with the non-disclosed pricing equation
+$\Delta_m\equiv p^*(d=0)-p^*(d=1,\theta=0)=b_m\,e(\sigma_{0,m})$. (v) is
+Proposition~\ref{prop:scale_nonid}.
+\end{proof}
+
+This result has an immediate practical consequence: $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat
+e^*_m(\hat\sigma_{0,m})$ is the primary concealment-cost estimator used in
+Section~\ref{sec:identification}, for both property types, and it does not require $\rho_m$ to
+be identified at all.
+
+\begin{lemma}[Model-implied bounds on the non-disclosure premium]
+\label{lem:model_bounds}
+(i) $0\le\Delta_m/\beta_{1,m}=e_m\le\bar\theta_m\le1$, since the belief function is bounded
+above by $\bar\theta_m$ (attained at $\sigma_0=0$). (ii) In Partial Pooling, if $c_{0,m}$ is
+invariant to the July~2021 reform (the identifying assumption of
+Section~\ref{sec:identification}), the model predicts a DiD non-disclosure premium of zero:
+since $\Delta_{m,t}=c_{0,m}$ in Partial Pooling at every date $t$, its post-minus-pre change is
+zero whenever $c_{0,m}$ does not move at the reform.
+\end{lemma}
+
+\subsection*{Point identification under an external anchor}
+
+\begin{assumption}[Energy-cost anchor]
+\label{assum:energy_anchor}
+For each market $m$, an external, non-price estimate of the sensitive buyer's willingness to
+pay for verified quality is available as the capitalised energy-cost saving:
+\begin{equation}
+    \beta_{1,m}^{\mathrm{anchor}} = \kappa\cdot\frac{A_m}{P_m}, \qquad
+    A_m = \big(\bar E_{0,m}-\bar E_{1,m}\big)\cdot p^E\cdot a(r,T), \qquad
+    a(r,T)=\frac{1-(1+r)^{-T}}{r},
+    \label{eq:energy_anchor}
+\end{equation}
+where $\bar E_{\theta,m}$ is mean certified primary-energy consumption (kWh$_{\mathrm{ep}}$/m$^2$/yr)
+of quality-$\theta$ dwellings among ADEME-matched ($K=1$) listings in market $m$ --- pooling
+\emph{both} disclosed and strategically-hidden listings, since restricting to disclosed-only
+listings would reintroduce selection on the seller's own hiding decision --- $p^E$ is a
+blended primary-energy-equivalent price, $P_m$ is the local price level, and $a(r,T)$ discounts
+the annual saving over a horizon $T$ at rate $r$.
+\end{assumption}
+
+\begin{proposition}[Point identification of $\rho_m$ under Assumption~\ref{assum:energy_anchor}]
+\label{prop:anchored_identification}
+Under Assumption~\ref{assum:energy_anchor} with $\beta_{1,m}^{\mathrm{anchor}}>0$ known,
+\begin{equation}
+    \rho_m=\frac{\beta_{1,m}}{\beta_{1,m}^{\mathrm{anchor}}}, \qquad
+    c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)
+    \label{eq:anchored_estimator}
+\end{equation}
+are point identified. The model's constraint $\rho_m\le1$ becomes the testable inequality
+$\beta_{1,m}\le\beta_{1,m}^{\mathrm{anchor}}$, rather than an imposed clip.
+\end{proposition}
+
+\begin{proof}
+The Jacobian of $(\beta_{1,m},\sigma_{0,m})$ with respect to $(\rho_m,c_{0,m})$ at a Partial
+Pooling equilibrium, holding $\beta_{1,m}^{\mathrm{anchor}}$ fixed, is
+\[
+\begin{pmatrix}
+\beta_{1,m}^{\mathrm{anchor}} & 0 \\[2pt]
+k\,\beta_{1,m}^{\mathrm{anchor}} & -k\,\rho_m\,\beta_{1,m}^{\mathrm{anchor}}/c_{0,m}
+\end{pmatrix},
+\qquad
+k\equiv\frac{(1-\pi_m)\bar\theta_m}{c_{0,m}\,\pi_m(1-\bar\theta_m)},
+\]
+with determinant $-k\,\rho_m\,(\beta_{1,m}^{\mathrm{anchor}})^2/c_{0,m}\ne0$ whenever
+$\rho_m,c_{0,m}>0$ and $\pi_m,\bar\theta_m\in(0,1)$. Local identification follows; global
+identification follows from strict monotonicity of $\beta_{1,m}\mapsto\rho_m$ in
+\eqref{eq:anchored_estimator} and, given $\rho_m$, of $\sigma_{0,m}\mapsto c_{0,m}$ through the
+strictly decreasing belief function of Lemma~\ref{lem:belief_monotone}.
+\end{proof}
+
+\medskip
+\noindent\textit{Diagnostics reported alongside the anchored estimates
+(Table~\ref{tab:did_results} and Appendix~\ref{app:robustness}).} The measured wedge
+$\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$
+(Lemma~\ref{lem:model_bounds}/Corollary~\ref{cor:ratio_specification_test}) is reported per
+market rather than absorbed into $\hat c_{0,m}$; the concentration statistic
+$\bar\Lambda'=M^{-1}\sum_m\hat\rho_m(1-\hat\rho_m)$, restricted to markets with
+$\hat\rho_m\in[0,1]$, gates whether the anchored $\hat\rho_m$ sample carries enough interior
+variation to support a covariate index rather than only a common estimate; and the count of
+markets violating $\hat\rho_m\le1$ is reported directly rather than clipped away. See
+\texttt{quality\_reports/plans/humble-zooming-lovelace.md} for the calibration of $(p^E,r,T)$
+and the full derivation this appendix summarises.
