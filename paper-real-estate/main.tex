@@ -316,49 +316,12 @@ The broader lesson extends beyond energy labels. Disclosure mandates discipline 
 
 \begin{figure}[H]
     \centering
-    \caption{Dynamic effect of mandatory energy performance disclosure on the listing price of apartments and houses up for sale across various energy consumption levels}
-    % Efficient
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Apartments Up for Sale (Full sample)}
-        \includegraphics[width=\textwidth]{fig/event-study/apartment/index/event-study-efficient.png} 
-        \label{fig:row1_1}
-    \end{subfigure} 
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{Houses Up for Sale (Full sample)}
-        \includegraphics[width=\textwidth]{fig/event-study/house/index/event-study-efficient.png} 
-        \label{fig:row1_2}
-    \end{subfigure}
-
-    \vspace{.5em} % Vertical space between rows
-
-    % Intensive
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/event-study/apartment/index/event-study-intensive.png} 
-    \end{subfigure} 
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/event-study/house/index/event-study-intensive.png} 
-        \label{fig:row2_2}
-    \end{subfigure}
-
-    \vspace{.5em} % Vertical space between rows
-
-    % Missing
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/event-study/apartment/index/event-study-missing.png} 
-    \end{subfigure} 
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/event-study/house/index/event-study-missing.png} 
-    \end{subfigure} 
+    \caption{Event-study dynamics of the two DiD price gaps around the July 2021 reform}
     \label{fig:ATT}
-    \begin{minipage}{\textwidth}
-    \vspace{0.5em} 
-        \footnotesize{\textbf{Note.} The panels present event-study estimates from the two-step hedonic procedure of \citet{patras_mandatory_2024}. Each series plots the monthly change in hedonic listing prices of the reference property around the introduction of mandatory EPC disclosure, separately by energy-consumption group and property type.  Shaded bands represent 95\% confidence intervals. These dynamics trace how the policy’s effect on predicted apartment and house prices evolves before and after the disclosure requirement in July 2021.}
+    \includegraphics[width=0.85\textwidth]{fig/visuals/fig_did_event_study.pdf}
+    \begin{minipage}{0.9\textwidth}
+    \vspace{0.5em}
+        \footnotesize{\textbf{Note.} Monthly log price gaps relative to disclosed E/F/G listings, averaged across markets, from the hedonic price-index panel underlying Equations~\eqref{eq:did_beta1}--\eqref{eq:did_delta} in Section~\ref{sec:identification}. $\Delta_{m,t}$ (solid) contrasts undisclosed listings; $\beta_{1,m,t}$ (dashed) contrasts disclosed A--D listings, both against disclosed E--G. Shaded bands are 95\% confidence intervals for the movement of each gap relative to its own pre-reform mean (not the cross-market level, which differences out of the DiD and would otherwise overstate the uncertainty of the trajectory itself). Vertical line: July 1, 2021. The post-minus-pre contrast of each series is the corresponding market-average DiD estimate reported in Table~\ref{tab:did_results}, Panel A.}
     \end{minipage}
 \end{figure}
 \clearpage
