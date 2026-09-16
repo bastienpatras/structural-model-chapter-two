@@ -36,16 +36,16 @@ Table~\ref{tab:robustness} crosses the two choices.
 \textbf{Specification} & $N$ & $\hat\rho_m$ & $\hat c_{0,m}$ & $\hat\sigma_{0,m}$ & $\hat\sigma_{1,m}$ & $\hat{\bar\theta}_m$ \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel A: Apartments}} \\[2pt]
-A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 45 & 90.9\% & 3.42\% & 14.0\% & n/a & 62.5\% \\
-A--D vs E/F/G, $\sigma_1$ from registry               & 45 & 90.8\% & 3.75\% &  5.5\% & 5.1\% & 65.9\% \\
-A--C vs E/F/G, $\sigma_1$ imposed                     & 40 & 95.0\% & 1.62\% &  7.1\% & n/a & 26.5\% \\
-A--C vs E/F/G, $\sigma_1$ from registry               & 40 & 95.0\% & 1.75\% &  4.8\% & 6.5\% & 28.4\% \\
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 45 & 49.5\% & 2.41\% & 15.2\% & n/a & 62.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 45 & 49.5\% & 2.62\% &  5.9\% & 5.1\% & 65.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 40 & 62.2\% & 1.08\% &  7.7\% & n/a & 26.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 40 & 62.2\% & 1.19\% &  5.1\% & 6.5\% & 28.4\% \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel B: Houses}} \\[2pt]
-A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 97 & 68.1\% & 4.45\% &  5.7\% & n/a & 60.5\% \\
-A--D vs E/F/G, $\sigma_1$ from registry               & 97 & 67.7\% & 4.59\% &  2.2\% & 2.1\% & 61.9\% \\
-A--C vs E/F/G, $\sigma_1$ imposed                     & 100 & 71.8\% & 1.80\% &  3.0\% & n/a & 28.5\% \\
-A--C vs E/F/G, $\sigma_1$ from registry               & 100 & 71.7\% & 1.88\% &  1.9\% & 2.5\% & 29.3\% \\
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 97 & 45.8\% & 3.45\% &  6.8\% & n/a & 60.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 97 & 45.8\% & 3.56\% &  2.8\% & 2.1\% & 61.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 100 & 53.7\% & 1.72\% &  3.7\% & n/a & 28.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 100 & 53.7\% & 1.78\% &  2.5\% & 2.5\% & 29.3\% \\
 \bottomrule\bottomrule
 \end{tabular*}
 \vspace{0.5em}
@@ -64,34 +64,42 @@ larger under the A--D contrast.
 
 Three results follow.
 
-First, the structural estimates are insensitive to the $\sigma_1$ assignment. Holding the
-threshold fixed, relaxing the restriction moves $\hat\rho_m$ by less than a tenth of a
-percentage point in both segments, and moves $\hat c_{0,m}$ from 3.42\% to 3.75\% for
-apartments and from 4.45\% to 4.59\% for houses. The concealment cost is therefore not an
-artefact of the revealed-preference assignment, even though $\hat\sigma_{0,m}$ itself is
-sensitive to it. Imposing $\theta=0$ places every informed non-discloser in the low-quality
-group and roughly doubles the measured hiding rate.
+First, buyer sensitivity is exactly insensitive to the $\sigma_1$ assignment, and the
+concealment cost only mildly so. Holding the threshold fixed, relaxing the restriction leaves
+$\hat\rho_m$ completely unchanged in both segments: the anchored estimator
+$\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$ (Proposition~\ref{prop:anchored_identification})
+never involves $\sigma_1$ at all, so there is nothing for the assignment to move. $\hat
+c_{0,m}$ moves modestly, from 2.41\% to 2.62\% for apartments and from 3.45\% to 3.56\% for
+houses, through its dependence on $\hat e^*_m$, which does respond to the assignment. The
+concealment cost is therefore not an artefact of the revealed-preference assignment, even
+though $\hat\sigma_{0,m}$ itself is quite sensitive to it: imposing $\theta=0$ places every
+informed non-discloser in the low-quality group and inflates the measured hiding rate by
+roughly a factor of two and a half (15.2\% against 5.9\% for apartments, 6.8\% against 2.8\%
+for houses).
 
 Second, the restriction $\sigma_1^*=0$ is not satisfied exactly, but the model's predicted
 \emph{ordering} holds under the maintained threshold. With quality read from the registry and
 the cut at the rental-ban boundary, $\hat\sigma_{1,m} = 5.1\%$ against
-$\hat\sigma_{0,m} = 5.5\%$ for apartments, and $2.1\%$ against $2.2\%$ for houses. Informed
+$\hat\sigma_{0,m} = 5.9\%$ for apartments, and $2.1\%$ against $2.8\%$ for houses. Informed
 sellers of low-quality properties withhold more often than informed sellers of high-quality
 ones, as the model requires, though the gap is narrow. Under the C--D cut the ordering
-reverses in both segments ($6.5\%$ against $4.8\%$, and $2.5\%$ against $1.9\%$). The
-threshold that the institutional setting selects is thus also the one under which the
-behavioural restriction survives, which we read as support for the baseline cut rather than
-as independent confirmation of the corollary.
+reverses for apartments ($6.5\%$ against $5.1\%$) and is effectively a tie for houses ($2.5\%$
+against $2.5\%$, indistinguishable at this precision). The threshold that the institutional
+setting selects is thus also the one under which the behavioural restriction survives, which
+we read as support for the baseline cut rather than as independent confirmation of the
+corollary.
 
 Third, the threshold matters a great deal for the level of the concealment cost, and this is
 the paper's most consequential specification choice. Moving the cut from C--D to D--E raises
-$\hat c_{0,m}$ from roughly 1.6--1.8\% of property value to 3.4--4.6\%. The mechanism is
-transparent. With A--D counted as high quality, the average quality of the non-disclosing
-pool $\hat e^*_m$ roughly doubles, and $c_{0,m} = \rho_m\beta_{1,m}e^*_m$ scales with it.
-Readers who prefer the narrower definition of ``high quality'' should therefore read the
-concealment cost as the smaller figure throughout; the qualitative results (the ordering
-across segments, the boundary saturation in $\hat\rho_m$, and the regime classification)
-are unaffected.
+$\hat c_{0,m}$ from roughly 1.1--1.8\% of property value to 2.4--3.6\%, a little more than a
+doubling in both segments. The mechanism is transparent. With A--D counted as high quality,
+the average quality of the non-disclosing pool $\hat e^*_m$ rises substantially (the informed
+high-quality share $\hat{\bar\theta}_m$ alone more than doubles, from roughly 27--29\% under
+the C--D cut to 60--66\% under D--E), and $c_{0,m}=\beta_{1,m}\hat e^*_m$
+(Proposition~\ref{prop:what_identified}) scales with it. Readers who prefer the narrower
+definition of ``high quality'' should therefore read the concealment cost as the smaller
+figure throughout; the relative ordering of the concealment cost across apartments and houses
+is unaffected by the threshold choice.
 
 % =====================================================================
 % APPENDIX — formal identification of rho_m and c0_m. Referenced from
