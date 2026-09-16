@@ -299,3 +299,48 @@ concentration diagnostics table for the robustness appendix; `econ-academic-edit
 `realestate-finance-writing` polish pass; Phase 4 review. Minor housekeeping noted but not done:
 two stale unreferenced map PDFs, map file-size optimization (both low priority, from
 cartopy-specialist's report).
+
+## Phase 3 — narrativize pass on §4.5.2 and §5.1-5.2 (2026-09-15/16)
+
+Ran the new `/narrativize` skill (built this session, see below) on §4.5.2 "Structural
+Estimates and Economic Interpretation" and on §5.1-5.2 "Motivation"/"Extended Seller Problem".
+Both independently verified (compile clean, zero stale draft-reference language, numbers
+spot-checked against Table 4) and humanized (detect-only; both came back mostly clean, a few
+stylistic-judgment flags, nothing auto-applied). A stale, retracted "composition bias"
+paragraph was found and deleted from §4.5.2 first (substantive fix, done directly, not via the
+skill). While narrativizing §5.1-5.2, `micro-theorist` sanity-checked the weak-dominance
+argument and the partial-pooling cancellation claim against their appendix proofs: both check
+out; found one pre-existing, non-propagating strict-vs-weak inequality slip in the (now-removed)
+`eq:threshold_condition` derivation, flagged not fixed. Also fixed the pre-existing
+40/100-vs-49/104 market-count inconsistency in "Two Price Gaps from the Reform" (§4.4.2): the
+stated volume-filter stage was stale (40/100); `results.txt` shows the true current counts are
+81/114, feeding into the already-correct 49/104 → 45/97 chain Table 4's footnote documents.
+
+## Phase 3 — threshold-sensitivity table regenerated under the anchored estimator (2026-09-16)
+
+Built `scripts/run_threshold_robustness.py` (a reusable sweep, mirrors `run_pipeline()` through
+the anchored `msm_result` for the 4 specs × 2 property types, skipping bootstrap/subsidies/
+figures). Regenerated `tab:robustness` in `A-robustness.tex` and rewrote its three interpretive
+paragraphs. Key finding: $\hat\rho_m$ is now *exactly* invariant to the $\sigma_1$ assignment
+(it never enters the anchored formula at all) — a cleaner version of the old "insensitive"
+finding, which used to report "less than a tenth of a percentage point." Market counts (N) per
+cell are unchanged from the old table, confirming only the estimator changed, not the sample.
+Removed the old closing claim that "boundary saturation in $\hat\rho_m$ and the regime
+classification" are unaffected by the threshold choice — both are artifacts of the retired
+ratio estimator and no longer apply once $\rho$ is point-identified. Raw sweep output at
+`results/_robust/threshold_sensitivity_summary.csv` (gitignored, regenerable).
+
+**Found, not fixed (flagging for a later pass):** `sections/04-structural-draft.tex:546` cites
+`Appendix~\ref{app:robustness}` for a truncated-post-reform-window robustness check (λ̂_m stable
+under 1-2yr vs the full 3yr post-window), but that check was never actually written into the
+appendix — it exists only as the year-by-year trajectory data from an earlier session
+(`quality_reports/diagnostics/rho-anchor-dynamics/`, native memory
+`rho_anchor_dynamics_table.md`). The citation is currently unbacked; either write the check into
+`A-robustness.tex` from that existing data, or soften the in-text claim.
+
+**Still open:** the λ̂_m/J-test/concentration diagnostics table for the robustness appendix
+(Appendix D of this plan already specifies it; not yet built); the truncation-window citation
+gap above; bootstrap SEs for the anchored estimator (still `NotImplementedError`-guarded);
+`econ-academic-editor` + `realestate-finance-writing` polish pass; Phase 4 review
+(`structural-micro-reviewer`, `methods-referee`/`--peer --r2`, `/audit-reproducibility` on
+Table 4); two stale unreferenced map PDFs, map file-size optimization (low priority).
