@@ -300,10 +300,9 @@ The following comparative statics hold:
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-\begin{itemize}
-    \item Part~(i) reflects two distinct transmission channels. The effect of $\pi$ operates through the \textit{belief channel}: as the share of informed sellers rises, non-disclosure becomes more informative of low quality, $e^*$ falls, and the gain from concealment dissipates. The effect of $\rho$ operates through the \textit{revenue channel}: a larger share of EPC-sensitive buyers widens the price spread between quality levels, raising the value of concealment.
-    \item Part~(ii) follows from the implicit function theorem applied to $\Phi(\sigma_0^*)=0$. Since $\Phi'(\sigma_0^*)<0$, one obtains $\partial\sigma_0^*/\partial c_0 < 0$ directly. The effect $\partial\sigma_0^*/\partial\rho > 0$ follows because a higher $\rho$ increases $\Delta$ at any fixed $e$, shifting $\Phi$ upward and raising the interior equilibrium. $\pi$'s effect runs through the same belief channel as in part~(i): a higher $\pi$ increases the contamination weight $\pi(1-\bar{\theta})$ in the denominator of $e(\sigma_0)$, reducing $\Delta(e(\sigma_0))$ and thereby shifting $\Phi$ downward, so $\partial\sigma_0^*/\partial\pi < 0$. The parameters $\pi$ and $c_0$ are therefore \textit{policy substitutes}, each reducing strategic hiding through a distinct channel ($\pi$ through beliefs, $c_0$ through costs), and their marginal effects on $\sigma_0^*$ are both negative and quantifiable from the estimated model.
-\end{itemize}
+\noindent Part~(i) works through two distinct channels. The effect of $\pi$ runs through the \textit{belief channel}, since a rising share of informed sellers makes non-disclosure more informative of low quality, so $e^*$ falls and the gain from concealment dissipates. The effect of $\rho$ runs through the \textit{revenue channel} instead, since a larger share of EPC-sensitive buyers widens the price spread between quality levels and raises the value of concealment.
+
+Part~(ii) follows from the implicit function theorem applied to $\Phi(\sigma_0^*)=0$. Because $\Phi'(\sigma_0^*)<0$, $\partial\sigma_0^*/\partial c_0 < 0$ follows directly. A higher $\rho$ raises $\Delta$ at any fixed $e$, which shifts $\Phi$ upward and raises the interior equilibrium, so $\partial\sigma_0^*/\partial\rho > 0$. $\pi$ works through the same belief channel as in part~(i). A higher $\pi$ increases the contamination weight $\pi(1-\bar{\theta})$ in the denominator of $e(\sigma_0)$, which reduces $\Delta(e(\sigma_0))$ and shifts $\Phi$ downward, so $\partial\sigma_0^*/\partial\pi < 0$. The parameters $\pi$ and $c_0$ are therefore \textit{policy substitutes}, each reducing strategic hiding through a distinct channel, $\pi$ through beliefs and $c_0$ through costs, with marginal effects on $\sigma_0^*$ that are both negative and quantifiable from the estimated model.
 
 \begin{corollary}[Effect of $\rho$ on the non-disclosure premium]
 \label{cor:rho}
@@ -332,11 +331,10 @@ As $\pi$ increases, the lower boundary $\Delta(e(1))$ of the Partial Pooling int
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-\noindent Put in words, better registry coverage makes silence more informative, because a larger
-fraction of non-disclosers are hiding by choice rather than by constraint. Buyers therefore
+\noindent Better registry coverage makes silence more informative, because a larger
+fraction of non-disclosers are hiding by choice rather than by constraint. As a result, buyers
 discount silence more heavily, concealment becomes less attractive, and the market moves toward
-disclosure. The testable content is a cross-market comparative static.
-Markets with higher
+disclosure. The testable content is a cross-market comparative static. Markets with higher
 $\hat\pi_m$ should display lower hiding rates $\hat\sigma_{0,m}$ and should be
 disproportionately represented among the markets classified as fully unravelling in
 Section~\ref{sec:results}.
@@ -349,7 +347,7 @@ An increase in $c_0$ shifts $\Phi(\sigma_0) = \Delta(e(\sigma_0)) - c_0$ uniform
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-The premium in~\eqref{eq:premium} generates a transfer from EPC-sensitive buyers to the non-disclosing pool, but it does not accrue symmetrically within that pool. The informed low-quality hider receives the premium but nets zero: the indifference condition $\Delta(e(\sigma_0^*))=c_0$ ensures that the gross revenue gain from concealment is exactly consumed by the hiding cost. The uninformed seller, who bears no hiding cost, is the residual claimant and pockets the full premium $c_0$ as a pure rent. The welfare cost of the equilibrium therefore has two distinct components. First, an allocative distortion: EPC-sensitive buyers pay a positive premium for assets whose true energy performance falls below the pooled belief $e(\sigma_0^*)$, a misallocation that would be eliminated if the concealed information were transmitted. Second, a deadweight loss: the hiding cost $c_0$ is incurred by informed sellers at listing time without any counterpart in buyer valuations. This is a social loss only to the extent that $c_0$ represents real resources destroyed (legal fees, prolonged negotiation, administrative burden); any portion that is a transfer, such as the expected value of a fine accruing to the state, is a redistribution rather than a loss. We do not identify this split, so the deadweight-loss component is an upper bound. A formal efficiency characterization of these two components and the optimal subsidy that addresses them is developed in Section~\ref{sec:policy}.
+The premium in~\eqref{eq:premium} generates a transfer from EPC-sensitive buyers to the non-disclosing pool, but it does not accrue symmetrically within that pool. The informed low-quality hider receives the premium but nets zero, because the indifference condition $\Delta(e(\sigma_0^*))=c_0$ ensures that the gross revenue gain from concealment is exactly consumed by the hiding cost. The uninformed seller, who bears no hiding cost, is the residual claimant and pockets the full premium $c_0$ as a pure rent. The welfare cost of the equilibrium splits into two distinct components. The first is an allocative distortion. EPC-sensitive buyers pay a positive premium for assets whose true energy performance falls below the pooled belief $e(\sigma_0^*)$, a misallocation that would be eliminated if the concealed information were transmitted. The second is a deadweight loss, since the hiding cost $c_0$ is incurred by informed sellers at listing time without any counterpart in buyer valuations. This is a social loss only to the extent that $c_0$ represents real resources destroyed, such as legal fees, prolonged negotiation, or administrative burden. Any portion that is instead a transfer, such as the expected value of a fine accruing to the state, is a redistribution rather than a loss. We do not identify this split, so the deadweight-loss component is an upper bound. A formal efficiency characterization of these two components, and of the optimal subsidy that addresses them, is developed in Section~\ref{sec:policy}.
 
 \subsection{Identification}
 \label{sec:identification}
