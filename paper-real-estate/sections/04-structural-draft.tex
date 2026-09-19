@@ -187,7 +187,7 @@ Increasing $\sigma_0$ raises the denominator (more low-quality hiders enter the 
 
 \subsubsection{Disclosure Incentives}
 
-The seller's disclosure decision turns on a single comparison: whether the price attainable by withholding the audit result, $p^*_{d=0}$, priced off the pool belief $e$, exceeds the price attainable by disclosing true quality $\theta$. A low-quality seller ($\theta=0$) gains from non-disclosure by pooling with uninformed sellers and extracting the associated quality premium; a high-quality seller ($\theta=1$) loses from non-disclosure because pooling with low-quality hiders depresses the belief $e$ below 1. This asymmetry drives the central result.
+A seller's disclosure decision reduces to one comparison: does withholding the audit, priced off the market's pool belief $e$, fetch more than disclosing the true quality $\theta$ would? A low-quality seller ($\theta=0$) gains by pooling with uninformed sellers and capturing a share of their quality premium; a high-quality seller ($\theta=1$) loses, because pooling with low-quality hiders drags the belief $e$ below 1. That asymmetry is the source of everything that follows.
 
 \begin{proposition}[Disclosure Incentives and Seller Sorting]
 \label{prop:premium}
@@ -200,7 +200,7 @@ Under the benchmark $\alpha_k=\beta_k$, a seller of type $(K,\theta)$ strictly p
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-Proposition~\ref{prop:premium} reflects a standard adverse-selection asymmetry. For a high-quality seller, disclosure reveals quality exactly, whereas non-disclosure pools her with low-quality hiders; the condition $e(\sigma_0^*)<1$ is satisfied for any non-degenerate pool and so is always binding. For a low-quality seller, concealment allows her to price off the pool belief $e(\sigma_0^*)>0$, which is strictly greater than her true quality $\theta=0$; the gain from pooling is therefore strictly positive whenever uninformed sellers are present. The additional hiding cost $c_1>0$ borne by high-quality concealers reinforces but does not drive this separation under the benchmark $\alpha_k=\beta_k$: the pool-inference argument alone is sufficient to induce full separation of high-quality sellers, with $c_1$ becoming binding only when $\alpha_k < \beta_k$ (the distrust discount case).
+Proposition~\ref{prop:premium} is the familiar adverse-selection asymmetry, worked out for this setting. A high-quality seller has nothing to gain from ambiguity: disclosure reveals her type exactly, while non-disclosure pools her with low-quality hiders, and since $e(\sigma_0^*)<1$ for any non-degenerate pool, that comparison always binds. A low-quality seller faces the opposite incentive: concealment lets her price off $e(\sigma_0^*)$, which is strictly above her true quality of zero whenever any uninformed sellers are present, so the gain from pooling is strictly positive. The hiding cost $c_1>0$ that falls only on high-quality concealers reinforces this separation but is not what drives it under the benchmark $\alpha_k=\beta_k$: pool inference alone is enough to make high-quality sellers disclose, and $c_1$ only starts to matter once $\alpha_k<\beta_k$, the distrust-discount case.
 
 \begin{corollary}[High-Quality Sellers Always Disclose]
 \label{cor:hq_disclose}
@@ -209,23 +209,23 @@ In any equilibrium, $\sigma_1^*=0$.
 
 \noindent\textit{Proof.} Follows directly from Proposition~\ref{prop:premium}(i). $\Box$
 
-Corollary~\ref{cor:hq_disclose} is a partial unraveling result: the top of the quality distribution fully separates. An informed high-quality seller gains nothing from ambiguity and is strictly harmed by being pooled with low-quality hiders; she therefore always discloses. The non-disclosing pool is consequently free of high-quality informed sellers in any equilibrium, and the strategic question reduces entirely to the behavior of informed low-quality sellers.
+This is a partial-unraveling result: the top of the quality distribution fully separates. An informed high-quality seller has nothing to gain from staying silent and is actively hurt by being lumped in with low-quality hiders, so she always discloses. That clears high-quality sellers out of the non-disclosing pool in any equilibrium and leaves the entire strategic question to how informed low-quality sellers behave.
 
-Since $\sigma_1^*=0$, the equilibrium belief simplifies. Defining $\sigma_0\equiv\Pr(d=0\mid K=1,\theta=0)$, the non-disclosing pool consists exclusively of uninformed sellers of both quality types and informed low-quality hiders:
+With $\sigma_1^*=0$, the belief simplifies. Writing $\sigma_0\equiv\Pr(d=0\mid K=1,\theta=0)$ for the fraction of informed low-quality sellers who conceal, the non-disclosing pool now contains only uninformed sellers of both types plus these strategic hiders:
 \begin{equation}
     e(\sigma_0) = \frac{(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)}
     \label{eq:belief_simplified}
 \end{equation}
-The belief $e(\sigma_0)$ is strictly decreasing in $\sigma_0$: each additional low-quality hider enters the denominator with weight $\pi(1-\bar{\theta})$ while leaving the numerator unchanged, diluting pool quality and depressing buyer beliefs.
+$e(\sigma_0)$ falls monotonically in $\sigma_0$: every additional hider adds weight $\pi(1-\bar{\theta})$ to the denominator without moving the numerator, diluting the pool and worsening what buyers infer from silence.
 
 \subsubsection{Equilibrium Characterization}
 
-Let $\Delta(e)\equiv\rho\cdot\beta_1\cdot e$ denote the revenue gain from non-disclosure for a low-quality seller facing pool belief $e$. Define the net hiding gain:
+Write $\Delta(e)\equiv\rho\beta_1 e$ for the revenue a low-quality seller gains from non-disclosure when buyers hold belief $e$, and define the net hiding gain $\Phi(\sigma_0)$ as that revenue gain net of the hiding cost:
 \begin{equation}
     \Phi(\sigma_0) \;\equiv\; \Delta\!\left(e(\sigma_0)\right) - c_0 \;=\; \frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)} - c_0.
     \label{eq:Phi}
 \end{equation}
-The function $\Phi$ is strictly decreasing in $\sigma_0$: as more informed low-quality sellers conceal, pool quality $e$ deteriorates, the gain from hiding falls, and the incentive to conceal dissipates. This monotone feedback delivers a unique equilibrium without reliance on equilibrium refinements. The three equilibrium regimes follow directly from comparing $\Phi$ to zero at the two boundary values: $\Phi(0)=\Delta(\bar{\theta})-c_0$ measures the net gain when the pool is at its cleanest, and $\Phi(1)=\Delta(e(1))-c_0$ when it is maximally contaminated.
+$\Phi$ is strictly decreasing in $\sigma_0$ --- more concealment worsens the pool, which shrinks the gain from concealing further --- and this monotone feedback is what pins down a unique equilibrium without any need for refinements. The three regimes below follow from comparing $\Phi$ against zero at its two extremes: $\Phi(0)=\Delta(\bar{\theta})-c_0$, the net gain against the cleanest possible pool, and $\Phi(1)=\Delta(e(1))-c_0$, the net gain against the most contaminated one.
 
 \begin{proposition}[Equilibrium Existence and Uniqueness]
 \label{prop:equilibrium}
@@ -255,11 +255,10 @@ Partial Pooling            & $\Delta(e(1))\leq c_0\leq\Delta(\bar{\theta})$ & $(
 \end{tabular}
 \end{table}
 
-Neither corner solution fits the data: universal concealment would require the non-disclosure premium to exceed $c_0$ even against the most contaminated pool, while universal disclosure would require concealment to be unprofitable even against the cleanest. What we observe instead is an interior equilibrium in which some low-quality sellers disclose and the remainder pool with uninformed non-disclosers. Substituting~\eqref{eq:Phi} into $\Phi(\sigma_0^*)=0$ yields the closed-form hiding rate:
-\begin{equation}
-    \sigma_0^* = \frac{1}{\pi(1-\bar{\theta})}\left[\frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{c_0} - (1-\pi)\right].
-    \label{eq:pp_sigma}
-\end{equation}
+Neither corner fits what we observe: universal concealment would need the non-disclosure premium to beat $c_0$ even against the dirtiest possible pool, and universal disclosure would need concealment to be unprofitable even against the cleanest. The data show something in between --- some low-quality sellers disclose, the rest pool with uninformed non-disclosers --- and solving~\eqref{eq:Phi} for the interior case $\Phi(\sigma_0^*)=0$ gives a closed form for the hiding rate,
+\[
+\sigma_0^* = \frac{1}{\pi(1-\bar{\theta})}\left[\frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{c_0} - (1-\pi)\right].
+\]
 
 We derive the non-disclosure premium as follows:
 \begin{equation}
@@ -276,23 +275,15 @@ We derive the non-disclosure premium as follows:
     \label{eq:premium}
 \end{equation}
 
-The three equilibria characterized in Proposition~\ref{prop:equilibrium} arise from a single comparison: the hiding gain $\Delta(e)=\rho\beta_1 e$ evaluated at the two extremes of pool contamination against the structural hiding cost $c_0$. When the gain is dominated by $c_0$ even at the cleanest possible pool ($\sigma_0=0$, $e=\bar{\theta}$), no informed seller hides; when it survives the most contaminated pool ($\sigma_0=1$, $e=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$), every informed seller hides; in between, an interior fraction hides and the system self-equilibrates. The non-disclosure premium inherits a strict ordering across regimes,
-\begin{equation*}
-    \underbrace{\rho\beta_1 \bar{\theta}}_{\text{Cost-Deterred Hiding}}
-    \;>\;
-    \underbrace{c_0}_{\text{Partial Pooling}}
-    \;>\;
-    \underbrace{\rho\beta_1\,\dfrac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}}_{\text{Complete Adverse Selection}},
-\end{equation*}
-with the interior value depending neither on $\pi$ nor on $\rho$.
+All three equilibria in Proposition~\ref{prop:equilibrium} come from the same comparison --- the hiding gain $\Delta(e)=\rho\beta_1 e$ evaluated at the two extremes of pool contamination, set against the hiding cost $c_0$. If $c_0$ dominates even at the cleanest pool ($\sigma_0=0$, $e=\bar{\theta}$), no one hides; if the gain survives even the dirtiest pool ($\sigma_0=1$, $e=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$), everyone hides; in between, an interior share hides and the market settles there. The premium inherits a strict ordering across the three regimes, $\rho\beta_1\bar{\theta} > c_0 > \rho\beta_1(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$ --- Cost-Deterred Hiding above, Complete Adverse Selection below, Partial Pooling pinned at $c_0$ in between --- and the interior value depends on neither $\pi$ nor $\rho$.
 
-In the \emph{Cost-Deterred Hiding} regime, the hiding cost is prohibitive even against the cleanest conceivable non-disclosing pool, the one populated entirely by uninformed sellers drawn from the unconditional quality distribution. No informed low-quality seller finds it profitable to suppress her type, so $\sigma_0^*=0$ and the non-disclosing pool is uncontaminated by strategic behavior: $e^*=\bar{\theta}$. The premium $\rho\beta_1\bar{\theta}$ reflects the full unconditional quality belief, scaled by the share of EPC-sensitive buyers and their marginal valuation. Relative to \citet{milgrom_good_1981} and \citet{grossman_informational_1981}, this regime delivers a form of deterrence (informed bad types refrain from concealment) but through a fundamentally different mechanism: unraveling in those models is sustained by a belief-penalty channel, in which silence triggers the worst possible inference, whereas here deterrence runs through the cost channel $c_0$ because uninformed sellers prevent silence from carrying the worst-type inference. This is the only regime in which the non-disclosing pool is informationally clean.
+\emph{Cost-Deterred Hiding} is where the hiding cost is prohibitive even against the cleanest pool imaginable, one made up entirely of uninformed sellers drawn from the unconditional quality distribution. No informed low-quality seller finds concealment worth it, so $\sigma_0^*=0$ and the pool stays uncontaminated: $e^*=\bar{\theta}$, and the premium $\rho\beta_1\bar{\theta}$ is just the unconditional quality belief scaled by buyers' EPC sensitivity. The deterrence result echoes \citet{milgrom_good_1981} and \citet{grossman_informational_1981}, but the mechanism differs: their unraveling runs through a belief penalty, where silence triggers the worst possible inference, while here it runs through the cost $c_0$, precisely because uninformed sellers keep silence from ever carrying that worst-type inference. This is the only regime where the non-disclosing pool is informationally clean.
 
-In the \emph{Complete Adverse Selection} regime, the hiding gain survives the most contaminated pool the model can sustain. Every informed low-quality seller hides, $\sigma_0^*=1$, and buyer beliefs about the non-disclosing pool collapse to the floor $e^*=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$, strictly below $\bar{\theta}$. The non-disclosure premium accordingly hits its lower bound. This lower bound is nonetheless strictly positive: the uninformed seller mass dilutes the adverse inference and prevents the complete belief collapse that Milgrom--Grossman unraveling would imply. The mechanism is exactly the one identified by \citet{dye_disclosure_1985}, in which a residual silent population that is not strategically motivated keeps silence partially informative, and it operates here even when strategic hiders saturate.
+\emph{Complete Adverse Selection} is the opposite corner: the hiding gain survives even the dirtiest pool the model can produce. Every informed low-quality seller hides, $\sigma_0^*=1$, and buyer beliefs collapse to their floor, $e^*=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$, strictly below $\bar{\theta}$, taking the premium down to its lower bound with them. That floor is nonetheless strictly positive, because the uninformed sellers in the pool keep diluting the adverse inference and block the complete belief collapse that Milgrom--Grossman unraveling would otherwise imply. This is the \citet{dye_disclosure_1985} mechanism at work: a residual, non-strategic silent population keeps silence partially informative even once every strategic hider has already piled in.
 
-In the \emph{Partial Pooling} regime, $\Phi(\sigma_0)$ is positive at $\sigma_0=0$ and negative at $\sigma_0=1$. Strict monotonicity yields a unique interior crossing $\sigma_0^*\in(0,1)$ at which the marginal hider is exactly indifferent: $\Delta(e(\sigma_0^*))=c_0$. The underlying mechanism is a feedback loop. As more informed low-quality sellers join the non-disclosing pool, $e(\sigma_0)$ falls, perceived pool quality deteriorates, and the gain $\Delta(e)$ from hiding shrinks. Entry into the pool stops precisely when this gain has been driven down to the hiding cost. The fraction $\sigma_0^*$ of low-quality types hides and pools with the uninformed; the remaining $1-\sigma_0^*$ disclose, accepting the low-quality price rather than continuing to contaminate the pool.
+Between the two corners sits \emph{Partial Pooling}: $\Phi$ is positive at $\sigma_0=0$ and negative at $\sigma_0=1$, so strict monotonicity delivers a unique interior crossing where the marginal hider is exactly indifferent, $\Delta(e(\sigma_0^*))=c_0$. The mechanism is a feedback loop --- as more low-quality sellers hide, $e(\sigma_0)$ falls, the pool looks worse, and $\Delta(e)$ shrinks --- that stops exactly when the shrinking gain reaches the hiding cost. A fraction $\sigma_0^*$ hides and pools with the uninformed; the remaining $1-\sigma_0^*$ disclose rather than keep contaminating the pool for a gain that no longer covers $c_0$.
 
-The structural payoff of this regime is that the equilibrium premium equals exactly $c_0$, invariant to $\pi$ and $\rho$ throughout the interior. The reason is the indifference condition itself: in equilibrium, the price difference between the non-disclosing pool and the disclosed low-quality outcome must equal the hiding cost, otherwise the marginal seller would strictly prefer one action over the other. To see the invariance, consider a rise in $\pi$. A larger informed share would, holding $\sigma_0^*$ fixed, mechanically contaminate the pool and depress $e$. Equilibrium restores $\Phi=0$ by reducing $\sigma_0^*$: fewer hiders produce a cleaner pool, $e$ rebounds, and the premium returns to $c_0$. An analogous adjustment absorbs changes in $\rho$. The non-disclosure premium therefore functions as a revealed hiding cost rather than a free function of market composition, and the observable price gap between non-disclosing and disclosing low-quality sellers directly identifies $c_0$. This is the only regime in which $\pi$, $\rho$, and $c_0$ are jointly identified.
+What makes this regime useful is that the equilibrium premium equals $c_0$ exactly, and stays there regardless of $\pi$ or $\rho$. That invariance is just the indifference condition doing its job: the price gap between the non-disclosing pool and disclosed low quality has to equal the hiding cost, or the marginal seller would strictly prefer one action to the other. Take a rise in $\pi$: holding $\sigma_0^*$ fixed it would mechanically dirty the pool and push $e$ down, but equilibrium restores $\Phi=0$ by lowering $\sigma_0^*$ instead --- fewer hiders, a cleaner pool, $e$ rebounds, and the premium lands back on $c_0$. A change in $\rho$ is absorbed the same way. The non-disclosure premium is therefore a revealed hiding cost rather than a free function of market composition: the observable price gap between non-disclosing and disclosed-low sellers identifies $c_0$ directly, and this is the only regime where $\pi$, $\rho$, and $c_0$ are all jointly identified.
 
 \subsubsection{Comparative Statics}
 
@@ -322,15 +313,14 @@ The following comparative statics hold:
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-\noindent Economically, a larger share of buyers who price the certificate raises what silence
-is worth wherever the hiding rate is at a corner, but inside the partial-pooling regime it does
-not. There the premium is pinned to the concealment cost, and an increase in $\rho$ is absorbed
-by sellers hiding more rather than by the price gap widening. Part~(ii) adds that higher $\rho$
-widens the parameter window over which partial pooling survives. Empirically this predicts that
-across partial-pooling markets the non-disclosure premium should be uncorrelated with
-$\hat\rho_m$ while the hiding rate rises with it, and that markets with higher $\hat\rho_m$
-should be less likely to appear in a corner regime, a pattern we can check directly against
-the regime classification reported in Section~\ref{sec:results}.
+\noindent A larger share of buyers who price the certificate raises what silence is worth, but
+only at the corners. Inside Partial Pooling the premium is pinned to the concealment cost, so a
+rise in $\rho$ shows up as more sellers hiding rather than a wider price gap. Part~(ii) adds that
+higher $\rho$ widens the range of parameters over which Partial Pooling survives at all.
+Empirically, this predicts that within partial-pooling markets the non-disclosure premium should
+be uncorrelated with $\hat\rho_m$ even as the hiding rate rises with it, and that markets with
+higher $\hat\rho_m$ should be less likely to sit in a corner regime --- a pattern we check
+directly against the regime classification in Section~\ref{sec:results}.
 
 
 \begin{proposition}[Equilibrium effect of $\pi$]
