@@ -374,6 +374,17 @@ Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ sep
 
 The same panel supports a month-by-month event study, normalised to zero in the last pre-reform month and plotted in Figure~\ref{fig:ATT} over the 33 months before and 36 months after July~2021. Both gaps are statistically indistinguishable from zero throughout the pre-period, which is the parallel-trends evidence discussed above, and both rise gradually from the reform date onward, consistent with progressive capitalisation of a rating that only became legally opposable at that moment. The period means used in estimation are averages of these relative-month profiles over their respective windows.
 
+\begin{figure}[H]
+    \centering
+    \caption{Event-study dynamics of the two DiD price gaps around the July 2021 reform}
+    \label{fig:ATT}
+    \includegraphics[width=0.85\textwidth]{fig/visuals/fig_did_event_study.pdf}
+    \begin{minipage}{0.9\textwidth}
+    \vspace{0.5em}
+        \footnotesize{\textbf{Note.} Monthly log price gaps relative to disclosed E/F/G listings, averaged across markets, from the hedonic price-index panel described in Section~\ref{sec:identification}. $\Delta_{m,t}$ (solid) contrasts undisclosed listings; $\beta_{1,m,t}$ (dashed) contrasts disclosed A--D listings, both against disclosed E--G. Shaded bands are 95\% confidence intervals for the movement of each gap relative to its own pre-reform mean (not the cross-market level, which differences out of the DiD and would otherwise overstate the uncertainty of the trajectory itself). Vertical line: July 1, 2021. The post-minus-pre contrast of each series is the corresponding market-average DiD estimate reported in Table~\ref{tab:did_results}, Panel A.}
+    \end{minipage}
+\end{figure}
+
 \subsubsection{Beliefs Read Directly from the Registry}
 \label{sec:beliefs}
 
@@ -394,7 +405,7 @@ With $\hat\beta_{1,m}$, $\hat\Delta_m$ and $\hat e^*_m$ all in hand, the premium
     \centering
     \caption{Why the naive ratio saturates: $\hat\Delta_m$ against $\hat\beta_{1,m}\hat e^*_m$, by market}
     \label{fig:rho_saturation}
-    \includegraphics[width=0.95\textwidth]{fig/visuals/fig_rho_saturation_scatter.pdf}
+    \includegraphics[width=0.8\textwidth]{fig/visuals/fig_rho_saturation_scatter.pdf}
     \begin{minipage}{0.95\linewidth}
         \footnotesize\textit{Notes.} Each point is a market. The 45\textdegree{} line marks $\hat\Delta_m=\hat\beta_{1,m}\hat e^*_m$, i.e.\ where the naive ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ equals one. Points in the shaded region are markets where that ratio exceeds one and the model's over-identifying restriction (Corollary~\ref{cor:ratio_specification_test}) fails --- not markets with unusually high buyer sensitivity, since $\rho_m$ never enters the plotted quantities. 40 of 45 apartment markets (89\%) and 54 of 97 house markets (56\%) fall in this region.
     \end{minipage}
