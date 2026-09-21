@@ -22,14 +22,21 @@ disclosure has long been compulsory.
 % ---------- ¶2  "to learn about X, we examine Y" ----------
 To examine whether unraveling describes a market where quality is verifiable but silence is
 common, we study the French residential housing market around the July~2021 enforcement of
-Energy Performance Certificate (EPC) disclosure. Under the \emph{loi Climat et
-R\'esilience}, a property's \emph{diagnostic de performance \'energ\'etique} (DPE) became
-legally opposable. A seller who advertises an energy score is now bound by it, and buyers acquired
-legal recourse against misstatement. The reform changed what a disclosed score means without
-changing the underlying housing stock, the cost of obtaining a certificate, or the legal
-consequences of remaining silent. It therefore isolates the demand-side value of the signal, and
-it does so in a market where the certificate is issued and archived by a national agency rather
-than by the seller or the listing platform.
+Energy Performance Certificate (EPC) disclosure. Under a 2018 reform that took effect on
+July~1, 2021, a property's \emph{diagnostic de performance \'energ\'etique} (DPE) became
+legally opposable.\footnote{Article 179 III of \emph{loi n\textdegree{}2018-1021 du 23 novembre
+2018} (loi \'ELAN) amended Articles L271-4 and L134-3-1 of the \emph{Code de la construction et
+de l'habitation}, with opposability effective July~1, 2021; the accompanying methodology
+overhaul (replacing the earlier invoice-based calculation with the current
+physical-characteristics-based method) was set by the \emph{Arr\^et\'e du 31 mars 2021}. The
+\emph{loi Climat et R\'esilience} (\emph{loi n\textdegree{}2021-1104 du 22 ao\^ut 2021}) is a
+separate, later reform; we invoke it elsewhere in the paper for the F/G rental-ban calendar it
+introduced, not for DPE opposability.} A seller who advertises an energy score is now bound by
+it, and buyers acquired legal recourse against misstatement. The reform changed what a disclosed
+score means without changing the underlying housing stock or the legal consequences of remaining
+silent. It therefore isolates the demand-side value of the signal, and it does so in a market
+where the certificate is issued and archived by a national agency rather than by the seller or
+the listing platform.
 
 % ---------- ¶3  what theory predicts here, and why this market adjudicates ----------
 Applied to this setting, unraveling makes a sharp prediction. Once the DPE is credible, sellers
@@ -43,9 +50,9 @@ against an independent public registry, and because a large stock of properties 
 post-reform market without one.
 
 % ---------- ¶4  the assumption audit ----------
-The unraveling prediction rests on four assumptions. These are (a)~that buyers know sellers
-possess private information about quality, (b)~that disclosure is costless, (c)~that disclosure is
-credible, and (d)~that buyers are homogeneous in how much they value the disclosed attribute. Three of the four are
+The unraveling prediction rests on four assumptions: (a)~buyers know sellers possess private
+information about quality, (b)~disclosure is costless, (c)~disclosure is credible, and
+(d)~buyers are homogeneous in how much they value the disclosed attribute. Three of the four are
 either directly satisfied in this setting or can be dispensed with. Assumption~(c) holds by
 construction after July~2021, since the DPE is issued by a certified third-party diagnostician,
 archived in the registry of the \emph{Agence de la Transition \'Ecologique} (ADEME), and legally
@@ -101,7 +108,8 @@ than inferred, a vantage point that to our knowledge is unique in this literatur
 records enter separately and are not matched to individual listings. We use them to estimate
 the mapping from listing to realised sale price, which supports treating the listing price as
 the relevant outcome, since the negotiation margin in French residential sales is small and
-most properties transact at or near list price.
+most properties transact at or near list price
+\citep{merlo_bargaining_2004, genesove_loss_2001, friggit_marche_2013}.
 
 % ---------- ¶7  descriptive findings, enumerated ----------
 The data yield four descriptive findings, drawn from two distinct samples that we keep separate
@@ -147,8 +155,9 @@ saving a sensitive buyer attaches to verified high- versus low-quality certifica
 ADEME-certified consumption bands rather than from the price data itself. The resulting share of
 buyers who price energy performance averages 49.5\% across apartment markets and 45.8\% across
 house markets, and the cost of withholding a certificate settles at 2.4\% of property value for
-apartments and 3.5\% for houses. Both are economically substantial magnitudes, and of the same
-order in two segments that trade very differently. The model predicts, in the partial-pooling
+apartments and 3.5\% for houses, on the order of a third of the notary bill a French buyer
+separately pays on the same transaction. Both are economically substantial magnitudes, and of the
+same order in two segments that trade very differently. The model predicts, in the partial-pooling
 equilibrium that describes the bulk of French housing markets, that the non-disclosure premium
 should collapse to this concealment cost exactly, invariant to market composition; we test this
 prediction directly rather than impose it. It holds for houses: the gap between the observed
@@ -158,21 +167,6 @@ precisely estimated margin, a genuine specification tension we report rather tha
 We maintain, rather than test, the model's prediction that informed sellers of high-quality
 properties never conceal; Appendix~\ref{app:robustness} relaxes it by reading the withheld grade
 from the registry and finds the structural estimates essentially unchanged.
-
-% ---------- ¶10  robustness and the specification test ----------
-Our inferences survive the natural alternatives. Buyer energy-sensitivity is genuinely point
-identified under the energy-cost anchor, not clipped to a boundary: the constraint that it
-cannot exceed one is violated in only 1 of 45 apartment markets and 5 of 97 house markets, a
-sharp improvement on a cross-sectional or difference-in-differences ratio construction, which we
-show formally cannot separate buyer sensitivity from the price data at all. The cross-segment
-pattern is itself an out-of-sample check. Houses display a threefold larger quality premium, and
-the model predicts that a larger forgone premium should lower concealment, which is what we
-observe. The hiding rate among informed house sellers is well under half that of apartments. We
-report sensitivity to the volume filter, the length of the post-reform window, the calibration of
-the energy-cost anchor, and the linear approximation to the profit gain, and we are explicit
-about what the design does not deliver: it identifies buyer sensitivity and the concealment cost
-market by market, but the apartment segment's rejection of the model's own indifference
-prediction is left as an open finding, not resolved by construction.
 
 % ---------- ¶11  contribution 1 ----------
 Our paper contributes to the literature on disclosure by testing the unraveling result in a
@@ -201,6 +195,18 @@ rather than substitutes, contrary to the conventional treatment in
 \citet{gillingham_palmer_2014}. We do not claim to have estimated the one true model of housing
 disclosure; we propose one way of reading these data through a workhorse framework, and we are
 explicit throughout about which parameters are point-identified and which are bounded.
+
+% ---------- ¶12.5  policy extension results ----------
+The model also speaks to renovation policy. Extending the framework to an endogenous upgrade
+decision, we show the minimum subsidy needed to make renovation privately worthwhile reduces, in
+the empirically dominant partial-pooling regime, to the price gap between verified high and low
+quality alone, invariant to enforcement against hiding and to how many sellers are informed,
+which act on separate margins instead. A uniform national subsidy is accordingly inefficient. The
+required cost-share the state must cover ranges from zero to the full renovation cost across
+markets, averaging just over half in markets that need support at all, and aggregate programme
+costs at plausible renovation-cost benchmarks run to \euro{}9.8--33 billion, two to eight times
+MaPrimeR\'enov's current annual budget. Efficient targeting requires conditioning subsidy design
+on local market composition rather than applying one national rate.
 
 % ---------- ¶13  related literature, three strands ----------
 Our paper draws on three strands of work. It belongs to the literature that estimates

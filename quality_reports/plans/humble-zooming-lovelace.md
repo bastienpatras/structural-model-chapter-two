@@ -344,3 +344,206 @@ gap above; bootstrap SEs for the anchored estimator (still `NotImplementedError`
 `econ-academic-editor` + `realestate-finance-writing` polish pass; Phase 4 review
 (`structural-micro-reviewer`, `methods-referee`/`--peer --r2`, `/audit-reproducibility` on
 Table 4); two stale unreferenced map PDFs, map file-size optimization (low priority).
+
+## Phase 5 — Bastien's introduction/abstract review comments (branch `review`, 2026-09-21)
+
+### Context
+
+Bastien is doing a line-by-line pass on `sections/01-introduction-draft.tex` and the abstract
+(`main.tex`), on a new `review` branch cut from `fix/rho-identification-gmm`. He gave 8 numbered
+comments. Several are pure questions/requests for explanation (must be answered before any text
+is touched); others are direct edit requests. Investigation for the question-type comments is
+done; this section is the resulting plan for what to write, per comment, for his approval.
+
+### 1. "Doesn't the apartment wedge mean we're closer to Complete Adverse Selection? What's the
+share of disclosed bad EPC ratings?" — **answer, no edit proposed**
+
+Dispatched to `micro-theorist` with the full model apparatus. Verdict, worked through the
+ordering $\rho\beta_1\bar\theta$ (CDH) $>c_0$ (PP) $>\rho\beta_1 e(1)$ (CAS) algebraically:
+**it's backwards.** $\Delta(e(\sigma_0))$ is *decreasing* in the hiding rate $\sigma_0$ (more
+hiding contaminates the pool, dragging inferred quality down), so a premium sitting *above* the
+anchored $\hat c_{0}$ places the market on the CDH (low-hiding) side of the ordering, not the CAS
+(high-hiding) side. This is independently corroborated by the raw ADEME hiding rate: only 15.2%
+of informed low-quality apartment sellers hide (84.8% disclose their bad rating), which is
+nowhere near CAS's $\sigma_0^*=1$. The agent also flagged that "regime classification" is the
+wrong diagnostic tool here at all — $\hat c_{0,m}=\hat\beta_{1,m}\hat e^*_m$ is mechanically
+confined to the PP band by the estimator's own construction (already noted in §4.5.2), so asking
+whether it "falls in" CDH/PP/CAS is tautological. The informative objects are $\hat\sigma_0$
+(genuine, non-tautological) and $\hat\lambda_m$ used as an over-identification test, not a
+regime locator. Correct one-line characterization: apartments show genuinely low but non-zero
+concealment (~15%) in which the model's PP-indifference restriction is rejected, not a market
+secretly near-universal hiding.
+
+**No text change proposed.** This is worth Bastien reading before deciding whether ¶9's framing
+needs anything — the current text ("a genuine specification tension we report rather than
+explain away") is already consistent with this finding (it doesn't claim a regime), so no fix is
+obviously needed, but flag for his judgment.
+
+### 2. Abstract: "...a divergence we trace to a measurable over-identifying wedge rather than
+paper over" — **explanation + revision options**
+
+Confirmed by reading the exact current text (`main.tex:40`): this is a genuine grammatical
+fragment, not intentional phrasing. "Paper over" is a transitive idiom (to paper over
+*something*) and its object was dropped, almost certainly during an earlier narrativize/edit
+pass on this exact sentence. The intended meaning, reconstructed from context and from the
+identical (complete) idea in the introduction's ¶9-10 and §4.5.2: *we don't just explain away or
+smooth over the apartment/house discrepancy — we report it as a measurable, statistically
+precise quantity (λ̂_m, the over-identifying wedge) instead.*
+
+Proposed fix (pick one):
+- **(a)** "...a divergence we trace to a measurable over-identifying wedge rather than paper over
+  the discrepancy."  *(minimal — just restores the missing object)*
+- **(b)** "...a divergence we trace to a measurable, precisely estimated over-identifying wedge,
+  rather than treat it as noise."  *(names what "paper over" was gesturing at: not dismissing it
+  as sampling error)*
+- **(c)** Drop the "rather than paper over" clause entirely: "...a divergence we trace to a
+  measurable over-identifying wedge, reported directly rather than resolved by construction."
+  *(matches the phrase already used at the end of the removed ¶10, "not resolved by
+  construction" — ties abstract and intro to the same framing)*
+
+Recommendation: **(c)** — it echoes language already established elsewhere in the paper rather
+than introducing a new formulation, and reads cleanest.
+
+### 3. "'The reform changed what a disclosed score means without changing... the cost of
+obtaining a certificate, or the legal consequences of remaining silent.' Is this entirely true?
+Check the regulation." — **fact-checked, footnote proposed**
+
+Researched via WebSearch (French legal/trade sources on DPE opposability and the July 2021
+methodology change). Findings, sentence-clause by clause:
+
+- **"the legal consequences of remaining silent" unchanged** — accurate. The obligation to
+  furnish a DPE at sale, and liability for not doing so, predates 2021 under *loi ALUR* (Art.
+  L271-4 CCH). July 2021 added *opposability of a disclosed score's content* (buyer recourse
+  against misstatement) — a different thing from the penalty for providing none at all. This
+  matches what §4.4.1 already says correctly.
+- **Attribution is imprecise.** The intro currently attributes the July 2021 change to *loi
+  Climat et Résilience*. The opposability provision's actual legal basis is **Article 179 III of
+  loi n°2018-1021 du 23 novembre 2018 (loi ÉLAN)**, which amended CCH Articles L271-4 and
+  L134-3-1 with a scheduled effective date of **July 1, 2021**. *Loi Climat et Résilience* was
+  promulgated **August 22, 2021** — a separate, later law (rental-ban calendar, new consumption
+  thresholds) that the paper already cites correctly elsewhere for the F/G rental ban. The intro
+  conflates the two.
+- **"the cost of obtaining a certificate" unchanged — genuinely uncertain, not clean.** The DPE
+  calculation methodology was completely overhauled on the *same date*, July 1, 2021 (replacing
+  the old invoices-based method with the physical-characteristics-based "3CL-2021" method),
+  specifically *in order to* make the DPE reliable enough to be made opposable (Arrêté du 31 mars
+  2021). Trade sources describe this as more labor-intensive for diagnosticians (longer site
+  visits, more data points), which "mechanically" puts upward pressure on price — but fees are
+  unregulated (each diagnostician sets their own), and no source gives a clean quantified
+  before/after comparison. I can't confirm or refute "unchanged" cleanly either way.
+
+Proposed changes:
+1. Fix the attribution: replace "Under the *loi Climat et Résilience*" with something like
+   "Under a 2018 reform (loi ÉLAN) that took effect on July 1, 2021" — or keep *loi Climat et
+   Résilience* only for wherever the rental-ban margin is actually being invoked, and use the
+   correct ÉLAN citation here.
+2. Soften the audit-cost clause given the genuine uncertainty — e.g. drop "the cost of obtaining
+   a certificate" from the list, or qualify it ("the nominal audit fee, which we do not track
+   before/after the reform").
+3. Add a footnote with the citations: *loi n°2018-1021 du 23 novembre 2018 (loi ÉLAN), art. 179
+   III; Code de la construction et de l'habitation, art. L271-4, L134-3-1; Arrêté du 31 mars 2021
+   relatif aux méthodes et procédures applicables au DPE.*
+
+This is Bastien's call on exact wording; presenting the correction and footnote content for
+approval rather than drafting the final sentence unilaterally, since it's a legal-citation change
+he should sign off on precisely.
+
+### 4. "'four assumptions. These are' — restructure to a colon + list" — **direct edit**
+
+`sections/01-introduction-draft.tex:46`, current: "The unraveling prediction rests on four
+assumptions. These are (a)~that buyers know sellers possess private information about quality,
+(b)~that disclosure is costless, (c)~that disclosure is credible, and (d)~that buyers are
+homogeneous in how much they value the disclosed attribute."
+
+Proposed: "The unraveling prediction rests on four assumptions: (a) buyers know sellers possess
+private information about quality, (b) disclosure is costless, (c) disclosure is credible, and
+(d) buyers are homogeneous in how much they value the disclosed attribute." (drops the redundant
+"that... that..." repetition along with the sentence break, matches this paper's established
+"X: (i)/(ii)/(iii)" list convention used elsewhere in propositions/assumptions).
+
+### 5. Add the negotiation-margin literature to ¶6 — **direct edit, citations already in the bib**
+
+`sections/01-introduction-draft.tex:101-104`: "We use them to estimate the mapping from listing
+to realised sale price, which supports treating the listing price as the relevant outcome, since
+the negotiation margin in French residential sales is small and most properties transact at or
+near list price." — currently uncited, but this exact claim (with the exact same three sources)
+is already made and cited in §4.2.2 "Payoffs and Hiding Costs"
+(`sections/04-structural-draft.tex:99`, footnote). Confirmed all three keys exist in
+`DPE_library.bib`: `merlo_bargaining_2004`, `genesove_loss_2001`, `friggit_marche_2013`.
+
+Proposed: append `\citep{merlo_bargaining_2004, genesove_loss_2001, friggit_marche_2013}` at the
+end of that sentence (matching, not duplicating, the fuller footnote treatment already in
+§4.2.2).
+
+### 6. Give a sense of what ρ̂/ĉ0 mean — **my view + options**
+
+My view: reuse the benchmark the paper has already earned rather than invent a new one. §4.5.2
+(`sections/04-structural-draft.tex:495-497`) already establishes ĉ0 (2.4%/3.5%) is "of the order
+of a third of the notary bill, and roughly a quarter to a third of the minimum deposit a bank
+would demand" — fully derived, already defensible, no new claim needed. ρ̂ (49.5%/45.8%) is
+already fairly self-interpreting as a share ("about half"), so it may not need its own benchmark.
+
+Options for ¶9:
+- **(A)** Add a compressed one-clause version of the notary/deposit comparison for ĉ0 only
+  (cheapest, reuses an existing, already-verified number).
+- **(B)** Compute a euro-denominated version (2.4%/3.5% of a representative apartment/house
+  price) for a more concrete, less abstract feel — needs pulling median price-per-m² × median
+  area from `market_estimates.csv`/`results.txt`, not yet done.
+- **(C)** Benchmark ρ̂ and ĉ0 against the energy-label capitalization literature already cited in
+  ¶13 (`brounen_kok_2011`, `hyland_lyons_2013`, `fuerst_energy_2016`, `frondel_power_2018`,
+  `myers_mandatory_2022`) to show the magnitudes are the same order as documented elsewhere —
+  ties into literature the paper already engages, reinforces "these numbers are economically
+  sane."
+
+Recommendation: **(A)**, optionally combined with **(C)** in one sentence if Bastien wants both
+a concrete dollar-figure-style anchor and a literature anchor without inflating ¶9 much.
+
+### 7. Remove ¶10 ("Our inferences survive the natural alternatives...") from the introduction
+— **direct edit**
+
+`sections/01-introduction-draft.tex:162-175`. Confirmed this is robustness/identification-defense
+material (the ρ≤1 violation count, the cross-segment out-of-sample check, the sensitivity-check
+list) that substantially duplicates content already in §4.4.4 and the robustness appendix — it
+reads like appendix/results material, not introduction material, matching Bastien's read.
+
+Proposed: delete the paragraph wholesale. ¶9 currently ends "...finds the structural estimates
+essentially unchanged." and ¶11 begins "Our paper contributes to the literature..." — these flow
+fine back-to-back with no further seam edit needed (checked by reading both neighbors).
+
+### 8. New paragraph on the policy-extension (renovation subsidy) results — **draft for approval**
+
+The introduction currently never mentions the renovation-subsidy extension's own findings
+(uniform-subsidy inefficiency, cost-share heterogeneity, aggregate budget numbers) even though
+it's roughly a third of the paper (§5) and the headline policy result. Drafted for insertion
+after ¶12 (the energy-efficiency-gap contribution paragraph) or as its own ¶12.5, using numbers
+already established in §5.5/Conclusion (cost-shares 54.0%/57.0%, aggregate €9.8bn/€33bn vs
+MaPrimeRénov's ~€4-5bn budget, three complementary instruments):
+
+> "The model also speaks to renovation policy. Extending the framework to an endogenous upgrade
+> decision, we show the minimum subsidy needed to make renovation privately worthwhile reduces,
+> in the empirically dominant partial-pooling regime, to the price gap between verified high and
+> low quality alone — invariant to enforcement against hiding and to how many sellers are
+> informed, which act on separate margins instead. A uniform national subsidy is accordingly
+> inefficient: the required cost-share the state must cover ranges from zero to the full
+> renovation cost across markets, averaging just over half in markets that need support at all,
+> and aggregate programme costs at plausible renovation-cost benchmarks run to €9.8-33 billion,
+> two to eight times MaPrimeRénov's current annual budget. Efficient targeting requires
+> conditioning subsidy design on local market composition rather than applying one national
+> rate."
+
+Placement and exact wording are Bastien's call; presenting a full draft paragraph since comment
+8 asked for one directly, not options.
+
+### Verification (once approved and implemented)
+
+- `cd paper-real-estate && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`, twice,
+  zero undefined references (¶10's removal and the new ¶8 insertion both touch cross-references
+  to `\ref{app:rho_identification}`, `\ref{app:robustness}` elsewhere in the intro — confirm none
+  become orphaned).
+- Independently re-verify the abstract rewrite (item 2) and the new policy paragraph (item 8)
+  against the actual numbers in `results/{apartment,house}/results.txt` and §5.5 before treating
+  them as final — this plan's drafted numbers are transcribed from earlier verified session work,
+  not re-derived fresh.
+- Grep for stale draft-reference language and em-dash/colon-tic density in any newly drafted
+  prose (item 8's paragraph), per the punctuation-discipline standard now built into
+  `/narrativize`.
