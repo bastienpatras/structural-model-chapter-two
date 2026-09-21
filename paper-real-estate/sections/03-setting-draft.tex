@@ -64,7 +64,7 @@ The full listing sample covers 2021Q3 to 2024Q4, the post-reform period during w
 
 Combining the listing disclosure decision $d$ with the ADEME information status $K$ generates four mutually exclusive groups, summarized in Table~\ref{tab:groups}.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Classification of listings and sample composition}
 \label{tab:groups}
@@ -128,7 +128,7 @@ apartments first.
 
 The starting puzzle is that silence about energy performance commands a price premium relative to the worst certified scores in both property types. Figure~\ref{fig:price_levels} plots the volume-weighted average of market-level hedonic price indices per square metre for each EPC disclosure category from January 2019 to June 2024, where each index holds property characteristics constant within a local market so that comparisons across disclosure categories reflect differences in the disclosure decision rather than differences in property type or location. For apartments (panel~(a)), non-disclosing listings occupy the highest price tier across the \emph{entire} sample window: the ordering Non-disclosed $>$ Efficient (A/B/C) $>$ Energy-intensive (E/F/G) is visible as early as 2019, well before the reform, and the gap widens sharply after July 2021. For houses (panel~(b)), the pre-reform picture differs: non-disclosers begin near the bottom of the price distribution and rise toward the middle post-reform, reflecting the higher baseline audit coverage in the house segment documented in Section~\ref{ss:fact3}. The pre-reform level premium for apartments is consistent with the concentration of non-audited stock in high-price urban markets. Figure~\ref{fig:fact1_premium} isolates the \emph{change} in the gap: it plots difference-in-differences estimates of the hedonic-controlled log price gap between non-disclosing and energy-intensive listings, purging observable composition differences and measured relative to the pre-reform baseline. Because the estimates are normalised to that baseline, the pre-reform coefficients are informative about trends rather than levels. They average $+0.002$ log points for apartments and $+0.008$ for houses and display no discernible drift, indicating that the two series evolved in parallel before July 2021. This is precisely the identifying assumption the design requires; it is not a claim that non-disclosing and energy-intensive listings were priced alike, and Figure~\ref{fig:price_levels} shows that for apartments they were not. After July 2021, when DPE certificates became legally opposable under \emph{loi Climat et R\'esilience}, the estimates shift abruptly upward and stabilize around $+0.044$ log points for apartments and $+0.037$ log points for houses by mid-2024. The reform therefore does not create the level difference so much as widen it sharply, in both the raw series and the composition-adjusted estimates. Classical unraveling predicts the opposite sign: silence should signal bad news and trade \emph{below} verified low-quality listings.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \caption{Price per m\textsuperscript{2} by EPC disclosure category}
     \label{fig:price_levels}
@@ -147,7 +147,7 @@ The starting puzzle is that silence about energy performance commands a price pr
     \end{minipage}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \caption{Non-disclosure price premium around the July 2021 DPE reform}
     \label{fig:fact1_premium}
@@ -171,7 +171,7 @@ The starting puzzle is that silence about energy performance commands a price pr
 
 Classical unraveling further predicts that, once disclosure is mandatory and verifiable, the share of non-disclosing listings should converge rapidly toward zero. The French data reject this prediction in both segments, though with different magnitudes. Figure~\ref{fig:fact2_missing} plots the monthly share of listings without a certified EPC from October 2018 through July 2024. For apartments (panel~(a)), the share averages $35.9\%$ before the reform and $33.8\%$ afterward; over the final twelve months of the sample, it stabilizes at $28.9\%$. For houses (panel~(b)), the corresponding numbers are $24.6\%$ pre-reform, $14.4\%$ post-reform, and a final-twelve-month mean of $9.7\%$. Houses thus display better baseline audit coverage and faster post-reform convergence, but in both segments the share remains structurally bounded away from zero more than three years after disclosure became legally required. Almost three-tenths of apartment listings and one-tenth of house listings still come to market without a certified audit, indicating that a substantial fraction of sellers cannot disclose, because they do not possess a certified audit at the time of listing.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Persistence of non-disclosure after the DPE reform}
     \label{fig:fact2_missing}
@@ -195,7 +195,7 @@ Classical unraveling further predicts that, once disclosure is mandatory and ver
 
 A central methodological contribution of this paper is that, by matching every listing against the ADEME registry, we can directly observe whether a seller is informed ($K=1$, audit exists) or uninformed ($K=0$, no audit on record). Crossing this latent information status with the seller's disclosure choice $d \in \{0,1\}$ yields a four-cell classification of which only three cells are economically distinct: truthful disclosers ($K=1, d=1$), strategically hiding sellers ($K=1, d=0$), and genuinely uninformed sellers ($K=0, d=0$).\footnote{The fourth cell ($K=0$, $d=1$) comprises sellers who display an EPC score for which no matching record appears in the public ADEME registry. These listings are treated as truthful disclosers, consistent with the no-falsification assumption: a score published by the owner is taken at face value, and only omission is treated as a strategic act. Two institutional features explain the size of this group. First, the public registry contains only certificates issued from July 2021 onward, whereas a certificate issued earlier could still be legally valid at the time of listing. Under \emph{d\'ecret} n\textsuperscript{o}~2020-1610 of 17 December 2020, certificates issued between 1 January 2013 and 31 December 2017 remained valid until 31 December 2022, and those issued between 1 January 2018 and 30 June 2021 until 31 December 2024, while certificates issued from 1 July 2021 are valid for ten years. A seller listing during our sample window could therefore display a still-valid certificate that is absent from the registry by construction. Second, the model assumes no falsification. Consistent with the first explanation, the share of listings in this cell falls monotonically as the registry accumulates post-reform certificates: from $62.5\%$ of apartment listings in 2021Q3 to $18.4\%$ in 2024Q4, and from $73.1\%$ to $43.7\%$ for houses.} Figure~\ref{fig:fact3_decomposition} reports the resulting decomposition for both segments. In apartments (panel~(a)), $79.8\%$ of listings are truthful disclosers, $16.7\%$ are genuinely uninformed, and $3.5\%$ are strategically hiding. In houses (panel~(b)), the corresponding shares are $90.4\%$, $8.5\%$, and $1.1\%$. Houses systematically display higher baseline disclosure and a smaller strategic-hiding share, but the qualitative structure is identical: a non-trivial mass of strategic hiders coexists with a much larger mass of genuinely uninformed sellers in both segments.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Three-group decomposition of the listing pool}
     \label{fig:fact3_decomposition}
@@ -221,7 +221,7 @@ A central methodological contribution of this paper is that, by matching every l
 
 Figure~\ref{fig:fact4_map} maps the apartment (panel~(a)) and house (panel~(b)) non-disclosure rates at the d\'epartement level. For apartments, the rate ranges from $6.5\%$ in Aube to $40.9\%$ in Corse-du-Sud, with a cross-d\'epartement median of $16.5\%$; high values cluster in southern France, Corsica, and parts of the Parisian region (Seine-Saint-Denis at $32.1\%$). For houses, the range is $5.4\%$ in Essonne to $37.4\%$ in Paris, with a median of $10.0\%$; the Paris d\'epartement is an outlier on the high end, while southern and rural d\'epartements lie closer to the metropolitan baseline. The geographic patterns differ across the two segments, reflecting the different local composition of each property type's listing pool, but the underlying message is identical: within-segment cross-d\'epartement dispersion is large in both cases. This heterogeneity rules out a national-level treatment of the information environment in either segment: any credible structural exercise must allow the depth of audit coverage and the salience of EPC information to vary by local market.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Non-disclosure rate by d\'epartement, July 2021 to December 2024}
     \label{fig:fact4_map}

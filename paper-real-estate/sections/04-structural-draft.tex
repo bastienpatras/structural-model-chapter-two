@@ -87,7 +87,7 @@ The key friction is that buyers observe $(d, p^{\text{list}}, X)$ but not the se
 
 We provide a visual representation of the model dynamics and timing in Figure~\ref{fig:timing}; a fuller schematic overview appears later in Figure~\ref{fig:vis_model}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{fig/visuals/model_dynamics.png}
     \caption{Model timing}
@@ -141,7 +141,7 @@ $K \perp \theta$, with $\Pr(K=1) = \pi$ and $\Pr(\theta=1) = \bar{\theta}$.
 
 Table~\ref{tab:who_hides} summarizes disclosure behavior by seller type. Uninformed sellers have no choice, since they cannot disclose information they do not possess (No Falsification Assumption). Informed sellers choose strategically, weighing the revenue gain from disclosure against the option of pooling with the non-disclosing mass. We denote by $\sigma_\theta \equiv \Pr(d=0 \mid K=1, \theta)$ the equilibrium hiding probability for an informed seller with quality $\theta$.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Disclosure Behavior by Seller Type}
 \label{tab:who_hides}
@@ -374,7 +374,7 @@ Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ sep
 
 The same panel supports a month-by-month event study, normalised to zero in the last pre-reform month and plotted in Figure~\ref{fig:ATT} over the 33 months before and 36 months after July~2021. Both gaps are statistically indistinguishable from zero throughout the pre-period, which is the parallel-trends evidence discussed above, and both rise gradually from the reform date onward, consistent with progressive capitalisation of a rating that only became legally opposable at that moment. The period means used in estimation are averages of these relative-month profiles over their respective windows.
 
-\begin{figure}[H]
+\begin{figure}[t]
     \centering
     \caption{Event-study dynamics of the two DiD price gaps around the July 2021 reform}
     \label{fig:ATT}
@@ -401,7 +401,7 @@ What this number tracks is why silence is not damning. The pool of silent listin
 
 With $\hat\beta_{1,m}$, $\hat\Delta_m$ and $\hat e^*_m$ all in hand, the premium equation $\Delta_m=\rho_m\beta_{1,m}e^*_m$ (Equation~\eqref{eq:premium}) appears to deliver buyer sensitivity by rearrangement, as the ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$, formed either in levels or in reform-induced changes. It does not, and the reason is internal to the model rather than a shortcoming of the data. Buyers who price the certificate and buyers who ignore it are aggregated into a single market price, so the sensitive-buyer share never appears on its own. It appears multiplied by the physical size of the quality difference, and only ever in that combination. The disclosed-price gap equals that product; the gap between silent and intensive listings equals the same product scaled by the pool belief. Their ratio is therefore the pool belief itself, which is exactly what the construction then divides by, so it returns approximately one whatever the true $\rho_m$ happens to be. Pooling markets buys nothing, since every market contributes the same degenerate identity. What the ratio does measure is whether the model's own restriction $\Delta_m=\beta_{1,m}e^*_m$ holds in the data, which makes it a specification test rather than an estimator. Appendix~\ref{app:rho_identification} states and proves this formally, and Figure~\ref{fig:rho_saturation} shows what it looks like in the data: apartment markets sit almost entirely above the line where $\hat\Delta_m$ would exceed $\hat\beta_{1,m}\hat e^*_m$, which is exactly the boundary the ratio construction has to clip against in nearly every market, not a handful of outliers.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Why the naive ratio saturates: $\hat\Delta_m$ against $\hat\beta_{1,m}\hat e^*_m$, by market}
     \label{fig:rho_saturation}
@@ -436,7 +436,7 @@ The structural estimates use listing-level data from 2022 to 2024.\footnote{The 
 
 Table~\ref{tab:did_results} reports market-level estimates for both property types. Panel A covers the DiD estimates from the price index panel; Panel B covers the two-step structural estimates; Panel C covers supply-side observables from the ADEME match.
 
-\begin{table}[H]
+\begin{table}[t]
 \centering
 \caption{Market-level estimates by property type}
 \label{tab:did_results}

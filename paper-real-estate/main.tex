@@ -75,7 +75,7 @@ where a subsidy $S\geq 0$ reduces the effective renovation cost she faces.
 
 Three strategies survive scrutiny, laid out in Table~\ref{tab:strategies}. A seller can disclose the low score as is, hide it, or renovate and disclose the resulting high score. A fourth combination, renovating and then hiding, is never worth considering, and Corollary~\ref{cor:hq_disclose} (proven in Appendix~\ref{app:proofs}) is exactly the result that rules it out. A verified $\theta=1$ seller strictly prefers to disclose, whatever the prevailing pool belief, so a seller who has already paid to renovate has no reason to then conceal what she paid for.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Strategies for an Informed Low-Quality Seller ($\theta=0$)}
 \label{tab:strategies}
@@ -210,7 +210,7 @@ The minimum incentive-compatible subsidy $S^*(\pi,\rho,X)$ measures how much tra
 
 In the partial-pooling regime, Lemma~\ref{lem:threshold_regimes} reduces the renovation threshold $\bar{R}^{\text{PP}}$ to the verified-quality premium $\Pi(d{=}1,\theta{=}1) - \Pi(d{=}1,\theta{=}0)$, with $c_0$ and $\pi$ cancelling through equilibrium indifference. Because $\beta_1$ measures the quality premium in log-point terms against a local price-per-m\textsuperscript{2} base, the nominal threshold $\bar{R}_m$ scales with the local price level. High-price urban markets have the largest verified-quality premia in absolute terms, even when the proportional premium $\beta_1$ is similar across locations. Across the 45 estimable apartment markets, $\bar{R}_m$ averages \euro{}118/m\textsuperscript{2} (median \euro{}122/m\textsuperscript{2}); across the 97 house markets, the mean is \euro{}124/m\textsuperscript{2} and the median \euro{}108/m\textsuperscript{2} (Figure~\ref{fig:subsidy_threshold_dist}). Every market in our estimation sample sits in the Partial Pooling regime under the anchored estimator, so the threshold is pinned at the verified-quality premium throughout; there is no corner-regime subset with a mechanically larger threshold to separate out. Cross-market dispersion nonetheless remains substantial. Apartment thresholds range from roughly \euro{}4 to \euro{}253/m\textsuperscript{2}, so markets at the upper tail of the distribution are intrinsically more amenable to privately funded renovation than those at the lower tail.
 
-\begin{figure}[H]
+\begin{figure}[t]
     \centering
     \caption{Distribution of the renovation threshold $\bar{R}_m$ across markets}
     \label{fig:subsidy_threshold_dist}
@@ -223,7 +223,7 @@ In the partial-pooling regime, Lemma~\ref{lem:threshold_regimes} reduces the ren
 
 The minimum incentive-compatible subsidy is $S^*_m = \max\{\hat{R} - \bar{R}_m, 0\}$, evaluated here at two renovation-cost benchmarks: \euro{}250/m\textsuperscript{2} (a light, ``geste par geste'' intervention such as roof or wall insulation) and \euro{}500/m\textsuperscript{2} (a medium, two-measure upgrade), drawing on MaPrimeRénov' programme documentation.\footnote{MaPrimeRénov' distinguishes ``geste par geste'' interventions (insulation of walls or roof, costing roughly \euro{}100--400/m\textsuperscript{2} of treated area) from comprehensive ``rénovation d'ampleur'' operations (\euro{}700--1{,}200/m\textsuperscript{2} or more); the \euro{}500/m\textsuperscript{2} benchmark corresponds broadly to a two-measure upgrade.} At $\hat{R} = 250$, 44 of 45 apartment markets (97.8\%) require a positive subsidy; the median $S^*_m$ conditional on $S^*_m > 0$ is \euro{}130/m\textsuperscript{2}, or approximately \euro{}8{,}186 per unit at the median apartment area of 63~m\textsuperscript{2}. For houses, 88 of 97 markets (90.7\%) require support, with a conditional median of \euro{}147/m\textsuperscript{2} (approximately \euro{}16{,}459 per unit at 114~m\textsuperscript{2}). By $\hat{R} = 500$, every market of both property types requires a subsidy; the conditional medians rise to \euro{}378/m\textsuperscript{2} (apartments, \euro{}23{,}420 per unit) and \euro{}392/m\textsuperscript{2} (houses, \euro{}43{,}933 per unit). The cost-sharing ratio $S^*_m / \hat{R}$ is the natural decision variable for the regulator. Among markets requiring support, the mean stands at 54.0\% for apartments and 57.0\% for houses at the light benchmark; at the medium benchmark both rise to roughly 75--76\%. This non-linear escalation in required cost-sharing as intervention depth increases has a direct programme-design implication. A commitment to a fixed rate is more defensible than a commitment to a fixed euro amount, because it adjusts automatically to the depth of the intervention and to local market conditions.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Distribution of the minimum incentive-compatible subsidy $S^*_m$ across markets}
     \label{fig:subsidy_grid}
@@ -234,7 +234,7 @@ The minimum incentive-compatible subsidy is $S^*_m = \max\{\hat{R} - \bar{R}_m, 
     \end{minipage}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
     \centering
     \caption{Share of markets needing a subsidy, by renovation-cost benchmark}
     \label{fig:subsidy_regime_breakdown}
@@ -249,7 +249,7 @@ Because every market is in the Partial Pooling regime, the threshold is invarian
 
 A uniform national subsidy is inefficient because the cost-sharing requirement varies substantially across markets. Figure~\ref{fig:subsidy_maps} maps $S^*_m / \hat{R}$, the share of the renovation invoice the regulator must cover, at the two cost benchmarks; bubble size encodes the local verified-quality premium $\bar{R}_m$. The support of the cost-sharing distribution is wide. At $\hat{R} = 250$~\euro{}/m\textsuperscript{2}, only 2.2\% of apartment markets and 9.3\% of house markets need no subsidy at all, while markets at the upper end of the distribution require the public purse to cover the entire renovation cost. Among markets that do require support, the mean cost-share is 54.0\% for apartments and 57.0\% for houses. A flat per-m\textsuperscript{2} grant set at the cross-market mean would simultaneously over-pay the lower tail of this distribution, where the private incentive already suffices, and under-pay the upper tail, where renovations remain unfunded. Both forms of misallocation are costly, the former through fiscal waste on infra-marginal markets and the latter through forgone renovations in the markets where the gap is largest. This cross-market dispersion is systematic rather than idiosyncratic, since the cost-sharing ratio is mechanically low where $\bar{R}_m$ is high, and $\bar{R}_m$ is high where local prices per m\textsuperscript{2} are large and the energy-efficiency premium $\beta_{1,m}$ itself is large. The latter reflects the capitalised value of verified quality to sensitive buyers, not a separate, freestanding measure of how many buyers are sensitive (Appendix~\ref{app:rho_identification} shows the two are not identified apart from one another in price data alone). These conditions hold in the high-price urban markets of metropolitan France, which carry the largest bubbles on the maps; that ratio is correspondingly higher in lower-price peripheral and rural markets, where small bubbles signal that the verified-quality premium delivers only a modest fraction of the renovation cost. An efficient programme would differentiate the per-m\textsuperscript{2} subsidy along these structural axes rather than apply a uniform amount, channelling more public expenditure to markets where the private renovation gap is largest. The bubble-size dimension also points to the co-targeting logic of \S\ref{sec:policy}. Markets with small bubbles typically have low verification penetration $\pi$, combining a small per-renovation base with a small eligible population. Effective deployment therefore requires simultaneously raising $\pi$ through audit-infrastructure investment and concentrating that transfer on the markets where both margins are most constrained.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Spatial distribution of the minimum incentive-compatible subsidy across metropolitan France}
     \label{fig:subsidy_maps}
@@ -288,7 +288,7 @@ The broader lesson extends beyond energy labels. Disclosure mandates discipline 
 
 \section{Figures}\label{sec:appendix_figures}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     \caption{Visual representation of the model dynamics}
     \includegraphics[width=1\textwidth]{fig/visuals/model_mechanics_overview_h.png} 
@@ -315,7 +315,7 @@ What sets this approach apart is our ability to match these listings with data f
 
 This matching generates four mutually exclusive groups:
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Classification of Listings}
 \label{tab:listing_types}
