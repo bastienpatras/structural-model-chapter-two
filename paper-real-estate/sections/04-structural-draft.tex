@@ -547,8 +547,44 @@ than the disclosed-price gap and the registry-measured belief say they should un
 Pooling. Truncating the post-reform window to one or two years instead of the full three leaves
 both results standing (Appendix~\ref{app:robustness}), so neither turns on the endpoint we
 happened to choose. If anything the two move apart as the window lengthens, the apartment wedge
-widening and the house wedge narrowing further --- a divergence rather than a coincidence of the
+widening and the house wedge narrowing further, a divergence rather than a coincidence of the
 final year of data.
+
+The apartment wedge deserves a closer look, because more than one channel could produce it
+without disturbing the estimates reported above. One candidate is measurement rather than
+economics. Apartments are the only property type in this sample where a certificate can in
+principle rest on a building-level diagnostic rather than a unit-specific one, and matching a
+listing to the registry is inherently harder within a single multi-unit address than against a
+house's unique street address. Ordinary noise of that kind in the certified-quality signal
+attenuates the disclosed-price gap $\hat\beta_{1,m}$ toward zero, and since the concealment cost
+is built as $\hat\beta_{1,m}\cdot\hat e^*_m$, a smaller $\hat\beta_{1,m}$ mechanically pulls
+$\hat c_{0,m}$ down and widens the wedge, which is the direction the apartment numbers actually
+move in. A second candidate is coarseness rather than noise. A single administrative market
+plausibly spans a wider range of building vintage, heating system, and floor level among
+apartments than among houses drawn from the same geography, and buyers can read part of that
+variation directly, without a certificate. A belief built only from registry frequencies then
+misses what those substitute signals already tell apartment buyers, and the model attributes the
+resulting gap to the concealment cost rather than to information the certificate was never the
+only source of. Both stories point at the data the estimator is fed rather than at the
+identification argument itself, and neither moves $\hat\rho_m$ or $\hat c_{0,m}$ as reported.
+
+Two further candidates are economic rather than mechanical, and they are the more interesting
+ones because they would mean the model is too parsimonious in this segment rather than wrong.
+Apartment markets carry a higher share of informed sellers and a higher hiding rate than house
+markets, both consistent with a larger investor or professional-seller presence in dense urban
+stock. If buyers price not only the average concealment cost but also their uncertainty about
+who is behind a given silent listing, an uninformed owner-occupier or a professional concealer,
+a silent apartment carries a risk premium that the single mean-cost parameter $c_0$ has no room
+for. The other candidate follows from how apartment markets actually clear. Buyers in the thick,
+fast-moving urban markets where most of our apartment sample sits have less room to wait out a
+non-disclosing seller than buyers in the more dispersed markets houses trade in, and a seller who
+can extract more from a thinner buyer bargaining position earns a premium the model's
+belief-driven channel does not carry. We do not resolve which of these forces, or what
+combination, accounts for the apartment wedge here, and we do not need to. The point-identified
+$\hat\rho_m$ and $\hat c_{0,m}$ this section reports stand on the anchor and the registry match
+alone, and the wedge is a diagnostic on top of them rather than a correction to them. We return
+to the market-thinness channel in future work, where it is the object of study rather than a
+residual.
 
 The contrast between the property types is itself informative. The energy-efficiency premium in
 house markets runs roughly three times what it does in apartments, 0.051 against 0.017 log
