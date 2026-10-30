@@ -1,43 +1,105 @@
 unit_id,file,section,start_line,end_line,kind,words_before,words_after,g1_placeholders,g2_numbers,g3_keys,g7_markers,g4_flags,g5_flags,status,change_type,decision,reviewer_note,applied
+X-abstract:main:L44-46,main.tex,X-abstract,44,46,abstract,311,308,True,True,True,True,negation:not 2->1,,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-head:main:L64:section,main.tex,X-head,64,64,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L68:subsection,main.tex,X-head,68,68,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L78:caption,main.tex,X-head,78,78,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L99:subsection,main.tex,X-head,99,99,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L106-106,main.tex,main-policy,106,106,prose,36,36,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L110:caption,main.tex,X-head,110,110,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L126-129,main.tex,main-policy,126,129,prose,43,43,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L132-134:lemma,main.tex,X-statement,132,134,statement,45,45,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L139-145:definition,main.tex,X-statement,139,145,statement,26,26,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L147-147,main.tex,main-policy,147,147,prose,64,64,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L150-156:definition,main.tex,X-statement,150,156,statement,23,23,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L158-159,main.tex,main-policy,158,159,prose,44,44,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L163-163,main.tex,main-policy,163,163,prose,70,70,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L165:subsection,main.tex,X-head,165,165,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L169-180:proposition,main.tex,X-statement,169,180,statement,72,72,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L184:caption,main.tex,X-head,184,184,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L200-203,main.tex,main-policy,200,203,prose,21,21,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L209-209,main.tex,main-policy,209,209,prose,196,196,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L211-211,main.tex,main-policy,211,211,prose,202,202,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L213:subsection,main.tex,X-head,213,213,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L216-216,main.tex,main-policy,216,216,prose,52,52,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L219-226:proposition,main.tex,X-statement,219,226,statement,123,123,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L232-232,main.tex,main-policy,232,232,prose,255,255,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L235:subsection,main.tex,X-head,235,235,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:main:L239-240,main.tex,X-marker,239,240,marker,101,101,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:main:L239-240#fn1,main.tex,X-marker,239,240,footnote,51,51,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L242-251,main.tex,main-policy,242,251,prose,48,48,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L244:caption,main.tex,X-head,244,244,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L253-253,main.tex,main-policy,253,253,prose,255,255,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L253-253#fn1,main.tex,main-policy,253,253,footnote,36,36,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L255-255,main.tex,main-policy,255,255,prose,211,210,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 main:L257-266,main.tex,main-policy,257,266,prose,62,62,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L259:caption,main.tex,X-head,259,259,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L268-269,main.tex,main-policy,268,269,prose,219,221,True,True,True,True,quantifier:only 2->3; number_word:one 2->1,"sentences 9->8; new words: gives, show",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 main:L268-269#fn1,main.tex,main-policy,268,269,footnote,48,48,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L271:subsection,main.tex,X-head,271,271,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:main:L274-275,main.tex,X-marker,274,275,marker,152,151,True,True,True,True,negation:not 1->0; quantifier:only 1->0,"new words: besides, other, regulator",REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-statement:main:L278-290:proposition,main.tex,X-statement,278,290,statement,265,265,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L296-296,main.tex,main-policy,296,296,prose,148,148,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L300:caption,main.tex,X-head,300,300,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L305-309,main.tex,main-policy,305,309,prose,115,115,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L311:paragraph,main.tex,X-head,311,311,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L311-312,main.tex,main-policy,311,312,prose,131,129,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:main:L314:paragraph,main.tex,X-head,314,314,head,13,13,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L314-315,main.tex,main-policy,314,315,prose,48,48,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L320-320,main.tex,main-policy,320,320,prose,56,56,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L322:paragraph,main.tex,X-head,322,322,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L322-323,main.tex,main-policy,322,323,prose,218,217,True,True,True,True,negation:not 2->1,new words: because,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 main:L325-334,main.tex,main-policy,325,334,prose,56,56,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L327:caption,main.tex,X-head,327,327,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L336:paragraph,main.tex,X-head,336,336,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L336-337,main.tex,main-policy,336,337,prose,143,143,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L339:subsection,main.tex,X-head,339,339,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:main:L342-343,main.tex,X-marker,342,343,marker,149,149,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:main:L346-352:proposition,main.tex,X-statement,346,352,statement,82,82,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L358-358,main.tex,main-policy,358,358,prose,172,172,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L360-360,main.tex,main-policy,360,360,prose,112,114,True,True,True,True,,"new words: additions, narrow",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:main:L363:section,main.tex,X-head,363,363,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L366-366,main.tex,main-conclusion,366,366,prose,45,47,True,True,True,True,,sentences 4->3; new words: what,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-marker:main:L368-368,main.tex,X-marker,368,368,marker,179,176,True,True,True,True,,"sentences 11->10; new words: makes, suffices",REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-marker:main:L371-372,main.tex,X-marker,371,372,marker,300,300,True,True,True,True,,new words: yields,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-marker:main:L374-375,main.tex,X-marker,374,375,marker,273,271,True,True,True,True,,sentences 10->9; new words: respect,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-marker:main:L377-378,main.tex,X-marker,377,378,marker,126,126,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L388:section,main.tex,X-head,388,388,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L392:caption,main.tex,X-head,392,392,head,6,2,True,True,True,True,,shrink 6->2 words,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-head:main:L397:section,main.tex,X-head,397,397,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L399-399,main.tex,main-appendix,399,399,prose,18,18,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L401-406,main.tex,main-appendix,401,406,prose,34,34,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L408-408,main.tex,main-appendix,408,408,prose,101,76,True,True,True,True,,"sentences 4->3; new words: lets, particular, parties, report, third, uses",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 main:L408-408#fn1,main.tex,main-appendix,408,408,footnote,12,12,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L410-413,main.tex,main-appendix,410,413,prose,14,14,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L419:caption,main.tex,X-head,419,419,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L436-436,main.tex,main-appendix,436,436,prose,35,34,True,True,True,True,modal:can 0->1,sentences 2->1; new words: can,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:main:L439:section,main.tex,X-head,439,439,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L445:subsection,main.tex,X-head,445,445,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L448-492:proof,main.tex,X-proof,448,492,proof,119,119,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L495:subsection,main.tex,X-head,495,495,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L498-498,main.tex,main-appendix,498,498,prose,12,12,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L501-508:proof,main.tex,X-proof,501,508,proof,56,56,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
 main:L510-510,main.tex,main-appendix,510,510,prose,86,86,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L513:subsection,main.tex,X-head,513,513,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L516-522:proof,main.tex,X-proof,516,522,proof,43,43,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L525:subsection,main.tex,X-head,525,525,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L528-538:proof,main.tex,X-proof,528,538,proof,71,69,True,True,True,True,,paragraph split,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-head:main:L541:subsection,main.tex,X-head,541,541,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L544-578:proof,main.tex,X-proof,544,578,proof,342,342,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L581:subsection,main.tex,X-head,581,581,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L584-613:proof,main.tex,X-proof,584,613,proof,131,131,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L616:subsection,main.tex,X-head,616,616,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L619-666:proof,main.tex,X-proof,619,666,proof,236,236,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L669:subsection,main.tex,X-head,669,669,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L672-685:proof,main.tex,X-proof,672,685,proof,99,99,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L688:subsection,main.tex,X-head,688,688,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L691-704:proof,main.tex,X-proof,691,704,proof,64,64,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
 main:L706-706,main.tex,main-appendix,706,706,prose,43,43,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 main:L708-708,main.tex,main-appendix,708,708,prose,51,51,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:main:L711:subsection,main.tex,X-head,711,711,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:main:L714-723:proof,main.tex,X-proof,714,723,proof,28,28,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
 main:L725-725,main.tex,main-appendix,725,725,prose,21,21,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:01-introduction-draft:L8:section,sections/01-introduction-draft.tex,X-head,8,8,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 01-introduction-draft:L11-20,sections/01-introduction-draft.tex,01-introduction-draft,11,20,prose,101,92,True,True,True,True,,sentences 6->4,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 01-introduction-draft:L22-39,sections/01-introduction-draft.tex,01-introduction-draft,22,39,prose,127,119,True,True,True,True,negation:not 0->1,"sentences 5->6; new words: also, not",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 01-introduction-draft:L22-39#fn1,sections/01-introduction-draft.tex,01-introduction-draft,22,39,footnote,84,84,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
@@ -47,151 +109,288 @@ main:L725-725,main.tex,main-appendix,725,725,prose,21,21,True,True,True,True,,,U
 01-introduction-draft:L86-112,sections/01-introduction-draft.tex,01-introduction-draft,86,112,prose,321,320,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 01-introduction-draft:L114-134,sections/01-introduction-draft.tex,01-introduction-draft,114,134,prose,229,226,True,True,True,True,negation:not 0->1,new words: not,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 01-introduction-draft:L136-147,sections/01-introduction-draft.tex,01-introduction-draft,136,147,prose,163,163,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:01-introduction-draft:L149-175,sections/01-introduction-draft.tex,X-marker,149,175,marker,342,341,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
 01-introduction-draft:L177-186,sections/01-introduction-draft.tex,01-introduction-draft,177,186,prose,122,109,True,True,True,True,negation:not 1->0,"new words: reflects, theory's",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-marker:01-introduction-draft:L188-205,sections/01-introduction-draft.tex,X-marker,188,205,marker,251,230,True,True,True,True,negation:not 3->2; hedge:about 2->1; number_word:one 5->4,"sentences 11->10; new words: offer, state",REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted as proposed by Bastien 2026-10-30 (extra scope); drops the ""one true model"" disclaimer (kept in section 4) and ""unexpected policy implication""",y 2026-10-30
+X-marker:01-introduction-draft:L207-219,sections/01-introduction-draft.tex,X-marker,207,219,marker,221,215,True,True,True,True,number_word:one 1->0,,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
 01-introduction-draft:L221-238,sections/01-introduction-draft.tex,01-introduction-draft,221,238,prose,180,180,True,True,True,True,,new words: consistent,REVIEW-FLAGS,unclassified (bulk accept),"accept, revised after cross-check","Cross-check I14: ""robust premia"" restored",y 2026-10-30
 01-introduction-draft:L240-251,sections/01-introduction-draft.tex,01-introduction-draft,240,251,prose,134,131,True,True,True,True,negation:not 1->0,"new words: beyond, extends",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:02-unraveling-draft:L12:section,sections/02-unraveling-draft.tex,X-head,12,12,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:02-unraveling-draft:L15:subsection,sections/02-unraveling-draft.tex,X-head,15,15,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 02-unraveling-draft:L17-23,sections/02-unraveling-draft.tex,02-unraveling-draft,17,23,prose,92,85,True,True,True,True,,sentences 5->4,REVIEW-FLAGS,cosmetic,accept,Accepted by Bastien 2026-10-30,y 2026-10-30
 02-unraveling-draft:L25-37,sections/02-unraveling-draft.tex,02-unraveling-draft,25,37,prose,182,183,True,True,True,True,,sentences 11->10,REVIEW-FLAGS,cosmetic,accept,Accepted by Bastien 2026-10-30,y 2026-10-30
 02-unraveling-draft:L39-48,sections/02-unraveling-draft.tex,02-unraveling-draft,39,48,prose,128,120,True,True,True,True,negation:not 2->1,sentences 6->5,REVIEW-FLAGS,content-risk (mild),accept,Accepted by Bastien 2026-10-30,y 2026-10-30
 02-unraveling-draft:L50-55,sections/02-unraveling-draft.tex,02-unraveling-draft,50,55,prose,78,71,True,True,True,True,,"sentences 4->3; new words: although, avoid, discloses",REVIEW-FLAGS,content-risk (mild),accept,Accepted by Bastien 2026-10-30 (aggressive register),y 2026-10-30
+X-head:02-unraveling-draft:L57:subsection,sections/02-unraveling-draft.tex,X-head,57,57,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 02-unraveling-draft:L59-60,sections/02-unraveling-draft.tex,02-unraveling-draft,59,60,prose,27,27,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 02-unraveling-draft:L62-70,sections/02-unraveling-draft.tex,02-unraveling-draft,62,70,prose,112,111,True,True,True,True,negation:not 2->1,new words: instead,REVIEW-FLAGS,cosmetic,accept,Accepted by Bastien 2026-10-30 (aggressive register),y 2026-10-30
 02-unraveling-draft:L72-78,sections/02-unraveling-draft.tex,02-unraveling-draft,72,78,prose,92,92,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 02-unraveling-draft:L80-90,sections/02-unraveling-draft.tex,02-unraveling-draft,80,90,prose,158,146,True,True,True,True,negation:not 3->2,"sentences 9->7; new words: beyond, goes",REVIEW-FLAGS,structural,accept,Accepted by Bastien 2026-10-30,y 2026-10-30
 02-unraveling-draft:L92-97,sections/02-unraveling-draft.tex,02-unraveling-draft,92,97,prose,79,79,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:02-unraveling-draft:L102:caption,sections/02-unraveling-draft.tex,X-head,102,102,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 02-unraveling-draft:L106-114,sections/02-unraveling-draft.tex,02-unraveling-draft,106,114,prose,135,124,True,True,True,True,hedge:implies 2->1; number_word:two 3->2,sentences 6->4,REVIEW-FLAGS,structural,accept,Accepted by Bastien 2026-10-30 (aggressive register),y 2026-10-30
+X-head:03-setting-draft:L16:section,sections/03-setting-draft.tex,X-head,16,16,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L19-23,sections/03-setting-draft.tex,03-setting-draft,19,23,prose,69,69,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L25:subsection,sections/03-setting-draft.tex,X-head,25,25,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L28-35,sections/03-setting-draft.tex,03-setting-draft,28,35,prose,116,114,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 03-setting-draft:L37-37,sections/03-setting-draft.tex,03-setting-draft,37,37,prose,94,91,True,True,True,True,,sentences 5->4; new words: gives,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 03-setting-draft:L39-49,sections/03-setting-draft.tex,03-setting-draft,39,49,prose,162,153,True,True,True,True,negation:not 1->0; number_word:one 1->0,"new words: anchors, changes, features, left",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 03-setting-draft:L51-51,sections/03-setting-draft.tex,03-setting-draft,51,51,prose,81,81,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L53:subsection,sections/03-setting-draft.tex,X-head,53,53,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L56-57,sections/03-setting-draft.tex,03-setting-draft,56,57,prose,29,29,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L59:subsubsection,sections/03-setting-draft.tex,X-head,59,59,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L61-61,sections/03-setting-draft.tex,03-setting-draft,61,61,prose,199,199,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L63-63,sections/03-setting-draft.tex,03-setting-draft,63,63,prose,138,138,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L65:subsubsection,sections/03-setting-draft.tex,X-head,65,65,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L67-67,sections/03-setting-draft.tex,03-setting-draft,67,67,prose,18,18,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L71:caption,sections/03-setting-draft.tex,X-head,71,71,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L86-96,sections/03-setting-draft.tex,03-setting-draft,86,96,prose,86,86,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L98-98,sections/03-setting-draft.tex,03-setting-draft,98,98,prose,136,132,True,True,True,True,number_word:third 1->0; number_word:three 1->0,sentences 6->5; new words: group,REVIEW-FLAGS,unclassified (bulk accept),"accept, revised after cross-check","Cross-check S7b: sentence rewritten (""The largest of these shares is that ..."") after grammar and false-reading finding",y 2026-10-30
 03-setting-draft:L100-111,sections/03-setting-draft.tex,03-setting-draft,100,111,prose,178,178,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L113-120,sections/03-setting-draft.tex,03-setting-draft,113,120,prose,96,93,True,True,True,True,,new words: supports,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:03-setting-draft:L122:subsection,sections/03-setting-draft.tex,X-head,122,122,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L125-126,sections/03-setting-draft.tex,03-setting-draft,125,126,prose,17,17,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L128:subsubsection,sections/03-setting-draft.tex,X-head,128,128,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L131-131,sections/03-setting-draft.tex,03-setting-draft,131,131,prose,353,353,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L133-150,sections/03-setting-draft.tex,03-setting-draft,133,150,prose,72,72,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L135:caption,sections/03-setting-draft.tex,X-head,135,135,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L139:caption,sections/03-setting-draft.tex,X-head,139,139,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L144:caption,sections/03-setting-draft.tex,X-head,144,144,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L152-169,sections/03-setting-draft.tex,03-setting-draft,152,169,prose,58,58,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L154:caption,sections/03-setting-draft.tex,X-head,154,154,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L158:caption,sections/03-setting-draft.tex,X-head,158,158,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L163:caption,sections/03-setting-draft.tex,X-head,163,163,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L171:subsubsection,sections/03-setting-draft.tex,X-head,171,171,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L174-174,sections/03-setting-draft.tex,03-setting-draft,174,174,prose,159,159,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L176-193,sections/03-setting-draft.tex,03-setting-draft,176,193,prose,55,55,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L178:caption,sections/03-setting-draft.tex,X-head,178,178,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L182:caption,sections/03-setting-draft.tex,X-head,182,182,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L187:caption,sections/03-setting-draft.tex,X-head,187,187,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L195:subsubsection,sections/03-setting-draft.tex,X-head,195,195,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L198-198,sections/03-setting-draft.tex,03-setting-draft,198,198,prose,134,134,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L198-198#fn1,sections/03-setting-draft.tex,03-setting-draft,198,198,footnote,184,184,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L200-217,sections/03-setting-draft.tex,03-setting-draft,200,217,prose,36,36,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L202:caption,sections/03-setting-draft.tex,X-head,202,202,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L206:caption,sections/03-setting-draft.tex,X-head,206,206,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L211:caption,sections/03-setting-draft.tex,X-head,211,211,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L219-219,sections/03-setting-draft.tex,03-setting-draft,219,219,prose,82,69,True,True,True,True,negation:not 1->0; number_word:two 2->1,sentences 4->2; new words: conceal,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:03-setting-draft:L221:subsubsection,sections/03-setting-draft.tex,X-head,221,221,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L224-224,sections/03-setting-draft.tex,03-setting-draft,224,224,prose,156,151,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 03-setting-draft:L226-243,sections/03-setting-draft.tex,03-setting-draft,226,243,prose,85,85,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L228:caption,sections/03-setting-draft.tex,X-head,228,228,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L232:caption,sections/03-setting-draft.tex,X-head,232,232,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L237:caption,sections/03-setting-draft.tex,X-head,237,237,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:03-setting-draft:L245:subsection,sections/03-setting-draft.tex,X-head,245,245,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 03-setting-draft:L248-248,sections/03-setting-draft.tex,03-setting-draft,248,248,prose,164,160,True,True,True,True,,new words: constrain,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:04-attention-draft:L10:subsection,sections/04-attention-draft.tex,X-head,10,10,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L13-14,sections/04-attention-draft.tex,X-marker,13,14,marker,127,127,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L16-16,sections/04-attention-draft.tex,04-attention-draft,16,16,prose,118,116,True,True,True,True,quantifier:only 0->1,new words: only,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:04-attention-draft:L18:subsubsection,sections/04-attention-draft.tex,X-head,18,18,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L21-22,sections/04-attention-draft.tex,04-attention-draft,21,22,prose,134,131,True,True,True,True,modal:cannot 1->2; negation:not 1->0; number_word:one 1->0,sentences 7->5; new words: resolve,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-attention-draft:L21-22#fn1,sections/04-attention-draft.tex,04-attention-draft,21,22,footnote,72,72,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L21:paragraph,sections/04-attention-draft.tex,X-head,21,21,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L24-24,sections/04-attention-draft.tex,04-attention-draft,24,24,prose,22,22,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L26-35,sections/04-attention-draft.tex,04-attention-draft,26,35,prose,87,87,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L28:caption,sections/04-attention-draft.tex,X-head,28,28,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L37-38,sections/04-attention-draft.tex,04-attention-draft,37,38,prose,220,213,True,True,True,True,negation:not 3->2,"new words: leave, natural, open",REVIEW-FLAGS,unclassified (bulk accept),"accept, revised after cross-check","Cross-check AT-6: ""the amendments that come to mind first"" restored",y 2026-10-30
+X-head:04-attention-draft:L37:paragraph,sections/04-attention-draft.tex,X-head,37,37,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L41-42,sections/04-attention-draft.tex,X-marker,41,42,marker,136,135,True,True,True,True,quantifier:only 1->0,new words: premise,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
 04-attention-draft:L44-45,sections/04-attention-draft.tex,04-attention-draft,44,45,prose,118,115,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-attention-draft:L44-45#fn1,sections/04-attention-draft.tex,04-attention-draft,44,45,footnote,87,87,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L47-47,sections/04-attention-draft.tex,04-attention-draft,47,47,prose,143,143,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L49:subsubsection,sections/04-attention-draft.tex,X-head,49,49,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L52-52,sections/04-attention-draft.tex,04-attention-draft,52,52,prose,64,64,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L54-61,sections/04-attention-draft.tex,04-attention-draft,54,61,prose,104,104,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L54:paragraph,sections/04-attention-draft.tex,X-head,54,54,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L63-64,sections/04-attention-draft.tex,04-attention-draft,63,64,prose,40,40,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L63:paragraph,sections/04-attention-draft.tex,X-head,63,63,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L66-67,sections/04-attention-draft.tex,04-attention-draft,66,67,prose,147,147,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L66:paragraph,sections/04-attention-draft.tex,X-head,66,66,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L69-69,sections/04-attention-draft.tex,04-attention-draft,69,69,prose,75,75,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L74-74,sections/04-attention-draft.tex,04-attention-draft,74,74,prose,21,21,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L77-89:definition,sections/04-attention-draft.tex,X-statement,77,89,statement,42,42,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L91-91,sections/04-attention-draft.tex,04-attention-draft,91,91,prose,113,113,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L94-101:lemma,sections/04-attention-draft.tex,X-statement,94,101,statement,67,66,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-statement:04-attention-draft:L106-108:definition,sections/04-attention-draft.tex,X-statement,106,108,statement,31,31,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L110-110,sections/04-attention-draft.tex,04-attention-draft,110,110,prose,188,186,True,True,True,True,,new words: amounts,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-statement:04-attention-draft:L113-115:assumption,sections/04-attention-draft.tex,X-statement,113,115,statement,54,54,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L117-117,sections/04-attention-draft.tex,04-attention-draft,117,117,prose,54,54,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L121:caption,sections/04-attention-draft.tex,X-head,121,121,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L134-138,sections/04-attention-draft.tex,04-attention-draft,134,138,prose,30,30,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L140-140,sections/04-attention-draft.tex,04-attention-draft,140,140,prose,18,18,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L145-145,sections/04-attention-draft.tex,04-attention-draft,145,145,prose,47,47,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L147-147,sections/04-attention-draft.tex,04-attention-draft,147,147,prose,42,42,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L150-157:lemma,sections/04-attention-draft.tex,X-statement,150,157,statement,22,22,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L161-161,sections/04-attention-draft.tex,04-attention-draft,161,161,prose,89,89,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L163-164,sections/04-attention-draft.tex,04-attention-draft,163,164,prose,74,74,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L163:paragraph,sections/04-attention-draft.tex,X-head,163,163,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L166-166,sections/04-attention-draft.tex,04-attention-draft,166,166,prose,61,61,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L169-171:definition,sections/04-attention-draft.tex,X-statement,169,171,statement,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L173-173,sections/04-attention-draft.tex,04-attention-draft,173,173,prose,79,79,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L175-175,sections/04-attention-draft.tex,04-attention-draft,175,175,prose,84,84,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L185-185,sections/04-attention-draft.tex,04-attention-draft,185,185,prose,129,129,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L188-190:lemma,sections/04-attention-draft.tex,X-statement,188,190,statement,15,15,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L192-192,sections/04-attention-draft.tex,04-attention-draft,192,192,prose,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L194-194,sections/04-attention-draft.tex,04-attention-draft,194,194,prose,59,59,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L196:subsubsection,sections/04-attention-draft.tex,X-head,196,196,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L199-200,sections/04-attention-draft.tex,04-attention-draft,199,200,prose,30,30,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L199:paragraph,sections/04-attention-draft.tex,X-head,199,199,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L205-205,sections/04-attention-draft.tex,04-attention-draft,205,205,prose,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L210-210,sections/04-attention-draft.tex,04-attention-draft,210,210,prose,42,42,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L213-221:proposition,sections/04-attention-draft.tex,X-statement,213,221,statement,70,70,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L225-225,sections/04-attention-draft.tex,04-attention-draft,225,225,prose,159,158,True,True,True,True,,sentences 5->6; new words: amounts,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-attention-draft:L225-225#fn1,sections/04-attention-draft.tex,04-attention-draft,225,225,footnote,74,74,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L228-230:corollary,sections/04-attention-draft.tex,X-statement,228,230,statement,26,26,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L234-234,sections/04-attention-draft.tex,04-attention-draft,234,234,prose,61,61,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L236-237,sections/04-attention-draft.tex,04-attention-draft,236,237,prose,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L236:paragraph,sections/04-attention-draft.tex,X-head,236,236,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L242-242,sections/04-attention-draft.tex,04-attention-draft,242,242,prose,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L245-257:proposition,sections/04-attention-draft.tex,X-statement,245,257,statement,89,89,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L263:caption,sections/04-attention-draft.tex,X-head,263,263,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L276-280,sections/04-attention-draft.tex,04-attention-draft,276,280,prose,17,17,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L282-283,sections/04-attention-draft.tex,X-marker,282,283,marker,100,99,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-statement:04-attention-draft:L286-304:proposition,sections/04-attention-draft.tex,X-statement,286,304,statement,209,209,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L310:caption,sections/04-attention-draft.tex,X-head,310,310,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L332-336,sections/04-attention-draft.tex,04-attention-draft,332,336,prose,94,94,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L339-341:corollary,sections/04-attention-draft.tex,X-statement,339,341,statement,65,65,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L345-346,sections/04-attention-draft.tex,X-marker,345,346,marker,333,333,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L348-348,sections/04-attention-draft.tex,04-attention-draft,348,348,prose,43,43,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L351-353:corollary,sections/04-attention-draft.tex,X-statement,351,353,statement,18,18,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L355-355,sections/04-attention-draft.tex,04-attention-draft,355,355,prose,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L357-357,sections/04-attention-draft.tex,04-attention-draft,357,357,prose,176,176,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L359-360,sections/04-attention-draft.tex,04-attention-draft,359,360,prose,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L359:paragraph,sections/04-attention-draft.tex,X-head,359,359,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L363-369:proposition,sections/04-attention-draft.tex,X-statement,363,369,statement,44,44,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L373-373,sections/04-attention-draft.tex,04-attention-draft,373,373,prose,138,138,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L375-376,sections/04-attention-draft.tex,04-attention-draft,375,376,prose,133,130,True,True,True,True,,sentences 5->6; new words: enters,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:04-attention-draft:L375:paragraph,sections/04-attention-draft.tex,X-head,375,375,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L378-379,sections/04-attention-draft.tex,04-attention-draft,378,379,prose,83,83,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L378:paragraph,sections/04-attention-draft.tex,X-head,378,378,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L384-384,sections/04-attention-draft.tex,04-attention-draft,384,384,prose,76,76,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L386:subsubsection,sections/04-attention-draft.tex,X-head,386,386,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L389-389,sections/04-attention-draft.tex,04-attention-draft,389,389,prose,95,95,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-attention-draft:L396-404:proposition,sections/04-attention-draft.tex,X-statement,396,404,statement,60,60,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L408-408,sections/04-attention-draft.tex,04-attention-draft,408,408,prose,148,148,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L408-408#fn1,sections/04-attention-draft.tex,04-attention-draft,408,408,footnote,73,73,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L410-410,sections/04-attention-draft.tex,04-attention-draft,410,410,prose,72,72,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L410-410#fn1,sections/04-attention-draft.tex,04-attention-draft,410,410,footnote,49,49,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L412:subsubsection,sections/04-attention-draft.tex,X-head,412,412,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L415-415,sections/04-attention-draft.tex,04-attention-draft,415,415,prose,176,176,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L415-415#fn1,sections/04-attention-draft.tex,04-attention-draft,415,415,footnote,44,44,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L419:caption,sections/04-attention-draft.tex,X-head,419,419,head,11,11,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L424-428,sections/04-attention-draft.tex,04-attention-draft,424,428,prose,190,190,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L431-431,sections/04-attention-draft.tex,04-attention-draft,431,431,prose,24,24,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L433-442,sections/04-attention-draft.tex,04-attention-draft,433,442,prose,73,73,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L435:caption,sections/04-attention-draft.tex,X-head,435,435,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L444-445,sections/04-attention-draft.tex,X-marker,444,445,marker,193,193,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-marker:04-attention-draft:L447-448,sections/04-attention-draft.tex,X-marker,447,448,marker,131,131,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L450-459,sections/04-attention-draft.tex,04-attention-draft,450,459,prose,83,83,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-attention-draft:L452:caption,sections/04-attention-draft.tex,X-head,452,452,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L461-461,sections/04-attention-draft.tex,04-attention-draft,461,461,prose,75,75,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L463-463,sections/04-attention-draft.tex,04-attention-draft,463,463,prose,84,73,True,True,True,True,,sentences 5->3; new words: whichever,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-attention-draft:L465-466,sections/04-attention-draft.tex,04-attention-draft,465,466,prose,107,107,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L465-466#fn1,sections/04-attention-draft.tex,04-attention-draft,465,466,footnote,46,46,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L468-468,sections/04-attention-draft.tex,04-attention-draft,468,468,prose,35,35,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-attention-draft:L470-470,sections/04-attention-draft.tex,04-attention-draft,470,470,prose,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L9:section,sections/04-structural-draft.tex,X-head,9,9,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L12:subsection,sections/04-structural-draft.tex,X-head,12,12,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L15-25,sections/04-structural-draft.tex,04-structural-draft,15,25,prose,102,102,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L27-30,sections/04-structural-draft.tex,04-structural-draft,27,30,prose,46,41,True,True,True,True,negation:not 1->0,sentences 3->2; new words: allows,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-structural-draft:L32-39,sections/04-structural-draft.tex,04-structural-draft,32,39,prose,111,103,True,True,True,True,,sentences 5->3; new words: carries,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-structural-draft:L41-48,sections/04-structural-draft.tex,04-structural-draft,41,48,prose,111,111,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L50-58,sections/04-structural-draft.tex,04-structural-draft,50,58,prose,108,106,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-structural-draft:L60-72,sections/04-structural-draft.tex,04-structural-draft,60,72,prose,180,174,True,True,True,True,negation:no 2->3; negation:not 4->2; hedge:about 1->0; number_word:several 0->1,"new words: claim, leaves, make, several, things, unsettled",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:04-structural-draft:L74:subsection,sections/04-structural-draft.tex,X-head,74,74,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L77:subsubsection,sections/04-structural-draft.tex,X-head,77,77,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L79-79,sections/04-structural-draft.tex,04-structural-draft,79,79,prose,107,107,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L81-81,sections/04-structural-draft.tex,04-structural-draft,81,81,prose,103,102,True,True,True,True,negation:not 1->0,"new words: deciding, pricing, rather",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-structural-draft:L83-83,sections/04-structural-draft.tex,04-structural-draft,83,83,prose,39,39,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L85-86,sections/04-structural-draft.tex,04-structural-draft,85,86,prose,107,107,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L88-88,sections/04-structural-draft.tex,04-structural-draft,88,88,prose,21,21,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L93:caption,sections/04-structural-draft.tex,X-head,93,93,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L97:subsubsection,sections/04-structural-draft.tex,X-head,97,97,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L99-99,sections/04-structural-draft.tex,04-structural-draft,99,99,prose,89,89,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L99-99#fn1,sections/04-structural-draft.tex,04-structural-draft,99,99,footnote,88,88,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L104-104,sections/04-structural-draft.tex,04-structural-draft,104,104,prose,23,23,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L106-106,sections/04-structural-draft.tex,04-structural-draft,106,106,prose,167,167,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L108-108,sections/04-structural-draft.tex,04-structural-draft,108,108,prose,67,62,True,True,True,True,number_word:two 1->0,sentences 4->3,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:04-structural-draft:L110:subsubsection,sections/04-structural-draft.tex,X-head,110,110,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L112-112,sections/04-structural-draft.tex,04-structural-draft,112,112,prose,120,120,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L114-114,sections/04-structural-draft.tex,04-structural-draft,114,114,prose,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L121-121,sections/04-structural-draft.tex,04-structural-draft,121,121,prose,87,87,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L126-126,sections/04-structural-draft.tex,04-structural-draft,126,126,prose,70,70,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L128:subsubsection,sections/04-structural-draft.tex,X-head,128,128,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L130-130,sections/04-structural-draft.tex,04-structural-draft,130,130,prose,53,53,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L132:paragraph,sections/04-structural-draft.tex,X-head,132,132,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L134-134,sections/04-structural-draft.tex,04-structural-draft,134,134,prose,17,17,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L140-140,sections/04-structural-draft.tex,04-structural-draft,140,140,prose,108,108,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L142-142,sections/04-structural-draft.tex,04-structural-draft,142,142,prose,56,56,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L146:caption,sections/04-structural-draft.tex,X-head,146,146,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L164-168,sections/04-structural-draft.tex,04-structural-draft,164,168,prose,20,20,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L170:paragraph,sections/04-structural-draft.tex,X-head,170,170,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L172-172,sections/04-structural-draft.tex,04-structural-draft,172,172,prose,15,15,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L178-178,sections/04-structural-draft.tex,04-structural-draft,178,178,prose,119,119,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L180-182:lemma,sections/04-structural-draft.tex,X-statement,180,182,statement,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:04-structural-draft:L184-185:proof,sections/04-structural-draft.tex,X-proof,184,185,proof,69,69,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L187:subsection,sections/04-structural-draft.tex,X-head,187,187,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L190:subsubsection,sections/04-structural-draft.tex,X-head,190,190,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L192-192,sections/04-structural-draft.tex,04-structural-draft,192,192,prose,65,62,True,True,True,True,,"new words: drives, results",REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-statement:04-structural-draft:L195-201:proposition,sections/04-structural-draft.tex,X-statement,195,201,statement,33,33,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L205-205,sections/04-structural-draft.tex,04-structural-draft,205,205,prose,116,116,True,True,True,True,"dashes --- 1->0, -- 1->0",,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
 04-structural-draft:L214-214,sections/04-structural-draft.tex,04-structural-draft,214,214,prose,64,64,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L216-216,sections/04-structural-draft.tex,04-structural-draft,216,216,prose,29,29,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L221-221,sections/04-structural-draft.tex,04-structural-draft,221,221,prose,26,26,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L223:subsubsection,sections/04-structural-draft.tex,X-head,223,223,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L225-225,sections/04-structural-draft.tex,04-structural-draft,225,225,prose,29,29,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 04-structural-draft:L230-230,sections/04-structural-draft.tex,04-structural-draft,230,230,prose,62,62,True,True,True,True,"dashes --- 2->0, -- 2->0",,REVIEW-FLAGS,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-statement:04-structural-draft:L233-240:proposition,sections/04-structural-draft.tex,X-statement,233,240,statement,37,37,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L246:caption,sections/04-structural-draft.tex,X-head,246,246,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L290:subsubsection,sections/04-structural-draft.tex,X-head,290,290,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L293-299:proposition,sections/04-structural-draft.tex,X-statement,293,299,statement,18,18,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L308-313:corollary,sections/04-structural-draft.tex,X-statement,308,313,statement,49,49,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L328-330:proposition,sections/04-structural-draft.tex,X-statement,328,330,statement,53,53,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L344-346:proposition,sections/04-structural-draft.tex,X-statement,344,346,statement,52,52,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L352:subsection,sections/04-structural-draft.tex,X-head,352,352,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L359:subsubsection,sections/04-structural-draft.tex,X-head,359,359,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:04-structural-draft:L368-370:assumption,sections/04-structural-draft.tex,X-statement,368,370,statement,29,29,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L378:subsubsection,sections/04-structural-draft.tex,X-head,378,378,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L388:caption,sections/04-structural-draft.tex,X-head,388,388,head,12,12,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L397:subsubsection,sections/04-structural-draft.tex,X-head,397,397,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L409:subsubsection,sections/04-structural-draft.tex,X-head,409,409,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L415:caption,sections/04-structural-draft.tex,X-head,415,415,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L441:subsection,sections/04-structural-draft.tex,X-head,441,441,head,1,1,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L444:subsubsection,sections/04-structural-draft.tex,X-head,444,444,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L450:caption,sections/04-structural-draft.tex,X-head,450,450,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:04-structural-draft:L521:subsubsection,sections/04-structural-draft.tex,X-head,521,521,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L6:section,sections/A-attention.tex,X-head,6,6,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L19:subsection,sections/A-attention.tex,X-head,19,19,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L21-26,sections/A-attention.tex,A-attention,21,26,prose,101,101,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L28-28,sections/A-attention.tex,A-attention,28,28,prose,75,75,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L32-32,sections/A-attention.tex,A-attention,32,32,prose,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L40-45,sections/A-attention.tex,A-attention,40,45,prose,123,123,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L47:subsection,sections/A-attention.tex,X-head,47,47,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L49-67:proof,sections/A-attention.tex,X-proof,49,67,proof,89,89,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L69:subsection,sections/A-attention.tex,X-head,69,69,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L71-100:proof,sections/A-attention.tex,X-proof,71,100,proof,191,191,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L102:subsection,sections/A-attention.tex,X-head,102,102,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L104-123:proof,sections/A-attention.tex,X-proof,104,123,proof,140,140,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L125:subsection,sections/A-attention.tex,X-head,125,125,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L127-141:proof,sections/A-attention.tex,X-proof,127,141,proof,79,79,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L143:subsection,sections/A-attention.tex,X-head,143,143,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L145-187:proof,sections/A-attention.tex,X-proof,145,187,proof,304,304,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L189:subsection,sections/A-attention.tex,X-head,189,189,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L191-237:proof,sections/A-attention.tex,X-proof,191,237,proof,413,413,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L239:subsection,sections/A-attention.tex,X-head,239,239,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L241-261:proof,sections/A-attention.tex,X-proof,241,261,proof,105,105,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L263:subsection,sections/A-attention.tex,X-head,263,263,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L265-302:proof,sections/A-attention.tex,X-proof,265,302,proof,137,137,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L304:subsection,sections/A-attention.tex,X-head,304,304,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L306-344:proof,sections/A-attention.tex,X-proof,306,344,proof,152,152,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
 A-attention:L346-346,sections/A-attention.tex,A-attention,346,346,prose,34,34,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L350-350,sections/A-attention.tex,A-attention,350,350,prose,15,15,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L360:subsection,sections/A-attention.tex,X-head,360,360,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L363-363,sections/A-attention.tex,A-attention,363,363,prose,123,123,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L365:subsection,sections/A-attention.tex,X-head,365,365,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L368-368,sections/A-attention.tex,A-attention,368,368,prose,48,48,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L370-370,sections/A-attention.tex,A-attention,370,370,prose,34,34,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L376-376,sections/A-attention.tex,A-attention,376,376,prose,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
@@ -200,20 +399,57 @@ A-attention:L383-383,sections/A-attention.tex,A-attention,383,383,prose,24,24,Tr
 A-attention:L385-386,sections/A-attention.tex,A-attention,385,386,prose,30,30,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L388-393,sections/A-attention.tex,A-attention,388,393,prose,88,88,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L395-395,sections/A-attention.tex,A-attention,395,395,prose,45,45,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L397:subsection,sections/A-attention.tex,X-head,397,397,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L399-399,sections/A-attention.tex,A-attention,399,399,prose,29,29,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L403-403,sections/A-attention.tex,A-attention,403,403,prose,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L407-407,sections/A-attention.tex,A-attention,407,407,prose,21,21,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L409:subsubsection,sections/A-attention.tex,X-head,409,409,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L411-428:proof,sections/A-attention.tex,X-proof,411,428,proof,106,106,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L430:subsubsection,sections/A-attention.tex,X-head,430,430,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L432-473:proof,sections/A-attention.tex,X-proof,432,473,proof,185,185,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L475:subsubsection,sections/A-attention.tex,X-head,475,475,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L477-512:proof,sections/A-attention.tex,X-proof,477,512,proof,270,270,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L514:subsubsection,sections/A-attention.tex,X-head,514,514,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L516-598:proof,sections/A-attention.tex,X-proof,516,598,proof,509,509,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L600:subsubsection,sections/A-attention.tex,X-head,600,600,head,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-attention:L602-641:proof,sections/A-attention.tex,X-proof,602,641,proof,237,237,True,True,True,True,,paragraph split,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L643:subsection,sections/A-attention.tex,X-head,643,643,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L645-646,sections/A-attention.tex,A-attention,645,646,prose,89,89,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L645:paragraph,sections/A-attention.tex,X-head,645,645,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L648-649,sections/A-attention.tex,A-attention,648,649,prose,88,88,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L648:paragraph,sections/A-attention.tex,X-head,648,648,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L651-652,sections/A-attention.tex,A-attention,651,652,prose,27,27,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L651:paragraph,sections/A-attention.tex,X-head,651,651,head,2,2,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L654-663,sections/A-attention.tex,A-attention,654,663,prose,36,36,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L656:caption,sections/A-attention.tex,X-head,656,656,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L665-674,sections/A-attention.tex,A-attention,665,674,prose,10,10,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L667:caption,sections/A-attention.tex,X-head,667,667,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L676-685,sections/A-attention.tex,A-attention,676,685,prose,40,40,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L678:caption,sections/A-attention.tex,X-head,678,678,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L687-696,sections/A-attention.tex,A-attention,687,696,prose,33,33,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L689:caption,sections/A-attention.tex,X-head,689,689,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L698:subsection,sections/A-attention.tex,X-head,698,698,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L700-700,sections/A-attention.tex,A-attention,700,700,prose,13,13,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L702-711,sections/A-attention.tex,A-attention,702,711,prose,78,78,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L704:caption,sections/A-attention.tex,X-head,704,704,head,8,8,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-attention:L713:subsection,sections/A-attention.tex,X-head,713,713,head,3,3,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-attention:L715-715,sections/A-attention.tex,A-attention,715,715,prose,49,49,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-robustness:L6:section,sections/A-robustness.tex,X-head,6,6,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-robustness:L9-10,sections/A-robustness.tex,A-robustness,9,10,prose,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-robustness:L12-17,sections/A-robustness.tex,A-robustness,12,17,prose,71,71,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-robustness:L19-25,sections/A-robustness.tex,A-robustness,19,25,prose,124,117,True,True,True,True,,,CLEAN,unclassified (bulk accept),accept,Accepted by Bastien 2026-10-30 (accept all),y 2026-10-30
+X-head:A-robustness:L31:caption,sections/A-robustness.tex,X-head,31,31,head,9,9,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-robustness:L109:section,sections/A-robustness.tex,X-head,109,109,head,5,5,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-robustness:L117:subsection,sections/A-robustness.tex,X-head,117,117,head,4,4,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:A-robustness:L123-132:proposition,sections/A-robustness.tex,X-statement,123,132,statement,70,70,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-robustness:L135-146:proof,sections/A-robustness.tex,X-proof,135,146,proof,69,69,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:A-robustness:L149-157:corollary,sections/A-robustness.tex,X-statement,149,157,statement,51,51,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-robustness:L159:subsection,sections/A-robustness.tex,X-head,159,159,head,7,7,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:A-robustness:L162-176:proposition,sections/A-robustness.tex,X-statement,162,176,statement,49,49,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-robustness:L179-186:proof,sections/A-robustness.tex,X-proof,179,186,proof,37,37,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:A-robustness:L194-201:lemma,sections/A-robustness.tex,X-statement,194,201,statement,64,64,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-head:A-robustness:L205:subsection,sections/A-robustness.tex,X-head,205,205,head,6,6,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-statement:A-robustness:L208-223:assumption,sections/A-robustness.tex,X-statement,208,223,statement,81,81,True,True,True,True,"dashes --- 2->0, -- 2->0",,REVIEW-FLAGS,unclassified (bulk accept),accept,"Accepted by Bastien 2026-10-30 (extra scope, accept all)",y 2026-10-30
+X-statement:A-robustness:L226-235:proposition,sections/A-robustness.tex,X-statement,226,235,statement,19,19,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
+X-proof:A-robustness:L238-253:proof,sections/A-robustness.tex,X-proof,238,253,proof,40,40,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n
 A-robustness:L255-264,sections/A-robustness.tex,A-robustness,255,264,prose,62,62,True,True,True,True,,,UNCHANGED,,n/a (unchanged),,n

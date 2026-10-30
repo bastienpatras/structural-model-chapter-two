@@ -61,3 +61,34 @@ readers found no reference elsewhere in the paper to the deleted signposts.
 After these edits: compile 0 errors, no undefined references, 80 pages; citation, ref, label, macro, marker and number
 counts identical to the baseline; every changed hunk still lies inside an accepted unit. The three units' ledger rows read
 `accept, revised after cross-check`.
+
+## Extra scope (marked blocks, abstract, statements, proofs, captions, headings), 2026-10-30
+
+Scope: 236 more units, `prepare-extra`; 222 unchanged, 14 with a proposal (11 `REVIEW-FLAGS`, 3 `CLEAN`), 0 hard-gate
+failures. Scratch compile with all 14 applied: 0 errors, no undefined references, 80 pages. Not applied yet.
+
+Reader: one fenced micro-theorist (version A = current text, version B = text with the 14 proposals; no ledger or
+rationale). 20 edits: 14 IDENTICAL, 5 WEAKER, 1 STRONGER, 0 DIFFERENT. The lemma, the assumption and the proof keep their
+logical content exactly (connectives, conditions, quantifiers, inequality direction, step order). No cross-reference
+breaks. I checked the non-identical ones against the source.
+
+| id | where | change | verification | recommendation |
+|---|---|---|---|---|
+| 1 | abstract (`main` L44) | "Attention changes who hides, not who renovates: raising attention to silence leaves the minimum renovation subsidy unchanged" became "Raising attention to silence changes who hides but leaves the minimum renovation subsidy unchanged" | WEAKER, and B is more accurate. Body: salience (silence) changes who hides, not who renovates (`main` L311), but attention to displayed ratings does move the threshold (Table `tab:instruments`, `A-attention` L517). A's generic "Attention … not who renovates" overreached. The abstract still omits the body's qualifier "only outside Complete Adverse Selection" (pre-existing). | Apply |
+| 2 | §1 L188-205 | "We do not claim to have estimated the one true model of housing disclosure; we propose one way of reading these data…" became "We offer one reading of these data…" | CONFIRMED weaker: an explicit scope disclaimer is gone. It survives in §4 ("make no claim to the one true model"). | Revert (keep the disclaimer in the introduction) |
+| 3 | §1 L200-201 | "through a workhorse framework of housing disclosure" now attaches to the framework, not to "the one true model" | Minor STRONGER; follows from edit 2's rewrite. | Goes with edit 2 |
+| 4 | §1 L192 | "This has an unexpected policy implication." deleted | CONFIRMED weaker: drops the "unexpected" positioning claim; the result and the contrast with `gillingham_palmer_2014` stay. | Revert (author's positioning) |
+| 5 | `main` L374 | "in one consequential way" became "in one respect" | Minor WEAKER: drops an intensifier; the count "one" is kept. | Apply |
+| 6 | `04-attention` L283 | "survives intact" became "survives" | Minor WEAKER: drops "intact"; the restated result is the same. | Apply |
+| 7-20 | various | wording only (dash to parenthesis in the assumption, "Moreover," cut from the lemma, "In fact," cut from the proof, caption "Model dynamics", merged sentences) | IDENTICAL | Apply |
+
+Pre-existing, in both versions: the conclusion says "three" instruments plus "a further instrument" (four) while
+Table `tab:instruments` has five rows.
+
+### Decisions taken (extra scope, 2026-10-30)
+
+Bastien: "I accept all". I applied the 13 units on which my recommendation and "accept all" agree, then asked about the one
+that differs (§1 L188-205); Bastien chose "All as proposed", so edits 2-4 are applied too (the introduction no longer carries
+the "one true model" disclaimer or "unexpected policy implication"; the disclaimer remains in §4). After applying: compile 0
+errors, no undefined references, 80 pages; counts of citations, refs, labels, macros, markers and numbers identical to the
+baseline; 78 changed hunks, 0 outside an accepted unit.

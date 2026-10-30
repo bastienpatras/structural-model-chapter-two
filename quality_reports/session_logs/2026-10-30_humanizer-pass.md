@@ -22,3 +22,9 @@ apply what Bastien accepts, cross-check meaning with the micro-theorist. Plan: `
 - I13 (§1 L184-186) and S9a (§3 L219) could still go back to the original wording.
 - `[LEARN]` entries are in `MEMORY.md`. Backtest unchanged versus clean HEAD (1 broken link, expired note, 12 build artifacts, 17 of 234 cases).
 - GitHub push still returns 403 (inactive owner account).
+
+## Addendum: extra scope ("cover everything")
+- Audit found no other prose hidden in masked commands; the abstract (`\abs{}`) was the one hidden block.
+- `humanizer_tools.py`: `mask(pre=True)`, `extra_units`, `prepare-extra`, `selftest-extra` (236 units, 0 round-trip failures).
+- Six agents on marked blocks, abstract, statements, proofs, captions/headings; 14 proposals, 222 unchanged; fenced cross-check; all 14 accepted and applied (the two §1 sentences against my recommendation, at Bastien's choice).
+- Not covered by design: equation and tabular bodies, preamble, title block, macro files.

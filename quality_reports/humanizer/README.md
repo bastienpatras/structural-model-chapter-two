@@ -49,3 +49,23 @@ Ledger status: `CLEAN`, `REVIEW-FLAGS`, `REJECT-CANDIDATE` or `UNCHANGED`.
 4. Run `python3 scripts/humanizer_tools.py finish <unit_id>`. Report the status and the pattern numbers applied.
 
 Generated files under `runs/` are working material; the ledger, the review sheets and the cross-check are the record.
+
+## Extra scope (added 2026-10-30, at Bastien's request: "cover everything")
+
+`python3 scripts/humanizer_tools.py prepare-extra` appends 236 units to `units.csv` and writes them under
+`runs/X-marker`, `X-abstract`, `X-statement`, `X-proof` and `X-head`. They are processed exactly like the first-pass units
+(masked file in, `.after.masked.txt` out, `finish` per unit), with these category rules:
+
+- **X-marker / X-abstract**: passages Bastien had marked `% [AUTHOR REWRITE]`, and the abstract (masked whole in the first
+  pass). Same register as the first pass. Proposals only; they are the author's load-bearing prose.
+- **X-statement / X-proof**: bodies of proposition, lemma, corollary, definition, assumption, remark and proof
+  environments (display math and tabular environments inside them are masked). **These are logical claims.** Change only
+  staged openers, filler, dashes and plainly redundant qualifiers. Never touch a connective or condition (if, only if,
+  then, hence, therefore, since, because, so that), a quantifier (all, every, some, there exists, unique, at most, at
+  least), a strictness word (weakly, strictly, generically), or the order of steps in an argument. When unsure, leave unchanged.
+- **X-head**: captions and section, subsection and `\paragraph` titles (inner text only). Keep the paper's title-case
+  convention (do not apply the plugin's sentence-case rule); change only staged, inflated or decorative wording. Most
+  should stay unchanged. Do not add or remove a final period.
+
+Unit ids: `X-<category>:<file-stem>:L<start>-<end>[:env or command]` (footnote bodies inside: `#fnK`). The file name in
+`runs/` is the id with every character outside `[A-Za-z0-9_.-]` replaced by `_`.

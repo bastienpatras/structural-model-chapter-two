@@ -175,10 +175,15 @@ def _mask_commands(s: str, m: Masked) -> str:
     return "".join(out)
 
 
-def mask(text: str) -> Masked:
-    """Mask protected LaTeX in one block of prose; unmask(mask(t)) == t for every t."""
+NESTED_PROTECTED = r"\\begin\{(equation|align|gather|multline|eqnarray|tabular|tikzpicture|verbatim)(\*?)\}.*?\\end\{\1\2\}"
+
+
+def mask(text: str, pre: bool = False) -> Masked:
+    """Mask protected LaTeX in one block of prose; unmask(mask(t)) == t for every t.
+    pre=True first masks whole display/tabular environments nested in the block (statements and proofs)."""
     m = Masked(text)
-    t = _mask_balanced(text, r"\footnote", m, extract=True)                       # footnote bodies become own units (raw text)
+    t = re.sub(NESTED_PROTECTED, lambda x: m.add(x.group(0)), text, flags=re.S) if pre else text
+    t = _mask_balanced(t, r"\footnote", m, extract=True)                       # footnote bodies become own units (raw text)
     t = re.sub(r"(?<!\\)%[^\n]*", lambda x: m.add(x.group(0)), t)               # comments
     t = _mask_balanced(t, r"\caption", m)                                         # captions are titles: protected
     for pat in (r"\\\[.*?\\\]", r"\$\$.*?\$\$", r"\\\(.*?\\\)", r"(?<!\\)\$.*?(?<!\\)\$"):
@@ -508,14 +513,112 @@ def cmd_sheet(sections: list[str]) -> None:
         print(f"review/{sec}.md: {len(rs)} units")
 
 
+# ------------------------------------------------------------------------------- extra scope (2026-10-30)
+# Passages the first pass left out: marked blocks, abstract, statements, proofs, captions, headings.
+STATEMENT_ENVS = ["proposition", "lemma", "corollary", "definition", "assumption", "remark", "theorem"]
+HEAD_CMDS = ["caption", "section", "subsection", "subsubsection", "paragraph"]
+
+
+def _commented(tex: str, pos: int) -> bool:
+    line = tex[tex.rfind("\n", 0, pos) + 1:pos]
+    return bool(re.search(r"(?<!\\)%", line))
+
+
+def extra_units(base: Path) -> list[dict]:
+    out = []
+    for rel in source_files():
+        tex = (base / "paper-real-estate" / rel).read_text()
+        stem = Path(rel).stem
+        ln = lambda pos: tex.count("\n", 0, pos) + 1
+
+        def add(cat: str, uid: str, orig: str, start: int, end: int, pre: bool = False, min_words: int = 1) -> None:
+            m = mask(orig, pre=pre)
+            nw = len(words(m.text))
+            if nw < min_words:
+                return
+            out.append(dict(unit_id=uid, file=rel, section=f"X-{cat}", start=start, end=end, kind=cat, words=nw,
+                            eligible=True, masked=m.text, m=m, original=orig))
+            for k, body in enumerate(m.footnotes, 1):
+                fm = mask(body)
+                if len(words(fm.text)) >= MIN_PROSE_WORDS:
+                    out.append(dict(unit_id=f"{uid}#fn{k}", file=rel, section=f"X-{cat}", start=start, end=end,
+                                    kind="footnote", words=len(words(fm.text)), eligible=True, masked=fm.text, m=fm,
+                                    original=body))
+
+        for p in segment(tex):                                             # 1. marked blocks
+            if p.kind == "marker":
+                add("marker", f"X-marker:{stem}:L{p.start}-{p.end}", p.text, p.start, p.end, min_words=MIN_PROSE_WORDS)
+        a = tex.find("\\abs{")                                               # 2. abstract (masked whole by the first pass)
+        if a >= 0:
+            k = match_brace(tex, a + 4)
+            inner_start = a + 5
+            pre_m = re.match(r"\s*\\textbf\{Abstract\}\\\\\[[^\]]*\]\s*", tex[inner_start:k])
+            st = inner_start + (pre_m.end() if pre_m else 0)
+            add("abstract", f"X-abstract:{stem}:L{ln(st)}-{ln(k)}", tex[st:k], ln(st), ln(k), min_words=MIN_PROSE_WORDS)
+        for env in STATEMENT_ENVS + ["proof"]:                              # 3-4. statements and proofs
+            for mo in re.finditer(r"\\begin\{%s\}(\[[^\]\n]*\])?[ \t]*\n?" % env, tex):
+                if _commented(tex, mo.start()):
+                    continue
+                end = tex.find("\\end{%s}" % env, mo.end())
+                add("proof" if env == "proof" else "statement", f"X-{'proof' if env == 'proof' else 'statement'}:{stem}:L{ln(mo.end())}-{ln(end)}:{env}",
+                    tex[mo.end():end], ln(mo.end()), ln(end), pre=True, min_words=MIN_PROSE_WORDS)
+        for cmd in HEAD_CMDS:                                               # 5-6. captions and headings
+            for mo in re.finditer(r"\\%s\*?(?:\[[^\]]*\])?\{" % cmd, tex):
+                if _commented(tex, mo.start()):
+                    continue
+                k = match_brace(tex, mo.end() - 1)
+                if k > 0:
+                    add("head", f"X-head:{stem}:L{ln(mo.end())}:{cmd}", tex[mo.end():k], ln(mo.end()), ln(k), min_words=1)
+    return out
+
+
+def cmd_prepare_extra(date: str) -> None:
+    base = baseline_dir(date)
+    units = extra_units(base)
+    rows = list(csv.DictReader((HUM / "units.csv").open()))
+    rows = [r for r in rows if not r["section"].startswith("X-")]
+    for u in units:
+        safe = re.sub(r"[^A-Za-z0-9_.-]", "_", u["unit_id"])
+        d = HUM / "runs" / u["section"]
+        d.mkdir(parents=True, exist_ok=True)
+        (d / f"{safe}.before.tex").write_text(u["original"])
+        (d / f"{safe}.masked.txt").write_text(u["masked"])
+        (d / f"{safe}.map.json").write_text(json.dumps({"mapping": u["m"].mapping, "footnotes": u["m"].footnotes}))
+        rows.append(dict(unit_id=u["unit_id"], file=u["file"], section=u["section"], start_line=u["start"],
+                         end_line=u["end"], kind=u["kind"], words=u["words"], eligible=True,
+                         placeholders=len(u["m"].mapping), sha8=hashlib.sha256(u["original"].encode()).hexdigest()[:8]))
+    with (HUM / "units.csv").open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w.writeheader()
+        w.writerows(rows)
+    by = Counter(u["section"] for u in units)
+    print(f"{len(units)} extra units; words:", {k: sum(u['words'] for u in units if u['section'] == k) for k in by}, dict(by))
+
+
+def cmd_selftest_extra(date: str) -> None:
+    base = baseline_dir(date)
+    bad = 0
+    for u in extra_units(base):
+        pre = u["kind"] in ("statement", "proof")
+        if unmask(mask(u["original"], pre=pre).text, mask(u["original"], pre=pre)) != u["original"]:
+            bad += 1
+            print("ROUND-TRIP FAIL", u["unit_id"])
+        tex = (base / "paper-real-estate" / u["file"]).read_text()
+        if u["original"] not in tex:
+            bad += 1
+            print("NOT A SUBSTRING", u["unit_id"])
+    print(f"{len(extra_units(base))} extra units; failures: {bad}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["snapshot", "selftest", "prepare", "finish", "sheet"])
+    ap.add_argument("command", choices=["snapshot", "selftest", "prepare", "finish", "sheet", "prepare-extra", "selftest-extra"])
     ap.add_argument("units", nargs="*")
     ap.add_argument("--date", default=dt.date.today().isoformat())
     a = ap.parse_args()
     {"snapshot": lambda: cmd_snapshot(a.date), "selftest": lambda: cmd_selftest(a.date),
-     "prepare": lambda: cmd_prepare(a.date), "finish": lambda: cmd_finish(a.units), "sheet": lambda: cmd_sheet(a.units)}[a.command]()
+     "prepare": lambda: cmd_prepare(a.date), "finish": lambda: cmd_finish(a.units), "sheet": lambda: cmd_sheet(a.units),
+     "prepare-extra": lambda: cmd_prepare_extra(a.date), "selftest-extra": lambda: cmd_selftest_extra(a.date)}[a.command]()
 
 
 if __name__ == "__main__":
