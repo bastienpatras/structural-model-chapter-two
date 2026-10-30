@@ -441,13 +441,16 @@ def cmd_prepare(date: str) -> None:
 
 
 def update_ledger(row: dict) -> None:
+    import fcntl  # parallel subagents call finish concurrently; serialize the read-modify-write
     path = HUM / "ledger.csv"
-    rows = list(csv.DictReader(path.open())) if path.exists() else []
-    rows = [r for r in rows if r["unit_id"] != row["unit_id"]] + [{k: row.get(k, "") for k in LEDGER_FIELDS}]
-    with path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=LEDGER_FIELDS)
-        w.writeheader()
-        w.writerows(sorted(rows, key=lambda r: (r["file"], int(r["start_line"] or 0), r["unit_id"])))
+    with (HUM / ".ledger.lock").open("w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        rows = list(csv.DictReader(path.open())) if path.exists() else []
+        rows = [r for r in rows if r["unit_id"] != row["unit_id"]] + [{k: row.get(k, "") for k in LEDGER_FIELDS}]
+        with path.open("w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=LEDGER_FIELDS)
+            w.writeheader()
+            w.writerows(sorted(rows, key=lambda r: (r["file"], int(r["start_line"] or 0), r["unit_id"])))
 
 
 def cmd_finish(unit_ids: list[str]) -> None:
@@ -482,14 +485,37 @@ def cmd_finish(unit_ids: list[str]) -> None:
         print(f"{uid}: {status}")
 
 
+def cmd_sheet(sections: list[str]) -> None:
+    """Write review/<section>.md approval sheets, riskiest units first (hard-gate failures, then flags, then clean)."""
+    rows = list(csv.DictReader((HUM / "ledger.csv").open()))
+    rank = {"REJECT-CANDIDATE": 0, "REVIEW-FLAGS": 1, "CLEAN": 2, "UNCHANGED": 3}
+    for sec in sections or sorted({r["section"] for r in rows}):
+        rs = sorted((r for r in rows if r["section"] == sec), key=lambda r: (rank.get(r["status"], 9), int(r["start_line"] or 0)))
+        if not rs:
+            continue
+        out = [f"# Approval sheet: {sec}", "", "Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied before a decision.", ""]
+        for r in rs:
+            safe = r["unit_id"].replace(":", "_")
+            diff = HUM / "runs" / sec / f"{safe}.diff"
+            out += [f"## {r['unit_id']} (lines {r['start_line']}-{r['end_line']}): {r['status']}",
+                    f"- words {r['words_before']} -> {r['words_after']}; gates G1/G2/G3/G7: {r['g1_placeholders']}/{r['g2_numbers']}/{r['g3_keys']}/{r['g7_markers']}",
+                    f"- G4 flags: {r['g4_flags'] or 'none'}; G5 flags: {r['g5_flags'] or 'none'}",
+                    f"- change type: {r['change_type'] or '(unclassified)'}; decision: {r['decision']}; applied: {r['applied']}", ""]
+            if r["status"] != "UNCHANGED" and diff.exists():
+                out += ["```diff", diff.read_text().rstrip("\n"), "```", ""]
+        (HUM / "review").mkdir(exist_ok=True)
+        (HUM / "review" / f"{sec}.md").write_text("\n".join(out))
+        print(f"review/{sec}.md: {len(rs)} units")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["snapshot", "selftest", "prepare", "finish"])
+    ap.add_argument("command", choices=["snapshot", "selftest", "prepare", "finish", "sheet"])
     ap.add_argument("units", nargs="*")
     ap.add_argument("--date", default=dt.date.today().isoformat())
     a = ap.parse_args()
     {"snapshot": lambda: cmd_snapshot(a.date), "selftest": lambda: cmd_selftest(a.date),
-     "prepare": lambda: cmd_prepare(a.date), "finish": lambda: cmd_finish(a.units)}[a.command]()
+     "prepare": lambda: cmd_prepare(a.date), "finish": lambda: cmd_finish(a.units), "sheet": lambda: cmd_sheet(a.units)}[a.command]()
 
 
 if __name__ == "__main__":

@@ -24,16 +24,14 @@ regime (Proposition~\ref{prop:equilibrium}), the strict cross-regime ordering of
 (Eq.~\ref{eq:premium}), and an identification strategy that uses the directly observed audit
 status $K$ to recover $c_0$ and $\rho$ market by market.
 
-We allow for, but do not impose, strategic concealment. Nothing in the specification requires
-informed sellers to withhold. The hiding rate is an equilibrium object, the model admits full
-unravelling as a special case, and whether concealment occurs, and how much, is what the
-estimation determines.
+The specification allows for strategic concealment and nothing in it requires informed sellers to
+withhold. The hiding rate is an equilibrium object, the model admits full unravelling as a special
+case, and the estimation determines whether concealment occurs and how much.
 
-Two considerations motivate this structure. The first is resemblance. The facts in
+Two considerations motivate this structure. First, the facts in
 Section~\ref{sec:facts} line up with the Dye--Jung-Kwon configuration, in which a silent pool is
 overwhelmingly silent by constraint rather than by choice, a small but non-trivial mass of
-informed sellers who withhold, and a premium attached to silence rather than a penalty. The
-second is institutional. The binary quality space has an empirical anchor in the rental-ban
+informed sellers withhold, and silence carries a premium rather than a penalty. Second, the binary quality space has an empirical anchor in the rental-ban
 threshold introduced by \emph{loi Climat et R\'esilience}: dwellings rated E, F, or G face a
 progressive prohibition on new lettings, which draws a bright line between the bottom of the
 grade distribution and the rest and maps onto $\theta\in\{0,1\}$ without an arbitrary cutoff.
@@ -47,17 +45,16 @@ across the reform in the apartment segment (Section~\ref{ss:fact2}), which is th
 where identification is sharpest. A shift in the mix of sellers would generically move the
 two gaps by different amounts, and would show up in that share. Neither is observed.
 
-The mechanism itself is the one set out in Section~\ref{sec:unraveling}: sellers who cannot
+The mechanism is the one set out in Section~\ref{sec:unraveling}: sellers who cannot
 disclose dilute the adverse inference buyers draw from silence, which makes withholding
 attractive to informed sellers of poor quality, whose entry the buyer cannot separate from
 the involuntarily silent. France sits in the bottom-right cell of
 Figure~\ref{fig:equilibrium_outcomes}: incomplete registry coverage combined with positive
 buyer EPC-sensitivity. Even where the EPC-sensitive buyer share approaches one, as it does in
-most apartment markets after the reform, incomplete coverage alone sustains the premium, because
-so long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
+most apartment markets after the reform, incomplete coverage alone sustains the premium: so long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
 penalise silence. Full unravelling requires both conditions; France satisfies only one.
 
-Finally, we are explicit about what the model does not settle. It takes no stance on
+The model leaves several things unsettled. It takes no stance on
 \emph{why} an informed seller withholds, since deliberate concealment and an unrecorded but
 still-valid certificate are observationally similar in the listing data, and we do not
 attempt to separate them. It assumes no falsification, so a displayed score is taken at face
@@ -68,8 +65,7 @@ the withheld quality from the registry, so the restriction can be assessed. Nor 
 design pin down $\rho_m$ from the interior in most markets, where the data are consistent with full
 buyer sensitivity but cannot establish how close to one it lies, and we maintain
 $\hat\rho_m = 1$ for those markets and treat $\hat c_{0,m}$ as an upper bound accordingly. We
-do not purport to estimate the one true model of housing disclosure; we propose one way of
-reading these data through a workhorse framework.
+propose one way of reading these data through a workhorse framework and make no claim to the one true model of housing disclosure.
 
 \subsection{Setup}
 \label{ss:model_setup}
@@ -78,7 +74,7 @@ reading these data through a workhorse framework.
 
 A seller owns a property with observable attributes $X$ and an unobservable energy performance level $\theta \in \{0,1\}$, where $\theta=1$ denotes high efficiency. Whether the seller knows $\theta$ depends on whether she has obtained a certified Diagnostic de Performance \'{E}nerg\'{e}tique (DPE) audit prior to listing. With probability $\pi\in(0,1)$, the seller is \emph{informed} ($K=1$) and knows $\theta$; with probability $1-\pi$, she is \emph{uninformed} ($K=0$) and does not. The parameter $\pi$ is not a choice variable: it reflects structural features of local audit markets, including the cost and availability of accredited assessors, the time pressure sellers face (relocation, financial distress, inheritance), and the regulatory requirements in force. It is measured directly from the ADEME registry match, as described in Section~\ref{sec:data}.
 
-The seller simultaneously chooses a disclosure decision $d\in\{0,1\}$ and a listing price $p^{\text{list}}$. French property law requires that all mandatory diagnostic documents, including the DPE, be appended to the sales agreement at signing (loi ALUR, Article L271-4 CCH), so the disclosure decision and the listing price are set jointly at the time the property is placed on the market. This institutional timing motivates the simultaneous-choice formulation: the seller does not first decide whether to disclose and then price, but sets a complete strategy that internalizes how the disclosure decision shifts buyer beliefs and thereby affects both the probability of sale and the expected transaction price.
+The seller simultaneously chooses a disclosure decision $d\in\{0,1\}$ and a listing price $p^{\text{list}}$. French property law requires that all mandatory diagnostic documents, including the DPE, be appended to the sales agreement at signing (loi ALUR, Article L271-4 CCH), so the disclosure decision and the listing price are set jointly at the time the property is placed on the market. This institutional timing motivates the simultaneous-choice formulation: the seller sets a complete strategy that internalizes how the disclosure decision shifts buyer beliefs and thereby affects both the probability of sale and the expected transaction price, rather than first deciding whether to disclose and then pricing.
 
 \noindent\textbf{Assumption (No Falsification).} \textit{Disclosed EPC scores are verifiable against the ADEME registry. An informed seller with $K=1$ may choose $d\in\{0,1\}$, while an uninformed seller with $K=0$ is constrained to $d=0$: she cannot disclose what she does not possess. This rules out costless misreporting.}
 
@@ -105,7 +101,7 @@ where $\phi(p^{\text{list}}) = \gamma_0+\gamma_1 \cdot p^{\text{list}}+\sum_n\ga
 
 The hiding cost has two components. The term $c_0\geq 0$ applies to all non-disclosers, regardless of quality. In the French institutional context it captures the regulatory burden imposed by loi ALUR, from the legal exposure if a buyer later discovers a concealed audit via the public ADEME registry or a notaire liability check, to the informational ambiguity that prolongs negotiation and raises the risk that a sale falls through. The term $c_1\geq 0$ is an additional opportunity cost borne only by high-quality sellers ($\theta=1$) who choose to hide, since by not disclosing they forgo the revenue premium that verified high quality would command from EPC-sensitive buyers. Because $c_1>0$, hiding is strictly cheaper for low-quality sellers than for high-quality ones, so the net gain from concealment is larger for $\theta=0$ sellers at any given pool belief, and this differential is the sorting pressure that drives full separation of high-quality sellers in equilibrium (Corollary~\ref{cor:hq_disclose}). Hiding costs are paid unconditionally on sale, reflecting compliance burdens and reputational exposure that arise at listing time rather than at closing.
 
-$c_0$ serves two purposes here. It is an institutional cost of concealment, fixed within the prevailing enforcement regime, which we recover from the equilibrium price gap in Section~\ref{sec:identification}. It is also a policy object, a margin the regulator can shift through stricter enforcement, and Section~\ref{sec:policy} studies counterfactual variation in $c_0$ on that basis. Estimation reads $c_0$ off the current regime, while the policy exercise perturbs it around that same reading.
+$c_0$ is an institutional cost of concealment, fixed within the prevailing enforcement regime, which we recover from the equilibrium price gap in Section~\ref{sec:identification}. It is also a policy object, a margin the regulator can shift through stricter enforcement, and Section~\ref{sec:policy} studies counterfactual variation in $c_0$ on that basis. Estimation reads $c_0$ off the current regime, while the policy exercise perturbs it around that same reading.
 
 \subsubsection{Buyer Valuations and Demand}
 
@@ -189,7 +185,7 @@ Raising $\sigma_0$ adds more low-quality hiders to the denominator while leaving
 
 \subsubsection{Disclosure Incentives}
 
-A seller's disclosure decision reduces to one comparison: does withholding the audit, priced off the market's pool belief $e$, fetch more than disclosing the true quality $\theta$ would? A low-quality seller ($\theta=0$) gains by pooling with uninformed sellers and capturing a share of their quality premium; a high-quality seller ($\theta=1$) loses, because pooling with low-quality hiders drags the belief $e$ below 1. That asymmetry is the source of everything that follows.
+A seller's disclosure decision reduces to one comparison: does withholding the audit, priced off the market's pool belief $e$, fetch more than disclosing the true quality $\theta$ would? A low-quality seller ($\theta=0$) gains by pooling with uninformed sellers and capturing a share of their quality premium; a high-quality seller ($\theta=1$) loses, because pooling with low-quality hiders drags the belief $e$ below 1. That asymmetry drives the results below.
 
 \begin{proposition}[Disclosure Incentives and Seller Sorting]
 \label{prop:premium}
@@ -202,7 +198,7 @@ Under the benchmark $\alpha_k=\beta_k$, a seller of type $(K,\theta)$ strictly p
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-Proposition~\ref{prop:premium} is the familiar adverse-selection asymmetry, worked out for this setting. A high-quality seller has nothing to gain from ambiguity. Disclosure reveals her type exactly; non-disclosure pools her with low-quality hiders, and since $e(\sigma_0^*)<1$ for any non-degenerate pool, that comparison always binds. A low-quality seller faces the opposite incentive --- concealment lets her price off $e(\sigma_0^*)$, which is strictly above her true quality of zero whenever any uninformed sellers are present, so the gain from pooling is strictly positive. The hiding cost $c_1>0$ that falls only on high-quality concealers reinforces this separation but is not what drives it under the benchmark $\alpha_k=\beta_k$: pool inference alone is enough to make high-quality sellers disclose, and $c_1$ only starts to matter once $\alpha_k<\beta_k$, the distrust-discount case.
+Proposition~\ref{prop:premium} is the familiar adverse-selection asymmetry, worked out for this setting. A high-quality seller has nothing to gain from ambiguity. Disclosure reveals her type exactly; non-disclosure pools her with low-quality hiders, and since $e(\sigma_0^*)<1$ for any non-degenerate pool, that comparison always binds. A low-quality seller faces the opposite incentive: concealment lets her price off $e(\sigma_0^*)$, which is strictly above her true quality of zero whenever any uninformed sellers are present, so the gain from pooling is strictly positive. The hiding cost $c_1>0$ that falls only on high-quality concealers reinforces this separation but is not what drives it under the benchmark $\alpha_k=\beta_k$: pool inference alone is enough to make high-quality sellers disclose, and $c_1$ only starts to matter once $\alpha_k<\beta_k$, the distrust-discount case.
 
 \begin{corollary}[High-Quality Sellers Always Disclose]
 \label{cor:hq_disclose}
@@ -227,7 +223,7 @@ Write $\Delta(e)\equiv\rho\beta_1 e$ for the revenue a low-quality seller gains 
     \Phi(\sigma_0) \;\equiv\; \Delta\!\left(e(\sigma_0)\right) - c_0 \;=\; \frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)} - c_0.
     \label{eq:Phi}
 \end{equation}
-$\Phi$ is strictly decreasing in $\sigma_0$ --- more concealment worsens the pool, which shrinks the gain from concealing further --- and this monotone feedback is what pins down a unique equilibrium without any need for refinements. The three regimes below follow from comparing $\Phi$ against zero at its two extremes: $\Phi(0)=\Delta(\bar{\theta})-c_0$, the net gain against the cleanest possible pool, and $\Phi(1)=\Delta(e(1))-c_0$, the net gain against the most contaminated one.
+$\Phi$ is strictly decreasing in $\sigma_0$ (more concealment worsens the pool, which shrinks the gain from concealing further), and this monotone feedback is what pins down a unique equilibrium without any need for refinements. The three regimes below follow from comparing $\Phi$ against zero at its two extremes: $\Phi(0)=\Delta(\bar{\theta})-c_0$, the net gain against the cleanest possible pool, and $\Phi(1)=\Delta(e(1))-c_0$, the net gain against the most contaminated one.
 
 \begin{proposition}[Equilibrium Existence and Uniqueness]
 \label{prop:equilibrium}
