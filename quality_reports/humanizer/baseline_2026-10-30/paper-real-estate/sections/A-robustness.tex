@@ -1,0 +1,264 @@
+% =====================================================================
+% APPENDIX — robustness to the quality threshold and to the sigma_1 = 0
+% restriction. Referenced from §4.1.
+% =====================================================================
+
+\section{Robustness: The Quality Threshold and the $\sigma_1^*=0$ Restriction}
+\label{app:robustness}
+
+Two maintained choices in the baseline specification deserve separate scrutiny, because each
+is an assumption rather than an estimate.
+
+The first is where the binary quality space is cut. The baseline places the boundary between
+D and E, so that $\theta=1$ corresponds to grades A--D. This follows the rental-ban
+discontinuity of \emph{loi Climat et R\'esilience} discussed in
+Section~\ref{ss:institutions}, and it is the cut for which the price-index contrast and the
+listing-level quality measure refer to the same partition of grades. The natural alternative
+places the boundary between C and D.
+
+The second is the treatment of informed sellers who withhold. Because such a listing displays
+no score, its quality cannot be read from the listing itself. The baseline assigns
+$\theta=0$ by revealed preference, invoking Corollary~\ref{cor:hq_disclose}. That assignment
+is an assumption, and its consequence is worth stating plainly. It makes
+$\hat\sigma_{1,m}$ identically zero by construction, so the corollary cannot be assessed
+against the baseline estimates. The alternative reads the withheld grade from the ADEME
+registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured. Under the limited-attention extension of Section~\ref{ss:attention}, high-quality hiding is possible only if silence outprices a verified efficient rating and the market is in Complete Adverse Selection (Proposition~\ref{prop:att_seller_types}), so the registry reading, which leaves $\hat\sigma_1$ measured, is the specification that does not rule it out.
+
+Table~\ref{tab:robustness} crosses the two choices.
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity to the quality threshold and to the $\sigma_1$ assignment}
+\label{tab:robustness}
+\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{c}@{}}
+\toprule\toprule
+\textbf{Specification} & $N$ & $\hat\rho_m$ & $\hat c_{0,m}$ & $\hat\sigma_{0,m}$ & $\hat\sigma_{1,m}$ & $\hat{\bar\theta}_m$ \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel A: Apartments}} \\[2pt]
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 45 & 49.5\% & 2.41\% & 15.2\% & n/a & 62.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 45 & 49.5\% & 2.62\% &  5.9\% & 5.1\% & 65.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 40 & 62.2\% & 1.08\% &  7.7\% & n/a & 26.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 40 & 62.2\% & 1.19\% &  5.1\% & 6.5\% & 28.4\% \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel B: Houses}} \\[2pt]
+A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 97 & 45.8\% & 3.45\% &  6.8\% & n/a & 60.5\% \\
+A--D vs E/F/G, $\sigma_1$ from registry               & 97 & 45.8\% & 3.56\% &  2.8\% & 2.1\% & 61.9\% \\
+A--C vs E/F/G, $\sigma_1$ imposed                     & 100 & 53.7\% & 1.72\% &  3.7\% & n/a & 28.5\% \\
+A--C vs E/F/G, $\sigma_1$ from registry               & 100 & 53.7\% & 1.78\% &  2.5\% & 2.5\% & 29.3\% \\
+\bottomrule\bottomrule
+\end{tabular*}
+\vspace{0.5em}
+\begin{minipage}{\linewidth}
+\footnotesize\textit{Notes.} Market-level means. ``$\sigma_1$ imposed'' assigns $\theta=0$ to
+informed non-disclosers by revealed preference, which forces $\hat\sigma_{1,m}=0$ in every
+market; the column reads n/a there because the quantity is assumed rather than estimated.
+``$\sigma_1$ from registry'' binarises the withheld grade from the ADEME record. The quality
+threshold also governs the price-index contrast. A--D vs E/F/G merges the \emph{Efficient} and
+\emph{Balanced} index series by transaction volume, while A--C vs E/F/G contrasts
+\emph{Efficient} against \emph{Intensive} and omits \emph{Balanced}. Market counts differ
+across rows because the minimum-volume filter is applied to the high-group series, which is
+larger under the A--D contrast.
+\end{minipage}
+\end{table}
+
+Three results follow.
+
+First, buyer sensitivity is exactly insensitive to the $\sigma_1$ assignment, and the
+concealment cost only mildly so. Holding the threshold fixed, relaxing the restriction leaves
+$\hat\rho_m$ completely unchanged in both segments: the anchored estimator
+$\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$ (Proposition~\ref{prop:anchored_identification})
+never involves $\sigma_1$ at all, so there is nothing for the assignment to move. $\hat
+c_{0,m}$ moves modestly, from 2.41\% to 2.62\% for apartments and from 3.45\% to 3.56\% for
+houses, through its dependence on $\hat e^*_m$, which does respond to the assignment. The
+concealment cost is therefore not an artefact of the revealed-preference assignment, even
+though $\hat\sigma_{0,m}$ itself is quite sensitive to it: imposing $\theta=0$ places every
+informed non-discloser in the low-quality group and inflates the measured hiding rate by
+roughly a factor of two and a half (15.2\% against 5.9\% for apartments, 6.8\% against 2.8\%
+for houses).
+
+Second, the restriction $\sigma_1^*=0$ is not satisfied exactly, but the model's predicted
+\emph{ordering} holds under the maintained threshold. With quality read from the registry and
+the cut at the rental-ban boundary, $\hat\sigma_{1,m} = 5.1\%$ against
+$\hat\sigma_{0,m} = 5.9\%$ for apartments, and $2.1\%$ against $2.8\%$ for houses. Informed
+sellers of low-quality properties withhold more often than informed sellers of high-quality
+ones, as the model requires, though the gap is narrow. Under the C--D cut the ordering
+reverses for apartments ($6.5\%$ against $5.1\%$) and is effectively a tie for houses ($2.5\%$
+against $2.5\%$, indistinguishable at this precision). The threshold that the institutional
+setting selects is thus also the one under which the behavioural restriction survives, which
+we read as support for the baseline cut rather than as independent confirmation of the
+corollary.
+
+Third, the threshold matters a great deal for the level of the concealment cost, and this is
+the paper's most consequential specification choice. Moving the cut from C--D to D--E raises
+$\hat c_{0,m}$ from roughly 1.1--1.8\% of property value to 2.4--3.6\%, a little more than a
+doubling in both segments. The mechanism is transparent. With A--D counted as high quality,
+the average quality of the non-disclosing pool $\hat e^*_m$ rises substantially (the informed
+high-quality share $\hat{\bar\theta}_m$ alone more than doubles, from roughly 27--29\% under
+the C--D cut to 60--66\% under D--E), and $c_{0,m}=\beta_{1,m}\hat e^*_m$
+(Proposition~\ref{prop:what_identified}) scales with it. Readers who prefer the narrower
+definition of ``high quality'' should therefore read the concealment cost as the smaller
+figure throughout; the relative ordering of the concealment cost across apartments and houses
+is unaffected by the threshold choice.
+
+% =====================================================================
+% APPENDIX — formal identification of rho_m and c0_m. Referenced from
+% Section~\ref{sec:identification}.
+% =====================================================================
+
+\section{Identification of $\rho_m$: A Formal Treatment}
+\label{app:rho_identification}
+
+The naive market-by-market ratio $\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ is
+degenerate: it returns approximately $1$ regardless of the true buyer-sensitivity share, because
+$\rho_m$ cancels between numerator and denominator under the model's own pricing equations. This
+appendix states the identification failure formally, and the external anchor that resolves it.
+
+\subsection*{The scale non-identification result}
+
+Write $b_m\equiv\rho_m\beta_1$ for the composite parameter that governs every observable price
+implication of the model.
+
+\begin{proposition}[Scale non-identification of buyer sensitivity]
+\label{prop:scale_nonid}
+Under the benchmark pricing rule $\alpha_k=\beta_k$ (Section~\ref{sec:model}), fix any
+parameter vector with $\rho_m\in(0,1]$ and $\beta_1>0$ for all markets $m$, and any
+$\lambda\in(0,(\max_m\rho_m)^{-1}]$. The reparametrization $(\rho_m,\beta_1)\mapsto
+(\lambda\rho_m,\beta_1/\lambda)$ is admissible and induces an identical joint distribution of
+observed prices, an identical equilibrium hiding rate $\sigma_0^*$, and an identical
+equilibrium regime, in every market and every period. Consequently $\{\rho_m\}$ and $\beta_1$
+are not separately identified by any price-based moment implied by the model, for any number of
+markets $M$; only the composites $\{b_m\}$ and $\{c_{0,m}\}$ are.
+\end{proposition}
+
+\begin{proof}
+Every observable implication of the model is a function of $(\rho_m,\beta_1)$ through the
+product $b_m$ alone. For a disclosed listing, $p^*(d=1,\theta)=\beta_0+\rho_m\beta_1\theta
+=\beta_0+b_m\theta$. For a non-disclosed listing, $p^*(d=0)=\beta_0+\rho_m\beta_1
+e=\beta_0+b_m e$. The hiding incentive is $\Delta(\sigma_0)=\rho_m\beta_1 e(\sigma_0)-c_{0,m}
+=b_m e(\sigma_0)-c_{0,m}$, so the equilibrium $\sigma_0^*$ solving $\Delta(\sigma_0^*)=0$
+depends on $(\rho_m,\beta_1)$ only through $b_m$. The regime boundaries of
+Proposition~\ref{prop:equilibrium} ($c_{0,m}$ against $b_m\bar\theta_m$ and $b_m e(1)$) involve
+$(\rho_m,\beta_1)$ the same way. Since $b_m=\rho_m\beta_1=(\lambda\rho_m)(\beta_1/\lambda)$ is
+invariant under the stated map and $c_{0,m}$ is untouched, the reparametrized vector reproduces
+every observable channel exactly. Admissibility requires $\lambda\rho_m\le1$ for all $m$, i.e.\
+$\lambda\le(\max_m\rho_m)^{-1}$.
+\end{proof}
+
+\begin{corollary}[The raw ratio is a specification-test statistic, not an estimator]
+\label{cor:ratio_specification_test}
+$\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ satisfies $\mathrm{plim}\,\hat\rho_m=1$
+for every true $\rho_m\in(0,1]$, since under the model $\hat\Delta_m=b_m e^*_m$ and
+$\hat\beta_{1,m}=b_m$ share the same composite $b_m$ by
+Proposition~\ref{prop:scale_nonid}. It is the sample analogue of the over-identifying
+restriction $\Delta_m=\beta_{1,m}\,e^*_m$ (Lemma~\ref{lem:model_bounds} below), not an
+estimate of buyer sensitivity; its deviation from unity is a specification-test statistic, and
+clipping it to $[0,1]$ suppresses that test rather than estimating anything.
+\end{corollary}
+
+\subsection*{What is identified without an external anchor}
+
+\begin{proposition}[Identification of the composite and of $c_0$]
+\label{prop:what_identified}
+Given consistent estimates of $(\pi_m,\bar\theta_m,\sigma_{0,m})$ from the ADEME registry match
+and $\hat\beta_{1,m}$ from the disclosed-price DiD:
+\begin{enumerate}[label=(\roman*)]
+    \item $b_m$ is point identified: $b_m=\beta_{1,m}$.
+    \item If $\sigma_{0,m}\in(0,1)$ (Partial Pooling), $c_{0,m}$ is point identified,
+        \emph{without reference to $\rho_m$ or $\beta_1$ separately}:
+        $c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)$.
+    \item If $\sigma_{0,m}=0$ (Cost-Deterred Hiding), $c_{0,m}\ge\beta_{1,m}\bar\theta_m$; if
+        $\sigma_{0,m}=1$ (Complete Adverse Selection), $c_{0,m}\le\beta_{1,m}\,e(1)$.
+    \item $\Delta_m$ is an over-identifying restriction: $\Delta_m=\beta_{1,m}\,e(\sigma_{0,m})$,
+        i.e.\ $\Delta_m=c_{0,m}$ in Partial Pooling.
+    \item $\rho_m$ itself is not identified (Proposition~\ref{prop:scale_nonid}).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is the disclosed-price equation $\beta_{1,m}=p^*(d=1,\theta=1)-p^*(d=1,\theta=0)=b_m$.
+(ii): in Partial Pooling the indifference condition
+$\Delta(e(\sigma_0^*))=c_{0,m}$ reads $b_m\,e(\sigma_{0,m})=c_{0,m}$; substitute $b_m=\beta_{1,m}$
+from (i). (iii) follows from the regime boundaries of Proposition~\ref{prop:equilibrium}
+evaluated at $b_m=\beta_{1,m}$. (iv) combines (i) with the non-disclosed pricing equation
+$\Delta_m\equiv p^*(d=0)-p^*(d=1,\theta=0)=b_m\,e(\sigma_{0,m})$. (v) is
+Proposition~\ref{prop:scale_nonid}.
+\end{proof}
+
+This result has an immediate practical consequence: $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat
+e^*_m(\hat\sigma_{0,m})$ is the primary concealment-cost estimator used in
+Section~\ref{sec:identification}, for both property types, and it does not require $\rho_m$ to
+be identified at all.
+
+\begin{lemma}[Model-implied bounds on the non-disclosure premium]
+\label{lem:model_bounds}
+(i) $0\le\Delta_m/\beta_{1,m}=e_m\le\bar\theta_m\le1$, since the belief function is bounded
+above by $\bar\theta_m$ (attained at $\sigma_0=0$). (ii) If the market is in Partial Pooling both before and after the July~2021 reform and $c_{0,m}$ is
+invariant to it (the identifying assumption of
+Section~\ref{sec:identification}), the model predicts a DiD non-disclosure premium of zero:
+since $\Delta_{m,t}=c_{0,m}$ in Partial Pooling at every date $t$, its post-minus-pre change is
+zero whenever $c_{0,m}$ does not move at the reform.
+\end{lemma}
+
+\noindent Under Assumption~\ref{assum:no_pre_pricing} buyers price no energy before the reform, the pre-reform market is not in Partial Pooling, and part~(ii) does not apply: the DiD premium then measures the post-reform premium, which is how Section~\ref{sec:identification} reads it.
+
+\subsection*{Point identification under an external anchor}
+
+\begin{assumption}[Energy-cost anchor]
+\label{assum:energy_anchor}
+For each market $m$, an external, non-price estimate of the sensitive buyer's willingness to
+pay for verified quality is available as the capitalised energy-cost saving:
+\begin{equation}
+    \beta_{1,m}^{\mathrm{anchor}} = \kappa\cdot\frac{A_m}{P_m}, \qquad
+    A_m = \big(\bar E_{0,m}-\bar E_{1,m}\big)\cdot p^E\cdot a(r,T), \qquad
+    a(r,T)=\frac{1-(1+r)^{-T}}{r},
+    \label{eq:energy_anchor}
+\end{equation}
+where $\bar E_{\theta,m}$ is mean certified primary-energy consumption (kWh$_{\mathrm{ep}}$/m$^2$/yr)
+of quality-$\theta$ dwellings among ADEME-matched ($K=1$) listings in market $m$ --- pooling
+\emph{both} disclosed and strategically-hidden listings, since restricting to disclosed-only
+listings would reintroduce selection on the seller's own hiding decision --- $p^E$ is a
+blended primary-energy-equivalent price, $P_m$ is the local price level, and $a(r,T)$ discounts
+the annual saving over a horizon $T$ at rate $r$.
+\end{assumption}
+
+\begin{proposition}[Point identification of $\rho_m$ under Assumption~\ref{assum:energy_anchor}]
+\label{prop:anchored_identification}
+Under Assumption~\ref{assum:energy_anchor} with $\beta_{1,m}^{\mathrm{anchor}}>0$ known,
+\begin{equation}
+    \rho_m=\frac{\beta_{1,m}}{\beta_{1,m}^{\mathrm{anchor}}}, \qquad
+    c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)
+    \label{eq:anchored_estimator}
+\end{equation}
+are point identified. The model's constraint $\rho_m\le1$ becomes the testable inequality
+$\beta_{1,m}\le\beta_{1,m}^{\mathrm{anchor}}$, rather than an imposed clip.
+\end{proposition}
+
+\begin{proof}
+The Jacobian of $(\beta_{1,m},\sigma_{0,m})$ with respect to $(\rho_m,c_{0,m})$ at a Partial
+Pooling equilibrium, holding $\beta_{1,m}^{\mathrm{anchor}}$ fixed, is
+\[
+\begin{pmatrix}
+\beta_{1,m}^{\mathrm{anchor}} & 0 \\[2pt]
+k\,\beta_{1,m}^{\mathrm{anchor}} & -k\,\rho_m\,\beta_{1,m}^{\mathrm{anchor}}/c_{0,m}
+\end{pmatrix},
+\qquad
+k\equiv\frac{(1-\pi_m)\bar\theta_m}{c_{0,m}\,\pi_m(1-\bar\theta_m)},
+\]
+with determinant $-k\,\rho_m\,(\beta_{1,m}^{\mathrm{anchor}})^2/c_{0,m}\ne0$ whenever
+$\rho_m,c_{0,m}>0$ and $\pi_m,\bar\theta_m\in(0,1)$. Local identification follows; global
+identification follows from strict monotonicity of $\beta_{1,m}\mapsto\rho_m$ in
+\eqref{eq:anchored_estimator} and, given $\rho_m$, of $\sigma_{0,m}\mapsto c_{0,m}$ through the
+strictly decreasing belief function of Lemma~\ref{lem:belief_monotone}.
+\end{proof}
+
+\medskip
+\noindent\textit{Diagnostics reported alongside the anchored estimates
+(Table~\ref{tab:did_results} and Appendix~\ref{app:robustness}).} The measured wedge
+$\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$
+(Lemma~\ref{lem:model_bounds}/Corollary~\ref{cor:ratio_specification_test}) is reported per
+market rather than absorbed into $\hat c_{0,m}$; the concentration statistic
+$\bar\Lambda'=M^{-1}\sum_m\hat\rho_m(1-\hat\rho_m)$, restricted to markets with
+$\hat\rho_m\in[0,1]$, gates whether the anchored $\hat\rho_m$ sample carries enough interior
+variation to support a covariate index rather than only a common estimate; and the count of
+markets violating $\hat\rho_m\le1$ is reported directly rather than clipped away.

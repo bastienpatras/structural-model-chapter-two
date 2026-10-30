@@ -111,10 +111,14 @@ def load_panel(item_type: str) -> pd.DataFrame:
     return agg
 
 
-def make_figure(item_type: str, agg: pd.DataFrame):
+def make_figure(item_type: str, agg: pd.DataFrame, slide: bool = False):
+    """slide=True drops the Balanced (D) series, which blurs the slide message,
+    and writes a separate *_slide file so the paper figure is unchanged."""
     fig, ax = plt.subplots(figsize=(6.5, 3.6))
 
     for epc, label, color, lw, ls in SERIES:
+        if slide and epc == "Balanced":
+            continue
         s = agg[agg["EPC"] == epc].sort_values("date")
         ax.plot(s["date"], s["price_smooth"], color=color, lw=lw, ls=ls,
                 label=label, solid_capstyle="round")
@@ -135,6 +139,8 @@ def make_figure(item_type: str, agg: pd.DataFrame):
     ax.legend(frameon=False, loc="upper left")
 
     stem = OUT[item_type]
+    if slide:
+        stem = stem.with_name(stem.name + "_slide")
     stem.parent.mkdir(parents=True, exist_ok=True)
     pdf_path = stem.with_suffix(".pdf")
     png_path = stem.with_suffix(".png")
@@ -153,6 +159,7 @@ def main():
     for item_type, name in (("APARTMENT", "Apartments"), ("HOUSE", "Houses")):
         agg = load_panel(item_type)
         make_figure(item_type, agg)
+        make_figure(item_type, agg, slide=True)
 
         last_date = agg["date"].max()
         print(f"\nFinal price levels for {name} ({last_date.date()}, 3m MA):")

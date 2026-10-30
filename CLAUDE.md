@@ -76,8 +76,8 @@ read them before starting substantive paper work, they carry real, hard-won cont
 - [`release-engineering.md`](.claude/references/release-engineering.md) — shipping research
   software/replication packages.
 
-**How we write** — [`writing-with-ai.md`](.claude/rules/writing-with-ai.md): `/humanize` is
-**detect-only** — it reports AI-voice tells, it never auto-rewrites. A model cannot make its own
+**How we write** — [`writing-with-ai.md`](.claude/rules/writing-with-ai.md): the `humanizer`
+plugin (blader/humanizer) is **advisory only** — its output is a suggestion the author reviews and edits, never applied automatically. A model cannot make its own
 output stop reading as model-generated to a real detector; only genuine human rewriting does
 that. See also [`proofreading-protocol.md`](.claude/rules/proofreading-protocol.md)'s
 propose-then-approve-then-apply workflow, which the same discipline follows.
@@ -181,7 +181,7 @@ prose — porting it unchanged would score this manuscript against criteria that
 **What's active instead:** the pre-commit hook (`.githooks/pre-commit`) runs the full
 `backtest.sh` gate suite (repo hygiene, link integrity, skill/spec conformance, staleness,
 derived-count drift) on every commit. It does **not** run a prose quality score. Substantive
-paper review runs through `/review-paper`, `/seven-pass-review`, `/humanize`, `/proofread`, and
+paper review runs through `/review-paper`, `/seven-pass-review`, `/proofread`, the `humanizer` plugin, and
 the two project-specific agents below instead — each returns a pass/fail or a structured report,
 not a number.
 
@@ -201,7 +201,7 @@ Two pre-existing project-specific agents (not touched by this port):
 | `structural-micro-reviewer` | Multi-dimensional review of the structural micro project — model, identification, econometric implementation, code, paper-code consistency |
 
 Plus the ported general-purpose review fleet: `claim-verifier`, `domain-referee`,
-`methods-referee`, `editor`, `humanize-auditor`, `proofreader`, `verifier`,
+`methods-referee`, `editor`, `proofreader`, `verifier`,
 `promote-memory-council`. See [`agent-fleet.md`](.claude/references/agent-fleet.md).
 
 **Python code review (added 2026-09-13, mirroring the template's R reviewers for this repo's
@@ -218,7 +218,7 @@ a `pyproject.toml` — the analogue of the dropped `r-package-reviewer`; see
 
 Curated for this project (paper/research workflows only — no lecture/slide skills were ported).
 
-- **Writing / review:** `/humanize` `/proofread` `/review-paper` (`--peer`) `/seven-pass-review`
+- **Writing / review:** `humanizer` (plugin, advisory) `/proofread` `/review-paper` (`--peer`) `/seven-pass-review`
   `/respond-to-referees` `/verify-claims` `/submission-disclosures` `/narrativize` (rewrite a
   dense section into narrative prose, citing the appendix instead of reproducing it)
 - **Literature:** `/lit-review`, plus the two **global** skills `~/.claude/skills/literature-review`
@@ -243,7 +243,7 @@ Curated for this project (paper/research workflows only — no lecture/slide ski
 | `paper-real-estate/main.tex` | Active JMP rewrite for RE/finance journals; §1-4 drafted (`sections/01-04-*-draft.tex`), §5 Policy Extension + Conclusion + Appendix inline in `main.tex` |
 | `paper/main_concise.tex` | Prior version; shared exhibits source (`\graphicspath`/`results/`) |
 | `paper-real-estate/policy-note/` | Separate 3-4pp retrofit-subsidy policy brief (not yet drafted, per `PLAN.md` decision 7) |
-| Known open issues | σ₁ circularity (`FINDING-sigma1.md`), appendix robustness gaps (`APPENDIX-GAPS.md`) — substantive, **not** in scope for a `/humanize` pass |
+| Known open issues | σ₁ circularity (`FINDING-sigma1.md`), appendix robustness gaps (`APPENDIX-GAPS.md`) — substantive, **not** in scope for a `humanizer` pass |
 
 ---
 
@@ -253,6 +253,6 @@ Curated for this project (paper/research workflows only — no lecture/slide ski
 check-in cadence, visual-polish routing) at the user's explicit request, at repo onboarding —
 see `quality_reports/plans/2026-09-14_collaboration-mode-config.md`.
 
-This file will likely need another pass once Phase B (paper review + humanize) is underway and
+This file will likely need another pass once Phase B (paper review + humanizer pass) is underway and
 its own findings suggest CLAUDE.md adjustments (e.g. once a prose quality rubric exists, or once
 `policy-note/` has real content). Treat it as current-best, not final.

@@ -17,7 +17,7 @@ You are writing for a top field journal. Optimize for a referee's time and a car
 - **One paragraph, one point.** The first sentence is the point; the rest earns it.
 - **Cite as you assert.** Attribute each prior result to a specific paper; never "the literature shows" without a citation.
 
-## Avoid the AI tells (see `/humanize`)
+## Avoid the AI tells (see `writing-with-ai.md`)
 - No boilerplate transitions ("Moreover", "Furthermore", "Additionally" stacked), no tricolons-for-rhythm, no em-dash overuse, no "not only X but also Y" scaffolding, no symmetric paragraph shapes, no sycophantic framing.
 - Prefer the plain word. Cut intensifiers ("very", "crucial", "significant" when not statistical).
 

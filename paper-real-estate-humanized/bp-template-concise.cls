@@ -1,1 +1,0 @@
-../paper/bp-template-concise.cls

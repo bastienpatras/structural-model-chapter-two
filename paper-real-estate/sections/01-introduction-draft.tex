@@ -163,15 +163,16 @@ should collapse to this concealment cost exactly, invariant to market compositio
 prediction directly rather than impose it. It holds for houses: the gap between the observed
 premium and the identified concealment cost is small and statistically indistinguishable from
 zero. It does not hold for apartments: the premium exceeds the concealment cost by a wide and
-precisely estimated margin, a genuine specification tension we report rather than explain away.
-Measurement noise from the registry match, market-level aggregation across a more heterogeneous
-apartment stock, an unpriced risk premium from buyer uncertainty about who is behind a silent
-listing, and thinner buyer bargaining positions in fast-moving urban apartment markets are all
-candidates we examine in Section~\ref{sec:results}, and none of them move the point estimates
-above.
+precisely estimated margin, a specification tension the baseline cannot absorb, because no belief
+about silence can price a silent listing above a verified efficient one.
+% [AUTHOR REWRITE]
+Section~\ref{ss:attention} shows that one change on the buyer side can account for it: if buyers attend
+to energy when a rating is displayed and much less when it is not, the model fits houses as before,
+rejects full attention in apartments, and leaves the estimated buyer sensitivity unchanged.
 We maintain, rather than test, the model's prediction that informed sellers of high-quality
 properties never conceal; Appendix~\ref{app:robustness} relaxes it by reading the withheld grade
-from the registry and finds the structural estimates essentially unchanged.
+from the registry and finds the structural estimates essentially unchanged. Under the limited-attention
+extension the prediction survives whenever not every informed low-quality seller hides (Corollary~\ref{cor:att_hq}).
 
 % ---------- ¶11  contribution 1 ----------
 Our paper contributes to the literature on disclosure by testing the unraveling result in a
@@ -187,17 +188,19 @@ central prediction is to an assumption that is rarely examined.
 % ---------- ¶12  contribution 2 + scope disclaimer ----------
 Our paper also provides an information-based account of the residential energy-efficiency gap
 \citep{allcott_is_2012, gerarden_assessing_2017}. The standard diagnosis appeals to split
-incentives, credit constraints, and inattention to future energy costs. We identify a
+incentives, credit constraints, and inattention to future energy costs \citep{allcott_consumers_2011, sallee_rational_2014, allcott_evaluating_2015}. We identify a
 complementary channel internal to the disclosure game. A seller holding a poor rating can
 renovate and publish a good one, earning the quality premium, or stay silent and earn the
-non-disclosure premium instead, so the premium to opacity acts as an opportunity cost of
-renovation and raises the private hurdle above engineering cost. This has an unexpected policy
+non-disclosure premium instead, so the premium to opacity looks like an opportunity cost of
+renovation that raises the private hurdle above engineering cost. In equilibrium it does not, except in the corner where every informed low-quality seller hides. This has an unexpected policy
 implication. Because the equilibrium absorbs enforcement through the fraction of sellers who
 conceal, the renovation threshold depends only on the price gap between disclosed quality
 levels and is independent of enforcement intensity. Renovation subsidies, enforcement against
-concealment, and investment in audit coverage act on three distinct margins and are complements
-rather than substitutes, contrary to the conventional treatment in
-\citet{gillingham_palmer_2014}. We do not claim to have estimated the one true model of housing
+concealment, and investment in audit coverage act on three distinct margins and do not substitute for one another,
+contrary to the conventional treatment in
+\citet{gillingham_palmer_2014}. The result holds outside the corner in which every informed low-quality seller hides, and with one concealment cost per market. % [AUTHOR REWRITE] The extension of Section~\ref{ss:attention} brings the inattention
+diagnosis inside the disclosure game: buyers who attend less to energy when no rating is shown let
+silence earn a premium that no belief about quality can produce. We do not claim to have estimated the one true model of housing
 disclosure; we propose one way of reading these data through a workhorse framework, and we are
 explicit throughout about which parameters are point-identified and which are bounded.
 
@@ -206,15 +209,14 @@ The model also speaks to renovation policy. Extending the framework to an endoge
 decision, we show the minimum subsidy needed to make renovation privately worthwhile reduces, in
 the empirically dominant partial-pooling regime, to the price gap between verified high and low
 quality alone, invariant to enforcement against hiding and to how many sellers are informed,
-which act on separate margins instead. A uniform national subsidy is accordingly inefficient. The
-required cost-share the state must cover ranges from zero to the full renovation cost across
-markets, averaging just over half in markets that need support at all, and aggregate programme
-costs at plausible renovation-cost benchmarks run to \euro{}9.8--33 billion, two to eight times
-MaPrimeR\'enov's current annual budget. Efficient targeting requires conditioning subsidy design
-on local market composition rather than applying one national rate, and subsidies need not
-carry that fiscal weight alone. Enforcement against strategic hiding and investment in audit
-infrastructure act on separate margins, and deploying them alongside targeted subsidies reduces
-how much of the gap a subsidy programme has to close by itself.
+which act on separate margins instead. Forcing silent listings to be read as carefully as rated ones would change who hides but not who renovates, and only a higher weight on displayed ratings could raise the renovation threshold, within a bound that the data do not pin down. % [AUTHOR REWRITE]
+A uniform national subsidy is accordingly poorly targeted. The
+required cost-share the state must cover varies widely across
+markets, averaging \attBaseCostShareTwoFiftyApt{} percent in apartment markets that need support at all at the light benchmark, and aggregate programme costs among the sellers who can renovate run to
+\euro{}\attScCostBaseTotTwoFifty{}--\attScCostBaseTotFiveHundred{} billion a year in our listing sample at plausible renovation-cost benchmarks, for scale between \attScCostBaseTotTwoFiftyLo{} and
+\attScCostBaseTotFiveHundredHi{} percent of MaPrimeR\'enov's current annual budget. Efficient targeting requires conditioning subsidy design
+on local market composition rather than applying one national rate. Enforcement against strategic hiding and investment in audit
+infrastructure act on separate margins: the first changes who hides, the second who is eligible to renovate, and neither lowers the subsidy a given seller needs.
 
 % ---------- ¶13  related literature, three strands ----------
 Our paper draws on three strands of work. It belongs to the literature that estimates
@@ -222,7 +224,10 @@ disclosure models structurally in order to assess the descriptiveness of classic
 theory and to recover primitives such as information endowment, disclosure costs, and beliefs;
 closest to us is \citet{bourveau_learning_2025}, who structurally examine whether the unraveling
 result describes an unregulated nineteenth-century market and find that full disclosure is
-reached only gradually.
+reached only gradually. Where that literature and the experimental work on disclosure ask how far
+receivers infer the worst from silence \citep{jin_is_2021, hagenbach_motivated_2025}, our extension
+asks whether they attend to silence at all, drawing on evidence that limited attention changes how
+disclosed and undisclosed information is priced \citep{hirshleifer_limited_2003, dellavigna_investor_2009}.
 It is closely related to the extensive evidence on the capitalisation of energy labels in
 housing, which documents robust premia for efficient properties wherever labels have been
 studied \citep{brounen_kok_2011, hyland_lyons_2013, fuerst_energy_2016, frondel_power_2018,

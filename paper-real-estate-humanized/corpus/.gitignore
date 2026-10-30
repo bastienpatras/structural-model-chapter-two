@@ -1,4 +1,0 @@
-# Third-party papers are reference input, not work product. Do not commit them:
-# they are copyrighted, bulky, and re-fetchable from the routes recorded in INDEX.md.
-*.pdf
-*.txt

@@ -11,7 +11,7 @@ metadata:
 
 # Voice profile — write toward something, not just away from tells
 
-[`/humanize`](../humanize/SKILL.md) is the **negative** direction: it finds AI tells and says
+Tools such as the `humanizer` plugin are the **negative** direction: they find AI tells and say
 what to remove. That leaves a draft that is merely *less bad*.
 
 This is the **positive** direction: a written description of how *you* actually write,
@@ -76,14 +76,13 @@ Write to `voice-profile.md` at the repo root (allowlisted in the repo-hygiene ga
 - **Hedging register** — the author's actual calibration language, which is usually narrower
   than a model's default.
 - **Deliberate quirks, labelled as deliberate.** *"Uses em-dashes frequently and on purpose"*
-  stops `/humanize` from flagging a habit as an AI tell.
+  documents a habit so it is not mistaken for an AI tell when you review a draft.
 - **Where the register shifts** by genre.
 
 ### 4. Wire it in
 
-`/humanize` reads `voice-profile.md` when present and **respects documented preferences** — a
-quirk you have declared deliberate is no longer a finding. Point drafting work at the profile
-before it writes, not after.
+Point drafting work at `voice-profile.md` before it writes, not after, and use the profile when
+reviewing any AI-voice suggestions: a quirk you have declared deliberate is not an AI tell.
 
 ## Auditing a draft
 
@@ -114,6 +113,6 @@ what a detector sees. The report says where and why; the author edits.
 ## Cross-references
 
 - [`writing-with-ai.md`](../../rules/writing-with-ai.md) — readability vs provenance, and the human-readable standard
-- [`/humanize`](../humanize/SKILL.md) — the negative direction; reads this profile when it exists
+- The `humanizer` plugin (blader/humanizer) — the negative direction; it does not read this profile
 - [`/proofread`](../proofread/SKILL.md) — grammar and consistency, a separate lens
 - [`pdf-processing.md`](../../rules/pdf-processing.md) — the one-subagent-per-document pattern

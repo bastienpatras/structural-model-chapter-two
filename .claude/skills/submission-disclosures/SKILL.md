@@ -66,7 +66,7 @@ Grep the manuscript for an existing acknowledgments/disclosure section; flag con
 - [`.claude/skills/replication-package/SKILL.md`](../replication-package/SKILL.md) — the deposit the data-availability statement must match.
 - [`.claude/references/journal-profiles.md`](../../references/journal-profiles.md) — per-journal calibration, incl. the AEA DCAS policy note.
 - [`.claude/rules/confidential-data.md`](../../rules/confidential-data.md) — restricted-data constraints on what the statements can say.
-- [`.claude/skills/humanize/SKILL.md`](../humanize/SKILL.md) — detecting AI-voice in prose; disclosure and voice are separate obligations.
+- [`.claude/rules/writing-with-ai.md`](../../rules/writing-with-ai.md) — AI-voice in prose; disclosure and voice are separate obligations.
 
 ## What this skill does NOT do
 

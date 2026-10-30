@@ -62,7 +62,7 @@ Finally, we are explicit about what the model does not settle. It takes no stanc
 still-valid certificate are observationally similar in the listing data, and we do not
 attempt to separate them. It assumes no falsification, so a displayed score is taken at face
 value. And it maintains Corollary~\ref{cor:hq_disclose}, $\sigma_1^*=0$, rather than testing
-it. Informed non-disclosers are assigned low quality by revealed preference, which is an
+it; Section~\ref{ss:attention} relaxes the buyer side and shows where this restriction survives. Informed non-disclosers are assigned low quality by revealed preference, which is an
 assumption and not a result. Appendix~\ref{app:robustness} reports estimates that instead read
 the withheld quality from the registry, so the restriction can be assessed. Nor does the
 design pin down $\rho_m$ from the interior in most markets, where the data are consistent with full
@@ -98,10 +98,10 @@ We provide a visual representation of the model dynamics and timing in Figure~\r
 
 In French residential markets, listing prices anchor negotiation rather than serving as posted take-it-or-leave-it offers, and the transaction price conditional on a sale typically falls below the listing price by a margin that depends on local market conditions and property characteristics.\footnote{The negotiation margin in France is empirically small. The majority of properties transact at or very near list price, and the average discount rarely exceeds three to five percent. \citet{merlo_bargaining_2004} document similar patterns for England, showing that most residential transactions involve little or no negotiation once a listing price is set. \citet{genesove_loss_2001} provide evidence that list prices act as anchors that constrain final transaction prices. For France specifically, \citet{friggit_marche_2013} documents that the average negotiation margin has remained narrow and declining, with a large share of properties selling without any price reduction.} Buyer arrival and match quality are stochastic, so the seller faces uncertainty over both whether a sale occurs and, conditional on a sale, at what price. Her problem therefore separates into a transaction probability $\Gamma$ and an expected transaction price $\phi$, each depending on the listing price and disclosure decision:
 \begin{equation}
-    \max_{\{d,\,p^{\text{list}}\}} \;\Pi = \underbrace{\mathbb{E}\!\left[p^{\text{trans}}\mid d,p^{\text{list}},X\right]}_{\phi(p^{\text{list}})} \cdot \underbrace{\Pr(T{=}1\mid d,p^{\text{list}},X)}_{\Gamma(p^{\text{list}})} - C(\theta,d)
+    \max_{\{d,\,p^{\text{list}}\}} \;\Pi = \underbrace{\mathbb{E}\!\left[p^{\text{trans}}\mid d,p^{\text{list}},X\right]}_{\phi(p^{\text{list}})} \cdot \underbrace{\Pr(T{=}1\mid d,p^{\text{list}},X)}_{\Gamma(p^{\text{list}})} - c(\theta,d)
     \label{eq:payoff}
 \end{equation}
-where $\phi(p^{\text{list}}) = \gamma_0+\gamma_1 \cdot p^{\text{list}}+\sum_n\gamma_n X_n$ is the expected transaction price conditional on a sale occurring, and $C(\theta,d)=\mathbf{1}[d=0]\cdot(c_0+\theta c_1)$ is the hiding cost, paid only when the seller withholds information.
+where $\phi(p^{\text{list}}) = \gamma_0+\gamma_1 \cdot p^{\text{list}}+\sum_n\gamma_n X_n$ is the expected transaction price conditional on a sale occurring, and $c(\theta,d)=\mathbf{1}[d=0]\cdot(c_0+\theta c_1)$ is the hiding cost, paid only when the seller withholds information.
 
 The hiding cost has two components. The term $c_0\geq 0$ applies to all non-disclosers, regardless of quality. In the French institutional context it captures the regulatory burden imposed by loi ALUR, from the legal exposure if a buyer later discovers a concealed audit via the public ADEME registry or a notaire liability check, to the informational ambiguity that prolongs negotiation and raises the risk that a sale falls through. The term $c_1\geq 0$ is an additional opportunity cost borne only by high-quality sellers ($\theta=1$) who choose to hide, since by not disclosing they forgo the revenue premium that verified high quality would command from EPC-sensitive buyers. Because $c_1>0$, hiding is strictly cheaper for low-quality sellers than for high-quality ones, so the net gain from concealment is larger for $\theta=0$ sellers at any given pool belief, and this differential is the sorting pressure that drives full separation of high-quality sellers in equilibrium (Corollary~\ref{cor:hq_disclose}). Hiding costs are paid unconditionally on sale, reflecting compliance burdens and reputational exposure that arise at listing time rather than at closing.
 
@@ -362,6 +362,15 @@ The change in the legal status of the DPE described in Section~\ref{ss:instituti
 
 The identifying assumption is the standard parallel-trends condition: in the absence of the reform, the cross-group price gaps $\beta_{1,m,t}$ (energy-efficient vs.\ energy-intensive disclosed properties) and $\Delta_{m,t}$ (undisclosed vs.\ energy-intensive) would have continued on their pre-reform trajectory. The DiD does not require that buyers were entirely inattentive to EPC scores before July 2021; it requires only that their relative pricing of disclosure groups was not already trending. Any post-reform shift in the gaps, relative to that pre-reform baseline, is then attributable to the change in buyer incentives induced by legal opposability.
 
+Parallel trends licenses reading the two DiDs as the reform's effect. The structural mapping below reads them, in addition, as the post-reform energy components of the two gaps, which requires one further maintained assumption.
+
+\begin{assumption}[No Pre-Reform Energy Pricing]
+\label{assum:no_pre_pricing}
+Before July 2021, buyers did not price the energy content of the disclosure groups: the pre-reform level gaps $\beta_{1,m}^{\rm pre}$ and $\Delta_m^{\rm pre}$ reflect non-energy differences between groups that are constant across the reform.
+\end{assumption}
+
+\noindent The assumption fits the institutional record, since before the reform the DPE carried no legal weight and was routinely ignored in negotiations (Section~\ref{ss:institutions}). Under it, $\hat\rho_m$ measures post-reform buyer sensitivity, $\hat c_{0,m}$ the post-reform concealment cost, and $\hat\lambda_m$ a post-reform specification test. The pre-reform market prices no energy and is therefore not in Partial Pooling, so Lemma~\ref{lem:model_bounds}(ii) does not apply.
+
 The pre-trend evidence supports this assumption directly, and more strongly than a single test would. Both $\beta_{1,m,t}$ and $\Delta_{m,t}$ are statistically flat across all markets in the 33 months before the reform (Figure~\ref{fig:ATT}). These two gaps measure distinct economic objects: $\beta_{1,m,t}$ captures buyers' willingness to pay for verified high quality, while $\Delta_{m,t}$ reflects the informational wedge created by strategic non-disclosure. They respond to different primitives of the model. A supply-side confound (a shift in $\pi_m$, $\bar\theta_m$, or seller composition at the reform date) would generically move these two gaps by different amounts and in potentially different directions, since the mechanisms through which supply composition enters each gap differ. The fact that both gaps are jointly flat before July 2021 and both shift upward simultaneously after the reform, at the same markets and on the same calendar date, is difficult to reconcile with a supply-side story. It is exactly what the demand-side interpretation predicts: legal opposability increases the return to EPC quality for sensitive buyers, raising both the price of verified high quality ($\beta_{1,m,t}$) and the information premium extracted by non-disclosers ($\Delta_{m,t}$) at the same moment.
 
 We acknowledge that supply-side stability (the assumption that $\pi_m$, $\bar\theta_m$, and $c_{0,m}$ did not shift discontinuously at the reform) is maintained rather than directly tested. Our listing data begin in 2021Q3, so pre-reform ADEME match rates are not observable. The timing of audit decisions provides some reassurance: certified DPE audits are commissioned and completed before listing, with a gap of weeks to months, so the audit stock at any listing date reflects decisions made prior to that date. But this is a maintained assumption, and we treat it as such.\footnote{Because the disclosure obligation and its associated liability predate the reform (loi ALUR, Article L271-4 CCH), we treat $c_{0,m}$ as governed by that long-standing mandate and unchanged across July 2021. We do not sign the bias a violation of this assumption would introduce into the anchored estimates below, since the anchor is constructed independently of the reform-induced price changes and the direction would depend on exactly how a supply-side shift propagates into the disclosed-price gap $\hat\beta_{1,m}$ --- a question we leave open rather than resolve by assumption.}
@@ -370,7 +379,7 @@ We acknowledge that supply-side stability (the assumption that $\pi_m$, $\bar\th
 
 The price side of the identification rests on a panel of monthly hedonic price indices, constructed in Chapter~1 from the same listing data, that tracks three disclosure groups separately within each local market. The first covers disclosed energy-efficient properties (grades A to~D), the second disclosed energy-intensive ones (grades E to~G), and the third every listing that shows no rating at all, a pooled group that necessarily blends strategic hiders with genuinely uninformed sellers. Each index is the predicted log price per square metre of a reference property, conditional on hedonic controls, so the distance between two of them measures the price wedge attributable to the certificate rather than to differences in what is being sold.
 
-Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ separates the efficient from the intensive disclosed index; the non-disclosure premium $\Delta_{m,t}$ separates the silent index from the intensive disclosed one. Their reform-induced shifts, $\hat\beta_{1,m}$ and $\hat\Delta_m$, are the differences between post- and pre-reform means of these two series, with the pre-period running from October~2018 to June~2021 and the post-period from July~2021 to July~2024. A volume filter requiring at least twenty transactions per month per disclosure group retains 81 apartment markets and 114 house markets. Markets whose disclosed-price gap fails to turn positive after the reform ($\hat\beta_{1,m}\leq0$) are set aside before the structural inversion, which requires a positive quality premium to invert, leaving 49 apartment markets and 104 house markets (Table~\ref{tab:did_results}).
+Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ separates the efficient from the intensive disclosed index; the non-disclosure premium $\Delta_{m,t}$ separates the silent index from the intensive disclosed one. Their reform-induced shifts, $\hat\beta_{1,m}$ and $\hat\Delta_m$, are the differences between post- and pre-reform means of these two series, with the pre-period running from October~2018 to June~2021 and the post-period from July~2021 to July~2024. A volume filter requiring at least twenty transactions per month per disclosure group retains 81 apartment markets and 114 house markets. Markets whose disclosed-price gap fails to turn positive after the reform ($\hat\beta_{1,m}\leq0$) are set aside before the structural inversion, which requires a positive quality premium to invert, leaving 49 apartment markets and 104 house markets, of which 45 and 97 also carry the registry coverage the structural estimates require; Table~\ref{tab:did_results} reports every row on those 45 and 97 markets.
 
 The same panel supports a month-by-month event study, normalised to zero in the last pre-reform month and plotted in Figure~\ref{fig:ATT} over the 33 months before and 36 months after July~2021. Both gaps are statistically indistinguishable from zero throughout the pre-period, which is the parallel-trends evidence discussed above, and both rise gradually from the reform date onward, consistent with progressive capitalisation of a rating that only became legally opposable at that moment. The period means used in estimation are averages of these relative-month profiles over their respective windows.
 
@@ -425,7 +434,7 @@ Buyer sensitivity is the fraction of the energy-bill benchmark that the market a
 
 The anchor also turns an assumption into a test. Since $\rho_m$ is a share, the model requires $\rho_m\leq1$, which under \eqref{eq:anchored_estimator_main} means the observed disclosed-price gap must not exceed the energy-bill benchmark. The data can now refuse this, and mostly do not: the inequality fails in 1 of 45 apartment markets and in 5 of 97 house markets. In the overwhelming majority of markets, the energy-cost saving is large enough on its own terms to rationalise the price advantage certified efficiency commands, without appealing to universal buyer sensitivity. The ratio construction offers no comparable check, because it places every estimable market at the bound by construction.
 
-One prediction of the model plays no part in the estimation and can therefore be tested against it. In partial pooling, the indifference condition implies that the raw non-disclosure premium should equal the concealment cost exactly. Because $\hat c_{0,m}$ is built from a different moment, the difference between the two, $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$, is a genuine over-identifying restriction (Lemma~\ref{lem:model_bounds}, Corollary~\ref{cor:ratio_specification_test}). We report it rather than absorb it into the cost estimate. This is also why we do not simply set $\hat c_{0,m}=\hat\Delta_m$, which the indifference condition would seem to license: that shortcut imposes the restriction we want to examine. For houses the wedge is small and statistically indistinguishable from zero (mean $0.4$ log points, $t=1.10$), and the restriction survives. For apartments it is large and precisely estimated (mean $6.1$ log points, $t=6.78$), and the restriction is decisively rejected --- the premium non-disclosers command in apartment markets substantially exceeds what the disclosed-price gap and the registry-measured belief say it should be. We treat that rejection as a genuine specification tension rather than as noise, and return to it in Section~\ref{sec:results} and Appendix~\ref{app:robustness}.
+One prediction of the model plays no part in the estimation and can therefore be tested against it. In partial pooling, the indifference condition implies that the raw non-disclosure premium should equal the concealment cost exactly. Because $\hat c_{0,m}$ is built from a different moment, the difference between the two, $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$, is a genuine over-identifying restriction (Lemma~\ref{lem:model_bounds}, Corollary~\ref{cor:ratio_specification_test}). We report it rather than absorb it into the cost estimate. This is also why we do not simply set $\hat c_{0,m}=\hat\Delta_m$, which the indifference condition would seem to license: that shortcut imposes the restriction we want to examine. For houses the wedge is small and statistically indistinguishable from zero (mean $0.4$ log points, $t=1.10$), and the restriction survives. For apartments it is large and precisely estimated (mean $6.1$ log points, $t=6.78$), and the restriction is decisively rejected --- the premium non-disclosers command in apartment markets substantially exceeds what the disclosed-price gap and the registry-measured belief say it should be. We treat that rejection as a genuine specification tension rather than as noise, and return to it in Section~\ref{sec:results}, Section~\ref{ss:attention} and Appendix~\ref{app:robustness}. Section~\ref{ss:attention} uses the restriction instead to measure how much attention silent listings receive, at which point the hiding cost is read off $\hat\Delta_m$ (Proposition~\ref{prop:att_identification}).
 
 The structural estimates use listing-level data from 2022 to 2024.\footnote{The year 2021 is excluded from the listing-level analysis because the market had not yet fully repriced the reform: the pooled hedonic estimate of $\hat\beta_{1}$ for apartments in H2~2021 is approximately $-0.012$, indicating the EPC quality premium had not yet turned positive, which renders the structural equation $\Delta_m = \rho_m\cdot\beta_{1,m}\cdot e^*_m$ unreliable for that period.} The estimation sample comprises 45 apartment markets and 97 house markets.
 
@@ -448,13 +457,13 @@ Table~\ref{tab:did_results} reports market-level estimates for both property typ
 \textbf{Parameter} & \textbf{Mean} & \textbf{Std} & \textbf{N} & \textbf{Mean} & \textbf{Std} & \textbf{N} \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel A: DiD estimates from price index panel}} \\[2pt]
-$\hat\beta_{1,m}$ (energy-efficiency premium) & 1.7\% & 3.5 & 49  & 5.1\% & 4.0 & 104 \\
-$\hat\Delta_m$ (non-disclosure premium)       & 6.9\% & 6.3 & 49  & 3.4\% & 4.8 & 104 \\
+$\hat\beta_{1,m}$ (energy-efficiency premium) & 4.1 & 1.9 & 45  & 5.8 & 3.2 & 97 \\
+$\hat\Delta_m$ (non-disclosure premium)       & 8.5 & 6.4 & 45  & 3.9 & 4.4 & 97 \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel B: Anchored structural estimates, pooled 2022 to 2024}} \\[2pt]
 $\hat\rho_m$ (buyer EPC-sensitivity)          & 49.5\% & 25.0 & 45 & 45.8\% & 26.7 & 97 \\
-$\hat c_{0,m}$ (hiding cost)                  &  2.4\% &  1.2 & 45 &  3.5\% &  2.0 & 97 \\
-$\hat\lambda_m$ (over-ID wedge, $\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$) & 6.1\% & --- & 45 ($t=6.78$) & 0.4\% & --- & 97 ($t=1.10$) \\
+$\hat c_{0,m}$ (hiding cost)                  &  2.4 &  1.2 & 45 &  3.5 &  2.0 & 97 \\
+$\hat\lambda_m$ (over-ID wedge, $\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$) & 6.1 & --- & 45 ($t=6.78$) & 0.4 & --- & 97 ($t=1.10$) \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel C: Supply-side observables from ADEME match}} \\[2pt]
 $\hat\pi_m$ (registry-matched share)          & 50.7\% &  7.4 & 45 & 41.9\% &  4.4 & 97 \\
@@ -464,19 +473,21 @@ $\hat\sigma_{0,m}$ (informed hiding rate)     & 15.2\% &  9.8 & 45 &  6.8\% &  5
 \end{tabular*}
 \vspace{0.5em}
 \begin{minipage}{\linewidth}
-\footnotesize\textit{Notes.} Panel A: market-level DiD estimates from the price index panel (pre: Oct 2018 to Jun 2021; post: Jul 2021 to Jul 2024), volume-filtered at $\geq 20$ transactions/month/EPC category, $N=45$ apartment / $N=97$ house markets with $\hat\beta_{1,m}>0$ that also carry a valid registry-based structural estimate (Panels B--C); a further 4 apartment / 7 house markets pass the DiD filter alone (raising Panel~A's own $N$ to 49/104) but lack the ADEME coverage Panels~B--C require. $\hat\Delta_m$ is no longer treated as an upper bound for $c_{0,m}$; see Panel~B's $\hat\lambda_m$ row. Panel B: anchored structural estimates (Equation~\eqref{eq:anchored_estimator_main}, Appendix~\ref{app:rho_identification}). $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$, not clipped to $[0,1]$ (1 apartment / 5 house markets violate the bound; see Appendix~\ref{app:rho_identification}); $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m})$, independent of $\rho_m$. $\hat\lambda_m$ is the mean over-identifying wedge with its $t$-statistic against $H_0:\text{mean}(\hat\lambda_m)=0$ (a simple test, not optimal-GMM); it is not folded into $\hat c_{0,m}$. Panel C: supply-side moments computed as sample frequencies from the ADEME match. Means in Panel~A and the $\hat c_{0,m}$/$\hat\lambda_m$ rows of Panel~B are percentage changes (computed as $e^\delta - 1$, expressed in percent). Share parameters in Panels~B and~C ($\hat\rho_m$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$) are in percentage points. Standard-deviation columns are in the same units as the mean (percentage points).
+\footnotesize\textit{Notes.} Panel A: market-level DiD estimates from the price index panel (pre: Oct 2018 to Jun 2021; post: Jul 2021 to Jul 2024), volume-filtered at $\geq 20$ transactions/month/EPC category, on the same $N=45$ apartment / $N=97$ house markets as Panels B--C: markets with $\hat\beta_{1,m}>0$ that also carry a valid registry-based structural estimate. All three panels therefore share one sample, and $\hat\lambda_m=\hat\Delta_m-\hat c_{0,m}$ holds market by market and on average. Averaged instead over all 81 apartment / 114 house markets that pass the volume filter, including those whose quality premium does not turn positive (the sample of Figure~\ref{fig:ATT}), $\hat\beta_{1,m}$ and $\hat\Delta_m$ are 1.7 and 6.9 for apartments and 5.1 and 3.4 for houses. $\hat\Delta_m$ is no longer treated as an upper bound for $c_{0,m}$; see Panel~B's $\hat\lambda_m$ row. Panel B: anchored structural estimates (Equation~\eqref{eq:anchored_estimator_main}, Appendix~\ref{app:rho_identification}). $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$, not clipped to $[0,1]$ (1 apartment / 5 house markets violate the bound; see Appendix~\ref{app:rho_identification}); $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m})$, independent of $\rho_m$. $\hat\lambda_m$ is the mean over-identifying wedge with its $t$-statistic against $H_0:\text{mean}(\hat\lambda_m)=0$ (a simple test, not optimal-GMM); it is not folded into $\hat c_{0,m}$. Panel C: supply-side moments computed as sample frequencies from the ADEME match. Price gaps (Panel~A and the $\hat c_{0,m}$/$\hat\lambda_m$ rows of Panel~B) are in log points ($\times 100$). Share parameters in Panels~B and~C ($\hat\rho_m$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$) are in percent. Standard-deviation columns are cross-market standard deviations in the same units as the mean.
 \end{minipage}
 \end{table}
 
 \vspace{-1em}
 
 Table~\ref{tab:did_results} yields a coherent and interpretable picture across all three panels.
-In Panel~A, the energy-efficiency premium $\hat\beta_{1,m}$ is approximately 1.7\% for
-apartments and 5.1\% for houses: disclosing an energy-efficient EPC score commands that price advantage
+In Panel~A, the energy-efficiency premium $\hat\beta_{1,m}$ is 4.1 log points for
+apartments and 5.8 for houses: disclosing an energy-efficient EPC score commands that price advantage
 over disclosing an energy-intensive score, after the July~2021 reform. The non-disclosure premium
-$\hat\Delta_m$ (6.9\% for apartments and 3.4\% for houses) measures how much more
+$\hat\Delta_m$ (8.5 log points for apartments and 3.9 for houses) measures how much more
 non-disclosers earn over low-quality disclosed properties compared with the pre-reform
-baseline; we no longer read this as an upper bound on the concealment cost, since $c_{0,m}$ is
+baseline. Both are measured on the estimation sample of Panels~B--C; over all 81 apartment and 114 house
+markets of the event study, which include markets whose quality premium does not turn positive, the
+corresponding averages are 1.7 and 6.9 for apartments and 5.1 and 3.4 for houses; we no longer read this as an upper bound on the concealment cost, since $c_{0,m}$ is
 now identified independently of $\Delta_m$ (Panel~B; see the $\hat\lambda_m$ discussion below).
 Panel~B translates the disclosed-price gap into seller-side parameters via the energy-cost
 anchor: $\hat\rho_m = 49.5\%$ for apartments and 45.8\% for houses indicate that roughly half of
@@ -497,15 +508,15 @@ third of the notary bill, and roughly a quarter to a third of the minimum deposi
 demand: not a rounding error in the transaction, though well short of the sums that routinely
 change hands around it. That two segments trading very differently land within roughly one percentage point
 of each other reinforces the reading that this cost is set by the disclosure regime rather than
-by the property. Panel~C
+by the property (in the baseline; Section~\ref{ss:att_estimates} reports the alternative reading implied by limited attention). Panel~C
 turns to the supply side: just over half of apartment sellers (50.7\%) and 41.9\% of house
 sellers carry a post-2021 registry record at listing ($\hat\pi_m$), and among those, roughly
 six in ten hold a property rated A--D ($\hat{\bar\theta}_m = 62.5\%$ and $60.5\%$).
 The most striking contrast across property types lies in the strategic-hiding rate
 $\hat\sigma_{0,m}$: 15.2\% of informed apartment sellers who hold an E/F/G rating choose to
-withhold it, versus 6.8\% for houses, a difference that mirrors the three-fold gap in
-$\hat\beta_{1,m}$, since a larger forgone quality premium makes concealment a costlier choice
-for house sellers.
+withhold it, versus 6.8\% for houses, a difference that mirrors the larger quality premium in
+house markets (5.8 against 4.1 log points), since a larger forgone quality premium makes concealment
+a costlier choice for house sellers.
 
 \subsubsection{Structural Estimates and Economic Interpretation}
 
@@ -529,13 +540,13 @@ therefore never land outside the Partial Pooling band, and every market in the s
 classified as Partial Pooling. Cost-Deterred Hiding and Complete Adverse Selection remain
 possible corner regimes in the model, but a market can only be sorted into one of them when
 buyer sensitivity has been clipped to a boundary. With sensitivity point-identified, that
-sorting cannot arise here, and we report no regime heterogeneity as an empirical finding.
+sorting cannot arise here, and we report no regime heterogeneity as an empirical finding. This classification is a property of the baseline. Under limited attention the Partial Pooling band narrows by the factor $\psi$ (Corollary~\ref{cor:att_band}), so in apartments a market sits in Partial Pooling only for a narrow range of hiding costs.
 
 The cost of keeping an unfavourable rating off the listing is economically material and
 strikingly similar across the two segments: 0.024 log points, roughly 2.4\% of property value,
 for apartments, and 0.035 log points, or 3.5\%, for houses. Two segments that otherwise trade
 very differently landing within about a percentage point of each other points to a cost set by
-the legal disclosure regime rather than by the property.
+the legal disclosure regime rather than by the property. This is the baseline reading; under the limited-attention extension the hiding cost implied for apartments is larger (Section~\ref{ss:att_estimates}).
 
 Nothing in this construction forces the concealment cost to sit below the non-disclosure premium,
 and it need not. The two are built from different moments, and the distance between them is the
@@ -550,45 +561,22 @@ happened to choose. If anything the two move apart as the window lengthens, the 
 widening and the house wedge narrowing further, a divergence rather than a coincidence of the
 final year of data.
 
-The apartment wedge deserves a closer look, because more than one channel could produce it
-without disturbing the estimates reported above. One candidate is measurement rather than
-economics. Apartments are the only property type in this sample where a certificate can in
-principle rest on a building-level diagnostic rather than a unit-specific one, and matching a
-listing to the registry is inherently harder within a single multi-unit address than against a
-house's unique street address. Ordinary noise of that kind in the certified-quality signal
-attenuates the disclosed-price gap $\hat\beta_{1,m}$ toward zero, and since the concealment cost
-is built as $\hat\beta_{1,m}\cdot\hat e^*_m$, a smaller $\hat\beta_{1,m}$ mechanically pulls
-$\hat c_{0,m}$ down and widens the wedge, which is the direction the apartment numbers actually
-move in. A second candidate is coarseness rather than noise. A single administrative market
-plausibly spans a wider range of building vintage, heating system, and floor level among
-apartments than among houses drawn from the same geography, and buyers can read part of that
-variation directly, without a certificate. A belief built only from registry frequencies then
-misses what those substitute signals already tell apartment buyers, and the model attributes the
-resulting gap to the concealment cost rather than to information the certificate was never the
-only source of. Both stories point at the data the estimator is fed rather than at the
-identification argument itself, and neither moves $\hat\rho_m$ or $\hat c_{0,m}$ as reported.
-
-Two further candidates are economic rather than mechanical, and they are the more interesting
-ones because they would mean the model is too parsimonious in this segment rather than wrong.
-Apartment markets carry a higher share of informed sellers and a higher hiding rate than house
-markets, both consistent with a larger investor or professional-seller presence in dense urban
-stock. If buyers price not only the average concealment cost but also their uncertainty about
-who is behind a given silent listing, an uninformed owner-occupier or a professional concealer,
-a silent apartment carries a risk premium that the single mean-cost parameter $c_0$ has no room
-for. The other candidate follows from how apartment markets actually clear. Buyers in the thick,
-fast-moving urban markets where most of our apartment sample sits have less room to wait out a
-non-disclosing seller than buyers in the more dispersed markets houses trade in, and a seller who
-can extract more from a thinner buyer bargaining position earns a premium the model's
-belief-driven channel does not carry. We do not resolve which of these forces, or what
-combination, accounts for the apartment wedge here, and we do not need to. The point-identified
-$\hat\rho_m$ and $\hat c_{0,m}$ this section reports stand on the anchor and the registry match
-alone, and the wedge is a diagnostic on top of them rather than a correction to them. We return
-to the market-thinness channel in future work, where it is the object of study rather than a
-residual.
+The apartment wedge has a specific shape. It is not that silent apartments sell slightly above what
+the registry-measured pool would justify, but that the reform raised the price of silence by more
+than it raised the price of a verified efficient rating. By Lemma~\ref{lem:model_bounds}(i) no pool
+belief can deliver that in the model above, so the wedge is a matter neither of calibration nor of
+mismeasured beliefs. The point-identified $\hat\rho_m$ and $\hat c_{0,m}$ reported here stand on the
+anchor and the registry match alone; within the baseline, the wedge is a diagnostic on top of them
+rather than a correction to them. Section~\ref{ss:attention} shows that one change on the buyer side,
+attention to energy that depends on whether a rating is displayed, can account for the wedge and
+nests the model above. It leaves $\hat\rho_m$ unchanged as a number but implies a larger concealment
+cost for apartments, which we report as an alternative reading while keeping the baseline estimate
+as the paper's measure.
 
 The contrast between the property types is itself informative. The energy-efficiency premium in
-house markets runs roughly three times what it does in apartments, 0.051 against 0.017 log
-points. We do not test why, and more than one channel fits. Houses are larger and older on
+house markets runs about 40 percent above what it does in apartments on the estimation sample,
+0.058 against 0.041 log points (a ratio that rises to roughly three, 0.051 against 0.017, over all
+event-study markets). We do not test why, and more than one channel fits. Houses are larger and older on
 average, so heating weighs more heavily in a buyer's running expenses. They also sit
 predominantly outside city centres, in markets where demand pressure is weaker and price
 formation depends less on locational scarcity, which leaves more of the price free to respond to
@@ -600,8 +588,9 @@ What follows from the larger premium is easier to pin down. A seller who hides a
 house market forgoes more by doing so, and the data reflect that exactly. The hiding rate among
 informed low-quality sellers is well under half the apartment figure, 6.8\% against 15.2\%, and
 strategic hiders make up 1.1\% of house listings against 3.5\% of apartment listings. The
-non-disclosure premium follows in turn, 0.034 for houses against 0.069 for apartments, because a
+non-disclosure premium follows in turn, 0.039 for houses against 0.085 for apartments, because a
 thinner pool of strategic hiders leaves buyers less pessimistic about what silence conceals.
-Higher quality premium, lower hiding rate, lower non-disclosure premium: the whole pattern is
-what the model's equilibrium comparative statics predict when markets differ in the return to
-verified quality.
+% [AUTHOR] rewrite: a thinner pool of strategic hiders raises the pool belief and the premium, so the causal clause above needs rephrasing.
+Higher quality premium, lower hiding rate, lower non-disclosure premium: the ordering of hiding
+rates is what the model's equilibrium comparative statics predict when markets differ in the return to
+verified quality, although the level of the apartment premium is not (Section~\ref{ss:attention}).

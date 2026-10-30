@@ -15,7 +15,7 @@ Two different problems get confused, and conflating them wastes effort on the wr
 | **Readability** | the prose is hard to follow, hedged, padded, or generic | editing — and it is worth doing regardless of who wrote it |
 | **Provenance** | the prose reads as *machine-generated* to a detector or a suspicious reader | **only genuine human rewriting**, plus disclosure |
 
-`/humanize` addresses the first. **It cannot solve the second**, and this file exists so nobody
+Tools such as the `humanizer` plugin address the first. **They cannot solve the second**, and this file exists so nobody
 believes otherwise.
 
 ---
@@ -79,17 +79,17 @@ being flagged would cost you — **run the actual detector and iterate against t
 
 ### 4. Surface tells are necessary, not sufficient
 
-[`/humanize`](../skills/humanize/SKILL.md) catches boilerplate transitions, the AI-cliché
+The `humanizer` plugin (blader/humanizer) catches boilerplate transitions, the AI-cliché
 lexicon, hedging stacks, symmetric paragraph shapes, and tricolon abuse. Fixing those genuinely
 improves readability — a paragraph is better without *"It is important to note that"* whoever
 wrote it.
 
-But a clean `/humanize` report says the prose reads **well**. It does not say it reads
+But a clean humanizer pass says the prose reads **well**. It does not say it reads
 **human**. Those are different claims, and the second one requires a measurement.
 
-**Detect-only, by design.** `/humanize` has no `--rewrite` mode: auto-rewriting degrades
-quality and introduces new tells, and — per the finding above — cannot change what a neural
-detector sees. The author edits. That manual step is the price of a voice.
+**Advisory only, by design.** The `humanizer` plugin proposes rewrites; none is applied to the
+manuscript automatically: auto-rewriting degrades quality and introduces new tells, and — per the finding above — cannot change what a neural
+detector sees. The author reviews each suggestion and edits. That manual step is the price of a voice.
 
 ---
 
@@ -112,7 +112,7 @@ detector sees. The author edits. That manual step is the price of a voice.
 
 ## Cross-references
 
-- [`/humanize`](../skills/humanize/SKILL.md) — surface-tell detection (necessary, not sufficient)
+- The `humanizer` plugin (blader/humanizer) — surface-tell suggestions (necessary, not sufficient); advisory only
 - [`/proofread`](../skills/proofread/SKILL.md) — grammar, typos, consistency
 - [`/submission-disclosures`](../skills/submission-disclosures/SKILL.md) — the AI-use statement for your venue
 - [`credible-claims`](../skills/credible-claims/SKILL.md) — never upgrade language beyond evidence

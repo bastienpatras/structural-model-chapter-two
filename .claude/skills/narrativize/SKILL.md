@@ -1,6 +1,6 @@
 ---
 name: narrativize
-description: Rewrite one or more sections of the active paper (paper-real-estate) — or the whole paper — into a narrative-first exposition. Focuses on the most important concept, argument, mechanics, and equations; converts dense mathematical exposition into readable prose, citing (not reproducing) complicated equations, proofs, and derivations that live in the appendix. Runs /humanize (detect-only) on the result and reports findings before finishing. Use when user says "narrativize this section", "make section X more readable", "turn this into a narrative", "this reads like a proof, not a paper", "too many equations, too much notation", "reduce the equation density", "rewrite this section in prose", or "clean up the prose in [section]". NOT for correcting math, adding content, or changing findings/numbers — it changes exposition only.
+description: Rewrite one or more sections of the active paper (paper-real-estate) — or the whole paper — into a narrative-first exposition. Focuses on the most important concept, argument, mechanics, and equations; converts dense mathematical exposition into readable prose, citing (not reproducing) complicated equations, proofs, and derivations that live in the appendix. Runs the `humanizer` plugin (advisory only) on the result and reports its suggestions before finishing. Use when user says "narrativize this section", "make section X more readable", "turn this into a narrative", "this reads like a proof, not a paper", "too many equations, too much notation", "reduce the equation density", "rewrite this section in prose", or "clean up the prose in [section]". NOT for correcting math, adding content, or changing findings/numbers — it changes exposition only.
 argument-hint: "<section|file|'all'> [, <section2>, ...] [--no-humanize]"
 disable-model-invocation: true
 allowed-tools: ["Read", "Write", "Edit", "Grep", "Glob", "Bash", "Agent"]
@@ -25,7 +25,7 @@ Turn a dense, equation-heavy passage into an interesting, readable narrative tha
 ## When NOT to use
 
 - To fix incorrect math or add new analysis — this skill only re-expresses content that is already correct; if the underlying derivation is wrong, fix that first (see `theory-proving.md`).
-- To polish AI-voice tells in isolation — that's `/humanize` directly; this skill calls it as a final step, not a substitute for it.
+- To polish AI-voice tells in isolation — that's the `humanizer` plugin directly; this skill runs it as a final step, not a substitute for it.
 - To rewrite the appendix's own formal propositions/proofs — those stay as rigorous statements; this skill only touches what cites them from the main text.
 
 ## Phases
@@ -72,7 +72,7 @@ Do not take the dispatched agent's self-report as sufficient. After it returns:
 
 ### Phase 4 — Humanize pass (mandatory unless `--no-humanize`)
 
-Run `/humanize` on the rewritten section(s). This is **detect-only** — per `.claude/rules/writing-with-ai.md`, a model cannot make its own output stop reading as model-generated to a real detector, and auto-rewriting here would just produce differently-AI prose. Report the findings back to the user for them to act on; do not apply any of `/humanize`'s findings automatically, even ones that look mechanical.
+Run the `humanizer` plugin on the rewritten section(s). This is **advisory only** — per `.claude/rules/writing-with-ai.md`, a model cannot make its own output stop reading as model-generated to a real detector, and auto-rewriting here would just produce differently-AI prose. Report the findings back to the user for them to act on; do not apply any of the plugin's suggestions automatically, even ones that look mechanical.
 
 ## Output / report format
 
@@ -81,7 +81,7 @@ A chat report, not a new file:
 - The resolved target file(s)/section(s) (Phase 0).
 - What changed: equation count before → after, any subsections retitled, the style exemplar used, any cross-reference repairs made (Phase 2).
 - Compile status (clean / issues found and fixed).
-- The `/humanize` findings for the rewritten section(s), presented as-is for the author to address — not summarized away.
+- The `humanizer` findings for the rewritten section(s), presented as-is for the author to address — not summarized away.
 
 ## Exit behavior
 
@@ -92,12 +92,12 @@ A chat report, not a new file:
 
 ## Flags
 
-- `--no-humanize` — Skip the `/humanize` detect pass (Phase 4). Use only when the rewrite is a quick internal draft, not heading toward the next read-through.
+- `--no-humanize` — Skip the `humanizer` pass (Phase 4). Use only when the rewrite is a quick internal draft, not heading toward the next read-through.
 
 ## Cross-references
 
-- [`/humanize`](../humanize/SKILL.md) — the detect-only AI-voice-tell pass this skill calls at the end; never auto-rewrites.
-- [`.claude/rules/writing-with-ai.md`](../../rules/writing-with-ai.md) — why humanize is detect-only, and the human-readable-prose standard this skill is aiming at.
+- The `humanizer` plugin (blader/humanizer) — the advisory AI-voice-tell pass this skill runs at the end; its suggestions are never auto-applied.
+- [`.claude/rules/writing-with-ai.md`](../../rules/writing-with-ai.md) — why the humanizer pass is advisory only, and the human-readable-prose standard this skill is aiming at.
 - [`.claude/references/theory-proving.md`](../../references/theory-proving.md) — the discipline for the *appendix* content this skill cites but never rewrites; an AI-derived proof is a claim, not a theorem, and stays out of this skill's scope.
 - `micro-theorist` agent (`.claude/agents/` — repo-wide agent, not paper-scoped) — does the actual rewriting; this skill is the repeatable interface around dispatching it correctly and verifying its work.
 - `realestate-finance-writing` — a global skill (`~/.claude/skills/realestate-finance-writing/`, not tracked in this repo) with the house-style reference for this exact paper's target journals; consult it for register questions this skill's exemplar-matching doesn't resolve.
@@ -105,7 +105,7 @@ A chat report, not a new file:
 ## What this skill does NOT do
 
 - **Fix incorrect math.** It re-expresses correct content; if the derivation itself is wrong, that's a `theory-proving.md`-governed fix, not this skill.
-- **Auto-apply `/humanize` findings.** It reports them; the author edits.
+- **Auto-apply `humanizer` suggestions.** It proposes them; the author edits.
 - **Invent appendix sections to move content into.** It flags when a home is needed and asks, rather than creating one silently.
 - **Touch numbers, findings, or claims.** Any change to substance is out of scope — if the rewrite reveals a substantive issue (a number that looks wrong, a claim that no longer holds), it is reported, not silently corrected.
 - **Commit anything.** Branch/PR/merge is [`/commit`](../commit/SKILL.md)'s job.

@@ -26,7 +26,7 @@ Spawn the **verifier** agent (via the `Agent` tool with `subagent_type=verifier`
 
 ### Step 0b: Consistency Gate (Pre-Commit)
 
-**Runs unconditionally.** The full backtest suite — all ten gates (surface-sync count claims like `"12 agents, 47 skills, 32 rules, 8 hooks"` and marked tables, skill integrity, model currency, links, spec conformance, staleness, repo hygiene, derived counts, ledger coverage, hook battery):
+**Runs unconditionally.** The full backtest suite — all ten gates (surface-sync count claims like `"11 agents, 47 skills, 33 rules, 8 hooks"` and marked tables, skill integrity, model currency, links, spec conformance, staleness, repo hygiene, derived counts, ledger coverage, hook battery):
 
 ```bash
 ./scripts/backtest.sh

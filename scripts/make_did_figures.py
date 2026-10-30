@@ -305,12 +305,14 @@ def make_rho_saturation(out_dir: Path) -> tuple[Path, dict]:
         diag[prop] = {"n": len(df), "n_above": n_above,
                       "share_above": n_above / len(df)}
 
-        # Saturation region: everything above y = x is where the old ratio
-        # estimator returned rho_hat > 1 and was clipped to the boundary.
+        # Shaded region: markets where the observed premium exceeds the
+        # model-predicted one (Delta_hat_m > beta_1_hat_m * e*_hat_m), i.e.
+        # where the over-identifying restriction fails upward. rho_m does not
+        # enter either axis.
         ax.fill_between([lo, x_hi], [lo, x_hi], [y_hi, y_hi],
                         color=PALE_ROSE, alpha=0.8, linewidth=0, zorder=0)
         ax.plot([lo, x_hi], [lo, x_hi], color=GREY, linestyle="--", linewidth=0.9,
-                zorder=2, label="45° line ($\\hat\\rho_m = 1$)")
+                zorder=2, label="Observed $=$ predicted")
         ax.axhline(0.0, color="#cccccc", linewidth=0.6, zorder=1)
         ax.axvline(0.0, color="#cccccc", linewidth=0.6, zorder=1)
 
@@ -338,10 +340,10 @@ def make_rho_saturation(out_dir: Path) -> tuple[Path, dict]:
 
     handles = [
         plt.Line2D([0], [0], color=GREY, linestyle="--", linewidth=0.9,
-                   label=r"45° line ($\hat\rho_m = 1$)"),
+                   label=r"45° line: observed $=$ predicted ($\hat\Delta_m = \hat\beta_{1,m}\hat e^{*}_m$)"),
         plt.Rectangle((0, 0), 1, 1, facecolor=PALE_ROSE,
                       edgecolor="#e6c8ce", linewidth=0.4,
-                      label=r"Saturation region ($\hat\rho_m > 1$, clipped)"),
+                      label=r"Silence earns more than predicted"),
     ]
     fig.subplots_adjust(bottom=0.20, wspace=0.14)
     fig.legend(handles=handles, ncol=2, frameon=False, loc="lower center",

@@ -1,0 +1,114 @@
+% =====================================================================
+% §2 CONCEPTUAL SECTION — new material
+% Pattern: economic problem -> theory in prose, no math -> assumptions
+%          enumerated -> closes on the empirical question
+% See skills/realestate-finance-writing/references/structure.md
+%
+% WIRING DEPENDENCY: this file contains fig:equilibrium_outcomes, moved
+% here from §3.1. Deleting the float from §3.1 is required in the same
+% commit that inputs this file, or the label will collide.
+% =====================================================================
+
+\section{Unraveling with Possibly Uninformed Sellers}
+\label{sec:unraveling}
+
+\subsection{The Unraveling Benchmark}
+
+Asymmetric information about product quality can prevent trade from happening at the right
+prices. If buyers cannot verify quality before purchasing, they bid no more than the value of
+what they expect to receive on average. Sellers of genuinely good products are then underpaid,
+and may withdraw from the market altogether, leaving buyers facing a pool of worse quality than
+they had hoped for \citep{akerlof_lemons_1970}. The outcome is bad for both sides. Buyers pay for
+uncertainty they would rather not bear, and the best sellers cannot capture the value of what
+they own.
+
+Disclosure appears to resolve this problem without any regulatory intervention. Suppose quality
+is verifiable, so that a seller who makes a claim about it can be held to that claim. A seller
+of the highest-quality product will disclose, because staying silent means being valued at the
+average of the pool rather than at what the product is actually worth. Buyers, anticipating
+this, understand that any seller who remains silent is not of the highest quality, and revise
+downward what they will pay for silence. That revision gives the second-highest-quality seller
+the same incentive, and disclosing becomes worthwhile for them too. The argument repeats. Each
+round of disclosure worsens the expected quality of the remaining silent pool, which strengthens
+the incentive for the best of those who remain to separate themselves. The process continues
+until all sellers but possibly the very worst have disclosed. This is the unraveling result of
+\citet{grossman_informational_1981} and \citet{milgrom_good_1981}. Even sellers with bad news
+disclose, because they anticipate that silence will be read as worse news still. If it holds,
+market forces alone deliver near-complete disclosure and a mandate is redundant.
+
+The argument is powerful but it is not free. It rests on four assumptions. First, (a)~buyers know
+that sellers possess private information about quality; if a seller may simply not know, silence
+no longer implies unwillingness to reveal. Second, (b)~disclosure is costless, or at least cheap
+relative to the price consequences of silence; a large literature examines how disclosure costs
+truncate the unraveling process and leave a residual pool of non-disclosers
+\citep{verrecchia_1983, jovanovic_1982}. Third, (c)~disclosure is credible, so that a claim about
+quality cannot be fabricated; without verifiability, disclosure degenerates into cheap talk and
+the unraveling logic never starts \citep{crawford_sobel_1982, stocken_credibility_2000}. Fourth, (d)~buyers are homogeneous in how much they value the
+disclosed attribute, so that the price penalty for silence is felt by every seller with equal
+force.
+
+The first three assumptions have received sustained attention. The fourth has not, even though
+it governs the strength of the entire mechanism. What drives a seller to disclose is the revenue
+lost when buyers price silence pessimistically, and that loss is proportional to the share of
+buyers who care about the attribute in the first place. Whether unraveling describes any
+particular market is therefore an empirical question, and answering it requires knowing which of
+these assumptions fails there.
+
+\subsection{Two Departures and Why They Compound}
+
+Two of the four assumptions are implausible in markets where quality is certified by a
+third party and buyers differ in their exposure to the certified attribute.
+
+The first departure concerns assumption~(a). When some sellers genuinely lack private
+information, silence pools those who \emph{will not} disclose with those who \emph{cannot}.
+\citet{dye_disclosure_1985} showed that this possibility breaks the buyer inference on which
+unraveling depends, because a rational buyer confronted with silence must form a posterior over two
+distinct populations, and how pessimistic that posterior should be depends on their relative
+masses rather than on the act of silence itself. \citet{jung_kwon_1988} characterised the
+resulting equilibria and showed that partial pooling, in which some informed sellers of poor
+quality withhold while the uninformed are silent by necessity, is generically stable. Disclosure
+does not unravel to the bottom; it stops somewhere in the interior.
+
+The second departure concerns assumption~(d). If only a fraction of buyers price the disclosed
+attribute, a seller who withholds it faces a diluted penalty, because part of the demand side is
+indifferent to what was withheld. \citet{fishman_mandatory_2003} show formally that mandated
+disclosure can be ineffective, and even welfare-reducing, when buyers differ in their capacity to
+use disclosed information. The disclosure incentive is thus scaled by the composition of demand,
+and where that composition is unfavourable the incentive can be too weak to sustain separation
+even among sellers who are perfectly well informed.
+
+The two departures do not merely coexist; they compound. A larger mass of sellers who cannot
+disclose dilutes the adverse inference buyers draw from silence, which raises the expected quality
+of the silent pool and makes withholding more attractive to informed sellers of poor quality.
+Those sellers then join the pool, and while their entry worsens its true average quality, buyers
+cannot separate them from the involuntarily silent. Meanwhile, a demand side in which many buyers
+do not price the attribute weakens the penalty that would otherwise discipline them. Put together,
+the consequence is stronger than persistence of non-disclosure. Silence can command a
+\emph{premium} over the worst disclosed quality, since the silent pool contains a substantial
+mass of sellers whose silence carries no adverse information at all. The sellers who cannot
+disclose do not intend to shelter anyone. Their presence is involuntary. But it is precisely what
+makes silence ambiguous, and ambiguity is what makes concealment privately rational.
+
+Because the two departures operate on different primitives, they map out a space of possible
+market outcomes rather than a single prediction. Figure~\ref{fig:equilibrium_outcomes} organises
+that space along two dimensions, the share of sellers who hold verifiable information and the
+share of buyers who price it. Full unraveling requires both to be high. Where either is
+interior, silence survives in equilibrium, and where the informed share is low while buyer
+sensitivity is not, silence can be rewarded rather than punished.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{fig/visuals/equilibirum_outcomes.png}
+    \caption{Equilibrium outcomes under seller information and buyer sensitivity heterogeneity}
+    \label{fig:equilibrium_outcomes}
+\end{figure}
+
+Two features of this taxonomy matter for what follows. It implies that the informational content
+of silence is a market-level object rather than a universal one, so that two markets facing the
+same disclosure mandate can sit in different cells and sustain opposite price patterns. And it
+implies that the two primitives are separately movable by policy. Investment in certification
+infrastructure raises the share of sellers holding verifiable information, while the
+share of buyers who price the attribute responds to the legal weight the certificate carries and
+to the cost of the attribute itself. Which cell a given market occupies, however, cannot be
+settled by theory. It requires measuring the composition of the silent pool and the sensitivity
+of buyers separately, which is what the data described in the next section allow us to do.

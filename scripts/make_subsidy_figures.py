@@ -118,7 +118,14 @@ def _ordered_regimes(values: pd.Series) -> list[str]:
 
 # Figure 1 -----------------------------------------------------------------
 
-def make_threshold_distribution(out_dir: Path) -> Path:
+def make_threshold_distribution(out_dir: Path, slide: bool = False) -> Path:
+    """Cross-market distribution of the renovation threshold R_bar_m.
+
+    slide=True writes a presentation variant (separate file, paper figure
+    untouched): regime labels are dropped when only one regime is present,
+    and the light-renovation cost benchmark (250 EUR/m2) is drawn so the
+    threshold can be read against what renovating actually costs.
+    """
     grid_apt = _load_grid("apartment")
     grid_hse = _load_grid("house")
     panels = [
@@ -157,6 +164,9 @@ def make_threshold_distribution(out_dir: Path) -> Path:
         medians[prop] = med
         ax.axvline(med, color="#2b2b2b", linestyle="--", linewidth=1.0,
                    zorder=5)
+        if slide:
+            ax.axvline(250.0, color="#d01c32", linestyle=":", linewidth=1.6,
+                       zorder=6)
 
         ax.set_title(PROP_LABELS[prop], fontsize=10)
         ax.set_xlabel(r"Renovation threshold $\bar R_m$ (€/m²)", fontsize=9)
@@ -166,8 +176,9 @@ def make_threshold_distribution(out_dir: Path) -> Path:
         # Compact N-by-regime annotation
         n_total = len(df)
         lines = [f"N = {n_total}"]
-        for r in regimes:
-            lines.append(f"{REGIME_LABELS[r]}: {(df['regime'] == r).sum()}")
+        if not (slide and len(regimes) == 1):
+            for r in regimes:
+                lines.append(f"{REGIME_LABELS[r]}: {(df['regime'] == r).sum()}")
         ax.text(
             0.97, 0.97, "\n".join(lines),
             transform=ax.transAxes,
@@ -185,18 +196,26 @@ def make_threshold_distribution(out_dir: Path) -> Path:
     )
     handles = [mpatches.Patch(color=REGIME_COLORS[r], label=REGIME_LABELS[r])
                for r in all_regimes]
+    if slide and len(all_regimes) == 1:
+        handles = []
     med_label = (
         f"Median  (apt: {medians.get('apartment', float('nan')):,.0f} €/m²; "
         f"hse: {medians.get('house', float('nan')):,.0f} €/m²)"
     )
     handles.append(plt.Line2D([0], [0], color="#2b2b2b", linestyle="--",
                               linewidth=1.0, label=med_label))
+    if slide:
+        handles.append(plt.Line2D([0], [0], color="#d01c32", linestyle=":",
+                                  linewidth=1.6,
+                                  label="Light renovation: 250 €/m²  (medium, 500 €/m², is off the scale)"))
     fig.subplots_adjust(bottom=0.22)
     fig.legend(handles=handles, ncol=2, frameon=False,
                loc="lower center", bbox_to_anchor=(0.5, -0.02),
                fontsize=8.5)
 
-    out = out_dir / "fig_subsidy_threshold_distribution.pdf"
+    name = ("fig_subsidy_threshold_distribution_slide.pdf" if slide
+            else "fig_subsidy_threshold_distribution.pdf")
+    out = out_dir / name
     fig.savefig(out)
     plt.close(fig)
     return out

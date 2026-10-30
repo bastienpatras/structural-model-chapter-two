@@ -29,7 +29,6 @@ A wrong "looks fine" from one of these is expensive (a desk-reject, a hallucinat
 | `slide-auditor` | Visual layout audit (overflow, font, spacing) | read-only | `/visual-audit`, `/slide-excellence` |
 | `proofreader` | Grammar, typos, overflow, terminology | read-only | `/proofread`, `/slide-excellence`, `/seven-pass-review` (prose lens) |
 | `pedagogy-reviewer` | Narrative arc, prerequisites, worked examples, notation, pacing | read-only | `/pedagogy-review`, `/slide-excellence` |
-| `humanize-auditor` | AI-voice tell detection (10 categories) | read-only | `/humanize` |
 
 ## Apply / translate tier — Sonnet tier, effort: medium
 

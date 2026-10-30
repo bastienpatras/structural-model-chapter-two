@@ -67,6 +67,11 @@ PLATE_CARREE = ccrs.PlateCarree()
 # projected aspect ratio of exactly this window — see `_panel_aspect`.
 MAP_EXTENT = (-5.5, 10.0, 41.1, 51.4)
 
+# Optional extra city labels, (name, lon, lat, dlon, dlat) with the label
+# placed at (lon+dlon, lat+dlat) and a thin leader line to the city. Empty by
+# default so the paper maps are unchanged; the slide variant fills it in.
+EXTRA_CITY_LABELS: list[tuple[str, float, float, float, float]] = []
+
 # Figure-layout fractions. The axes band is bounded by these; its height is
 # then derived so that each panel's slot matches the map's own aspect, which
 # is what keeps Cartopy from shrinking the panel and leaving a dead band of
@@ -309,6 +314,19 @@ def plot_panel(
             xytext=(c.x + 1.0, c.y + 0.8),
             textcoords=PLATE_CARREE._as_mpl_transform(ax),
             fontsize=8, color="#2b2b2b",
+            arrowprops=dict(arrowstyle="-", color="#2b2b2b", lw=0.4,
+                            shrinkA=0, shrinkB=0),
+            zorder=5,
+        )
+
+    for name, lon, lat, dlon, dlat in EXTRA_CITY_LABELS:
+        ax.annotate(
+            name,
+            xy=(lon, lat), xycoords=PLATE_CARREE._as_mpl_transform(ax),
+            xytext=(lon + dlon, lat + dlat),
+            textcoords=PLATE_CARREE._as_mpl_transform(ax),
+            fontsize=8, color="#2b2b2b",
+            ha="left" if dlon >= 0 else "right", va="center",
             arrowprops=dict(arrowstyle="-", color="#2b2b2b", lw=0.4,
                             shrinkA=0, shrinkB=0),
             zorder=5,

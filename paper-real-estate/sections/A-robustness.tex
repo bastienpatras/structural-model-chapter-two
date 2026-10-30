@@ -22,7 +22,7 @@ $\theta=0$ by revealed preference, invoking Corollary~\ref{cor:hq_disclose}. Tha
 is an assumption, and its consequence is worth stating plainly. It makes
 $\hat\sigma_{1,m}$ identically zero by construction, so the corollary cannot be assessed
 against the baseline estimates. The alternative reads the withheld grade from the ADEME
-registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured.
+registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured. Under the limited-attention extension of Section~\ref{ss:attention}, high-quality hiding is possible only if silence outprices a verified efficient rating and the market is in Complete Adverse Selection (Proposition~\ref{prop:att_seller_types}), so the registry reading, which leaves $\hat\sigma_1$ measured, is the specification that does not rule it out.
 
 Table~\ref{tab:robustness} crosses the two choices.
 
@@ -193,12 +193,14 @@ be identified at all.
 \begin{lemma}[Model-implied bounds on the non-disclosure premium]
 \label{lem:model_bounds}
 (i) $0\le\Delta_m/\beta_{1,m}=e_m\le\bar\theta_m\le1$, since the belief function is bounded
-above by $\bar\theta_m$ (attained at $\sigma_0=0$). (ii) In Partial Pooling, if $c_{0,m}$ is
-invariant to the July~2021 reform (the identifying assumption of
+above by $\bar\theta_m$ (attained at $\sigma_0=0$). (ii) If the market is in Partial Pooling both before and after the July~2021 reform and $c_{0,m}$ is
+invariant to it (the identifying assumption of
 Section~\ref{sec:identification}), the model predicts a DiD non-disclosure premium of zero:
 since $\Delta_{m,t}=c_{0,m}$ in Partial Pooling at every date $t$, its post-minus-pre change is
 zero whenever $c_{0,m}$ does not move at the reform.
 \end{lemma}
+
+\noindent Under Assumption~\ref{assum:no_pre_pricing} buyers price no energy before the reform, the pre-reform market is not in Partial Pooling, and part~(ii) does not apply: the DiD premium then measures the post-reform premium, which is how Section~\ref{sec:identification} reads it.
 
 \subsection*{Point identification under an external anchor}
 
