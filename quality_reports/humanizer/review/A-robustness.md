@@ -22,14 +22,14 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## A-robustness:L9-10 (lines 9-10): UNCHANGED
 - words 19 -> 19; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## A-robustness:L12-17 (lines 12-17): UNCHANGED
 - words 71 -> 71; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## A-robustness:L255-264 (lines 255-264): UNCHANGED
 - words 62 -> 62; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n

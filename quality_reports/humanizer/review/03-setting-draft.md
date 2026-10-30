@@ -43,7 +43,7 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 03-setting-draft:L98-98 (lines 98-98): REVIEW-FLAGS
 - words 136 -> 132; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: number_word:third 1->0; number_word:three 1->0; G5 flags: sentences 6->5; new words: group
-- change type: unclassified (bulk accept); decision: accept; applied: y 2026-10-30
+- change type: unclassified (bulk accept); decision: accept, revised after cross-check; applied: y 2026-10-30
 
 ```diff
 --- before
@@ -129,89 +129,89 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 03-setting-draft:L19-23 (lines 19-23): UNCHANGED
 - words 69 -> 69; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L51-51 (lines 51-51): UNCHANGED
 - words 81 -> 81; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L56-57 (lines 56-57): UNCHANGED
 - words 29 -> 29; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L61-61 (lines 61-61): UNCHANGED
 - words 199 -> 199; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L63-63 (lines 63-63): UNCHANGED
 - words 138 -> 138; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L67-67 (lines 67-67): UNCHANGED
 - words 18 -> 18; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L86-96 (lines 86-96): UNCHANGED
 - words 86 -> 86; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L100-111 (lines 100-111): UNCHANGED
 - words 178 -> 178; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L125-126 (lines 125-126): UNCHANGED
 - words 17 -> 17; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L131-131 (lines 131-131): UNCHANGED
 - words 353 -> 353; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L133-150 (lines 133-150): UNCHANGED
 - words 72 -> 72; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L152-169 (lines 152-169): UNCHANGED
 - words 58 -> 58; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L174-174 (lines 174-174): UNCHANGED
 - words 159 -> 159; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L176-193 (lines 176-193): UNCHANGED
 - words 55 -> 55; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L198-198 (lines 198-198): UNCHANGED
 - words 134 -> 134; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L198-198#fn1 (lines 198-198): UNCHANGED
 - words 184 -> 184; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L200-217 (lines 200-217): UNCHANGED
 - words 36 -> 36; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 03-setting-draft:L226-243 (lines 226-243): UNCHANGED
 - words 85 -> 85; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n

@@ -137,14 +137,14 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 02-unraveling-draft:L59-60 (lines 59-60): UNCHANGED
 - words 27 -> 27; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 02-unraveling-draft:L72-78 (lines 72-78): UNCHANGED
 - words 92 -> 92; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 02-unraveling-draft:L92-97 (lines 92-97): UNCHANGED
 - words 79 -> 79; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n

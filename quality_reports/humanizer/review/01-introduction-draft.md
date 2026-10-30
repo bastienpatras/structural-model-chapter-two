@@ -152,7 +152,7 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 01-introduction-draft:L221-238 (lines 221-238): REVIEW-FLAGS
 - words 180 -> 180; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: new words: consistent
-- change type: unclassified (bulk accept); decision: accept; applied: y 2026-10-30
+- change type: unclassified (bulk accept); decision: accept, revised after cross-check; applied: y 2026-10-30
 
 ```diff
 --- before
@@ -209,9 +209,9 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 01-introduction-draft:L22-39#fn1 (lines 22-39): UNCHANGED
 - words 84 -> 84; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 01-introduction-draft:L136-147 (lines 136-147): UNCHANGED
 - words 163 -> 163; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n

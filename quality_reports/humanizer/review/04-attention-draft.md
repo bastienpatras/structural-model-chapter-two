@@ -32,7 +32,7 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 04-attention-draft:L37-38 (lines 37-38): REVIEW-FLAGS
 - words 220 -> 213; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: negation:not 3->2; G5 flags: new words: leave, natural, open
-- change type: unclassified (bulk accept); decision: accept; applied: y 2026-10-30
+- change type: unclassified (bulk accept); decision: accept, revised after cross-check; applied: y 2026-10-30
 
 ```diff
 --- before
@@ -113,284 +113,284 @@ Riskiest first. Decide each unit: accept / reject / edit. Nothing is applied bef
 ## 04-attention-draft:L21-22#fn1 (lines 21-22): UNCHANGED
 - words 72 -> 72; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L24-24 (lines 24-24): UNCHANGED
 - words 22 -> 22; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L26-35 (lines 26-35): UNCHANGED
 - words 87 -> 87; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L44-45#fn1 (lines 44-45): UNCHANGED
 - words 87 -> 87; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L47-47 (lines 47-47): UNCHANGED
 - words 143 -> 143; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L52-52 (lines 52-52): UNCHANGED
 - words 64 -> 64; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L54-61 (lines 54-61): UNCHANGED
 - words 104 -> 104; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L63-64 (lines 63-64): UNCHANGED
 - words 40 -> 40; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L66-67 (lines 66-67): UNCHANGED
 - words 147 -> 147; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L69-69 (lines 69-69): UNCHANGED
 - words 75 -> 75; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L74-74 (lines 74-74): UNCHANGED
 - words 21 -> 21; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L91-91 (lines 91-91): UNCHANGED
 - words 113 -> 113; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L117-117 (lines 117-117): UNCHANGED
 - words 54 -> 54; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L134-138 (lines 134-138): UNCHANGED
 - words 30 -> 30; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L140-140 (lines 140-140): UNCHANGED
 - words 18 -> 18; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L145-145 (lines 145-145): UNCHANGED
 - words 47 -> 47; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L147-147 (lines 147-147): UNCHANGED
 - words 42 -> 42; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L161-161 (lines 161-161): UNCHANGED
 - words 89 -> 89; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L163-164 (lines 163-164): UNCHANGED
 - words 74 -> 74; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L166-166 (lines 166-166): UNCHANGED
 - words 61 -> 61; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L173-173 (lines 173-173): UNCHANGED
 - words 79 -> 79; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L175-175 (lines 175-175): UNCHANGED
 - words 84 -> 84; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L185-185 (lines 185-185): UNCHANGED
 - words 129 -> 129; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L192-192 (lines 192-192): UNCHANGED
 - words 9 -> 9; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L194-194 (lines 194-194): UNCHANGED
 - words 59 -> 59; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L199-200 (lines 199-200): UNCHANGED
 - words 30 -> 30; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L205-205 (lines 205-205): UNCHANGED
 - words 19 -> 19; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L210-210 (lines 210-210): UNCHANGED
 - words 42 -> 42; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L225-225#fn1 (lines 225-225): UNCHANGED
 - words 74 -> 74; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L234-234 (lines 234-234): UNCHANGED
 - words 61 -> 61; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L236-237 (lines 236-237): UNCHANGED
 - words 11 -> 11; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L242-242 (lines 242-242): UNCHANGED
 - words 11 -> 11; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L276-280 (lines 276-280): UNCHANGED
 - words 17 -> 17; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L332-336 (lines 332-336): UNCHANGED
 - words 94 -> 94; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L348-348 (lines 348-348): UNCHANGED
 - words 43 -> 43; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L355-355 (lines 355-355): UNCHANGED
 - words 9 -> 9; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L357-357 (lines 357-357): UNCHANGED
 - words 176 -> 176; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L359-360 (lines 359-360): UNCHANGED
 - words 19 -> 19; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L373-373 (lines 373-373): UNCHANGED
 - words 138 -> 138; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L378-379 (lines 378-379): UNCHANGED
 - words 83 -> 83; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L384-384 (lines 384-384): UNCHANGED
 - words 76 -> 76; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L389-389 (lines 389-389): UNCHANGED
 - words 95 -> 95; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L408-408 (lines 408-408): UNCHANGED
 - words 148 -> 148; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L408-408#fn1 (lines 408-408): UNCHANGED
 - words 73 -> 73; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L410-410 (lines 410-410): UNCHANGED
 - words 72 -> 72; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L410-410#fn1 (lines 410-410): UNCHANGED
 - words 49 -> 49; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L415-415 (lines 415-415): UNCHANGED
 - words 176 -> 176; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L415-415#fn1 (lines 415-415): UNCHANGED
 - words 44 -> 44; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L424-428 (lines 424-428): UNCHANGED
 - words 190 -> 190; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L431-431 (lines 431-431): UNCHANGED
 - words 24 -> 24; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L433-442 (lines 433-442): UNCHANGED
 - words 73 -> 73; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L450-459 (lines 450-459): UNCHANGED
 - words 83 -> 83; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L461-461 (lines 461-461): UNCHANGED
 - words 75 -> 75; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L465-466 (lines 465-466): UNCHANGED
 - words 107 -> 107; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L465-466#fn1 (lines 465-466): UNCHANGED
 - words 46 -> 46; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L468-468 (lines 468-468): UNCHANGED
 - words 35 -> 35; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n
 
 ## 04-attention-draft:L470-470 (lines 470-470): UNCHANGED
 - words 8 -> 8; gates G1/G2/G3/G7: True/True/True/True
 - G4 flags: none; G5 flags: none
-- change type: (unclassified); decision: pending; applied: n
+- change type: (unclassified); decision: n/a (unchanged); applied: n

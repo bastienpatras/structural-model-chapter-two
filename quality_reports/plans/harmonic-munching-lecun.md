@@ -1,6 +1,6 @@
 # Plan — Run the humanizer plugin on every prose section of the paper, with a full audit trail and a micro-theorist cross-check
 
-**Status:** DRAFT · 2026-10-30 · branch `review`. Supersedes the earlier plan under this name (new proposition + proof rewrite, COMPLETED). Nothing is executed yet.
+**Status:** COMPLETED · 2026-10-30 · branch `humanizer-pass`. Supersedes the earlier plan under this name (new proposition + proof rewrite, COMPLETED). Outcome: `quality_reports/humanizer/SUMMARY.md`.
 
 ## Context
 

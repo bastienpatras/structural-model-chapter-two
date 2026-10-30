@@ -27,3 +27,12 @@ may be compressed but must not lose its evidence or its date (see `repo-hygiene.
   being calibrated, tapering once corrections stop. All figures/maps route through
   `pyplot-specialist` / `cartopy-specialist` / `dataviz` rather than ad hoc plotting. Full policy:
   [`collaboration-mode.md`](.claude/rules/collaboration-mode.md).
+
+- **[LEARN:review] (2026-10-30)** A prose-polishing plugin on technical text mostly finds nothing (167 of 218 units
+  unchanged); the damage it can do is small and specific: it swaps a claim word ("robust" to "consistent"), narrows a
+  scope phrase ("come to mind first" to "the natural"), and leaves a dangling "First," after deleting a signpost. Check
+  with an independent fenced read (two copies, no ledger or rationale), then verify each finding against the source
+  before acting: two of the readers' sixteen findings were overstated. Record: `quality_reports/humanizer/CROSSCHECK.md`.
+- **[LEARN:tooling] (2026-10-30)** Never rewrite a CSV while iterating a `csv.DictReader` on the same path: the reader
+  sees the truncated file and one row came back garbled. Read it into a list first, then write. A file lock does not
+  help within one process. Also, subagents cannot write report files; have them return the report as text.
