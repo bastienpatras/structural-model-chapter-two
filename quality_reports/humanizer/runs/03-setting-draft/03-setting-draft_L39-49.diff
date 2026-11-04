@@ -1,0 +1,17 @@
+--- before
++++ after
+@@ -1,3 +1,3 @@
+-Two things the reform did not change matter as much as what it did. First, the obligation to
++Two features that the reform left unchanged matter as much as its changes. First, the obligation to
+ commission a DPE before marketing a property predates it. The requirement, and the liability
+ attached to marketing a property without the required diagnostic, were established by \emph{loi
+@@ -6,6 +6,6 @@
+ by a mandate that straddles the reform date unchanged, while what July 2021 altered is how much a
+ \emph{disclosed} grade is worth to the buyer. Second, the reform sharpened a pre-existing
+-regulatory threshold rather than inventing one. Under \emph{loi Climat et R\'esilience}, dwellings
++regulatory threshold. Under \emph{loi Climat et R\'esilience}, dwellings
+ rated E, F, or G face a phased prohibition on new lettings. This draws a bright line between the
+-bottom of the grade distribution and the rest, and gives the binary quality distinction used below
+-a concrete regulatory anchor rather than an arbitrary cutoff.
++bottom of the grade distribution and the rest, and anchors the binary quality distinction used below
++in a concrete regulatory threshold.

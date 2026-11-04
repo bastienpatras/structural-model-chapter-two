@@ -1,0 +1,13 @@
+{{M030}}Part{{M031}}(i).{{M032}}
+From{{M033}}{{M034}}, the non-disclosure premium is {{M001}}. We differentiate with respect to {{M002}} in each regime, holding the regime-specific equilibrium {{M003}} fixed where appropriate.
+
+{{M035}}
+{{M036}}Cost-Deterred Hiding ({{M004}}).{{M037}} Here {{M005}} by{{M038}}{{M039}}, independent of {{M006}}. Therefore {{M007}}.
+
+{{M040}}Complete Adverse Selection ({{M008}}).{{M041}} Here {{M009}}, also independent of {{M010}}. Therefore {{M011}}.
+
+{{M042}}Partial Pooling ({{M012}}).{{M043}} The indifference condition {{M013}} pins {{M014}}. Changes in {{M015}} induce compensating adjustments in {{M016}}, as established in Proposition{{M044}}{{M045}}(ii): {{M017}}. The premium satisfies {{M018}}.
+
+{{M046}}
+{{M047}}Part{{M048}}(ii).{{M049}}
+From Proposition{{M050}}{{M051}}, the {{M052}}Partial Pooling{{M053}} regime requires {{M019}}, i.e., {{M020}}. Differentiating both bounds with respect to {{M021}}: {{M022}} and {{M023}}. Both boundaries increase with {{M024}}. The width of the partial-pooling interval is {{M025}}, which is increasing in {{M026}} since {{M027}} whenever {{M028}}. The regime is therefore weakly expanding in {{M029}}.

@@ -1,0 +1,4 @@
+{{M011}}
+The cost-form valuation{{M012}}{{M013}} reproduces the valuations of Section{{M014}}{{M015}} exactly, with {{M002}}. An EPC-sensitive buyer subtracts {{M003}} for a disclosed rating of quality {{M004}} and {{M005}} for a silent listing, where
+{{M001}}
+is the expected energy cost of the silent pool under the belief {{M006}} of{{M016}}{{M017}}. An EPC-insensitive buyer subtracts {{M007}}, the same amount for every listing with attributes {{M008}}. Moreover, {{M009}} is the only constant which, added to {{M010}}, makes the two forms agree for both qualities.

@@ -1,0 +1,18 @@
+{{M004}}
+    {{M005}}
+    {{M001}}
+    {{M006}}
+    {{M007}}
+        {{M008}}
+        {{M002}}
+        {{M009}}
+    {{M010}}
+    {{M011}}
+        {{M012}}
+        {{M003}}
+        {{M013}}
+    {{M014}}
+    {{M015}}
+        {{M016}}{{M017}}Notes.{{M018}} Shares from the estimation sample of each property type: 834{,}816 apartment listings and 677{,}011 house listings, after registry-match cleaning and market-size filtering. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
+    {{M019}}
+{{M020}}

@@ -1,0 +1,10 @@
+{{M001}}
+To examine whether unraveling describes a market where quality is verifiable but silence is
+common, we study the French residential housing market around the July{{M002}}2021 enforcement of
+Energy Performance Certificate (EPC) disclosure. Under a 2018 reform that took effect on
+July{{M003}}1, 2021, a property's {{M004}}diagnostic de performance {{M005}}nerg{{M006}}tique{{M007}} (DPE) became
+legally opposable.{{FN1}} A seller who advertises an energy score is now bound by
+it, and buyers acquired legal recourse against misstatement. The reform changed what a disclosed
+score means without changing the underlying housing stock or the legal consequences of remaining
+silent. It therefore isolates the demand-side value of the signal. The certificate is also issued
+and archived by a national agency, not by the seller or the listing platform.

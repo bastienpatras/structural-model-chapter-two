@@ -1,0 +1,7 @@
+Asymmetric information about product quality can prevent trade from happening at the right
+prices. If buyers cannot verify quality before purchasing, they bid no more than the value of
+what they expect to receive on average. Sellers of genuinely good products are then underpaid,
+and may withdraw from the market altogether, leaving buyers facing a pool of worse quality than
+they had hoped for {{M001}}. The outcome is bad for both sides. Buyers pay for
+uncertainty they would rather not bear, and the best sellers cannot capture the value of what
+they own.

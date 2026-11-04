@@ -1,0 +1,4 @@
+{{M006}}
+Under Assumption{{M007}}{{M008}}, the energy-efficiency premium {{M002}} and the non-disclosure premium {{M003}} are
+{{M001}}
+More generally, a listing displaying a rating with energy cost {{M004}} sells at {{M005}}.

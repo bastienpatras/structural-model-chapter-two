@@ -1,0 +1,18 @@
+{{M005}}
+    {{M006}}
+    {{M001}}
+    {{M007}}
+    {{M008}}
+        {{M009}}
+        {{M002}}
+        {{M010}}
+    {{M011}}
+    {{M012}}
+        {{M013}}
+        {{M003}}
+        {{M014}}
+    {{M015}}
+    {{M016}}
+        {{M017}}{{M018}}Notes.{{M019}} Sample: all listings matched to the ADEME registry, July 2021 to December 2024 (843,621 apartments and 687,878 houses). Shares are computed on listings with a valid d{{M020}}partement code; d{{M021}}partements with fewer than 200 listings within each segment are shown in light grey, and overseas d{{M022}}partements are omitted. Classification: quantiles ({{M004}}) on metropolitan France, computed separately within each panel so the breakpoints reflect each segment's distribution. Projection: Lambert-93 (EPSG:2154). Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; d{{M023}}partement boundaries from {{M024}} (G.{{M025}}David, 2024).
+    {{M026}}
+{{M027}}

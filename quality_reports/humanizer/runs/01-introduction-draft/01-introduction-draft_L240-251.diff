@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -3,5 +3,5 @@
+ single mandate, in one country, covering one verifiable attribute, and the low audit coverage
+ that lets us separate inability from choice is itself a feature of a young disclosure regime.
+-The mechanism, however, is not specific to energy labels. Wherever a disclosure mandate is
++The mechanism extends beyond energy labels. Wherever a disclosure mandate is
+ introduced before the infrastructure that makes disclosure feasible is universal, a pool of
+ genuinely uninformed non-disclosers will exist, and that pool will shelter strategic

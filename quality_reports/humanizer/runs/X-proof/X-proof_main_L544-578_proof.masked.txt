@@ -1,0 +1,28 @@
+By Corollary{{M055}}{{M056}}, {{M003}} in any equilibrium. The strategic problem reduces to characterising {{M004}}, the hiding probability of informed low-quality sellers. The incentive to hide is
+{{M001}}
+where {{M005}} is the equilibrium pool belief (Equation{{M057}}{{M058}}). Since {{M006}} is strictly decreasing in {{M007}} (Section{{M059}}{{M060}}) and {{M008}} is strictly increasing in {{M009}}, {{M010}} is {{M061}}strictly decreasing{{M062}} in {{M011}}, with boundary values
+{{M002}}
+
+{{M063}}
+{{M064}}Case 1: Cost-Deterred Hiding.{{M065}} Suppose {{M012}}, i.e., {{M013}}.
+
+Since {{M014}} is strictly decreasing, {{M015}} for all {{M016}}. Hiding is strictly unprofitable at every hiding rate, including the most favourable case {{M017}}. Disclosure strictly dominates for every informed low-quality seller, so the unique equilibrium is {{M018}} with equilibrium belief {{M019}}.
+
+{{M066}}Interpretation.{{M067}} All informed low-quality sellers disclose; the non-disclosing pool consists exclusively of uninformed sellers. Buyers correctly infer quality {{M020}} from non-disclosure. Unlike the classical Grossman--Milgrom outcome, silence is uninformative rather than damning: non-disclosure carries no stigma because it reveals nothing beyond the seller's lack of a certified audit.
+
+{{M068}}
+{{M069}}Case 2: Complete Adverse Selection.{{M070}} Suppose {{M021}}, i.e., {{M022}}.
+
+Since {{M023}} is strictly decreasing, {{M024}} for all {{M025}}. Hiding is strictly profitable at every hiding rate, including the least favourable case {{M026}}. Hiding is therefore strictly dominant for every informed low-quality seller regardless of the strategies of others, so the unique equilibrium is {{M027}} with equilibrium belief {{M028}}.
+
+{{M071}}Interpretation.{{M072}} All informed low-quality sellers pool with uninformed sellers. The non-disclosure premium {{M029}} is the maximum attainable across all regimes (Equation{{M073}}{{M074}}).
+
+{{M075}}
+{{M076}}Case 3: Partial Pooling.{{M077}} Suppose {{M030}}, i.e., {{M031}}.
+
+{{M032}} is continuous and strictly decreasing on {{M033}}, with {{M034}} and {{M035}}. By the intermediate value theorem, there exists {{M036}} with {{M037}}; strict monotonicity of {{M038}} implies uniqueness. When the boundary inequalities hold strictly, {{M039}} lies in the open interval {{M040}}; at the boundaries, {{M041}} and the regime collapses to Case 1 or Case 2.
+
+At {{M042}}, informed low-quality sellers are exactly indifferent between hiding and disclosing; mixing at rate {{M043}} is self-confirming through the belief function. This regime generates the closed-form hiding rate and is the empirically dominant regime in the estimation sample.
+
+{{M078}}
+{{M079}}Uniqueness and exhaustiveness.{{M080}} In Cases 1 and 2, uniqueness follows from strict dominance: {{M044}} has constant sign on {{M045}} so no other {{M046}} is consistent with optimality. In Case 3, uniqueness follows from the unique zero of {{M047}}. The three conditions {{M048}}, {{M049}}, and {{M050}} partition {{M051}} since {{M052}} (as {{M053}} and {{M054}} is increasing). Equilibrium exists and is unique for all parameter values.

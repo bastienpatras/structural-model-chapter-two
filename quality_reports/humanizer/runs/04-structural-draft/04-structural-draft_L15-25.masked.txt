@@ -1,0 +1,11 @@
+To recover the forces behind the patterns documented in
+Section{{M007}}{{M008}}, we specify and estimate a model of the seller's disclosure
+decision. The model is a housing-market application of {{M009}}, as
+equilibrium-characterised by {{M010}}, with one structural addition,
+heterogeneity in buyer EPC sensitivity ({{M001}}). The binary quality space
+({{M002}}) and the seller-information heterogeneity ({{M003}}) are adapted directly
+from those antecedents. What goes beyond them is the closed-form expression for the
+non-disclosure premium and its invariance to market composition in the partial-pooling
+regime (Proposition{{M011}}{{M012}}), the strict cross-regime ordering of the premium
+(Eq.{{M013}}{{M014}}), and an identification strategy that uses the directly observed audit
+status {{M004}} to recover {{M005}} and {{M006}} market by market.

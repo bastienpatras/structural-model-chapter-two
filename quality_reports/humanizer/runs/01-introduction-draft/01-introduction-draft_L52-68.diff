@@ -1,0 +1,15 @@
+--- before
++++ after
+@@ -6,5 +6,5 @@
+ construction after July~2021, since the DPE is issued by a certified third-party diagnostician,
+ archived in the registry of the \emph{Agence de la Transition \'Ecologique} (ADEME), and legally
+-binding on the seller. Assumption~(b) is close to satisfied, because a DPE is a one-off outlay of
++binding on the seller. Assumption~(b) is close to satisfied: a DPE is a one-off outlay of
+ roughly 100--250~\euro{} according to ADEME's own estimates, negligible relative to
+ residential transaction values, and it is the seller's obligation rather than the buyer's.
+@@ -14,4 +14,4 @@
+ match at the address level, 48.8\% hold none.
+ Silence in this market is therefore not always a choice, a possibility first identified by
+-\citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}, and here it is measured
++\citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}. Here it is measured
+ rather than inferred.

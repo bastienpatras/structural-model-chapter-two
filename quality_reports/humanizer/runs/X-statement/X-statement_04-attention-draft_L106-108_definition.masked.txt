@@ -1,0 +1,2 @@
+{{M003}}
+The {{M004}}default energy cost{{M005}} {{M001}} is the energy cost an EPC-sensitive buyer subtracts from a listing's value when she does not attend to energy. It is measured in the same units as {{M002}}.

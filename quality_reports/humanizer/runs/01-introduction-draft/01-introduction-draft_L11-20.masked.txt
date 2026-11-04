@@ -1,0 +1,10 @@
+{{M001}}
+Mandatory disclosure is the standard regulatory response to asymmetric information about
+product quality. Yet the case for mandating disclosure is contested, because theory suggests
+markets may not need it. When quality is verifiable, the unraveling result of
+{{M002}} and {{M003}} holds that sellers disclose
+voluntarily, since buyers rationally read silence as the worst possible news. All but the very
+worst sellers therefore disclose, and disclosure becomes effectively universal without a
+mandate. Whether this result describes real markets remains unsettled. It rests on strong
+assumptions, and it is difficult to test, because in most settings where quality is verifiable
+disclosure has long been compulsory.

@@ -1,0 +1,1 @@
+{{M008}}Step 1 (Error structure).{{M009}} Let {{M001}}, {{M002}} and {{M003}} be the sampling errors in the reform-induced change of the A-to-D, E-to-G and silent price indices of market {{M004}}. They are independent across groups and markets, with variances {{M005}}, {{M006}} and {{M007}}. Then

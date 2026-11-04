@@ -1,0 +1,7 @@
+{{M019}}
+Take a market in Partial Pooling with {{M001}}, and write {{M002}} for its pool belief{{M020}}{{M021}} and {{M003}} for its hiding rate. The cost distribution {{M004}} is continuous.
+{{M022}}
+    {{M023}} {{M024}}Phase 1.{{M025}} For {{M005}} the mass of silent informed low-quality sellers, {{M006}} per listing, does not depend on {{M007}}. The premium stays at {{M008}}, the threshold stays at {{M009}}, and the hiding rate among informed low-quality sellers who have not renovated rises to {{M010}}.
+    {{M026}} {{M027}}Phase 2.{{M028}} For {{M011}} every remaining informed low-quality seller hides, the market is in Complete Adverse Selection, and {{M012}}, which falls as {{M013}} rises.
+    {{M029}} {{M030}}Equilibrium.{{M031}} Let {{M014}} be the cost distribution. The renovating share {{M015}} solves {{M016}} and is unique. If instead all sellers share one cost {{M017}} (a point mass, where equilibrium involves mixing at the atom), every informed low-quality seller renovates in a pure-strategy equilibrium if and only if {{M018}}.
+{{M032}}

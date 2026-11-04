@@ -1,0 +1,1 @@
+Suppose instead that buyers already priced energy before the reform, contrary to Assumption{{M005}}{{M006}}, with pre-reform attention to silent listings {{M001}}, and that the pool belief moved from {{M002}} to {{M003}}. Then the estimator of {{M004}} is biased by

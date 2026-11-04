@@ -1,0 +1,10 @@
+{{M009}}
+    {{M010}}
+    {{M001}}
+    {{M011}}
+    {{M012}}
+    {{M013}}
+        {{M014}}
+        {{M015}}{{M016}}Notes.{{M017}} Each point is a market; both axes are log points. The solid ray {{M002}} is the belief ceiling of Figure{{M018}}{{M019}} (shaded region). The dashed ray {{M003}} is the attention ceiling at the {{M004}}-weighted mean energy-cost ratio {{M005}} ({{M020}} for apartments, {{M021}} for houses); the grey fan spans the market-specific ceilings {{M006}}. Diamonds mark markets above their own ceiling. Of {{M022}} apartment markets, {{M023}} lie above the belief ceiling and {{M024}} above their own attention ceiling; of {{M025}} house markets, {{M026}} and {{M027}}. Sampling error in {{M007}} and {{M008}} is not shown.
+    {{M028}}
+{{M029}}

@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -2,5 +2,5 @@
+ no score, its quality cannot be read from the listing itself. The baseline assigns
+ $\theta=0$ by revealed preference, invoking Corollary~\ref{cor:hq_disclose}. That assignment
+-is an assumption, and its consequence is worth stating plainly. It makes
++is an assumption. It makes
+ $\hat\sigma_{1,m}$ identically zero by construction, so the corollary cannot be assessed
+ against the baseline estimates. The alternative reads the withheld grade from the ADEME

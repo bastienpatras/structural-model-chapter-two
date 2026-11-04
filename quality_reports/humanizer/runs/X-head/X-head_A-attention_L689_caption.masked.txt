@@ -1,0 +1,1 @@
+Renovation threshold: exact-pricing solver against the rating premium

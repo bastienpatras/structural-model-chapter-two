@@ -1,0 +1,17 @@
+\upshape
+\emph{Idea.} A renovated seller faces exactly the choice of an informed high-quality seller, so she hides only when that seller would. \emph{Notation.} $h=b\tilde e-c_0$, $g_1=b(\tilde e-1)$; $\hat R-S$ is the net renovation cost.
+
+\emph{Step 1 (Strategy~4 against Strategy~3).} Strategy~3 pays $b-(\hat R-S)$ and Strategy~4 pays $h-(\hat R-S)$. The renovation cost cancels, so Strategy~4 is weakly dominated if and only if
+\begin{equation*}
+    h\le b\quad\iff\quad b\tilde e-c_0\le b\quad\iff\quad g_1\le c_0.
+\end{equation*}
+This is the condition under which an informed high-quality seller discloses.
+
+\emph{Step 2 (The condition by regime).}
+\begin{itemize}
+    \item \emph{Cost-Deterred Hiding and Partial Pooling.} The condition holds by Corollary~\ref{cor:att_hq}.
+    % [CHECK] Corollary cor:att_hq assumes sigma_0^*<1; the Partial Pooling boundary c_0=Delta_psi(e(1)) has sigma_0^*=1. Its argument (g_0<=c_0) still applies. See ledger, ISSUE L1.
+    \item \emph{Complete Adverse Selection with $\sigma_1^*=0$.} The condition is $\bar g_1(0)\le c_0+c_1$ of Proposition~\ref{prop:att_equilibrium}(ii), which holds because $\sigma_1^*=0$ is an equilibrium.
+    \item \emph{Complete Adverse Selection with $\sigma_1^*>0$.} The same proposition requires $g_1\ge c_0$. By Step~1, $h\ge b$, so Strategy~4 is weakly preferred.
+    % [CHECK] Proposition att_equilibrium(ii) states the sigma_1^*=1 case; an interior sigma_1^* gives g_1=c_0, hence h=b (indifference), which the statement reads as "also hides". See ledger, ISSUE L2.
+\end{itemize}

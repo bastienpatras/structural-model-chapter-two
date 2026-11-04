@@ -1,0 +1,7 @@
+Let $p_{\mathrm{list}}^*(v_1)$ denote the optimal price given sensitive-buyer valuation $v_1$. By the envelope theorem, the effect of a small increase in $v_1$ on maximized profit is:
+\begin{equation}
+    \frac{\partial \tilde{\Pi}}{\partial v_1} = \phi(p_{\mathrm{list}}^*) \cdot \rho \cdot G'(v_1 - p_{\mathrm{list}}^*)
+\end{equation}
+where we evaluate the partial derivative of the objective holding $p$ fixed at the optimum.
+
+All three terms are positive: $\phi(p^*) > 0$ (expected transaction price is positive), $\rho \in [0,1] \geq 0$ (by assumption), and $G'(\cdot) > 0$ (logistic density is everywhere positive). Therefore $\frac{\partial \tilde{\Pi}}{\partial v_1} > 0$.

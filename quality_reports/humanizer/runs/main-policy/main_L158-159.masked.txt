@@ -1,0 +1,2 @@
+{{M003}}{{M004}}{{M005}}Remark ({{M001}} is incentive-compatibility, not welfare optimum).{{M006}}{{M007}}
+The object {{M002}} is the minimum transfer that flips the marginal informed low-quality seller's decision from not renovating to renovating, given everyone else's behaviour. It is {{M008}}not{{M009}} a Ramsey-optimal subsidy in the sense of {{M010}}. A welfare problem would maximise

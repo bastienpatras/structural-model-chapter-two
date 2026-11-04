@@ -1,0 +1,6 @@
+Valuations enter prices only through differences across listings. Any amount a buyer subtracts from every listing alike therefore shifts all her valuations by the same constant and drops out of every price gap. The bonus form of Section{{M005}}{{M006}} uses this normalisation twice:
+{{M007}}
+    {{M008}} it folds the energy cost of an inefficient dwelling, {{M001}}, into the intercept {{M002}};
+    {{M009}} it writes the insensitive buyer's valuation as {{M003}}, which in cost form amounts to subtracting the same constant {{M004}} from every listing.
+{{M010}}
+Both choices are innocuous in Section{{M011}}{{M012}}, because each buyer treats every listing the same way: a sensitive buyer always prices energy, and an insensitive one never does.

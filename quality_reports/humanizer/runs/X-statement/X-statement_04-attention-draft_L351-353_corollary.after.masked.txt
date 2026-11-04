@@ -1,0 +1,2 @@
+{{M004}}
+The interval of hiding costs that supports Partial Pooling is {{M001}}, of width {{M002}}. Its width goes to zero as {{M003}}.

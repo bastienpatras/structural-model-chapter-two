@@ -1,0 +1,6 @@
+The first three assumptions have received sustained attention; the fourth has not, although
+it governs the strength of the entire mechanism. A seller discloses to avoid the revenue
+lost when buyers price silence pessimistically, and that loss is proportional to the share of
+buyers who care about the attribute. Whether unraveling describes any
+particular market is therefore an empirical question, and answering it requires knowing which of
+these assumptions fails there.

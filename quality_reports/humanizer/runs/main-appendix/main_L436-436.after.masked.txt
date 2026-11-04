@@ -1,0 +1,1 @@
+The key identification advantage is that we directly observe the latent variable {{M001}} (information status), which the model treats as unobservable to buyers, so we can separately identify the behavior of informed and uninformed sellers.

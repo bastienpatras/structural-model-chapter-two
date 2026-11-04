@@ -1,0 +1,6 @@
+This departure depends on the level of the silent pool's energy cost and on the default. It vanishes when rated and silent listings receive the same attention, whatever the default. The cost form is the representation in which this object exists, and it has three further properties.
+{{M004}}
+    {{M005}} It nests the bonus form exactly (Lemma{{M006}}{{M007}}), so the extension can only add to the model of Section{{M008}}{{M009}}.
+    {{M010}} Its primitives are physical rather than behavioural. {{M001}} is what a dwelling of quality {{M002}} costs to heat, while attention and the default describe what buyers do with that cost. This is what lets the registry discipline the extension through {{M003}}.
+    {{M011}} It turns an implicit normalisation of the bonus form into an assumption that can be stated and tested (Proposition{{M012}}{{M013}}(iii)).
+{{M014}}

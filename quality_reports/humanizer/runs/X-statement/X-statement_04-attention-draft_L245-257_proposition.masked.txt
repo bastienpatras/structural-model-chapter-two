@@ -1,0 +1,9 @@
+{{M020}}
+Under Assumption{{M021}}{{M022}}, an equilibrium exists, and it is characterised as follows.
+{{M023}}
+    {{M024}} If {{M002}}, the unique equilibrium is Cost-Deterred Hiding, with {{M003}} and {{M004}}.
+    {{M025}} If {{M005}}, every informed low-quality seller hides, {{M006}} (Complete Adverse Selection). Let {{M007}} be the high type's gain. Then {{M008}}, with {{M009}}, is an equilibrium if and only if {{M010}}, and {{M011}} is an equilibrium if and only if {{M012}}. Both can hold, so equilibrium need not be unique in this regime. If {{M013}}, only {{M014}} survives.
+    {{M026}} If {{M015}}, the equilibrium is Partial Pooling. If {{M016}} it is unique, with
+    {{M001}}
+    If {{M017}}, Partial Pooling requires {{M018}} exactly, and then every {{M019}} is an equilibrium.
+{{M027}}

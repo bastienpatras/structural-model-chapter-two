@@ -1,0 +1,32 @@
+From{{M051}}{{M052}}, the non-disclosure premium is {{M007}}, where the belief {{M008}} is given by{{M053}}{{M054}}. The equilibrium hiding rate {{M009}} is determined by the regime characterised in Proposition{{M055}}{{M056}}. We derive {{M010}} and {{M011}} in each of the three regimes, in turn.
+
+{{M057}}
+{{M058}}Case 1: Cost-Deterred Hiding ({{M012}}).{{M059}}
+No informed low-quality seller hides, so the non-disclosing pool consists entirely of uninformed sellers. From{{M060}}{{M061}} at {{M013}}:
+{{M001}}
+which is independent of {{M014}}. The premium is therefore:
+{{M002}}
+Since {{M015}} is a structural parameter, {{M016}} and {{M017}}.
+
+{{M062}}
+{{M063}}Case 2: Complete Adverse Selection ({{M018}}).{{M064}}
+All informed low-quality sellers hide. From{{M065}}{{M066}} at {{M019}}:
+{{M003}}
+so {{M020}}. Differentiating with respect to {{M021}} by the quotient rule:
+{{M004}}
+hence {{M022}}.
+Differentiating with respect to {{M023}} (with {{M024}} determined solely by {{M025}} and {{M026}}):
+{{M027}}.
+
+{{M067}}
+{{M068}}Case 3: Partial Pooling ({{M028}}).{{M069}}
+The interior equilibrium satisfies {{M029}}, so the premium is pinned at the hiding cost:
+{{M005}}
+Changes in {{M030}} or {{M031}} induce compensating adjustments in {{M032}} that restore the indifference condition, leaving the premium invariant: {{M033}} and {{M034}}.
+
+To verify: from{{M070}}{{M071}}, {{M035}} for {{M036}}. Total differentiation of {{M037}} with respect to {{M038}} gives:
+{{M006}}
+so {{M039}}: as {{M040}} rises, informed sellers populate the non-disclosing pool more heavily, so fewer low-quality sellers need to hide to sustain the same buyer belief, and {{M041}} falls.
+
+{{M072}}
+{{M073}}Summary.{{M074}} The non-disclosure premium is {{M075}}weakly{{M076}} decreasing in {{M042}} and {{M077}}weakly{{M078}} increasing in {{M043}}, with strict monotonicity only in the Complete Adverse Selection regime. In Case{{M079}}1, the premium is determined by the population quality {{M044}} of the uninformed pool and is insensitive to market fundamentals {{M045}} and {{M046}}. In Case{{M080}}3, the premium is pinned at the primitive {{M047}} by the indifference condition; it is the hiding rate {{M048}}, not the premium, that absorbs variation in {{M049}} and {{M050}}.

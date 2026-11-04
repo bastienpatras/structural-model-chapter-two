@@ -1,0 +1,3 @@
+{{M003}}
+The minimum incentive-compatible subsidy is the smallest transfer that makes renovation weakly preferred for a seller with renovation cost {{M002}}, holding equilibrium beliefs fixed:
+{{M001}}

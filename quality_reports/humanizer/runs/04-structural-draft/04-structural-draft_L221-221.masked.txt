@@ -1,0 +1,1 @@
+{{M001}} falls monotonically in {{M002}}, because every additional hider adds weight {{M003}} to the denominator without moving the numerator, diluting the pool and worsening what buyers infer from silence.

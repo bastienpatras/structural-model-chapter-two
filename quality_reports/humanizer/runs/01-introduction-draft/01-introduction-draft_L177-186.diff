@@ -1,0 +1,11 @@
+--- before
++++ after
+@@ -6,5 +6,5 @@
+ treat sellers' information as latent. By observing it directly we can decompose silence into
+ inability and choice, and show that the first dominates the second by an order of magnitude
+-while the second is what sustains the price premium. The finding that silence is rewarded rather
+-than punished is not a failure of the theory so much as a demonstration of how sensitive its
+-central prediction is to an assumption that is rarely examined.
++while the second is what sustains the price premium. That silence is rewarded rather
++than punished reflects how sensitive the theory's central prediction is to an assumption that
++is rarely examined.

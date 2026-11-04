@@ -1,0 +1,1 @@
+{{M006}}{{M007}}Idea.{{M008}} The two estimated gaps share the sampling error of the E-to-G index, so a regression of one on the other is biased; summing before dividing averages the noise out, unless the sample is selected on the noisy regressor. {{M009}}Notation.{{M010}} {{M001}} and {{M002}} estimate {{M003}} and {{M004}}; {{M005}} is the expectation across markets.

@@ -1,0 +1,82 @@
+\upshape
+\emph{Idea.} Every instrument except full attention leaves the rating premium $b$ unchanged, so the threshold stays at $b$ as long as the market stays outside Complete Adverse Selection; the work is to check which regime the market lands in. \emph{Notation.} As in the opening paragraph; hats denote values at the estimates, and $e^{\rm def}\ge\bar\theta$ throughout.
+
+\medskip\noindent\emph{Raising the share of informed sellers $\pi$ to one.}
+
+\emph{Step 1 (Where $\pi$ enters).} The threshold depends on $\pi$ only through $e(1)$. It therefore depends on $\pi$ only in Complete Adverse Selection (Proposition~\ref{prop:threshold}).
+
+\emph{Step 2 (Price of silence at $\pi=1$).} At $\pi=1$ the silent pool consists of hiders only. If the belief after silence is zero, a silent listing sells for
+\begin{equation*}
+    b\,(1-\psi)\,e^{\rm def}.
+\end{equation*}
+
+\emph{Step 3 (The belief after silence).} That belief is the limit of the pool belief as $\pi\to1$. It is the only one that survives the intuitive criterion, since a low type gains more from silence than a high type.
+% [CHECK] (a) Along the Partial Pooling path e^* does not depend on pi (eq. att_pp), so the equilibrium pool belief tends to e^*, not to zero; zero is the limit of e(sigma_0) at fixed sigma_0>0. (b) The intuitive criterion also needs the high type's deviation to be equilibrium-dominated. See ledger, ISSUES I1-I2.
+
+\emph{Step 4 (Hiding disappears and $\bar R=b$).} With this belief, hiding is weakly unprofitable when $c_0\ge b(1-\psi)e^{\rm def}$. A market that starts in Partial Pooling has
+\begin{equation*}
+    c_0\;=\;b\,[\psi e^*+(1-\psi)e^{\rm def}]\;>\;b\,(1-\psi)\,e^{\rm def},
+\end{equation*}
+so $\sigma_0^*=0$, $h<0$ and $\bar R=b$.
+% [CHECK] The strict inequality needs psi e^*>0; at psi=0 it holds with equality, h=0, and Rbar=b still. See ledger, ISSUE I3.
+
+\emph{Step 5 (Premium and hiding rate in the limit).} The premium is discontinuous at $\pi=1$. For $\pi<1$ near one it equals $c_0$, and at $\pi=1$ it falls to $b(1-\psi)e^{\rm def}$. The hiding rate, however, is continuous in the limit. By Step~4, the margin by which $c_0$ exceeds that gain is $b\psi e^*$, about \attPiOneMarginApt{} percent of $c_0$ in apartments and \attPiOneMarginHouse{} percent in houses.
+
+\emph{Step 6 (Population of potential renovators).} The population of potential renovators rises from the informed low-quality share $\pi(1-\bar\theta)$ to $1-\bar\theta$.
+
+\medskip\noindent\emph{Making silence as salient as a rating.}
+
+\emph{Step 7 (What changes).} The premium $b=\rho\omega_1\beta_1$ does not depend on $\omega_0$. Raising $\psi$ to one leaves $c_0$ fixed and makes the gain from hiding
+\begin{equation*}
+    b\,e(\sigma_0)\;\le\;b\bar\theta.
+\end{equation*}
+% [CHECK] The fall in the price of silence, lambda=(1-\hat\psi) b (e^def-e^*), stated in the proposition, is not derived in the proof. See ledger, ISSUE I4.
+
+\emph{Step 8 (Hiding falls weakly).} In Partial Pooling the belief that sustains $c_0$ at $\psi=1$ is
+\begin{equation*}
+    c_0/b\;=\;\hat\psi e^*+(1-\hat\psi)e^{\rm def}\;\ge\;e^*,
+\end{equation*}
+using $e^{\rm def}\ge\bar\theta\ge e^*$. A higher belief means a lower hiding rate, so hiding falls weakly. If $c_0\ge b\bar\theta$, the market is in Cost-Deterred Hiding (Proposition~\ref{prop:att_equilibrium}(i)), so $\sigma_0^*=0$ and $h<0$ or $h=0$.
+% [CHECK] Proposition att_equilibrium(i) needs c_0>b thetabar strictly; at c_0=b thetabar the market is at the Partial Pooling boundary with sigma_0^*=0. The conclusion is unaffected. See ledger, ISSUE I5.
+
+\emph{Step 9 (No market enters Complete Adverse Selection, so nothing on the renovation side moves).} The gain from hiding stays below $c_0$ in every market at the calibrated cost, because $c_0\ge b\,e(1)$ in Partial Pooling (using $e^{\rm def}\ge\bar\theta\ge e(1)$). So no market enters Complete Adverse Selection, and $\bar R=b$ before and after (Proposition~\ref{prop:threshold}). Hence the subsidy $S^*=\max\{\hat R-\bar R,0\}$, the flow $\pi(1-\bar\theta)F_R(\bar R+S)$ and the share of renovators at any $S$ are unchanged.
+% [CHECK] "Stays below" is supported only weakly (c_0 >= b e(1)); that is all "no market enters Complete Adverse Selection" needs. See ledger, ISSUE I6.
+
+\emph{Step 10 (Correction at full take-up).} In the equilibrium of Proposition~\ref{prop:subsidy_ge} the correction at full take-up is $\hat\psi b(\bar\theta-e^*)$ before the policy. After it, the pool belief that sustains $c_0$ is $c_0/b$ (Step~8). So the correction is $b\bar\theta-c_0$ in Partial Pooling and zero in Cost-Deterred Hiding. The fall is therefore
+\begin{equation*}
+    \hat\psi b(\bar\theta-e^*)-(b\bar\theta-c_0)^+.
+\end{equation*}
+
+\medskip\noindent\emph{Full attention.}
+
+\emph{Step 11 (The new premium).} Replace $b$ by
+\begin{equation*}
+    b_{\rm new}\;=\;\rho\beta_1\;=\;b/\omega_1,\qquad \omega_1\in[\hat\rho,1],
+\end{equation*}
+because $\rho\le1$ and $\hat\rho=\rho\omega_1$.
+
+\emph{Step 12 (Threshold by regime after the policy).}
+\begin{itemize}
+    \item \emph{Outside Complete Adverse Selection.} The threshold is $b_{\rm new}$, so $\Delta\bar R=b_{\rm new}-b$.
+    \item \emph{A market that moves into Complete Adverse Selection.} Here $h=b_{\rm new}e(1)-c_0>0$ and
+    \begin{equation*}
+        \bar R_{\rm new}\;=\;b_{\rm new}-h\;=\;b_{\rm new}[1-e(1)]+c_0.
+    \end{equation*}
+\end{itemize}
+% [CHECK] Using Rbar=b-h requires h<=b_new; this holds (psi=1, e(1)<1) but is not stated. See ledger, ISSUE I7.
+
+\emph{Step 13 (The new threshold is at least $b$).} The market was in Partial Pooling at the calibrated cost, so
+\begin{equation*}
+    c_0\;\ge\;b\,[\hat\psi e(1)+(1-\hat\psi)e^{\rm def}]\;\ge\;b\,e(1),
+\end{equation*}
+using $e^{\rm def}\ge e(1)$. Substituting into Step~12 gives $\bar R_{\rm new}\ge b_{\rm new}[1-e(1)]+b\,e(1)\ge b$.
+
+\emph{Step 14 (Bounds on $\Delta\bar R$).} The threshold never exceeds $b_{\rm new}$, so by Steps~12--13
+\begin{equation*}
+    0\;\le\;\Delta\bar R\;\le\;b_{\rm new}-b.
+\end{equation*}
+Finally $b_{\rm new}=\rho\beta_1\le\beta_1=\beta_1^{\rm anchor}$ and $b=\hat b$, which gives the upper bound when $\hat\rho<1$. If $\hat\rho\ge1$ the model requires $\rho=\omega_1=1$, so $b_{\rm new}=b$ and $\Delta\bar R=0$.
+
+\medskip\noindent\emph{Enforcement.}
+
+\emph{Step 15 (Enforcement moves who hides, not $\bar R$).} A rise in $c_0$ does not enter $b$, so it leaves $\bar R=b$ outside Complete Adverse Selection. It lowers $\Phi_\psi$, which moves the market toward Cost-Deterred Hiding (Proposition~\ref{prop:att_equilibrium}).

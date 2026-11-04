@@ -1,0 +1,14 @@
+{{M021}}
+{{M022}}Idea.{{M023}} The gross value {{M003}} adds back exactly the energy cost {{M004}} that the bonus form nets out of its intercept, so subtracting each buyer's energy cost from {{M005}} returns her bonus-form valuation. Throughout, {{M006}} by{{M024}}{{M025}} and {{M007}}.
+
+{{M026}}Step 1 (disclosed rating).{{M027}} For {{M008}}, {{M009}}. Hence
+{{M001}}
+the valuation of a disclosed rating in Section{{M028}}{{M029}}.
+
+{{M030}}Step 2 (silent listing).{{M031}} By{{M032}}{{M033}}, {{M010}}. Hence
+{{M002}}
+the valuation of a silent listing in Section{{M034}}{{M035}}.
+
+{{M036}}Step 3 (insensitive buyer).{{M037}} {{M011}} by the definition of {{M012}}.
+
+{{M038}}Step 4 (uniqueness).{{M039}} Suppose instead {{M013}} for some constant {{M014}}. Agreement with the bonus form requires {{M015}} for {{M016}}. The case {{M017}} gives {{M018}}. The case {{M019}} is then satisfied, because {{M020}}.

@@ -1,0 +1,18 @@
+{{M004}}
+    {{M005}}
+    {{M001}}
+    {{M006}}
+    {{M007}}
+        {{M008}}
+        {{M002}}
+        {{M009}}
+    {{M010}}
+    {{M011}}
+        {{M012}}
+        {{M003}}
+        {{M013}}
+    {{M014}}
+    {{M015}}
+        {{M016}}{{M017}}Notes.{{M018}} Monthly volume-weighted log gap between the price index of non-disclosing listings and certified energy-intensive (E/F/G) listings, January 2019 to June 2024. The vertical dashed line marks the legal opposability of the DPE (July 2021). The thick line is a centred three-month moving average. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
+    {{M019}}
+{{M020}}

@@ -1,0 +1,15 @@
+{{M015}}
+{{M016}}Idea.{{M017}} A renovated seller faces exactly the choice of an informed high-quality seller, so she hides only when that seller would. {{M018}}Notation.{{M019}} {{M004}}, {{M005}}; {{M006}} is the net renovation cost.
+
+{{M020}}Step 1 (Strategy{{M021}}4 against Strategy{{M022}}3).{{M023}} Strategy{{M024}}3 pays {{M007}} and Strategy{{M025}}4 pays {{M008}}. The renovation cost cancels, so Strategy{{M026}}4 is weakly dominated if and only if
+{{M001}}
+This is the condition under which an informed high-quality seller discloses.
+
+{{M027}}Step 2 (The condition by regime).{{M028}}
+{{M029}}
+    {{M030}} {{M031}}Cost-Deterred Hiding and Partial Pooling.{{M032}} The condition holds by Corollary{{M033}}{{M034}}.
+    {{M002}}
+    {{M035}} {{M036}}Complete Adverse Selection with {{M009}}.{{M037}} The condition is {{M010}} of Proposition{{M038}}{{M039}}(ii), which holds because {{M011}} is an equilibrium.
+    {{M040}} {{M041}}Complete Adverse Selection with {{M012}}.{{M042}} The same proposition requires {{M013}}. By Step{{M043}}1, {{M014}}, so Strategy{{M044}}4 is weakly preferred.
+    {{M003}}
+{{M045}}

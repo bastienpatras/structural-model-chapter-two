@@ -1,0 +1,64 @@
+{{M087}}
+{{M088}}Idea.{{M089}} Every instrument except full attention leaves the rating premium {{M016}} unchanged, so the threshold stays at {{M017}} as long as the market stays outside Complete Adverse Selection; the work is to check which regime the market lands in. {{M090}}Notation.{{M091}} As in the opening paragraph; hats denote values at the estimates, and {{M018}} throughout.
+
+{{M092}}{{M093}}{{M094}}Raising the share of informed sellers {{M019}} to one.{{M095}}
+
+{{M096}}Step 1 (Where {{M020}} enters).{{M097}} The threshold depends on {{M021}} only through {{M022}}. It therefore depends on {{M023}} only in Complete Adverse Selection (Proposition{{M098}}{{M099}}).
+
+{{M100}}Step 2 (Price of silence at {{M024}}).{{M101}} At {{M025}} the silent pool consists of hiders only. If the belief after silence is zero, a silent listing sells for
+{{M001}}
+
+{{M102}}Step 3 (The belief after silence).{{M103}} That belief is the limit of the pool belief as {{M026}}. It is the only one that survives the intuitive criterion, since a low type gains more from silence than a high type.
+{{M010}}
+
+{{M104}}Step 4 (Hiding disappears and {{M027}}).{{M105}} With this belief, hiding is weakly unprofitable when {{M028}}. A market that starts in Partial Pooling has
+{{M002}}
+so {{M029}}, {{M030}} and {{M031}}.
+{{M011}}
+
+{{M106}}Step 5 (Premium and hiding rate in the limit).{{M107}} The premium is discontinuous at {{M032}}. For {{M033}} near one it equals {{M034}}, and at {{M035}} it falls to {{M036}}. The hiding rate, however, is continuous in the limit. By Step{{M108}}4, the margin by which {{M037}} exceeds that gain is {{M038}}, about {{M109}} percent of {{M039}} in apartments and {{M110}} percent in houses.
+
+{{M111}}Step 6 (Population of potential renovators).{{M112}} The population of potential renovators rises from the informed low-quality share {{M040}} to {{M041}}.
+
+{{M113}}{{M114}}{{M115}}Making silence as salient as a rating.{{M116}}
+
+{{M117}}Step 7 (What changes).{{M118}} The premium {{M042}} does not depend on {{M043}}. Raising {{M044}} to one leaves {{M045}} fixed and makes the gain from hiding
+{{M003}}
+{{M012}}
+
+{{M119}}Step 8 (Hiding falls weakly).{{M120}} In Partial Pooling the belief that sustains {{M046}} at {{M047}} is
+{{M004}}
+using {{M048}}. A higher belief means a lower hiding rate, so hiding falls weakly. If {{M049}}, the market is in Cost-Deterred Hiding (Proposition{{M121}}{{M122}}(i)), so {{M050}} and {{M051}} or {{M052}}.
+{{M013}}
+
+{{M123}}Step 9 (No market enters Complete Adverse Selection, so nothing on the renovation side moves).{{M124}} The gain from hiding stays below {{M053}} in every market at the calibrated cost, because {{M054}} in Partial Pooling (using {{M055}}). So no market enters Complete Adverse Selection, and {{M056}} before and after (Proposition{{M125}}{{M126}}). Hence the subsidy {{M057}}, the flow {{M058}} and the share of renovators at any {{M059}} are unchanged.
+{{M014}}
+
+{{M127}}Step 10 (Correction at full take-up).{{M128}} In the equilibrium of Proposition{{M129}}{{M130}} the correction at full take-up is {{M060}} before the policy. After it, the pool belief that sustains {{M061}} is {{M062}} (Step{{M131}}8). So the correction is {{M063}} in Partial Pooling and zero in Cost-Deterred Hiding. The fall is therefore
+{{M005}}
+
+{{M132}}{{M133}}{{M134}}Full attention.{{M135}}
+
+{{M136}}Step 11 (The new premium).{{M137}} Replace {{M064}} by
+{{M006}}
+because {{M065}} and {{M066}}.
+
+{{M138}}Step 12 (Threshold by regime after the policy).{{M139}}
+{{M140}}
+    {{M141}} {{M142}}Outside Complete Adverse Selection.{{M143}} The threshold is {{M067}}, so {{M068}}.
+    {{M144}} {{M145}}A market that moves into Complete Adverse Selection.{{M146}} Here {{M069}} and
+    {{M007}}
+{{M147}}
+{{M015}}
+
+{{M148}}Step 13 (The new threshold is at least {{M070}}).{{M149}} The market was in Partial Pooling at the calibrated cost, so
+{{M008}}
+using {{M071}}. Substituting into Step{{M150}}12 gives {{M072}}.
+
+{{M151}}Step 14 (Bounds on {{M073}}).{{M152}} The threshold never exceeds {{M074}}, so by Steps{{M153}}12--13
+{{M009}}
+Finally {{M075}} and {{M076}}, which gives the upper bound when {{M077}}. If {{M078}} the model requires {{M079}}, so {{M080}} and {{M081}}.
+
+{{M154}}{{M155}}{{M156}}Enforcement.{{M157}}
+
+{{M158}}Step 15 (Enforcement moves who hides, not {{M082}}).{{M159}} A rise in {{M083}} does not enter {{M084}}, so it leaves {{M085}} outside Complete Adverse Selection. It lowers {{M086}}, which moves the market toward Cost-Deterred Hiding (Proposition{{M160}}{{M161}}).

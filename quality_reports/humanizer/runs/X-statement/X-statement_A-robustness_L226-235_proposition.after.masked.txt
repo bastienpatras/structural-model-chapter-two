@@ -1,0 +1,5 @@
+{{M005}}
+Under Assumption{{M006}}{{M007}} with {{M002}} known,
+{{M001}}
+are point identified. The model's constraint {{M003}} becomes the testable inequality
+{{M004}}, rather than an imposed clip.

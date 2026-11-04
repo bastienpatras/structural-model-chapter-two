@@ -1,0 +1,1 @@
+{{M006}}Holding {{M001}} and {{M002}} fixed, the gross profit function {{M003}} is strictly increasing in {{M004}} whenever {{M005}}.{{M007}}

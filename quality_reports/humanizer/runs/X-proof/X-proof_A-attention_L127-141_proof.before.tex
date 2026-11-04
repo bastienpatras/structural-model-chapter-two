@@ -1,0 +1,14 @@
+\upshape
+\emph{Idea.} By~\eqref{eq:gains}, silence always pays a high-quality seller $b$ less than a low-quality one, while hiding costs her at least as much. So she can want to hide only once every low-quality seller does.
+
+\emph{Step 1 (if $\sigma_0^*<1$, then $\sigma_1^*=0$).} If $\sigma_0^*<1$, some informed low-quality seller weakly prefers disclosure, so $g_0\le c_0$. By~\eqref{eq:gains}, $g_1=g_0-b$, hence
+\begin{equation*}
+    g_1\;=\;g_0-b\;<\;c_0\;\le\;c_0+c_1.
+\end{equation*}
+Every informed high-quality seller strictly prefers disclosure, so $\sigma_1^*=0$.
+
+\emph{Step 2 (Complete Adverse Selection).} If $\sigma_0^*=1$, a high-quality seller hides only if $g_1=b[\tilde e(1,\sigma_1)-1]>c_0+c_1$ at the prevailing $\sigma_1$. As in Step~2 of the proof of Proposition~\ref{prop:att_incentives}, this requires $\tilde e>1$.
+% [CHECK] A seller who mixes (0<sigma_1^*<1), or who hides at sigma_1^*=1 when \bar g_1(1)=c_0+c_1,
+% [CHECK] is only indifferent: hiding requires g_1 >= c_0+c_1, i.e. \tilde e(1,\sigma_1) >= 1+(c_0+c_1)/b
+% [CHECK] (weak), which gives \tilde e >= 1, strictly > 1 only if c_0+c_1>0. Proposed fix: ">=" here and
+% [CHECK] in the statement of Corollary cor:att_hq. See ledger, ISSUE 1.

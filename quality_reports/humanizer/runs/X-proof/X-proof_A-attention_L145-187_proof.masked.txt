@@ -1,0 +1,34 @@
+{{M072}}
+{{M073}}Idea.{{M074}} When {{M009}}, the low type's net gain {{M010}} is continuous and weakly decreasing, so the regimes follow from its sign at {{M011}} and {{M012}}, as in Proposition{{M075}}{{M076}}. What is new is that, once every low type hides, high-quality hiding improves the pool and reinforces itself, so equilibria can be multiple. Objects used: {{M013}} in{{M077}}{{M078}}, {{M014}} in{{M079}}{{M080}}, the high type's gain {{M015}}, and {{M016}}.
+
+{{M081}}Step 1 (preliminaries).{{M082}} Whenever {{M017}}, {{M018}} by Corollary{{M083}}{{M084}}. {{M019}} is continuous on {{M020}}. By Lemma{{M085}}{{M086}}, it is strictly decreasing if {{M021}} and constant if {{M022}}.
+
+{{M087}}Step 2 (Cost-Deterred Hiding, {{M023}}).{{M088}} This follows as in Proposition{{M089}}{{M090}}. By Step{{M091}}1, {{M024}} for every {{M025}}, so {{M026}} and {{M027}}.
+{{M005}}
+{{M006}}
+{{M007}}
+{{M008}}
+
+{{M092}}Step 3 (Complete Adverse Selection: every low type hides).{{M093}} Let {{M028}}. Since {{M029}} is decreasing,
+{{M001}}
+Hiding is strictly profitable for every low-quality seller, a fortiori when {{M030}} because {{M031}} is weakly increasing in {{M032}} (Lemma{{M094}}{{M095}}). So {{M033}}.
+
+{{M096}}Step 4 (Complete Adverse Selection: high-quality best responses).{{M097}} Given {{M034}}, a high-quality seller hides iff {{M035}}. By Lemma{{M098}}{{M099}}, {{M036}} is continuous and increasing in {{M037}}: high-quality hiding is self-reinforcing because it improves the pool. Hence
+{{M100}}
+    {{M101}} {{M038}} is a best response to itself iff {{M039}};
+    {{M102}} {{M040}} is a best response to itself iff {{M041}}.
+{{M103}}
+In both cases {{M042}} remains a best response, because by{{M104}}{{M105}} a low-quality seller's gain exceeds a high-quality seller's by {{M043}}.
+
+{{M106}}Step 5 (Complete Adverse Selection: existence and multiplicity).{{M107}} One of the two conditions of Step{{M108}}4, or an interior crossing of {{M044}} with {{M045}}, always holds, so an equilibrium exists. Uniqueness can fail. With {{M046}}, {{M047}}, {{M048}} and {{M049}},
+{{M002}}
+so any {{M050}} between the two supports both. If {{M051}}, then {{M052}}, so {{M053}} and only {{M054}} survives.
+
+{{M109}}Step 6 (Partial Pooling: no high-quality hiding).{{M110}} Let {{M055}}. An equilibrium with {{M056}} would need {{M057}} and {{M058}}. By Lemma{{M111}}{{M112}} and {{M059}}, {{M060}}, so it would need {{M061}}. But, by{{M113}}{{M114}},
+{{M003}}
+
+{{M115}}Step 7 (Partial Pooling with {{M062}}).{{M116}} By Step{{M117}}6, {{M063}}. In the band, {{M064}}, so the intermediate value theorem gives a zero of {{M065}}. It is unique by strict monotonicity (Step{{M118}}1). Solving {{M066}} gives
+{{M004}}
+the first expression in{{M119}}{{M120}}. Inverting{{M121}}{{M122}} at {{M067}} gives {{M068}}.
+
+{{M123}}Step 8 (Partial Pooling with {{M069}}).{{M124}} {{M070}} is constant. If it is non-zero, one of the corners obtains. If it is zero, every {{M071}} is a best response.

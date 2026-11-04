@@ -1,0 +1,1 @@
+Figure{{M002}}{{M003}} plots the quantity that does not depend on the normalisation of the default, the perceived cost of silence, together with the estimates of {{M001}}.

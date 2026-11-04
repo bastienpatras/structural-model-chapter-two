@@ -1,0 +1,6 @@
+{{M015}}
+Suppose {{M001}}.
+{{M016}}
+    {{M017}} In Partial Pooling, {{M002}}, {{M003}}, {{M004}}, {{M005}} and {{M006}}. The effect of {{M007}} on the equilibrium belief, {{M008}}, grows without bound as {{M009}}.
+    {{M018}} In the corner regimes, the premium is decreasing in {{M010}} whenever {{M011}} (which implies the corresponding condition at {{M012}}). In Complete Adverse Selection, {{M013}}: the belief channel of Proposition{{M019}}{{M020}}(i), scaled by {{M014}}.
+{{M021}}

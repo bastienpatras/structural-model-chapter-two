@@ -1,0 +1,2 @@
+{{M002}}
+An informed seller compares the price of silence with the price of her own displayed rating. By Lemma{{M003}}{{M004}}, the gross gain from hiding for an informed seller of quality {{M001}} is

@@ -1,0 +1,6 @@
+{{M006}}Step 5 (Monte Carlo).{{M007}} The Monte Carlo is calibrated to the {{M008}} volume-filtered apartment markets: the mean and variance of {{M001}} before selection, with sampling noise accounting for {{M009}} to {{M010}} percent of its variance, and the aggregate {{M002}} and {{M003}} of Table{{M011}}{{M012}}. The true {{M004}} is {{M013}}. Mean estimates are:
+{{M014}}
+    {{M015}} {{M016}}without selection,{{M017}} between {{M018}} and {{M019}} for the ratio of sums and between {{M020}} and {{M021}} for the regression through the origin;
+    {{M022}} {{M023}}with selection on {{M005}},{{M024}} {{M025}} to {{M026}} for the ratio of sums and {{M027}} to {{M028}} for the regression.
+{{M029}}
+The apartment estimate is therefore, if anything, an upper bound on attention to silence.

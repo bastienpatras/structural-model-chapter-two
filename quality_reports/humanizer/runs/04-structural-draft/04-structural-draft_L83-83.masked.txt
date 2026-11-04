@@ -1,0 +1,1 @@
+{{M005}}{{M006}}Assumption (No Falsification).{{M007}} {{M008}}Disclosed EPC scores are verifiable against the ADEME registry. An informed seller with {{M001}} may choose {{M002}}, while an uninformed seller with {{M003}} is constrained to {{M004}}: she cannot disclose what she does not possess. This rules out costless misreporting.{{M009}}

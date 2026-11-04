@@ -1,0 +1,4 @@
+{{M006}}
+Let hiding costs be distributed across informed sellers with any continuous distribution, independently of quality, and assume {{M002}} and that only low-quality sellers hide. Let {{M003}} be the observed hiding rate and {{M004}} the fall in the price of silence when {{M005}}. Per eligible seller, the fall in the minimum subsidy, in log points of the price, is at most
+{{M001}}
+The saving is zero in Cost-Deterred Hiding, for any programme that reaches only the sellers who disclose today, and when all sellers share one hiding cost.

@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -5,5 +5,5 @@
+ this, understand that any seller who remains silent is not of the highest quality, and revise
+ downward what they will pay for silence. That revision gives the second-highest-quality seller
+-the same incentive, and disclosing becomes worthwhile for them too. The argument repeats. Each
++the same incentive, and disclosing becomes worthwhile for them too. The argument repeats, and each
+ round of disclosure worsens the expected quality of the remaining silent pool, which strengthens
+ the incentive for the best of those who remain to separate themselves. The process continues

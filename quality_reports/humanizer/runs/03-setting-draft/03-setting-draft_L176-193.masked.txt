@@ -1,0 +1,18 @@
+{{M006}}
+    {{M007}}
+    {{M001}}
+    {{M008}}
+    {{M009}}
+        {{M010}}
+        {{M002}}
+        {{M011}}
+    {{M012}}
+    {{M013}}
+        {{M014}}
+        {{M003}}
+        {{M015}}
+    {{M016}}
+    {{M017}}
+        {{M018}}{{M019}}Notes.{{M020}} Monthly share of listings without a certified EPC, October 2018 to July 2024. The horizontal dashed line marks each segment's final-twelve-month mean ({{M004}} apartments, {{M005}} houses). The vertical dashed line marks the July 2021 reform date. Volumes are summed across markets within each segment. Source: SeLoger residential listings matched against the ADEME registry of certified energy audits; authors' calculations.
+    {{M021}}
+{{M022}}

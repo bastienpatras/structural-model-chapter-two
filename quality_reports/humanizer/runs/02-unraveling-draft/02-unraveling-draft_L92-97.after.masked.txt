@@ -1,0 +1,6 @@
+Because the two departures operate on different primitives, they map out a space of possible
+market outcomes rather than a single prediction. Figure{{M001}}{{M002}} organises
+that space along two dimensions, the share of sellers who hold verifiable information and the
+share of buyers who price it. Full unraveling requires both to be high. Where either is
+interior, silence survives in equilibrium, and where the informed share is low while buyer
+sensitivity is not, silence can be rewarded rather than punished.

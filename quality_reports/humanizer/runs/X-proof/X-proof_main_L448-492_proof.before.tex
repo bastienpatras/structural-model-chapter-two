@@ -1,0 +1,44 @@
+
+The optimal price $p^*$ satisfies the first-order condition:
+\begin{equation}
+    \frac{\gamma_1}{\gamma_0 + \gamma_1 \cdot p^*} = 1 - G(v_1 - p^*)
+\end{equation}
+
+Define the left-hand side as $\mathrm{LHS}(p) = \frac{\gamma_1}{\gamma_0 + \gamma_1 \cdot p}$ and the right-hand side as $\mathrm{RHS}(p; v_1) = 1 - G(v_1 - p)$. The optimal price is determined by the intersection $\mathrm{LHS}(p^*) = \mathrm{RHS}(p^*; v_1)$.
+
+\textbf{Monotonicity of each side in $p$.}
+
+The left-hand side is strictly decreasing in $p$:
+\begin{equation}
+    \frac{\partial \mathrm{LHS}}{\partial p} = -\frac{\gamma_1^2}{(\gamma_0 + \gamma_1 \cdot p)^2} < 0
+\end{equation}
+
+The right-hand side is strictly increasing in $p$. Since $G$ is the logistic CDF, $G'(x) = G(x)(1 - G(x)) > 0$ for all $x$. Therefore:
+\begin{equation}
+    \frac{\partial \mathrm{RHS}}{\partial p} = G'(v_1 - p) > 0
+\end{equation}
+
+A strictly decreasing function intersects a strictly increasing function at most once, so $p^*$ is unique.
+
+\textbf{Effect of $v_1$ on the right-hand side.}
+
+At any fixed $p$, the right-hand side is strictly decreasing in $v_1$:
+\begin{equation}
+    \frac{\partial \mathrm{RHS}}{\partial v_1} = -G'(v_1 - p) < 0
+\end{equation}
+
+An increase in $v_1$ shifts the RHS curve downward.
+
+\textbf{Comparative static.}
+
+Using the chain rule, differentiating the equilibrium condition with respect to $v_1$:
+\begin{equation}
+    \frac{\partial \mathrm{LHS}}{\partial p} \cdot \frac{\partial p^*}{\partial v_1} = \frac{\partial \mathrm{RHS}}{\partial p} \cdot \frac{\partial p^*}{\partial v_1} + \frac{\partial \mathrm{RHS}}{\partial v_1}
+\end{equation}
+
+Rearranging:
+\begin{equation}
+    \frac{\partial p^*}{\partial v_1} = \frac{\frac{\partial \mathrm{RHS}}{\partial v_1}}{\frac{\partial \mathrm{LHS}}{\partial p} - \frac{\partial \mathrm{RHS}}{\partial p}} = \frac{-G'(v_1 - p^*)}{-\frac{\gamma_1^2}{(\gamma_0 + \gamma_1 \cdot p^*)^2} - G'(v_1 - p^*)} > 0
+\end{equation}
+
+The numerator is negative. The denominator is negative (sum of two negative terms). Therefore $\frac{\partial p^*}{\partial v_1} > 0$.

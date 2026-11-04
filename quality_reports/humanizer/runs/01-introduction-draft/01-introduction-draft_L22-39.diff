@@ -1,0 +1,10 @@
+--- before
++++ after
+@@ -14,5 +14,4 @@
+ it, and buyers acquired legal recourse against misstatement. The reform changed what a disclosed
+ score means without changing the underlying housing stock or the legal consequences of remaining
+-silent. It therefore isolates the demand-side value of the signal, and it does so in a market
+-where the certificate is issued and archived by a national agency rather than by the seller or
+-the listing platform.
++silent. It therefore isolates the demand-side value of the signal. The certificate is also issued
++and archived by a national agency, not by the seller or the listing platform.

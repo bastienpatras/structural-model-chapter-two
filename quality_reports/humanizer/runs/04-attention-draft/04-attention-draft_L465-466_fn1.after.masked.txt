@@ -1,0 +1,1 @@
+The bound depends on how certified consumption is valued. Our {{M002}} values registry letters at band midpoints and the open-ended G band at 500 kWh. Valuing G at 420 or 600 kWh moves the apartment estimate of {{M003}} to {{M004}} or {{M005}}, and the number of apartment markets violating the bound to {{M006}} or {{M007}}. {{M001}}

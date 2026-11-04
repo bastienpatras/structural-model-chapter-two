@@ -1,0 +1,7 @@
+(i) is the disclosed-price equation {{M001}}.
+(ii): in Partial Pooling the indifference condition
+{{M002}} reads {{M003}}; substitute {{M004}}
+from (i). (iii) follows from the regime boundaries of Proposition{{M007}}{{M008}}
+evaluated at {{M005}}. (iv) combines (i) with the non-disclosed pricing equation
+{{M006}}. (v) is
+Proposition{{M009}}{{M010}}.

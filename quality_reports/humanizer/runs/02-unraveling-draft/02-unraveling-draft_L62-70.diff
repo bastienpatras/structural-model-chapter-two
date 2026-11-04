@@ -1,0 +1,7 @@
+--- before
++++ after
+@@ -7,3 +7,3 @@
+ resulting equilibria and showed that partial pooling, in which some informed sellers of poor
+ quality withhold while the uninformed are silent by necessity, is generically stable. Disclosure
+-does not unravel to the bottom; it stops somewhere in the interior.
++stops somewhere in the interior instead of unraveling to the bottom.

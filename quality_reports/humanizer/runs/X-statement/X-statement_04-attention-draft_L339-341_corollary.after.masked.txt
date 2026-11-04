@@ -1,0 +1,2 @@
+{{M010}}
+Suppose {{M001}}. If {{M002}} and {{M003}}, a silent listing sells above a verified efficient rating in every equilibrium, whatever the hiding cost. If {{M004}} or {{M005}}, it sells at most at the price of a verified efficient rating in every equilibrium, whatever the hiding cost. Otherwise, in any equilibrium with {{M006}}, it sells above a verified efficient rating if and only if {{M007}}. In the model of Section{{M011}}{{M012}}, {{M008}} and {{M009}} in every equilibrium.

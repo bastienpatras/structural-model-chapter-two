@@ -1,0 +1,10 @@
+--- before
++++ after
+@@ -9,6 +9,5 @@
+ apartments and $+0.008$ for houses with no discernible drift, and then shift sharply upward,
+ stabilising around $+0.044$ and $+0.037$ by mid-2024. For apartments the level ordering already
+-favoured non-disclosers beforehand, so what the reform changes is the magnitude of the premium
+-rather than its sign. Third, turning to the address-matched listing sample, non-disclosure is
++favoured non-disclosers beforehand, so the reform changes the magnitude of the premium, not its sign. Third, turning to the address-matched listing sample, non-disclosure is
+ overwhelmingly involuntary. Among apartment listings 79.8\% disclose truthfully, 16.7\% are
+ genuinely uninformed, and only 3.5\% hold a certificate and withhold it, with the corresponding

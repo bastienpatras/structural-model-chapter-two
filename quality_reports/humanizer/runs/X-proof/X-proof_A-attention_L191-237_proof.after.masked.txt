@@ -1,0 +1,40 @@
+{{M096}}
+{{M097}}Idea.{{M098}} The silent price is pinned at a corner by the extreme pool and in Partial Pooling by the indifference of the marginal hider, which gives the truncation formula; payoffs follow from who bears a hiding cost. Normalise {{M004}}.
+
+{{M099}}Step 1 (prices).{{M100}} By Lemma{{M101}}{{M102}}, a listing displaying an efficient rating sells at {{M005}} and a silent listing at {{M006}}, with {{M007}} evaluated at the equilibrium pool by{{M103}}{{M104}}. Displayed prices depend on no belief, so they are the same in every regime and are defined even where no seller displays a given rating. With {{M008}} the pool belief is {{M009}} of{{M105}}{{M106}}, so {{M010}} by{{M107}}{{M108}}.
+
+{{M109}}Step 2 (the band is ordered).{{M110}} Since {{M011}} and {{M012}}, {{M013}} is weakly increasing in {{M014}}. Since {{M015}}, {{M016}}.
+
+{{M111}}Step 3 (the silent price).{{M112}} By Proposition{{M113}}{{M114}}:
+{{M115}}
+    {{M116}} {{M117}}Cost-Deterred Hiding:{{M118}} {{M017}} and {{M018}}, so {{M019}};
+    {{M119}} {{M120}}Partial Pooling:{{M121}} {{M020}}, with {{M021}} in the band (if {{M022}}, {{M023}} at every {{M024}});
+    {{M122}} {{M123}}Complete Adverse Selection{{M124}} with {{M025}}: {{M026}} and {{M027}}, so {{M028}}.
+{{M125}}
+In each case {{M029}} is {{M030}} truncated to {{M031}}, an interval by Step{{M126}}2. This is{{M127}}{{M128}}. In Partial Pooling, Definition{{M129}}{{M130}} gives {{M032}}.
+
+{{M131}}Step 4 (payoffs).{{M132}} A seller's net payoff is the price of her listing less the hiding cost, which only an informed seller who withholds a rating bears.
+{{M133}}
+    {{M134}} An informed high-quality seller displays when {{M033}} and earns {{M034}}.
+    {{M135}} An informed low-quality seller earns {{M035}} by displaying and {{M036}} by hiding. In Cost-Deterred Hiding {{M037}}, so she displays. In Partial Pooling {{M038}}, so both actions earn zero. In Complete Adverse Selection {{M039}}, so she hides. Her equilibrium payoff is therefore {{M040}}.
+    {{M136}} An uninformed seller cannot display (No Falsification), bears no hiding cost, and earns {{M041}} whatever her quality.
+{{M137}}
+In Partial Pooling the four payoffs are {{M042}}, {{M043}}, {{M044}} and {{M045}}. This gives the two orderings in the statement, and {{M046}} if and only if {{M047}}.
+
+{{M138}}Step 5 (silence above an efficient rating: {{M048}}).{{M139}} Since {{M049}}, {{M050}} if and only if {{M051}}. Also {{M052}}. If {{M053}}, then {{M054}} is a weighted average of {{M055}} and {{M056}}, so {{M057}}.
+
+{{M140}}Step 6 (silence above an efficient rating: {{M058}}).{{M141}} Then {{M059}} and, for any {{M060}},
+{{M001}}
+Since {{M061}}, {{M062}} if and only if {{M063}}.
+
+{{M142}}Step 7 (the threshold in cost units).{{M143}} The quality scale {{M064}} maps {{M065}} to {{M066}}, {{M067}} to {{M068}} and {{M069}} to {{M070}}. Hence {{M071}} and {{M072}}, and at the equilibrium pool
+{{M002}}
+which is the threshold of Proposition{{M144}}{{M145}}(iii).
+
+{{M146}}Step 8 (the uninformed seller's rank).{{M147}} When {{M073}}, the uninformed seller earns {{M074}}. She also earns {{M075}}, since {{M076}} and {{M077}}.
+
+{{M148}}Step 9 (high-quality sellers when {{M078}}).{{M149}} An informed high-quality seller gains {{M079}} from silence by{{M150}}{{M151}}. In Cost-Deterred Hiding and Partial Pooling {{M080}}, so
+{{M003}}
+She strictly prefers to display even when {{M081}}. In Partial Pooling the slack is exactly {{M082}}.
+
+{{M152}}Step 10 (equilibria with {{M083}}).{{M153}} By Corollary{{M154}}{{M155}}, {{M084}} requires {{M085}} and {{M086}}. It cannot arise with {{M087}}: that would give {{M088}}, whereas the difference is {{M089}} (proof of Proposition{{M156}}{{M157}}). So it arises only in Complete Adverse Selection, where {{M090}}. At {{M091}} every seller is silent, {{M092}} and {{M093}}. At an interior {{M094}} the high-quality seller is indifferent and {{M095}}.

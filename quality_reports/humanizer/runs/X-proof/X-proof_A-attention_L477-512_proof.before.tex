@@ -1,0 +1,35 @@
+\upshape
+\emph{Idea.} In Partial Pooling the indifference of the marginal hider pins the pool belief and hence the number of hiders, so renovators come out of the disclosers until these run out; after that the pool improves and the threshold falls. \emph{Notation.} $F$: share of informed low-quality sellers who renovate; $\sigma$: share of the unrenovated ones who hide; $e(1;F)$ as in the statement.
+
+\emph{Step 1 (The pool belief).} Renovators become informed high-quality sellers who disclose (Lemma~\ref{lem:renov_behaviour}). The silent pool therefore consists of the uninformed, of whom $(1-\pi)\bar\theta$ per listing are efficient, and of the unrenovated informed low-quality sellers who hide. If a share $\sigma$ of the $\pi(1-\bar\theta)(1-F)$ unrenovated informed low-quality sellers hide, the pool belief is
+\begin{equation*}
+    e\;=\;\frac{(1-\pi)\bar\theta}{(1-\pi)+\pi(1-\bar\theta)(1-F)\,\sigma}.
+\end{equation*}
+
+\emph{Step 2 (Phase~1: the hider mass does not move).} In Partial Pooling the premium equals the cost, $\Delta_\psi(e^*)=c_0$, which pins $e=e^*$. Solving the display of Step~1 for the mass of hiders gives
+\begin{equation*}
+    H^*\;\equiv\;\pi(1-\bar\theta)(1-F)\sigma\;=\;\frac{(1-\pi)(\bar\theta-e^*)}{e^*},
+\end{equation*}
+which does not depend on $F$.
+
+\emph{Step 3 (Phase~1: hiding share and threshold).} By Step~2 the share that hides is $\sigma=\sigma_0^*/(1-F)$. It is feasible ($\sigma\le1$) if and only if $F\le1-\sigma_0^*$. In that range $h=g_0-c_0=0$, so $\bar R=b$ by Proposition~\ref{prop:threshold}.
+
+\emph{Step 4 (Phase~2: every remaining seller hides).} Let $F>1-\sigma_0^*$. Even $\sigma=1$ then gives a hider mass $\pi(1-\bar\theta)(1-F)<H^*$, so the belief $e(1;F)$ exceeds $e^*$. Hiding therefore pays strictly, $\Delta_\psi(e(1;F))>c_0$, and every remaining informed low-quality seller hides.
+
+\emph{Step 5 (Phase~2: the threshold falls).} Using $\Delta_\psi(e^*)=c_0$ from Step~2,
+\begin{equation*}
+    h(F)\;=\;\Delta_\psi(e(1;F))-c_0\;=\;\psi b\,[e(1;F)-e^*]\;>\;0.
+\end{equation*}
+Since $e(1;F)\le\bar\theta$ and $\psi\le1$, $h(F)\le b$. So a renovated seller displays (Lemma~\ref{lem:renov_behaviour}) and $\bar R(F)=b-h(F)$. The belief $e(1;F)$ is increasing in $F$, so $\bar R(F)$ is decreasing.
+
+\emph{Step 6 (Equilibrium: uniqueness).} The renovating share solves $F=F_R(\bar R(F)+S)$, with $F_R$ a continuous distribution function. The map $F\mapsto F_R(\bar R(F)+S)$ is non-increasing, because $\bar R(F)$ is non-increasing (Steps~3 and~5) and $F_R$ is non-decreasing. Hence
+\begin{equation*}
+    G(F)\;\equiv\;F-F_R(\bar R(F)+S)
+\end{equation*}
+is strictly increasing. Since $G(0)\le0\le G(1)$, the root is unique.
+% [CHECK] Existence of the root (intermediate value theorem) also needs Rbar(F) continuous, including at F=1-sigma_0^*, where h=0; the proof uses continuity of F_R without saying so. See ledger, ISSUE S1.
+
+\emph{Step 7 (Common cost).} Under a common cost, all renovate if and only if $\hat R-S\le\bar R(1)$. Since $e(1;1)=\bar\theta$, Step~5 gives
+\begin{equation*}
+    \bar R(1)\;=\;b-\psi b\,(\bar\theta-e^*).
+\end{equation*}

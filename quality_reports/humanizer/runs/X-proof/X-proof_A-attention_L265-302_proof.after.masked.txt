@@ -1,0 +1,28 @@
+{{M043}}
+{{M044}}Idea.{{M045}} In Partial Pooling the indifference condition pins {{M013}} in closed form by{{M046}}{{M047}}, and {{M014}} is a strictly decreasing function of {{M015}}. Each sign in{{M048}}(i) therefore follows from differentiating {{M016}}. The corner premia are linear in {{M017}}.
+
+{{M049}}Step 1 (attention, {{M018}}).{{M050}} From{{M051}}{{M052}},
+{{M001}}
+
+{{M053}}Step 2 (sign of Step 1).{{M054}} In Partial Pooling {{M019}}, so {{M020}}. This is positive whenever {{M021}}, which holds when {{M022}}, since then {{M023}}. So {{M024}}.
+{{M005}}
+{{M006}}
+{{M007}}
+
+{{M055}}Step 3 (the other parameters).{{M056}} Differentiating{{M057}}{{M058}},
+{{M002}}
+and {{M025}} through {{M026}}.
+{{M008}}
+{{M009}}
+{{M010}}
+
+{{M059}}Step 4 (hiding rate).{{M060}} By{{M061}}{{M062}}, {{M027}} is strictly decreasing in {{M028}}, so Steps{{M063}}1--3 give the signs in{{M064}}(i) for {{M029}}, {{M030}}, {{M031}} and {{M032}}. The effect of {{M033}} operates only through the inversion of{{M065}}{{M066}}, exactly as in Proposition{{M067}}{{M068}}(ii).
+
+{{M069}}Step 5 (corner premia and attention, (ii)).{{M070}} The Cost-Deterred premium {{M034}} has derivative {{M035}} in {{M036}}. It is negative iff
+{{M003}}
+The Complete Adverse Selection premium has derivative {{M037}}, since {{M038}}. The same condition therefore makes it decreasing in {{M039}}.
+
+{{M071}}Step 6 (Complete Adverse Selection premium and {{M040}}, (ii)).{{M072}} That premium has derivative {{M041}} in {{M042}}, with
+{{M004}}
+{{M011}}
+{{M012}}

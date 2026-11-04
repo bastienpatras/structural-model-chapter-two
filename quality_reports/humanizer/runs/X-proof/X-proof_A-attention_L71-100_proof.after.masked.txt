@@ -1,0 +1,19 @@
+{{M030}}
+{{M031}}Idea.{{M032}} A price is the buyer-share-weighted average of valuations. The gross value and the insensitive buyer's cost are common to all listings and cancel from every gap, so only what sensitive buyers subtract survives. Shorthand: {{M005}}, which is the {{M006}} of{{M033}}{{M034}}, and {{M007}}.
+
+{{M035}}Step 1 (weights).{{M036}} By Assumption{{M037}}{{M038}} and Table{{M039}}{{M040}}, a buyer values a listing at {{M008}} minus the energy cost she subtracts. The three buyer types arrive with probabilities {{M009}}, {{M010}} and {{M011}}, which sum to one. Under the pricing rule used to derive{{M041}}{{M042}}, a listing's price is the probability-weighted average of these valuations.
+
+{{M043}}Step 2 (the two prices).{{M044}} Expand term by term and collect the {{M012}} terms, whose weights sum to one by Step{{M045}}1. A listing displaying a rating with energy cost {{M013}} ({{M014}}) sells at
+{{M001}}
+A silent listing ({{M015}}, attentive buyers subtract {{M016}}) sells at
+{{M002}}
+
+{{M046}}Step 3 (price gap).{{M047}} Subtract the two lines of Step{{M048}}2. The common term {{M017}} cancels, and the default terms collect to {{M018}}. Using {{M019}} and the definition of {{M020}},
+{{M003}}
+This is the last statement of the lemma.
+
+{{M049}}Step 4 (the two premia).{{M050}} Apply Step{{M051}}3 with {{M021}} and with {{M022}}, and subtract. {{M023}} cancels, and
+{{M004}}
+which is{{M052}}{{M053}}. Applying Step{{M054}}3 with {{M024}} alone gives {{M025}}, which is{{M055}}{{M056}}.
+
+{{M057}}Step 5 (nesting).{{M058}} With {{M026}} and {{M027}}, the two prices of Step{{M059}}2 reduce to {{M028}} and {{M029}} of{{M060}}{{M061}}.

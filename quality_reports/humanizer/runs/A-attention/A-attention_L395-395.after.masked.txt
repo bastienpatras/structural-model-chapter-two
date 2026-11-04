@@ -1,0 +1,1 @@
+{{M002}}Step 6 (What the aggregation fixes by construction).{{M003}} Under the ratio-of-sums aggregation, the point estimate equals the upper end of the identified interval at {{M001}}, and the fitted premium equals the mean premium. Both are identities of the aggregation. The informative check is market by market (Section{{M004}}{{M005}}).

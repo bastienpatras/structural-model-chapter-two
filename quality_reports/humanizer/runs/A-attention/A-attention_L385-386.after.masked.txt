@@ -1,0 +1,2 @@
+{{M005}}Step 4 (Selection).{{M006}} The estimation sample is, however, selected on {{M002}}. Since {{M003}} and {{M004}} share the E-to-G error (Step{{M007}}1), selection gives the retained errors non-zero means. This biases both estimators toward full attention.
+{{M001}}

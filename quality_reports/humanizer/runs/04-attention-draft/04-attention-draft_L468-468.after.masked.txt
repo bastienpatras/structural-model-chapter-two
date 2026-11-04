@@ -1,0 +1,1 @@
+Splitting the post-reform window by year, {{M002}} equals {{M003}}, {{M004}} and {{M005}} in apartments and {{M006}}, {{M007}} and {{M008}} in houses. These are imprecise point estimates, computed with the pooled 2022--2024 registry moments; we do not interpret their time pattern without year-specific moments. {{M001}}

@@ -1,0 +1,47 @@
+From~\eqref{eq:premium_derived}, the non-disclosure premium is $\Delta\equiv p_0^*-p_1^*=\rho\,\beta_1\,e(\sigma_0^*)$, where the belief $e(\sigma_0)$ is given by~\eqref{eq:belief_simplified}. The equilibrium hiding rate $\sigma_0^*\in[0,1]$ is determined by the regime characterised in Proposition~\ref{prop:equilibrium}. We derive $\partial\Delta/\partial\pi$ and $\partial\Delta/\partial\rho$ in each of the three regimes, in turn.
+
+\medskip
+\textbf{Case 1: Cost-Deterred Hiding ($\sigma_0^*=0$).}
+No informed low-quality seller hides, so the non-disclosing pool consists entirely of uninformed sellers. From~\eqref{eq:belief_simplified} at $\sigma_0=0$:
+\begin{equation}
+    e(0) = \frac{(1-\pi)\bar{\theta}}{(1-\pi)} = \bar{\theta},
+\end{equation}
+which is independent of $\pi$. The premium is therefore:
+\begin{equation}
+    \Delta = \rho\,\beta_1\,\bar{\theta}.
+\end{equation}
+Since $\bar{\theta}$ is a structural parameter, $\partial\Delta/\partial\pi=0$ and $\partial\Delta/\partial\rho=\beta_1\bar{\theta}>0$.
+
+\medskip
+\textbf{Case 2: Complete Adverse Selection ($\sigma_0^*=1$).}
+All informed low-quality sellers hide. From~\eqref{eq:belief_simplified} at $\sigma_0=1$:
+\begin{equation}
+    e(1) = \frac{(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})+(1-\pi)} = \frac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}},
+\end{equation}
+so $\Delta=\rho\,\beta_1\,e(1)$. Differentiating with respect to $\pi$ by the quotient rule:
+\begin{equation}
+    \frac{\partial e(1)}{\partial\pi}
+        = \frac{-\bar{\theta}(1-\pi\bar{\theta})-(1-\pi)\bar{\theta}\cdot(-\bar{\theta})}{(1-\pi\bar{\theta})^2}
+        = \frac{\bar{\theta}(\bar{\theta}-1)}{(1-\pi\bar{\theta})^2}
+        = \frac{-\bar{\theta}(1-\bar{\theta})}{(1-\pi\bar{\theta})^2} < 0,
+\end{equation}
+hence $\partial\Delta/\partial\pi = \rho\,\beta_1\cdot\partial e(1)/\partial\pi < 0$.
+Differentiating with respect to $\rho$ (with $e(1)$ determined solely by $\pi$ and $\bar\theta$):
+$\partial\Delta/\partial\rho=\beta_1\,e(1)>0$.
+
+\medskip
+\textbf{Case 3: Partial Pooling ($\sigma_0^*\in(0,1)$).}
+The interior equilibrium satisfies $c_0=\rho\,\beta_1\,e(\sigma_0^*)$, so the premium is pinned at the hiding cost:
+\begin{equation}
+    \Delta = c_0.
+\end{equation}
+Changes in $\pi$ or $\rho$ induce compensating adjustments in $\sigma_0^*$ that restore the indifference condition, leaving the premium invariant: $\partial\Delta/\partial\pi=0$ and $\partial\Delta/\partial\rho=0$.
+
+To verify: from~\eqref{eq:belief_simplified}, $\partial e(\sigma_0)/\partial\pi = -\bar{\theta}(1-\bar{\theta})\sigma_0/[\pi(1-\bar{\theta})\sigma_0+(1-\pi)]^2 < 0$ for $\sigma_0>0$. Total differentiation of $c_0=\rho\,\beta_1\,e(\sigma_0^*(\pi),\pi)$ with respect to $\pi$ gives:
+\begin{equation}
+    0 = \rho\,\beta_1\left(\frac{\partial e}{\partial\sigma_0}\,\frac{\mathrm{d}\sigma_0^*}{\mathrm{d}\pi} + \frac{\partial e}{\partial\pi}\right),
+\end{equation}
+so $\mathrm{d}\sigma_0^*/\mathrm{d}\pi = -(\partial e/\partial\pi)/(\partial e/\partial\sigma_0) < 0$: as $\pi$ rises, informed sellers populate the non-disclosing pool more heavily, so fewer low-quality sellers need to hide to sustain the same buyer belief, and $\sigma_0^*$ falls.
+
+\medskip
+\textbf{Summary.} The non-disclosure premium is \emph{weakly} decreasing in $\pi$ and \emph{weakly} increasing in $\rho$, with strict monotonicity only in the Complete Adverse Selection regime. In Case~1, the premium is determined by the population quality $\bar{\theta}$ of the uninformed pool and is insensitive to market fundamentals $\pi$ and $\rho$. In Case~3, the premium is pinned at the primitive $c_0$ by the indifference condition; it is the hiding rate $\sigma_0^*$, not the premium, that absorbs variation in $\pi$ and $\rho$.

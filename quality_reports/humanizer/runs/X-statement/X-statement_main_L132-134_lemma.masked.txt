@@ -1,0 +1,2 @@
+{{M004}}
+Strategy{{M005}}4 is weakly dominated by Strategy{{M006}}3 if and only if {{M001}}, the condition under which an informed high-quality seller discloses. This holds in Cost-Deterred Hiding and in Partial Pooling (Corollary{{M007}}{{M008}}) and in Complete Adverse Selection when {{M002}}. In Complete Adverse Selection with {{M003}} a renovated seller also hides.

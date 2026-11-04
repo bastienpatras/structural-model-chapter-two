@@ -1,0 +1,27 @@
+{{M001}}
+The estimates deliver two structural magnitudes and one specification test. Identifying buyer
+energy-sensitivity separately from the concealment cost requires a source of variation external
+to prices, since the two are shown to be identified only as their product by price moments
+alone (Appendix{{M003}}{{M004}}); we construct one from the capitalised energy-cost
+saving a sensitive buyer attaches to verified high- versus low-quality certification, built from
+ADEME-certified consumption bands rather than from the price data itself. The resulting share of
+buyers who price energy performance averages 49.5{{M005}} across apartment markets and 45.8{{M006}} across
+house markets, and the cost of withholding a certificate settles at 2.4{{M007}} of property value for
+apartments and 3.5{{M008}} for houses, on the order of a third of the notary bill a French buyer
+separately pays on the same transaction. Both are economically substantial magnitudes, and of the
+same order in two segments that trade very differently. The model predicts, in the partial-pooling
+equilibrium that describes the bulk of French housing markets, that the non-disclosure premium
+should collapse to this concealment cost exactly, invariant to market composition; we test this
+prediction directly rather than impose it. It holds for houses: the gap between the observed
+premium and the identified concealment cost is small and statistically indistinguishable from
+zero. It does not hold for apartments: the premium exceeds the concealment cost by a wide and
+precisely estimated margin, a specification tension the baseline cannot absorb, because no belief
+about silence can price a silent listing above a verified efficient one.
+{{M002}}
+Section{{M009}}{{M010}} shows that one change on the buyer side can account for it: if buyers attend
+to energy when a rating is displayed and much less when it is not, the model fits houses as before,
+rejects full attention in apartments, and leaves the estimated buyer sensitivity unchanged.
+We maintain, rather than test, the model's prediction that informed sellers of high-quality
+properties never conceal; Appendix{{M011}}{{M012}} relaxes it by reading the withheld grade
+from the registry and finds the structural estimates essentially unchanged. Under the limited-attention
+extension the prediction survives whenever not every informed low-quality seller hides (Corollary{{M013}}{{M014}}).

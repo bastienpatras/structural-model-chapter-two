@@ -1,0 +1,10 @@
+{{M004}}
+    {{M005}}
+    {{M001}}
+    {{M006}}
+    {{M007}}
+    {{M008}}
+    {{M009}}
+        {{M010}}{{M011}}Notes.{{M012}} Each segment is a market, sorted by the rating premium. The left end is the threshold at the maintained reading {{M002}} and the right end the upper bound {{M003}}, in euros per m{{M013}}. Vertical lines mark the renovation-cost benchmarks. Diamonds mark markets that move into Complete Adverse Selection under the bound. The bound is not an estimate.
+    {{M014}}
+{{M015}}

@@ -1,0 +1,15 @@
+{{M035}}
+{{M036}}Idea.{{M037}} Each threshold compares the gross gain from silence in{{M038}}{{M039}} with the hiding cost; the attention threshold rewrites {{M003}} on the cost scale. Throughout, {{M004}}, as the definition {{M005}} presupposes.
+
+{{M040}}Step 1 (low-quality seller, (i)).{{M041}} An informed seller with {{M006}} gains {{M007}} by hiding, by{{M042}}{{M043}}, and pays {{M008}}. She strictly prefers non-disclosure iff {{M009}}, that is, iff {{M010}}.
+
+{{M044}}Step 2 (high-quality seller, (ii)).{{M045}} An informed seller with {{M011}} gains {{M012}} and pays {{M013}}. She strictly prefers non-disclosure iff
+{{M001}}
+Since {{M014}}, this requires {{M015}}, that is, {{M016}}: silence sells above a verified efficient rating.
+
+{{M046}}Step 3 (attention threshold, (iii)).{{M047}} By{{M048}}{{M049}}--{{M050}}, {{M017}}, so {{M018}} iff {{M019}}. Substitute {{M020}} and divide by {{M021}}:
+{{M002}}
+
+{{M051}}Step 4 (the default must be optimistic, (iii)).{{M052}} {{M022}} is a convex combination of {{M023}} and {{M024}}, and {{M025}} by{{M053}}{{M054}}. If {{M026}}, both points are at least {{M027}}, and so is {{M028}}. Hence {{M029}} requires {{M030}}.
+
+{{M055}}Step 5 (full attention, (iv)).{{M056}} With {{M031}},{{M057}}{{M058}} gives {{M032}}. Steps{{M059}}1--2 are then the comparisons behind Proposition{{M060}}{{M061}}, with {{M033}} in the role of {{M034}}. Without hiding costs they are those of Proposition{{M062}}{{M063}}.

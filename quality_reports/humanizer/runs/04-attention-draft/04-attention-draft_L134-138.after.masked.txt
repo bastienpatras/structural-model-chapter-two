@@ -1,0 +1,5 @@
+{{M004}}
+{{M005}}
+{{M006}}
+{{M007}}Notes:{{M008}} {{M001}} for a displayed rating and {{M002}} for a silent listing. {{M003}} (Lemma{{M009}}{{M010}}) does not depend on the rating or on whether one is displayed, so it cancels from every price gap.
+{{M011}}

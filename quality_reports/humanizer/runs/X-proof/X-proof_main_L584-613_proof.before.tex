@@ -1,0 +1,29 @@
+Under the benchmark $\alpha_k=\beta_k$, the equilibrium price of a listing equals its expected buyer valuation. For a low-quality seller who discloses ($d=1$, $\theta=0$), both buyer types value the property at $\beta_0$ (sensitive buyers: $v_1(d=1,\theta=0)=\beta_0+\beta_1\cdot 0=\beta_0$; insensitive buyers: $v_0=\beta_0$), so $p_1^*=\beta_0$. For a non-disclosing listing, sensitive buyers assign expected quality $e(\sigma_0^*)$ and value the property at $\beta_0+\beta_1 e(\sigma_0^*)$, while insensitive buyers value it at $\beta_0$. Weighting by buyer composition yields $p_0^*=\beta_0+\rho\,\beta_1\,e(\sigma_0^*)$, so the non-disclosure premium is:
+\begin{equation}
+    p_0^*-p_1^* = \rho\,\beta_1\,e(\sigma_0^*). \label{eq:premium_derived}
+\end{equation}
+The three cases of~\eqref{eq:premium} follow by substituting the equilibrium $\sigma_0^*$ from each regime of Proposition~\ref{prop:equilibrium} into~\eqref{eq:premium_derived}.
+
+\medskip
+\textbf{Case 1: Cost-Deterred Hiding ($\sigma_0^*=0$).}
+Evaluating~\eqref{eq:belief_simplified} at $\sigma_0=0$:
+\[
+    e(0) = \frac{(1-\pi)\bar{\theta}}{(1-\pi)} = \bar{\theta}.
+\]
+Substituting into~\eqref{eq:premium_derived}: $p_0^*-p_1^* = \rho\,\beta_1\,\bar{\theta}$.
+
+\medskip
+\textbf{Case 2: Complete Adverse Selection ($\sigma_0^*=1$).}
+With $\sigma_1^*=0$ by Corollary~\ref{cor:hq_disclose}, evaluating~\eqref{eq:belief_simplified} at $\sigma_0=1$:
+\[
+    e(1) = \frac{(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})+(1-\pi)} = \frac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}.
+\]
+Substituting into~\eqref{eq:premium_derived}: $p_0^*-p_1^* = \rho\,\beta_1\,\dfrac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}$.
+
+\medskip
+\textbf{Case 3: Partial Pooling ($\sigma_0^*\in(0,1)$).}
+By Proposition~\ref{prop:equilibrium}, $\sigma_0^*$ solves the indifference condition $\Delta(e(\sigma_0^*))=c_0$, i.e., $\rho\,\beta_1\,e(\sigma_0^*)=c_0$. But the left-hand side is $p_0^*-p_1^*$ by~\eqref{eq:premium_derived}, so $p_0^*-p_1^*=c_0$.
+
+\medskip
+\textbf{Ordering.}
+Since $e$ is strictly decreasing by Lemma~\ref{lem:belief_monotone}, we have $e(1)<e(\sigma_0^*)<e(0)$ for all $\sigma_0^*\in(0,1)$, hence $\rho\,\beta_1\,e(1)<c_0<\rho\,\beta_1\,\bar{\theta}$, confirming the strict ordering stated after~\eqref{eq:premium}.

@@ -1,0 +1,8 @@
+{{M009}}
+{{M001}} satisfies {{M002}}
+for every true {{M003}}, since under the model {{M004}} and
+{{M005}} share the same composite {{M006}} by
+Proposition{{M010}}{{M011}}. It is the sample analogue of the over-identifying
+restriction {{M007}} (Lemma{{M012}}{{M013}} below), not an
+estimate of buyer sensitivity; its deviation from unity is a specification-test statistic, and
+clipping it to {{M008}} suppresses that test rather than estimating anything.

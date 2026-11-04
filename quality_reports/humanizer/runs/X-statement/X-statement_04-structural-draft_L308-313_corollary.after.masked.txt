@@ -1,0 +1,5 @@
+{{M011}}
+{{M012}}
+    {{M013}} The non-disclosure premium {{M001}} is weakly increasing in {{M002}}: strictly so in the Cost-Deterred Hiding and Complete Adverse Selection regimes ({{M003}}), and zero in the Partial Pooling regime ({{M004}}, with the premium pinned at {{M005}}).
+    {{M014}} The parameter interval sustaining the Partial Pooling regime, {{M006}}, is weakly expanding in {{M007}}: its width {{M008}} is strictly increasing in {{M009}} whenever {{M010}}.
+{{M015}}

@@ -1,0 +1,6 @@
+By Lemma A.1, {{M001}} if and only if {{M002}}. Since {{M003}} and {{M004}}, this holds if and only if {{M005}}.
+
+{{M011}}
+    {{M012}} {{M013}}For a low-quality seller{{M014}} ({{M006}}): the condition is {{M007}}, which holds whenever the non-disclosing pool contains any high-quality sellers.
+    {{M015}} {{M016}}For a high-quality seller{{M017}} ({{M008}}): the condition is {{M009}}, which is impossible since {{M010}}.
+{{M018}}

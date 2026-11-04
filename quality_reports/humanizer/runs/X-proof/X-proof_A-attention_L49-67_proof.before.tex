@@ -1,0 +1,18 @@
+\upshape
+\emph{Idea.} The gross value $\bar V$ adds back exactly the energy cost $C_0$ that the bonus form nets out of its intercept, so subtracting each buyer's energy cost from $\bar V$ returns her bonus-form valuation. Throughout, $\bar V=\beta_0+\sum_n\beta_nX_n+C_0$ by~\eqref{eq:gross_value} and $\beta_1=C_0-C_1$.
+
+\emph{Step 1 (disclosed rating).} For $\theta\in\{0,1\}$, $C_0-C_\theta=\beta_1\theta$. Hence
+\begin{equation*}
+    \bar V-C_\theta\;=\;\beta_0+\sum_n\beta_nX_n+(C_0-C_\theta)\;=\;\beta_0+\beta_1\theta+\sum_n\beta_nX_n,
+\end{equation*}
+the valuation of a disclosed rating in Section~\ref{ss:model_setup}.
+
+\emph{Step 2 (silent listing).} By~\eqref{eq:csil}, $C_0-\bar C^{\rm sil}=e\,(C_0-C_1)=\beta_1e$. Hence
+\begin{equation*}
+    \bar V-\bar C^{\rm sil}\;=\;\beta_0+\beta_1e+\sum_n\beta_nX_n,
+\end{equation*}
+the valuation of a silent listing in Section~\ref{ss:model_setup}.
+
+\emph{Step 3 (insensitive buyer).} $\bar V-C^{\rm ins}=v_0(X)$ by the definition of $C^{\rm ins}$.
+
+\emph{Step 4 (uniqueness).} Suppose instead $\bar V=\beta_0+\sum_n\beta_nX_n+K$ for some constant $K$. Agreement with the bonus form requires $K-C_\theta=\beta_1\theta$ for $\theta\in\{0,1\}$. The case $\theta=0$ gives $K=C_0$. The case $\theta=1$ is then satisfied, because $C_0-C_1=\beta_1$.

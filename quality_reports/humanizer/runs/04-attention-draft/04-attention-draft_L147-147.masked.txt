@@ -1,0 +1,1 @@
+Write {{M001}}, {{M002}} and {{M003}} for the equilibrium log prices, at the reference property {{M004}}, of a listing displaying an efficient rating (A to D), a listing displaying an inefficient rating (E to G), and a silent listing. In the notation of Section{{M007}}{{M008}}, {{M005}} is the premium {{M006}}.

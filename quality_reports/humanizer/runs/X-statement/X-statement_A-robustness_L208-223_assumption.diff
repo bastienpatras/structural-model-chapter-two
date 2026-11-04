@@ -1,0 +1,12 @@
+--- before
++++ after
+@@ -9,7 +9,7 @@
+ \end{equation}
+ where $\bar E_{\theta,m}$ is mean certified primary-energy consumption (kWh$_{\mathrm{ep}}$/m$^2$/yr)
+-of quality-$\theta$ dwellings among ADEME-matched ($K=1$) listings in market $m$ --- pooling
++of quality-$\theta$ dwellings among ADEME-matched ($K=1$) listings in market $m$ (pooling
+ \emph{both} disclosed and strategically-hidden listings, since restricting to disclosed-only
+-listings would reintroduce selection on the seller's own hiding decision --- $p^E$ is a
++listings would reintroduce selection on the seller's own hiding decision), $p^E$ is a
+ blended primary-energy-equivalent price, $P_m$ is the local price level, and $a(r,T)$ discounts
+ the annual saving over a horizon $T$ at rate $r$.

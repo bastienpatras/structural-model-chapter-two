@@ -1,0 +1,2 @@
+Testing a theory of strategic concealment requires observing something buyers cannot, namely whether
+a silent seller holds a certificate. We recover it by matching listings against the ADEME registry.

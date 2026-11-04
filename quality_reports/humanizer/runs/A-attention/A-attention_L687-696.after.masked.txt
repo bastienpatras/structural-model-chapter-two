@@ -1,0 +1,10 @@
+{{M003}}
+    {{M004}}
+    {{M001}}
+    {{M005}}
+    {{M006}}
+    {{M007}}
+    {{M008}}
+        {{M009}}{{M010}}Notes.{{M011}} Each point is a market. Horizontal axis: threshold of the exact-pricing solver of Section{{M012}}{{M013}}; vertical axis: {{M002}}. The dashed line is the 45-degree line. The gap is linear versus exact pricing, not attention.
+    {{M014}}
+{{M015}}

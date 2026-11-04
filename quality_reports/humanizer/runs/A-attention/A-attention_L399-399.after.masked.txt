@@ -1,0 +1,1 @@
+{{M002}}{{M003}}Notation used throughout.{{M004}} Payoffs are measured relative to a disclosed low rating, and {{M001}}. By Lemma{{M005}}{{M006}}, a disclosed low rating, a disclosed high rating and a silent listing sell for

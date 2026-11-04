@@ -1,0 +1,10 @@
+{{M002}}
+    {{M003}}
+    {{M001}}
+    {{M004}}
+    {{M005}}
+    {{M006}}
+    {{M007}}
+        {{M008}}{{M009}}Notes.{{M010}} Shares of markets in Cost-Deterred Hiding, Partial Pooling and Complete Adverse Selection under each scenario of Table{{M011}}{{M012}}, with the mean hiding rate. The hatched house segment under full attention is an artefact of holding a single hiding cost fixed.
+    {{M013}}
+{{M014}}

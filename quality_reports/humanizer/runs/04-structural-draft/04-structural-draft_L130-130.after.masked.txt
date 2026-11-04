@@ -1,0 +1,1 @@
+When observing a non-disclosing listing, buyers cannot determine whether the seller is strategically concealing an unfavorable audit or simply lacks a certified EPC. They form a posterior belief about expected quality using Bayes' rule. The structure of this belief depends on the composition of the non-disclosing pool, which is itself an equilibrium object.
