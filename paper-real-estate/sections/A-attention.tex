@@ -16,87 +16,87 @@
 % proofs_A_ledger.md with a proposed fix.
 % ============================================================
 
-\subsection*{The Cost Form and Why the Normalisation Binds}
+\subsection*{The Cost Form and Why the Level of the Energy Cost Matters}
+\label{app:att_costform}
 
-Valuations enter prices only through differences across listings. Any amount a buyer subtracts from every listing alike therefore shifts all her valuations by the same constant and drops out of every price gap. The bonus form of Section~\ref{ss:model_setup} uses this normalisation twice:
-\begin{itemize}
-    \item it folds the energy cost of an inefficient dwelling, $C_0$, into the intercept $\beta_0$;
-    \item it writes the insensitive buyer's valuation as $v_0=\delta_0+\sum_n\delta_nX_n$, which in cost form amounts to subtracting the same constant $C^{\rm ins}$ from every listing.
-\end{itemize}
-Both choices are innocuous in Section~\ref{ss:model_setup}, because each buyer treats every listing the same way: a sensitive buyer always prices energy, and an insensitive one never does.
+An EPC-sensitive buyer values a dwelling in the model of Section~\ref{ss:model_setup} as a gross value less the energy cost she subtracts. The gross value is defined as follows.
 
-The normalisation stops being innocuous as soon as the same buyer may price energy on one listing and not on another. A buyer who ignores energy on a silent listing but prices it on a rated one subtracts different amounts from the two. The difference involves the \emph{level} of what she subtracts when she ignores energy, not only $\beta_1$. Formally, under Assumption~\ref{assum:attention}, the non-disclosure premium departs from the prediction of Section~\ref{sec:equilibrium}, $e$ times the energy-efficiency premium $\rho\omega_1\beta_1$, by
+\begin{definition}[Gross Value]
+\label{def:cost_form}
+The \emph{gross value} of a dwelling with attributes $X$ is
+\begin{equation}
+    \bar V(X)\;\equiv\;\beta_0+\sum_n\beta_nX_n,
+    \label{eq:gross_value}
+\end{equation}
+its value to a buyer before any energy cost is subtracted. Recall that an EPC-insensitive buyer subtracts the same amount from every listing, $\zeta^{\rm ins}\equiv\bar V(X)-v_0(X)$.
+\end{definition}
+
+Writing the valuation in terms of the cost a buyer subtracts, and not as a coefficient on a belief, is what lets a buyer who does not think about a listing's energy performance enter the model. If every sensitive buyer instead priced a silent listing at a belief in $[0,1]$, the listing would sell at most at the price of a verified efficient one, and the non-disclosure premium could not exceed the energy-efficiency premium. This ceiling comes from the representation as much as from the economics, and most apartment markets lie above it (Figure~\ref{fig:att_belief}).
+
+\begin{figure}[htbp]
+    \centering
+    \caption{The full-attention benchmark cannot produce the non-disclosure premium}
+    \label{fig:att_belief}
+    \includegraphics[width=\linewidth]{fig/visuals/fig_att_F2a_belief.pdf}
+    \begin{minipage}{0.95\linewidth}
+        \vspace{0.5em}
+        \footnotesize\textit{Notes.} Each point is a market; both axes are log points. In the full-attention benchmark a silent listing sells at the buyers' belief about its quality times the energy-efficiency premium $\hat\beta_{1,m}$, and a belief about a binary rating lies between zero and one, so the non-disclosure premium $\hat\Delta_m$ cannot exceed $\hat\beta_{1,m}$ (the line). Markets in the shaded region, drawn as filled points, are outside what the full-attention benchmark can produce for any belief about silent listings: \attNDgtBApt{} of \attNMarketsApt{} apartment markets and \attNDgtBHouse{} of \attNMarketsHouse{} house markets. Sampling error in $\hat\beta_{1,m}$ and $\hat\Delta_m$ is not shown.
+    \end{minipage}
+\end{figure}
+
+Valuations enter prices only through differences across listings. Any amount a buyer subtracts from every listing alike therefore shifts all her valuations by the same constant and drops out of every price gap. In the full-attention benchmark of Appendix~\ref{sec:equilibrium} each buyer treats every listing the same way, a sensitive buyer always pricing energy and an insensitive one never doing so, so neither $\bar V(X)$, nor $\zeta^{\rm ins}$, nor the level of $\zeta_\theta$ matters.
+
+The level stops being irrelevant as soon as the same buyer may price energy on one listing and not on another. A buyer who ignores energy on a silent listing but prices it on a rated one subtracts different amounts from the two. The difference involves the \emph{level} of what she subtracts when she ignores energy, not only $\beta_1$. Formally, under Assumption~\ref{assum:attention}, the non-disclosure premium departs from the prediction of Appendix~\ref{sec:equilibrium}, $e$ times the energy-efficiency premium $\rho\omega_1\beta_1$, by
 \begin{equation*}
-    \Delta-e\,\rho\,\omega_1\beta_1\;=\;\rho\,(\omega_1-\omega_0)\,\big(\bar C^{\rm sil}-C^{\rm def}\big).
+    \Delta-e\,\rho\,\omega_1\beta_1\;=\;\rho\,(\omega_1-\omega_0)\,\big(\bar \zeta^{\rm sil}-\zeta^{\rm def}\big).
 \end{equation*}
-To see this, combine~\eqref{eq:premium_att} with $e\,\beta_1=C_0-\bar C^{\rm sil}$, which is~\eqref{eq:csil}, and with $\omega_0=\psi\omega_1$:
+To see this, combine~\eqref{eq:premium_att} with $e\,\beta_1=\zeta_0-\bar \zeta^{\rm sil}$, which is~\eqref{eq:csil}, and with $\omega_0=\psi\omega_1$:
 \begin{align*}
     \Delta-e\,\rho\,\omega_1\beta_1
-    &\;=\;\rho\,\omega_1\big(C_0-C^*\big)-\rho\,\omega_1\big(C_0-\bar C^{\rm sil}\big)
-    \;=\;\rho\,\omega_1\big(\bar C^{\rm sil}-C^*\big)\\
-    &\;=\;\rho\,\omega_1\,(1-\psi)\big(\bar C^{\rm sil}-C^{\rm def}\big)
-    \;=\;\rho\,(\omega_1-\omega_0)\,\big(\bar C^{\rm sil}-C^{\rm def}\big).
+    &\;=\;\rho\,\omega_1\big(\zeta_0-\zeta^*\big)-\rho\,\omega_1\big(\zeta_0-\bar \zeta^{\rm sil}\big)
+    \;=\;\rho\,\omega_1\big(\bar \zeta^{\rm sil}-\zeta^*\big)\\
+    &\;=\;\rho\,\omega_1\,(1-\psi)\big(\bar \zeta^{\rm sil}-\zeta^{\rm def}\big)
+    \;=\;\rho\,(\omega_1-\omega_0)\,\big(\bar \zeta^{\rm sil}-\zeta^{\rm def}\big).
 \end{align*}
 This departure depends on the level of the silent pool's energy cost and on the default. It vanishes when rated and silent listings receive the same attention, whatever the default. The cost form is the representation in which this object exists, and it has three further properties.
 \begin{itemize}
-    \item It nests the bonus form exactly (Lemma~\ref{lem:cost_form}), so the extension can only add to the model of Section~\ref{sec:equilibrium}.
-    \item Its primitives are physical rather than behavioural. $C_\theta$ is what a dwelling of quality $\theta$ costs to heat, while attention and the default describe what buyers do with that cost. This is what lets the registry discipline the extension through $\eta$.
-    \item It turns an implicit normalisation of the bonus form into an assumption that can be stated and tested (Proposition~\ref{prop:att_incentives}(iii)).
+    \item It nests the full-attention case at $\omega_0=\omega_1=1$, so limited attention can only add to the full-attention model of Appendix~\ref{sec:equilibrium}.
+    \item Its primitives are physical rather than behavioural. $\zeta_\theta$ is what a dwelling of quality $\theta$ costs to heat, while attention and the default describe what buyers do with that cost. This is what lets the registry discipline the model through $\eta$.
+    \item It makes the level of what an inattentive buyer subtracts an assumption that can be stated and tested (Proposition~\ref{prop:att_incentives}(iii)).
 \end{itemize}
 
-\subsection*{Proof of Lemma~\ref{lem:cost_form} (Bonus and Cost Forms)}
-
-\begin{proof}\upshape
-\emph{Idea.} The gross value $\bar V$ adds back exactly the energy cost $C_0$ that the bonus form nets out of its intercept, so subtracting each buyer's energy cost from $\bar V$ returns her bonus-form valuation. Throughout, $\bar V=\beta_0+\sum_n\beta_nX_n+C_0$ by~\eqref{eq:gross_value} and $\beta_1=C_0-C_1$.
-
-\emph{Step 1 (disclosed rating).} For $\theta\in\{0,1\}$, $C_0-C_\theta=\beta_1\theta$. Hence
-\begin{equation*}
-    \bar V-C_\theta\;=\;\beta_0+\sum_n\beta_nX_n+(C_0-C_\theta)\;=\;\beta_0+\beta_1\theta+\sum_n\beta_nX_n,
-\end{equation*}
-the valuation of a disclosed rating in Section~\ref{ss:model_setup}.
-
-\emph{Step 2 (silent listing).} By~\eqref{eq:csil}, $C_0-\bar C^{\rm sil}=e\,(C_0-C_1)=\beta_1e$. Hence
-\begin{equation*}
-    \bar V-\bar C^{\rm sil}\;=\;\beta_0+\beta_1e+\sum_n\beta_nX_n,
-\end{equation*}
-the valuation of a silent listing in Section~\ref{ss:model_setup}.
-
-\emph{Step 3 (insensitive buyer).} $\bar V-C^{\rm ins}=v_0(X)$ by the definition of $C^{\rm ins}$.
-
-\emph{Step 4 (uniqueness).} Suppose instead $\bar V=\beta_0+\sum_n\beta_nX_n+K$ for some constant $K$. Agreement with the bonus form requires $K-C_\theta=\beta_1\theta$ for $\theta\in\{0,1\}$. The case $\theta=0$ gives $K=C_0$. The case $\theta=1$ is then satisfied, because $C_0-C_1=\beta_1$.
-\end{proof}
 
 \subsection*{Proof of Lemma~\ref{lem:att_prices} (Prices and the Perceived Cost of Silence)}
 
 \begin{proof}\upshape
-\emph{Idea.} A price is the buyer-share-weighted average of valuations. The gross value and the insensitive buyer's cost are common to all listings and cancel from every gap, so only what sensitive buyers subtract survives. Shorthand: $C^*=\psi\,\bar C^{\rm sil}+(1-\psi)\,C^{\rm def}$, which is the $C^*$ of~\eqref{eq:premium_att}, and $\omega_0=\psi\omega_1$.
+\emph{Idea.} A price is the buyer-share-weighted average of valuations. The gross value and the insensitive buyer's cost are common to all listings and cancel from every gap, so only what sensitive buyers subtract survives. Shorthand: $\zeta^*=\psi\,\bar \zeta^{\rm sil}+(1-\psi)\,\zeta^{\rm def}$, which is the $\zeta^*$ of~\eqref{eq:premium_att}, and $\omega_0=\psi\omega_1$.
 
-\emph{Step 1 (weights).} By Assumption~\ref{assum:attention} and Table~\ref{tab:att_buyers}, a buyer values a listing at $\bar V$ minus the energy cost she subtracts. The three buyer types arrive with probabilities $1-\rho$, $\rho\omega_d$ and $\rho(1-\omega_d)$, which sum to one. Under the pricing rule used to derive~\eqref{eq:premium_derived}, a listing's price is the probability-weighted average of these valuations.
+\emph{Step 1 (weights).} By Assumption~\ref{assum:attention} and Table~\ref{tab:att_buyers}, a buyer values a listing at $\bar V$ minus the energy cost she subtracts. The three buyer types arrive with probabilities $1-\rho$, $\rho\omega_d$ and $\rho(1-\omega_d)$, which sum to one. By Assumption~\ref{assum:linear_pricing}, a listing's price is the probability-weighted average of these valuations.
 
-\emph{Step 2 (the two prices).} Expand term by term and collect the $\bar V$ terms, whose weights sum to one by Step~1. A listing displaying a rating with energy cost $C$ ($\omega_d=\omega_1$) sells at
+\emph{Step 2 (the two prices).} Expand term by term and collect the $\bar V$ terms, whose weights sum to one by Step~1. A listing displaying a rating with energy cost $\zeta$ ($\omega_d=\omega_1$) sells at
 \begin{equation*}
-    p\;=\;\bar V-(1-\rho)\,C^{\rm ins}-\rho\,\big[\omega_1\,C+(1-\omega_1)\,C^{\rm def}\big].
+    p\;=\;\bar V-(1-\rho)\,\zeta^{\rm ins}-\rho\,\big[\omega_1\,\zeta+(1-\omega_1)\,\zeta^{\rm def}\big].
 \end{equation*}
-A silent listing ($\omega_d=\omega_0$, attentive buyers subtract $\bar C^{\rm sil}$) sells at
+A silent listing ($\omega_d=\omega_0$, attentive buyers subtract $\bar \zeta^{\rm sil}$) sells at
 \begin{equation*}
-    p_{\rm sil}\;=\;\bar V-(1-\rho)\,C^{\rm ins}-\rho\,\big[\omega_0\,\bar C^{\rm sil}+(1-\omega_0)\,C^{\rm def}\big].
+    p_{\rm sil}\;=\;\bar V-(1-\rho)\,\zeta^{\rm ins}-\rho\,\big[\omega_0\,\bar \zeta^{\rm sil}+(1-\omega_0)\,\zeta^{\rm def}\big].
 \end{equation*}
 
-\emph{Step 3 (price gap).} Subtract the two lines of Step~2. The common term $\bar V-(1-\rho)C^{\rm ins}$ cancels, and the default terms collect to $\rho(\omega_1-\omega_0)C^{\rm def}$. Using $\omega_0=\psi\omega_1$ and the definition of $C^*$,
+\emph{Step 3 (price gap).} Subtract the two lines of Step~2. The common term $\bar V-(1-\rho)\zeta^{\rm ins}$ cancels, and the default terms collect to $\rho(\omega_1-\omega_0)\zeta^{\rm def}$. Using $\omega_0=\psi\omega_1$ and the definition of $\zeta^*$,
 \begin{align*}
     p-p_{\rm sil}
-    &\;=\;-\rho\,\omega_1C+\rho\,\omega_0\,\bar C^{\rm sil}+\rho\,(\omega_1-\omega_0)\,C^{\rm def}\\
-    &\;=\;-\rho\,\omega_1\big[C-\psi\,\bar C^{\rm sil}-(1-\psi)\,C^{\rm def}\big]\;=\;-\rho\,\omega_1\,(C-C^*).
+    &\;=\;-\rho\,\omega_1\zeta+\rho\,\omega_0\,\bar \zeta^{\rm sil}+\rho\,(\omega_1-\omega_0)\,\zeta^{\rm def}\\
+    &\;=\;-\rho\,\omega_1\big[\zeta-\psi\,\bar \zeta^{\rm sil}-(1-\psi)\,\zeta^{\rm def}\big]\;=\;-\rho\,\omega_1\,(\zeta-\zeta^*).
 \end{align*}
 This is the last statement of the lemma.
 
-\emph{Step 4 (the two premia).} Apply Step~3 with $C=C_1$ and with $C=C_0$, and subtract. $C^*$ cancels, and
+\emph{Step 4 (the two premia).} Apply Step~3 with $\zeta=\zeta_1$ and with $\zeta=\zeta_0$, and subtract. $\zeta^*$ cancels, and
 \begin{equation*}
-    b\;=\;p_{\rm H}-p_{\rm L}\;=\;\rho\,\omega_1\,(C_0-C_1)\;=\;\rho\,\omega_1\beta_1,
+    b\;=\;p_{\rm H}-p_{\rm L}\;=\;\rho\,\omega_1\,(\zeta_0-\zeta_1)\;=\;\rho\,\omega_1\beta_1,
 \end{equation*}
-which is~\eqref{eq:b_att}. Applying Step~3 with $C=C_0$ alone gives $\Delta=p_{\rm sil}-p_{\rm L}=\rho\,\omega_1\,(C_0-C^*)$, which is~\eqref{eq:premium_att}.
+which is~\eqref{eq:b_att}. Applying Step~3 with $\zeta=\zeta_0$ alone gives $\Delta=p_{\rm sil}-p_{\rm L}=\rho\,\omega_1\,(\zeta_0-\zeta^*)$, which is~\eqref{eq:premium_att}.
 
-\emph{Step 5 (nesting).} With $\omega_1=\omega_0=1$ and $C^{\rm ins}=C_0$, the two prices of Step~2 reduce to $p_1^*$ and $p_0^*$ of~\eqref{eq:premium_derived}.
+\emph{Step 5 (nesting).} With $\omega_1=\omega_0=1$, the two prices of Step~2 reduce to $p_1^*$ and $p_0^*$ of the benchmark, whatever the level $\zeta^{\rm ins}$ of the insensitive buyers' valuation, and their difference is~\eqref{eq:premium_derived}.
 \end{proof}
 
 \subsection*{Proof of Proposition~\ref{prop:att_incentives} (Disclosure Incentives under Limited Attention)}
@@ -112,12 +112,13 @@ which is~\eqref{eq:b_att}. Applying Step~3 with $C=C_0$ alone gives $\Delta=p_{\
 \end{equation*}
 Since $c_0,c_1\ge0$, this requires $\tilde e>1$, that is, $\Delta=b\,\tilde e>b$: silence sells above a verified efficient rating.
 
-\emph{Step 3 (attention threshold, (iii)).} By~\eqref{eq:b_att}--\eqref{eq:premium_att}, $\tilde e=(C_0-C^*)/(C_0-C_1)$, so $\tilde e>1$ iff $C^*<C_1$. Substitute $C^*=C^{\rm def}+\psi(\bar C^{\rm sil}-C^{\rm def})$ and divide by $\bar C^{\rm sil}-C^{\rm def}>0$:
+\emph{Step 3 (attention threshold, (iii)).} By~\eqref{eq:b_att}--\eqref{eq:premium_att}, $\tilde e=(\zeta_0-\zeta^*)/(\zeta_0-\zeta_1)$, so $\tilde e>1$ iff $\zeta^*<\zeta_1$. Substitute $\zeta^*=\zeta^{\rm def}+\psi(\bar \zeta^{\rm sil}-\zeta^{\rm def})$ and divide by $\bar \zeta^{\rm sil}-\zeta^{\rm def}>0$:
 \begin{equation*}
-    C^*<C_1\quad\Longleftrightarrow\quad\psi\;<\;\frac{C_1-C^{\rm def}}{\bar C^{\rm sil}-C^{\rm def}}.
+    \zeta^*<\zeta_1\quad\Longleftrightarrow\quad\psi\;<\;\frac{\zeta_1-\zeta^{\rm def}}{\bar \zeta^{\rm sil}-\zeta^{\rm def}}.
 \end{equation*}
+Dividing numerator and denominator by $\zeta_0-\zeta_1$ and using $e^{\rm def}=s(\zeta^{\rm def})$ and $e=s(\bar \zeta^{\rm sil})$ (Appendix~\ref{app:att_etilde}) gives the first form in~\eqref{eq:att_psibar}.
 
-\emph{Step 4 (the default must be optimistic, (iii)).} $C^*$ is a convex combination of $C^{\rm def}$ and $\bar C^{\rm sil}$, and $\bar C^{\rm sil}\ge C_1$ by~\eqref{eq:csil}. If $C^{\rm def}\ge C_1$, both points are at least $C_1$, and so is $C^*$. Hence $C^*<C_1$ requires $C^{\rm def}<C_1$.
+\emph{Step 4 (the default must be optimistic, (iii)).} $\zeta^*$ is a convex combination of $\zeta^{\rm def}$ and $\bar \zeta^{\rm sil}$, and $\bar \zeta^{\rm sil}\ge \zeta_1$ by~\eqref{eq:csil}. If $\zeta^{\rm def}\ge \zeta_1$, both points are at least $\zeta_1$, and so is $\zeta^*$. Hence $\zeta^*<\zeta_1$ requires $\zeta^{\rm def}<\zeta_1$.
 
 \emph{Step 5 (full attention, (iv)).} With $\psi=1$,~\eqref{eq:etilde} gives $\tilde e=e$. Steps~1--2 are then the comparisons behind Proposition~\ref{prop:equilibrium}, with $b=\rho\omega_1\beta_1$ in the role of $\rho\beta_1$. Without hiding costs they are those of Proposition~\ref{prop:premium}.
 \end{proof}
@@ -133,25 +134,17 @@ Since $c_0,c_1\ge0$, this requires $\tilde e>1$, that is, $\Delta=b\,\tilde e>b$
 \end{equation*}
 Every informed high-quality seller strictly prefers disclosure, so $\sigma_1^*=0$.
 
-\emph{Step 2 (Complete Adverse Selection).} If $\sigma_0^*=1$, a high-quality seller hides only if $g_1=b[\tilde e(1,\sigma_1)-1]>c_0+c_1$ at the prevailing $\sigma_1$. As in Step~2 of the proof of Proposition~\ref{prop:att_incentives}, this requires $\tilde e>1$.
-% [CHECK] A seller who mixes (0<sigma_1^*<1), or who hides at sigma_1^*=1 when \bar g_1(1)=c_0+c_1,
-% [CHECK] is only indifferent: hiding requires g_1 >= c_0+c_1, i.e. \tilde e(1,\sigma_1) >= 1+(c_0+c_1)/b
-% [CHECK] (weak), which gives \tilde e >= 1, strictly > 1 only if c_0+c_1>0. Proposed fix: ">=" here and
-% [CHECK] in the statement of Corollary cor:att_hq. See ledger, ISSUE 1.
+\emph{Step 2 (Complete Adverse Selection).} If $\sigma_0^*=1$, a high-quality seller hides only if $g_1=b[\tilde e(1,\sigma_1)-1]\ge c_0+c_1$ at the prevailing $\sigma_1$. As in Step~2 of the proof of Proposition~\ref{prop:att_incentives}, this requires $\tilde e\ge1$, and $\tilde e>1$ if $c_0+c_1>0$.
 \end{proof}
 
 \subsection*{Proof of Proposition~\ref{prop:att_equilibrium} (Equilibrium under Limited Attention)}
 
 \begin{proof}\upshape
-\emph{Idea.} When $\sigma_1=0$, the low type's net gain $\Phi_\psi(\sigma_0)$ is continuous and weakly decreasing, so the regimes follow from its sign at $\sigma_0=0$ and $\sigma_0=1$, as in Proposition~\ref{prop:equilibrium}. What is new is that, once every low type hides, high-quality hiding improves the pool and reinforces itself, so equilibria can be multiple. Objects used: $\Phi_\psi$ in~\eqref{eq:Phi_psi}, $\Delta_\psi$ in~\eqref{eq:Delta_psi}, the high type's gain $\bar g_1(\sigma_1)=b\,[\tilde e(1,\sigma_1)-1]$, and $e(1,1)=\bar\theta$.
+\emph{Idea.} When $\sigma_1=0$, the low type's net gain $\Phi_\psi(\sigma_0)$ is continuous and weakly decreasing, so the regimes follow from its sign at $\sigma_0=0$ and $\sigma_0=1$. What is new is that, once every low type hides, high-quality hiding improves the pool and reinforces itself, so equilibria can be multiple. Objects used: $\Phi_\psi$ in~\eqref{eq:Phi_psi}, $\Delta_\psi$ in~\eqref{eq:Delta_psi}, the high type's gain $\bar g_1(\sigma_1)=b\,[\tilde e(1,\sigma_1)-1]$, and $e(1,1)=\bar\theta$.
 
 \emph{Step 1 (preliminaries).} Whenever $\sigma_0^*<1$, $\sigma_1^*=0$ by Corollary~\ref{cor:att_hq}. $\Phi_\psi$ is continuous on $[0,1]$. By Lemma~\ref{lem:etilde_monotone}, it is strictly decreasing if $\psi>0$ and constant if $\psi=0$.
 
-\emph{Step 2 (Cost-Deterred Hiding, $c_0>\Delta_\psi(\bar\theta)$).} This follows as in Proposition~\ref{prop:equilibrium}. By Step~1, $\Phi_\psi(\sigma_0)\le\Phi_\psi(0)=\Delta_\psi(\bar\theta)-c_0<0$ for every $\sigma_0$, so $\sigma_0^*=0$ and $e^*=\bar\theta$.
-% [CHECK] Gap in the original: "as in Proposition prop:equilibrium" does not rule out equilibria with
-% [CHECK] sigma_1^*>0, which cannot arise in the core model. Proposed fix: Step 6 below uses only
-% [CHECK] c_0 >= Delta_psi(e(1)), which holds here, so it applies verbatim (the proof of
-% [CHECK] Proposition prop:att_seller_types already says so). See ledger, ISSUE 2.
+\emph{Step 2 (Cost-Deterred Hiding, $c_0>\Delta_\psi(\bar\theta)$).} First, $e(\sigma_0,\sigma_1)\le\bar\theta$ whenever $\sigma_0=1$. Indeed, at $\sigma_0=1$ the numerator of~\eqref{eq:belief_general} is $\bar\theta\,(1-\pi+\pi\sigma_1)$, and its denominator exceeds $1-\pi+\pi\sigma_1$ by $\pi(1-\bar\theta)(1-\sigma_1)\ge0$. Also $e(\sigma_0,0)\le e(0,0)=\bar\theta$ by Lemma~\ref{lem:belief_monotone}. Hence $b\,\tilde e\le\Delta_\psi(\bar\theta)<c_0$ at $\sigma_0=1$ and at every $\sigma_0<1$ with $\sigma_1=0$. Suppose $\sigma_0^*=1$. Hiding by the low type requires $b\,\tilde e\ge c_0$, which the bound rules out. So $\sigma_0^*<1$, hence $\sigma_1^*=0$ by Corollary~\ref{cor:att_hq}, and then $b\,\tilde e\le\Delta_\psi(\bar\theta)<c_0$ gives $\sigma_0^*=0$ and $e^*=\bar\theta$. Conversely, $(\sigma_0,\sigma_1)=(0,0)$ is an equilibrium: the low type strictly prefers to disclose, and the high type's gain is $b\tilde e-b\le\Delta_\psi(\bar\theta)-b<c_0\le c_0+c_1$, so she discloses too. The argument does not use Proposition~\ref{prop:equilibrium}, and it excludes equilibria with $\sigma_1^*>0$ in this regime.
 
 \emph{Step 3 (Complete Adverse Selection: every low type hides).} Let $c_0<\Delta_\psi(e(1))$. Since $\Phi_\psi$ is decreasing,
 \begin{equation*}
@@ -219,9 +212,9 @@ In Partial Pooling the four payoffs are $b$, $0$, $0$ and $c_0$. This gives the 
 \end{equation*}
 Since $e^{\rm def}-e^*>0$, $\tilde e^*>1$ if and only if $\psi<\bar\psi(e^*)$.
 
-\emph{Step 7 (the threshold in cost units).} The quality scale $q$ maps $C_1$ to $1$, $C^{\rm def}$ to $e^{\rm def}$ and $\bar C^{\rm sil}$ to $e$. Hence $e^{\rm def}-1=(C_1-C^{\rm def})/(C_0-C_1)$ and $e^{\rm def}-e=(\bar C^{\rm sil}-C^{\rm def})/(C_0-C_1)$, and at the equilibrium pool
+\emph{Step 7 (the threshold in cost units).} The quality scale $s$ maps $\zeta_1$ to $1$, $\zeta^{\rm def}$ to $e^{\rm def}$ and $\bar \zeta^{\rm sil}$ to $e$. Hence $e^{\rm def}-1=(\zeta_1-\zeta^{\rm def})/(\zeta_0-\zeta_1)$ and $e^{\rm def}-e=(\bar \zeta^{\rm sil}-\zeta^{\rm def})/(\zeta_0-\zeta_1)$, and at the equilibrium pool
 \begin{equation*}
-    \bar\psi(e^*)\;=\;\frac{C_1-C^{\rm def}}{\bar C^{\rm sil}-C^{\rm def}},
+    \bar\psi(e^*)\;=\;\frac{\zeta_1-\zeta^{\rm def}}{\bar \zeta^{\rm sil}-\zeta^{\rm def}},
 \end{equation*}
 which is the threshold of Proposition~\ref{prop:att_incentives}(iii).
 
@@ -257,7 +250,58 @@ so $\bar\psi(e(1))<\bar\psi(\bar\theta)$. Any equilibrium with $\sigma_1^*=0$ ha
 
 \emph{Step 3 (the case $e^{\rm def}\le1$).} Then $\tilde e\le1$ at every pool, and the second case applies by the same argument.
 
-\emph{Step 4 (the model of Section~\ref{sec:equilibrium}).} With $\psi=1$, $\bar\psi(\bar\theta)<1=\psi$. And $0<e(1)\le e^*\le\bar\theta<1$ gives $0<\Delta^*<b$.
+\emph{Step 4 (the model of Appendix~\ref{sec:equilibrium}).} With $\psi=1$, $0<e(1)\le e^*\le\bar\theta<1$ gives $0<\Delta^*<b$.
+\end{proof}
+
+\subsection*{Market-Level Fit of the Partial Pooling Band}
+\label{app:att_band_fit}
+
+Corollary~\ref{cor:att_band} has a sharp empirical counterpart. At the apartment estimates of Section~\ref{ss:att_estimates}, taking the reform-period estimate $\hat\psi_\delta$ as a proxy for $\psi$ (exact under the maintained assumption of Proposition~\ref{prop:att_identification}), the band spans \attBandLoApt{} to \attBandHiApt{} log points, a width of \attBandWidthApt{}, against \attBandWidthBaseApt{} in the benchmark of Appendix~\ref{sec:equilibrium}. The mean premium lies inside the aggregate band by construction of the aggregation, which is not evidence. Market by market, with a common $\psi$, the premium falls inside the market's own band in \attShareInBandApt{} percent of apartment markets: a single hiding cost per market would have to fall inside a window of about \attBandWidthApt{} log points for an apartment market to show interior hiding, yet the registry shows interior hiding rates in essentially every market. In houses the band is wider, \attBandWidthHouse{} log points, but only \attShareInBandHouse{} percent of house markets fall inside their own band. A single hiding cost per market therefore generates interior hiding only within a narrow window of costs, particularly in apartments; we do not model heterogeneity in hiding costs across sellers, and we read the band as a limitation of the single-cost specification.
+
+\subsection*{Non-Strategic Silence and High-Quality Sellers}
+\label{app:att_nonstrategic}
+
+Proposition~\ref{prop:att_incentives}(ii) and Corollary~\ref{cor:att_hq} say when high-quality sellers may hide: only if silence sells at least as high as a verified efficient rating, and above it if $c_0+c_1>0$. The registry shows similar hiding rates for the two grades, \attSigmaOneApt{} against \attSigmaZeroApt{} percent in apartments and \attSigmaOneHouse{} against \attSigmaZeroHouse{} percent in houses. In apartments silence pays a high-quality seller \attExcessApt{} log points more than her rating, yet she displays, because in Partial Pooling her slack is $b+c_1$ (Proposition~\ref{prop:att_seller_types}). The registry pattern is not evidence for strategic hiding by high-quality sellers. House sellers of high quality stay silent although silence costs them about \attHighLossHouse{} log points relative to their rating, so some silence is not strategic at all, for instance listings whose certificate is still pending. The same non-strategic silence enters the hiding rate of low-quality sellers, so the interior hiding rates we use may overstate strategic hiding.
+
+\subsection*{Payoffs by Seller Type and Regime}
+\label{app:att_payoffs}
+
+Table~\ref{tab:att_seller_types} gives the price of each listing and the net payoff of each seller type in the three regimes of Proposition~\ref{prop:att_seller_types}.
+
+\begin{table}[htbp]
+\centering
+\caption{Prices and Payoffs by Listing and Seller Type under Limited Attention}
+\label{tab:att_seller_types}
+\small\renewcommand{\arraystretch}{1.5}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule\toprule
+ & \textbf{Cost-Deterred Hiding} & \textbf{Partial Pooling} & \textbf{Complete Adverse Selection} \\
+\midrule
+\multicolumn{4}{l}{\textit{A. Price, relative to a displayed inefficient rating}} \\
+Displayed inefficient rating (E to G) & $0$ & $0$ & $0$ \\
+Displayed efficient rating (A to D) & $b$ & $b$ & $b$ \\
+Silent listing, $\Delta^*$ & $\Delta_\psi(\bar\theta)$ & $c_0$ & $\Delta_\psi(e(1))$ \\
+\midrule
+\multicolumn{4}{l}{\textit{B. Net payoff, relative to a displayed inefficient rating}} \\
+Informed, high quality & $b$ & $b$ & $b$ \\
+Informed, low quality, displays & $0$ & $0$ & -- \\
+Informed, low quality, hides & -- & $0$ & $\Delta_\psi(e(1))-c_0$ \\
+Uninformed, either quality & $\Delta_\psi(\bar\theta)$ & $c_0$ & $\Delta_\psi(e(1))$ \\
+\midrule
+Silence above an efficient rating iff & $e^{\rm def}>1$ and $\psi<\bar\psi(\bar\theta)$ & $c_0>b$ & $e^{\rm def}>1$ and $\psi<\bar\psi(e(1))$ \\
+\bottomrule\bottomrule
+\end{tabular*}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} Equilibria with $\sigma_1^*=0$. A dash marks a seller type that is not on the equilibrium path; in Cost-Deterred Hiding a low-quality seller who deviated to silence would earn $\Delta_\psi(\bar\theta)-c_0<0$. Displayed prices do not depend on beliefs (Lemma~\ref{lem:att_prices}) and are defined in every regime. $\bar\psi(e)$ is defined in~\eqref{eq:att_psibar} for $e^{\rm def}>1$; if $e^{\rm def}\le1$ silence never sells above an efficient rating. Uninformed sellers bear no hiding cost; relative to her own verified price, an uninformed high-quality seller earns $\Delta^*-b$. In Complete Adverse Selection with $\sigma_1^*>0$ (Proposition~\ref{prop:att_equilibrium}), $\Delta^*\ge b+c_0+c_1$ and an informed high-quality seller hides and earns $\Delta^*-c_0-c_1\ge b$. At $\psi=\omega_1=1$ the silent price is $\rho\beta_1e^*<b$ in every column (Table~\ref{tab:equilibria}).
+\end{table}
+
+\subsection*{Proof of Corollary~\ref{cor:att_band} (The Partial Pooling Band)}
+
+\begin{proof}\upshape
+By Proposition~\ref{prop:att_equilibrium}(i)--(iii), Partial Pooling occurs exactly when $c_0$ lies in $[\Delta_\psi(e(1)),\Delta_\psi(\bar\theta)]$. By~\eqref{eq:Delta_psi}, $\Delta_\psi(\bar\theta)-\Delta_\psi(e(1))=\psi\,b\,[\bar\theta-e(1)]$. This is positive for $\psi>0$ because $e(1)<\bar\theta$ when $\pi>0$ and $\bar\theta<1$, and it goes to zero as $\psi\to0$.
 \end{proof}
 
 \subsection*{Proof of Proposition~\ref{prop:att_cs} (Comparative Statics under Limited Attention)}
@@ -270,26 +314,20 @@ so $\bar\psi(e(1))<\bar\psi(\bar\theta)$. Any equilibrium with $\sigma_1^*=0$ ha
     \frac{\partial e^*}{\partial\psi}\;=\;\frac{e^{\rm def}-c_0/b}{\psi^2}.
 \end{equation*}
 
-\emph{Step 2 (sign of Step 1).} In Partial Pooling $c_0/b=\tilde e^*=\psi e^*+(1-\psi)e^{\rm def}$, so $e^{\rm def}-c_0/b=\psi\,(e^{\rm def}-e^*)$. This is positive whenever $e^*<e^{\rm def}$, which holds when $C^{\rm def}\le\bar C^{\rm sil}$, since then $e^{\rm def}\ge q(\bar C^{\rm sil})=e^*$. So $\partial e^*/\partial\psi>0$.
-% [CHECK] The weak inequalities only give e^def >= e^*, i.e. de^*/dpsi >= 0. The proposition assumes
-% [CHECK] C^def < Csil (strict), which gives e^def > e^* and the strict sign. Proposed fix: replace
-% [CHECK] "\le" and "\ge" by "<" and ">" in this sentence. See ledger, ISSUE 3.
+\emph{Step 2 (sign of Step 1).} In Partial Pooling $c_0/b=\tilde e^*=\psi e^*+(1-\psi)e^{\rm def}$, so $e^{\rm def}-c_0/b=\psi\,(e^{\rm def}-e^*)$. This is positive whenever $e^*<e^{\rm def}$, which holds when $\zeta^{\rm def}<\bar \zeta^{\rm sil}$, since then $e^{\rm def}>s(\bar \zeta^{\rm sil})=e^*$. So $\partial e^*/\partial\psi>0$.
 
 \emph{Step 3 (the other parameters).} Differentiating~\eqref{eq:att_pp},
 \begin{equation*}
     \frac{\partial e^*}{\partial c_0}\;=\;\frac{1}{\psi\,b}\;>\;0,\qquad
-    \frac{\partial e^*}{\partial C^{\rm def}}\;=\;\frac{1-\psi}{\psi\,(C_0-C_1)}\;\ge\;0,
+    \frac{\partial e^*}{\partial \zeta^{\rm def}}\;=\;\frac{1-\psi}{\psi\,(\zeta_0-\zeta_1)}\;\ge\;0,
 \end{equation*}
 and $\partial e^*/\partial(\rho\omega_1)<0$ through $b=\rho\omega_1\beta_1$.
-% [CHECK] de^*/dC^def = 0 at psi = 1, so dsigma_0^*/dC^def = 0 there, while the statement claims a strict
-% [CHECK] "< 0". Proposed fix: "dsigma_0^*/dC^def <= 0, strictly if psi < 1" in Proposition prop:att_cs(i).
-% [CHECK] See ledger, ISSUE 4.
 
-\emph{Step 4 (hiding rate).} By~\eqref{eq:att_pp}, $\sigma_0^*$ is strictly decreasing in $e^*$, so Steps~1--3 give the signs in~(i) for $\psi$, $C^{\rm def}$, $c_0$ and $\rho\omega_1$. The effect of $\pi$ operates only through the inversion of~\eqref{eq:belief_simplified}, exactly as in Proposition~\ref{prop:comparative_statics}(ii).
+\emph{Step 4 (hiding rate).} By~\eqref{eq:att_pp}, $\sigma_0^*$ is strictly decreasing in $e^*$, so Steps~1--3 give the signs in~(i) for $\psi$, $\zeta^{\rm def}$, $c_0$ and $\rho\omega_1$. The effect of $\pi$ operates only through the inversion of~\eqref{eq:belief_simplified}. Differentiating~\eqref{eq:att_pp} gives $\partial\sigma_0^*/\partial\pi=-(\bar\theta/e^*-1)/[\pi^2(1-\bar\theta)]\le0$, with equality if and only if $e^*=\bar\theta$.
 
 \emph{Step 5 (corner premia and attention, (ii)).} The Cost-Deterred premium $b[\psi\bar\theta+(1-\psi)e^{\rm def}]$ has derivative $b[\bar\theta-e^{\rm def}]$ in $\psi$. It is negative iff
 \begin{equation*}
-    C^{\rm def}\;<\;C_0-\bar\theta\,(C_0-C_1)\;=\;\bar\theta C_1+(1-\bar\theta)C_0 .
+    \zeta^{\rm def}\;<\;\zeta_0-\bar\theta\,(\zeta_0-\zeta_1)\;=\;\bar\theta \zeta_1+(1-\bar\theta)\zeta_0 .
 \end{equation*}
 The Complete Adverse Selection premium has derivative $b[e(1)-e^{\rm def}]<b[\bar\theta-e^{\rm def}]$, since $e(1)<\bar\theta$. The same condition therefore makes it decreasing in $\psi$.
 
@@ -297,48 +335,38 @@ The Complete Adverse Selection premium has derivative $b[e(1)-e^{\rm def}]<b[\ba
 \begin{equation*}
     \frac{\partial e(1)}{\partial\pi}\;=\;-\frac{\bar\theta\,(1-\bar\theta)}{(1-\pi\bar\theta)^2}\;<\;0 .
 \end{equation*}
-% [CHECK] psi*b*de(1)/dpi is < 0 only for psi > 0 (it is 0 at psi = 0). Proposed fix: add "for psi > 0"
-% [CHECK] in Proposition prop:att_cs(ii). See ledger, ISSUE 5.
 \end{proof}
 
 \subsection*{Proof of Proposition~\ref{prop:att_identification} (Identification under Limited Attention)}
 
 \begin{proof}\upshape
-\emph{Idea.} Under Assumption~\ref{assum:no_pre_pricing}, the reform-induced changes in the two premia are the post-reform premia of Lemma~\ref{lem:att_prices}. Their ratio cancels $\rho\omega_1$ and leaves the perceived cost of silence on the quality scale. Shorthand: $\delta x\equiv x^{\rm post}-x^{\rm pre}$, $\psi_\delta\equiv\delta(\rho\omega_0)/\delta(\rho\omega_1)$ and $C^*_\delta\equiv C^{\rm def}+\psi_\delta(\bar C^{\rm sil}-C^{\rm def})$.
+\emph{Idea.} Under Assumption~\ref{assum:no_pre_pricing}, the reform-induced changes in the two premia are the post-reform premia of Lemma~\ref{lem:att_prices}. Their ratio cancels $\rho\omega_1$ and leaves the perceived cost of silence on the quality scale. Shorthand: $\delta x\equiv x^{\rm post}-x^{\rm pre}$, $\psi_\delta\equiv\delta(\rho\omega_0)/\delta(\rho\omega_1)$ and $\zeta^*_\delta\equiv \zeta^{\rm def}+\psi_\delta(\bar \zeta^{\rm sil}-\zeta^{\rm def})$.
 
-\emph{Step 1 (attention to displayed ratings, (i)).} With $\beta_1^{\rm anchor}=C_0-C_1=\beta_1$,~\eqref{eq:b_att} in differences gives
+\emph{Step 1 (attention to displayed ratings, (i)).} With $\beta_1^{\rm anchor}=\zeta_0-\zeta_1=\beta_1$,~\eqref{eq:b_att} in differences gives
 \begin{equation*}
     \delta b\;=\;\delta(\rho\omega_1)\,\beta_1,
 \end{equation*}
 which $\hat\beta_1$ estimates. Dividing by the anchor gives $\delta(\rho\omega_1)$.
-% [CHECK] The clause "with omega_1 = 1 it is the rho_m of Section sec:identification" is not argued in the
-% [CHECK] original. One-line fix: with omega_1 = 1 and Assumption assum:no_pre_pricing, delta(rho omega_1)
-% [CHECK] = rho^post, the post-reform rho_m measured there. See ledger, ISSUE 6 (minor).
 
 \emph{Step 2 (the non-disclosure premium in differences).} Under Assumption~\ref{assum:no_pre_pricing} the pre-reform energy terms vanish. By~\eqref{eq:premium_att}, in differences,
 \begin{equation*}
-    \delta\Delta\;=\;\delta(\rho\omega_1)\,(C_0-C^{\rm def})-\delta(\rho\omega_0)\,(\bar C^{\rm sil}-C^{\rm def}),
+    \delta\Delta\;=\;\delta(\rho\omega_1)\,(\zeta_0-\zeta^{\rm def})-\delta(\rho\omega_0)\,(\bar \zeta^{\rm sil}-\zeta^{\rm def}),
 \end{equation*}
-where $\bar C^{\rm sil}$ is evaluated at the post-reform pool.
+where $\bar \zeta^{\rm sil}$ is evaluated at the post-reform pool.
 
 \emph{Step 3 (the perceived cost of silence, (ii)).} Dividing Step~2 by Step~1,
 \begin{equation*}
-    \frac{\delta\Delta}{\delta b}\;=\;e^{\rm def}-\psi_\delta\,(e^{\rm def}-e)\;=\;\frac{C_0-C^*_\delta}{C_0-C_1}.
+    \frac{\delta\Delta}{\delta b}\;=\;e^{\rm def}-\psi_\delta\,(e^{\rm def}-e)\;=\;\frac{\zeta_0-\zeta^*_\delta}{\zeta_0-\zeta_1}.
 \end{equation*}
-Since $C_0$ and $C_1$ are known, the ratio pins down $C^*_\delta$.
+Since $\zeta_0$ and $\zeta_1$ are known, the ratio pins down $\zeta^*_\delta$.
 
-\emph{Step 4 (point identification under $C^{\rm def}=0$, (iii)).} Subtract $e$ from Step~3 and multiply by $\delta b$:
+\emph{Step 4 (point identification under $\zeta^{\rm def}=0$, (iii)).} Subtract $e$ from Step~3 and multiply by $\delta b$:
 \begin{equation*}
     \delta\Delta-e\,\delta b\;=\;(1-\psi_\delta)\,\delta b\,\big(e^{\rm def}-e\big).
 \end{equation*}
-Setting $C^{\rm def}=0$ (so $e^{\rm def}=\eta$) and replacing $\delta b$ and $\delta\Delta$ by their estimates gives~\eqref{eq:att_lambda}.
+Setting $\zeta^{\rm def}=0$ (so $e^{\rm def}=\eta$) and replacing $\delta b$ and $\delta\Delta$ by their estimates gives~\eqref{eq:att_lambda}.
 
-\emph{Step 5 (the identified set, (iii)).} The identified set follows because $C^*_\delta$ is a convex combination of $C^{\rm def}\ge0$ and $\bar C^{\rm sil}$. In particular $\psi_\delta\bar C^{\rm sil}=C^*_\delta-(1-\psi_\delta)C^{\rm def}\le C^*_\delta$.
-% [CHECK] The bound C^def <= C^*_delta holds only if C^def <= Csil (equivalently C^*_delta <= Csil when
-% [CHECK] psi_delta < 1): with Csil = 1, C^def = 3, psi_delta = 0.5, C^*_delta = 2 < C^def. The bound on
-% [CHECK] psi_delta holds unconditionally. Proposed fix: add "if C^*_delta <= Csil" (or assume
-% [CHECK] C^def <= Csil, as in Propositions prop:att_incentives(iii) and prop:att_cs) to part (iii).
-% [CHECK] See ledger, ISSUE 7.
+\emph{Step 5 (the identified set, (iii)).} The identified set follows because $\zeta^*_\delta$ is a convex combination of $\zeta^{\rm def}\ge0$ and $\bar \zeta^{\rm sil}$. In particular $\psi_\delta\bar \zeta^{\rm sil}=\zeta^*_\delta-(1-\psi_\delta)\zeta^{\rm def}\le \zeta^*_\delta$, which bounds $\psi_\delta$ unconditionally. If $\zeta^{\rm def}\le\bar \zeta^{\rm sil}$, then $\zeta^*_\delta\ge \zeta^{\rm def}$, which gives the bound on $\zeta^{\rm def}$.
 
 \emph{Step 6 (the hiding cost, (iv)).} In Partial Pooling the indifference of the informed low-quality seller gives $\Delta=c_0$ (Proposition~\ref{prop:att_equilibrium}). Under Assumption~\ref{assum:no_pre_pricing} the post-reform premium equals $\delta\Delta$.
 \end{proof}
@@ -360,7 +388,47 @@ The bias is zero under Assumption~\ref{assum:no_pre_pricing}, and small whenever
 \subsection*{Exact Logit Pricing}
 \label{app:att_exact}
 
-All propositions of Section~\ref{ss:attention} are derived under the linear pricing approximation of~\eqref{eq:premium_derived}. Under the exact demand~\eqref{eq:demand_att}, buyers form three segments and the seller's optimal listing price is not a function of the mean sensitive valuation alone, so the propositions do not carry over automatically. For the two-segment demand~\eqref{eq:demand}, the optimal listing price is nondecreasing in the sensitive buyers' valuation whenever the cross-partial condition of the monotone-comparative-statics argument holds. We conjecture, but have not shown, that the orderings of Propositions~\ref{prop:att_incentives}--\ref{prop:att_cs} survive exact pricing at the estimated logit scale. With attention \emph{shares} rather than a representative weight, a seller may also price to the inattentive segment and accept a lower probability of sale, which predicts longer time on market for silent listings at higher prices.
+In French residential markets, listing prices anchor negotiation rather than serving as posted take-it-or-leave-it offers, and the transaction price conditional on a sale typically falls below the listing price by a small margin.\footnote{The majority of properties transact at or very near list price, and the average discount rarely exceeds three to five percent. \citet{merlo_bargaining_2004} document similar patterns for England, showing that most residential transactions involve little or no negotiation once a listing price is set. \citet{genesove_loss_2001} provide evidence that list prices act as anchors that constrain final transaction prices. For France, \citet{friggit_marche_2013} documents that the average negotiation margin has remained narrow and declining, with a large share of properties selling without any price reduction.} Buyer arrival and match quality are stochastic, so the seller faces uncertainty over whether a sale occurs and, conditional on a sale, at what price. Her full problem therefore separates into a transaction probability $\Gamma$ and an expected transaction price $\phi$, each depending on the listing price and on the display $d$:
+\begin{equation}
+    \max_{\{d,\,p^{\text{list}}\}} \;\Pi = \underbrace{\mathbb{E}\!\left[p^{\text{trans}}\mid d,p^{\text{list}},X\right]}_{\phi(p^{\text{list}})} \cdot \underbrace{\Gamma(p^{\text{list}}\mid d)}_{\Pr(T=1\mid d,p^{\text{list}},X)} - c(K,\theta,d),
+    \label{eq:payoff}
+\end{equation}
+where $\phi(p^{\text{list}}) = \gamma_0+\gamma_1 \cdot p^{\text{list}}+\sum_n\gamma_n X_n$ is the expected transaction price conditional on a sale. With the three buyer types of Table~\ref{tab:att_buyers}, the transaction probability is
+\begin{equation}
+    \Gamma(p^{\rm list}\mid d)=\rho\Big[\omega_d\,G\big(\bar V-\mathcal Z_{\rm att}(d,\theta)-p^{\rm list}\big)+(1-\omega_d)\,G\big(\bar V-\zeta^{\rm def}-p^{\rm list}\big)\Big]+(1-\rho)\,G\big(v_0-p^{\rm list}\big),
+    \label{eq:demand_att}
+\end{equation}
+where $G(\cdot)$ is the logistic CDF governing idiosyncratic taste shocks. With $\omega_0=\omega_1=1$ every EPC-sensitive buyer attends to every listing, and~\eqref{eq:demand_att} reduces to the full-attention demand system
+\begin{equation}
+    \Gamma(p^{\text{list}}) = \rho\cdot G\!\left(\bar V(X)-\mathcal Z_{\rm att}(d,\theta)-p^{\text{list}}\right) + (1-\rho)\cdot G\!\left(v_0-p^{\text{list}}\right).
+    \label{eq:demand}
+\end{equation}
+The main text works with prices alone: it takes the probability of sale at the equilibrium price to be the same for every display and normalises it to one, so that a seller's payoff is the price she obtains less her hiding cost. This is the sense in which the listing price carries no information beyond the display, and it leaves $\phi$, $\gamma$ and $\Gamma$ idle in the main text.
+
+All propositions of Section~\ref{ss:att_equilibrium}, and the inversion $\tilde e=\Delta/b$ behind Proposition~\ref{prop:att_identification} and the estimates of $\psi_\delta$, are derived under Assumption~\ref{assum:linear_pricing}. Under the exact demand~\eqref{eq:demand_att}, buyers form three segments and the seller's optimal listing price is not a function of the mean sensitive valuation alone, so the propositions do not carry over automatically. For the two-segment demand~\eqref{eq:demand}, the optimal listing price is nondecreasing in the sensitive buyers' valuation whenever the cross-partial condition of the monotone-comparative-statics argument holds. We conjecture, but have not shown, that the orderings of Propositions~\ref{prop:att_incentives}--\ref{prop:att_cs} survive exact pricing; no logit scale is estimated. The inversion is more exposed. In an illustrative exact three-segment logit, the ratio $(p_{\rm sil}-p_L)/(p_H-p_L)$ departs from $\tilde e$ and a linear inversion can move $\psi_\delta$ in either direction, toward the interior (0.29 against a true 0.13, and 0.95 against a true 1, in one parameterisation), by an amount set by the logit scale, which is not estimated, so the estimates of attention carry this approximation. With attention \emph{shares} rather than a representative weight, a seller may also price to the inattentive segment and accept a lower probability of sale, which predicts longer time on market for silent listings at higher prices.
+
+\subsection*{Derivation of the Effective Belief}
+\label{app:att_etilde}
+
+By Lemma~\ref{lem:att_prices} the factor $\rho\omega_1$ cancels from the ratio of the two premia, so $\tilde e=(\zeta_0-\zeta^*)/(\zeta_0-\zeta_1)$. This places the perceived cost of silence on a \emph{quality scale}, $s(\zeta)\equiv(\zeta_0-\zeta)/(\zeta_0-\zeta_1)$, which assigns 0 to the cost of an inefficient dwelling and 1 to the cost of an efficient one. Since $s$ is linear and $\zeta^*=\psi\,\bar \zeta^{\rm sil}+(1-\psi)\,\zeta^{\rm def}$, the effective belief carries the same weights, $\tilde e=\psi\,s(\bar \zeta^{\rm sil})+(1-\psi)\,s(\zeta^{\rm def})$. By~\eqref{eq:csil}, $s(\bar \zeta^{\rm sil})=e$, so the cost an attentive buyer subtracts maps back exactly to her Bayesian belief. The second point is the \emph{default-implied belief} $e^{\rm def}\equiv s(\zeta^{\rm def})=(\zeta_0-\zeta^{\rm def})/(\zeta_0-\zeta_1)=\eta-\zeta^{\rm def}/(\zeta_0-\zeta_1)$, which equals $\eta$ when $\zeta^{\rm def}=0$. This gives~\eqref{eq:etilde}.
+
+The effective belief exceeds one if and only if $(1-\psi)(e^{\rm def}-1)>\psi\,(1-e)$. Because $e\le1$, a necessary condition is $\psi<1$ and $e^{\rm def}>1$, and $e^{\rm def}>1$ if and only if $\zeta^{\rm def}<\zeta_1$.
+
+\subsection*{Hiding Costs}
+\label{app:hiding_costs}
+
+The hiding cost $c(K,\theta,d)=K\cdot\mathbf 1[d=0]\,(c_0+\theta c_1)$ is paid only by an informed seller who withholds information. The term $c_0\ge0$ applies to every such seller, whatever her quality. In the French institutional context it is a reduced-form expected cost, $c_0=c^{\rm fix}+qF$: a fixed compliance cost $c^{\rm fix}$, plus the legal exposure $F$ under loi ALUR weighted by the probability $q$ that a concealed audit is detected through the public ADEME registry or a notaire liability check. The informational ambiguity that prolongs negotiation and raises the risk that a sale falls through acts through the transaction probability $\Gamma$ and not through $c_0$. The term $c_1\ge0$ is an additional cost borne only by high-quality sellers who hide. It excludes the revenue premium that verified high quality would command, which the model counts in the energy-efficiency premium $b$.
+
+Hiding costs are paid at listing, whether or not a sale occurs, because the compliance burden and the exposure to sanction arise at listing time and not at closing. The seller is risk neutral, so an expected sanction enters the payoff as a certain amount. The cost $c_0$ is fixed within the prevailing enforcement regime. Estimation reads it off the current regime (Section~\ref{sec:identification}), while the policy exercise of Section~\ref{sec:policy} perturbs it around that reading.
+
+\begin{assumption}[Hiding Costs Independent of Buyers]
+\label{assum:c_indep}
+The costs $c_0$ and $c_1$ do not depend on buyers' sensitivity $\rho$, on their attention $(\omega_0,\omega_1)$ or on the default energy cost $\zeta^{\rm def}$.
+\end{assumption}
+
+The probability that a concealed audit is detected is set by the enforcement regime and not by what buyers attend to. A buyer-side detection channel, with $c_0$ rising in attention, would strengthen $\partial\sigma_0^*/\partial\psi<0$ and leave the threshold $\bar R=b$ of Section~\ref{sec:policy} unchanged in Partial Pooling and Cost-Deterred Hiding, but it would make $c_0$ vary with the policy instruments that move attention, so we exclude it.
+
+% ============================================================
 
 \subsection*{The Ratio-of-Sums Estimator}
 \label{app:att_estimator}
@@ -378,12 +446,11 @@ Both errors therefore contain the E-to-G error $\varepsilon^{\rm L}_m$.
     (1-\psi_\delta)\,\frac{\mathbb E_m(\delta b)^2}{\mathbb E_m(\delta b)^2+s_H^2+s_L^2}\;+\;\frac{s_L^2-e\,(s_H^2+s_L^2)}{(\eta-e)\,\big(\mathbb E_m(\delta b)^2+s_H^2+s_L^2\big)}.
 \end{equation*}
 % [CHECK] The formula treats e and eta as common across markets and \hat e^*_m as measured without error; neither is stated. See ledger, ISSUE R1.
-The first term attenuates $1-\psi_\delta$ toward zero. The second is negative whenever $e>s_L^2/(s_H^2+s_L^2)$. Both push the estimate toward full attention.
+The first term attenuates $1-\psi_\delta$ toward zero. The second is negative whenever $e>s_L^2/(s_H^2+s_L^2)$. The first pushes the estimate toward full attention, and so does the second when $e>s_L^2/(s_H^2+s_L^2)$.
 
 \emph{Step 3 (Ratio of sums, no selection).} The ratio-of-sums estimator is $1-\hat\psi_\delta=\sum_m\hat\lambda_m/\sum_mx_m$. Absent selection it is consistent, because the noise in each sum has mean zero.
 
-\emph{Step 4 (Selection).} The estimation sample is, however, selected on $\hat\beta_{1,m}>0$. Since $\hat\beta_{1,m}$ and $\hat\Delta_m$ share the E-to-G error (Step~1), selection gives the retained errors non-zero means. This biases both estimators toward full attention.
-% [CHECK] The direction of the selection bias is asserted, not derived; analytically it depends on (s_H, s_L, e) and the distribution of delta b. See ledger, ISSUE R2.
+\emph{Step 4 (Selection).} The estimation sample is, however, selected on $\hat\beta_{1,m}>0$. Since $\hat\beta_{1,m}$ and $\hat\Delta_m$ share the E-to-G error (Step~1), selection gives the retained errors non-zero means. For the regression through the origin, in the apartment-calibrated Monte Carlo of Step~5 the estimate instead falls with selection. For the ratio of sums, the bias is toward full attention when $[(1-e)s_L^2-e\,s_H^2]/[(\eta-e)(s_H^2+s_L^2)]<1-\psi_\delta$ to first order, which holds for apartment-like values and can fail for house-like ones (for $\psi_\delta=0.95$, $s_L=3$, $s_H=0.3$ selection moves the estimate from 0.951 to 0.936, away from one).
 
 \emph{Step 5 (Monte Carlo).} The Monte Carlo is calibrated to the \attMCmarkets{} volume-filtered apartment markets: the mean and variance of $\hat\beta_{1,m}$ before selection, with sampling noise accounting for \attMCshareLo{} to \attMCshareHi{} percent of its variance, and the aggregate $e$ and $\eta$ of Table~\ref{tab:attention}. The true $\psi_\delta$ is \attMCtrue{}. Mean estimates are:
 \begin{itemize}
@@ -392,7 +459,28 @@ The first term attenuates $1-\psi_\delta$ toward zero. The second is negative wh
 \end{itemize}
 The apartment estimate is therefore, if anything, an upper bound on attention to silence.
 
-\emph{Step 6 (What the aggregation fixes by construction).} Under the ratio-of-sums aggregation, the point estimate equals the upper end of the identified interval at $C^{\rm def}=0$, and the fitted premium equals the mean premium. Both are identities of the aggregation. The informative check is market by market (Section~\ref{ss:att_equilibrium}).
+\emph{Step 6 (What the aggregation fixes by construction).} Under the ratio-of-sums aggregation, the point estimate equals the upper end of the identified interval at $\zeta^{\rm def}=0$, and the fitted premium equals the mean premium. The fitted-premium identity is exact; the equality of the point estimate with the upper end of the interval is exact if $\zeta_{0,m}-\zeta_{1,m}$ does not vary across markets and approximate otherwise. The informative check is market by market (Appendix~\ref{app:att_band_fit}).
+
+\subsection*{Qualifications to the Attention Estimates}
+\label{app:att_qualifications}
+
+The estimator of $\psi_\delta$ and its identified interval are discussed in Section~\ref{ss:att_identification} and Appendix~\ref{app:att_estimator}. The estimators differ in how much weight they place on markets with a large energy-efficiency premium.\footnote{The estimators rank by how much weight they place on markets with a large energy-efficiency premium: the median of market ratios gives $\attPsiMedApt$, the ratio of sums $\attPsiApt$, the regression through the origin $\attPsiOLSApt$, and a regression with a constant, which the model excludes, $\attPsiConstApt$ (intercept $\attIcptApt$, s.e.\ $\attIcptSeApt$).} Three qualifications bound the results of Section~\ref{ss:att_estimates}.
+
+First, apartment markets cannot be distinguished from the bound of~\eqref{eq:etilde} on average (mean slack \attSlackApt{} log points, $t=\attSlackTApt$): the attention model fits them only with a default close to ``no energy cost''. Second, \attNViolApt{} of the \attNMarketsApt{} apartment markets exceed the bound individually; violations are more frequent where $\hat\beta_{1,m}$ is small and the ratio is noisy (\attShareViolBottomApt{} percent of markets in the bottom tercile of $\hat\beta_{1,m}$), and \attShareViolTopApt{} percent of markets in the top tercile also exceed it; across all markets the share, \attNViolApt{} of \attNMarketsApt{}, is close to the roughly half that sampling error alone would put above the bound (Section~\ref{ss:att_estimates}), so the count does not point to a second force. Third, the level of $\hat\psi_\delta$ depends on the estimator, while the contrast between segments does not.\footnote{The bound depends on how certified consumption is valued. Our $\eta_m$ values registry letters at band midpoints and the open-ended G band at 500 kWh. Valuing G at 420 or 600 kWh moves the apartment estimate of $\psi_\delta$ to $\attPsiGfourtwentyApt$ or $\attPsiGsixhundredApt$, and the number of apartment markets violating the bound to \attNViolGfourtwentyApt{} or \attNViolGsixhundredApt. % [AUTHOR] replace with certified consumption (gate G3) and delete this footnote.
+}
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Relative attention $\psi_\delta$ by estimator and valuation of the G band}
+    \label{fig:att_psi_estimators}
+    \includegraphics[width=0.6\linewidth]{fig/visuals/fig_att_F3b_psi_estimators.pdf}
+    \begin{minipage}{0.95\linewidth}
+        \vspace{0.5em}
+        \footnotesize\textit{Notes.} Estimates of $\psi_\delta$ by estimator, and the ratio of sums with the G-band energy midpoint set to 420 or 600 kWh$_{\rm ep}$/m$^2$/yr. The shaded band is the admissible range $[0,1]$. Intervals are not truncated. Apartment intervals are wide, and selection of markets on $\hat\beta_{1,m}>0$ may bias the ratio-of-sums estimate toward full attention in apartments (Appendix~\ref{app:att_estimator}).
+    \end{minipage}
+\end{figure}
+
+Splitting the post-reform window by year, $1-\hat\psi_\delta$ equals \attOneMinusPsiYoneApt, \attOneMinusPsiYtwoApt{} and \attOneMinusPsiYthreeApt{} in apartments and \attOneMinusPsiYoneHouse, \attOneMinusPsiYtwoHouse{} and \attOneMinusPsiYthreeHouse{} in houses. These are imprecise point estimates, computed with the pooled 2022--2024 registry moments; we do not interpret their time pattern without year-specific moments. 
 
 \subsection*{Proofs for Section~\ref{sec:policy}}
 
@@ -427,6 +515,17 @@ This is the condition under which an informed high-quality seller discloses.
 \end{itemize}
 \end{proof}
 
+\begin{figure}[htbp]
+    \centering
+    \caption{Bounds on the effect of forcing attention to displayed ratings, apartments}
+    \label{fig:policy_bound}
+    \includegraphics[width=\linewidth]{fig/visuals/fig_att_policy_bound.pdf}
+    \vspace{0.4em}
+    \begin{minipage}{0.97\linewidth}
+        \footnotesize\textit{Notes.} Each segment is a market, sorted by the rating premium. The left end is the threshold at the maintained reading $\omega_1=1$ and the right end the upper bound $\rho=1$, in euros per m\textsuperscript{2}. Vertical lines mark the renovation-cost benchmarks. Diamonds mark markets that move into Complete Adverse Selection under the bound. The bound is not an estimate.
+    \end{minipage}
+\end{figure}
+
 \subsubsection*{Proof of Proposition~\ref{prop:threshold} (Renovation Threshold under Limited Attention)}
 
 \begin{proof}\upshape
@@ -438,7 +537,6 @@ This is the condition under which an informed high-quality seller discloses.
 \end{equation*}
 
 \emph{Step 2 (The bound in every regime).} By Step~1, $\bar R\le b$ in every regime. Hence $S^*=\max\{\hat R-\bar R,0\}\ge\max\{\hat R-b,0\}$, which is the bound stated before the regimes.
-% [CHECK] The original proof calls this bound "part (iii)"; the statement has no part (iii). See ledger, ISSUE T1.
 
 \emph{Step 3 (Cost-Deterred Hiding and Partial Pooling: $\bar R=b$).}
 \begin{itemize}
@@ -446,8 +544,8 @@ This is the condition under which an informed high-quality seller discloses.
     \item \emph{Partial Pooling.} The marginal informed low-quality seller is indifferent between hiding and disclosing, $g_0=c_0$ by~\eqref{eq:att_pp}. So $h=0$ and Step~1 gives $\bar R=b$.
 \end{itemize}
 
-\emph{Step 4 (Properties of $b$).} The expression $b=\rho\omega_1\beta_1$ contains neither $c_0$, $\pi$, $\psi$ nor $C^{\rm def}$, and $\partial b/\partial(\rho\omega_1)=\beta_1$.
-% [CHECK] The statement also signs this derivative (>0); the proof does not say beta_1=C_0-C_1>0. See ledger, ISSUE T2.
+\emph{Step 4 (Properties of $b$).} The expression $b=\rho\omega_1\beta_1$ contains neither $c_0$, $\pi$, $\psi$ nor $\zeta^{\rm def}$, and $\partial b/\partial(\rho\omega_1)=\beta_1$.
+% [CHECK] The statement also signs this derivative (>0); the proof does not say beta_1=\zeta_0-\zeta_1>0. See ledger, ISSUE T2.
 
 \emph{Step 5 (Complete Adverse Selection, $\sigma_1^*=0$).} In Complete Adverse Selection $c_0<\Delta_\psi(e(1))$, so $h=g_0-c_0>0$ at the pool $e(1)$. With $\sigma_1^*=0$, $g_1\le c_0$ gives $h\le b$ (since $h-b=g_1-c_0$). Step~1 then gives
 \begin{equation*}
@@ -456,6 +554,29 @@ This is the condition under which an informed high-quality seller discloses.
 $h>0$ gives $\bar R<b$, and $h\le b$ gives $\bar R\ge0$.
 
 \emph{Step 6 (Complete Adverse Selection, $\sigma_1^*>0$).} Now $g_1\ge c_0$, which gives $h\ge b$. So $\max\{b,h\}=h$, and Step~1 gives $\bar R=0$.
+
+\begin{table}[htbp]
+\centering
+\caption{Derivatives of $\bar R$ in Complete Adverse Selection with Disclosing High-Quality Sellers}
+\label{tab:threshold_cs}
+\small\renewcommand{\arraystretch}{1.4}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc@{}}
+\toprule\toprule
+\textbf{Parameter} & \textbf{Derivative of $\bar R$} & \textbf{Sign} \\
+\midrule
+Hiding cost $c_0$ & $1$ & $+$ \\
+Relative attention $\psi$ & $b\,[e^{\rm def}-e(1)]$ & $+$ if $e^{\rm def}>e(1)$ \\
+Share of informed sellers $\pi$ & $-\,b\,\psi\,e'(1)$ & $+$ \\
+Default cost $\zeta^{\rm def}$ & $\rho\omega_1(1-\psi)$ & $+$ \\
+Rating weight $\rho\omega_1$ & $\beta_1\,(1-\tilde e)$ & $-$ if $\tilde e>1$ \\
+\bottomrule\bottomrule
+\end{tabular*}
+\vspace{0.5em}
+
+\raggedright
+\footnotesize
+\textit{Notes:} $\tilde e>1$ means that silence sells above a verified efficient rating, as it does in apartments. The sign of the $\psi$ derivative requires $e^{\rm def}>e(1)$.
+\end{table}
 
 \emph{Step 7 (Derivatives in Table~\ref{tab:threshold_cs}).} Write the threshold of Step~5 as
 \begin{equation*}
@@ -467,7 +588,6 @@ Differentiating,
     \partial\bar R/\partial\pi&=-b\,\psi\,e'(1),\quad e'(1)=\frac{\bar\theta(\bar\theta-1)}{(1-\pi\bar\theta)^2}<0, & \partial\bar R/\partial(\rho\omega_1)&=\beta_1(1-\tilde e).
 \end{align*}
 The last uses that $e(1)$ and $e^{\rm def}$ do not depend on $\rho\omega_1$.
-% [CHECK] The table's C^def row, rho omega_1 (1-psi), is not derived here. See ledger, ISSUE T3.
 
 \emph{Step 8 (Full attention).} At $\psi=\omega_1=1$, $\tilde e=e$, and only $\sigma_1^*=0$ survives in Complete Adverse Selection (Proposition~\ref{prop:att_equilibrium}(ii)). This is the full-attention statement.
 \end{proof}
@@ -503,7 +623,6 @@ Since $e(1;F)\le\bar\theta$ and $\psi\le1$, $h(F)\le b$. So a renovated seller d
     G(F)\;\equiv\;F-F_R(\bar R(F)+S)
 \end{equation*}
 is strictly increasing. Since $G(0)\le0\le G(1)$, the root is unique.
-% [CHECK] Existence of the root (intermediate value theorem) also needs Rbar(F) continuous, including at F=1-sigma_0^*, where h=0; the proof uses continuity of F_R without saying so. See ledger, ISSUE S1.
 
 \emph{Step 7 (Common cost).} Under a common cost, all renovate if and only if $\hat R-S\le\bar R(1)$. Since $e(1;1)=\bar\theta$, Step~5 gives
 \begin{equation*}
@@ -525,8 +644,7 @@ is strictly increasing. Since $G(0)\le0\le G(1)$, the root is unique.
     b\,(1-\psi)\,e^{\rm def}.
 \end{equation*}
 
-\emph{Step 3 (The belief after silence).} That belief is the limit of the pool belief as $\pi\to1$. It is the only one that survives the intuitive criterion, since a low type gains more from silence than a high type.
-% [CHECK] (a) Along the Partial Pooling path e^* does not depend on pi (eq. att_pp), so the equilibrium pool belief tends to e^*, not to zero; zero is the limit of e(sigma_0) at fixed sigma_0>0. (b) The intuitive criterion also needs the high type's deviation to be equilibrium-dominated. See ledger, ISSUES I1-I2.
+\emph{Step 3 (The belief after silence).} At $\pi=1$ and $\sigma_0=0$ silence is off the equilibrium path, so Bayes' rule does not pin down the belief after it. We set it to zero. This is not the limit of the pool belief: along the Partial Pooling path the pool belief tends to $e^*$, which does not depend on $\pi$ (eq.~\eqref{eq:att_pp}), and zero is the limit of $e(\sigma_0)$ only at a fixed $\sigma_0>0$. It is the belief the intuitive criterion selects when the high type's best-case gain from silence, $b(1-\psi)(e^{\rm def}-1)-c_0-c_1$, is negative while the low type's, $b[\psi+(1-\psi)e^{\rm def}]-c_0$, is positive. In a market calibrated to Partial Pooling the first equals $-b(1-\psi)-b\psi e^*-c_1<0$ and the second equals $b\psi(1-e^*)>0$, so both signs hold in every such market. At $\pi=1$ a high-quality seller never hides, and if $\sigma_0>0$ Bayes' rule gives belief zero and a low-quality seller loses $b\psi e^*$ from silence, so in every perfect Bayesian equilibrium hiding is absent and $\bar R=b$. Only the off-path price of silence, $b(1-\psi)e^{\rm def}$ in Steps~2 and~5, depends on the zero belief.
 
 \emph{Step 4 (Hiding disappears and $\bar R=b$).} With this belief, hiding is weakly unprofitable when $c_0\ge b(1-\psi)e^{\rm def}$. A market that starts in Partial Pooling has
 \begin{equation*}
@@ -545,7 +663,6 @@ so $\sigma_0^*=0$, $h<0$ and $\bar R=b$.
 \begin{equation*}
     b\,e(\sigma_0)\;\le\;b\bar\theta.
 \end{equation*}
-% [CHECK] The fall in the price of silence, lambda=(1-\hat\psi) b (e^def-e^*), stated in the proposition, is not derived in the proof. See ledger, ISSUE I4.
 
 \emph{Step 8 (Hiding falls weakly).} In Partial Pooling the belief that sustains $c_0$ at $\psi=1$ is
 \begin{equation*}
@@ -555,7 +672,6 @@ using $e^{\rm def}\ge\bar\theta\ge e^*$. A higher belief means a lower hiding ra
 % [CHECK] Proposition att_equilibrium(i) needs c_0>b thetabar strictly; at c_0=b thetabar the market is at the Partial Pooling boundary with sigma_0^*=0. The conclusion is unaffected. See ledger, ISSUE I5.
 
 \emph{Step 9 (No market enters Complete Adverse Selection, so nothing on the renovation side moves).} The gain from hiding stays below $c_0$ in every market at the calibrated cost, because $c_0\ge b\,e(1)$ in Partial Pooling (using $e^{\rm def}\ge\bar\theta\ge e(1)$). So no market enters Complete Adverse Selection, and $\bar R=b$ before and after (Proposition~\ref{prop:threshold}). Hence the subsidy $S^*=\max\{\hat R-\bar R,0\}$, the flow $\pi(1-\bar\theta)F_R(\bar R+S)$ and the share of renovators at any $S$ are unchanged.
-% [CHECK] "Stays below" is supported only weakly (c_0 >= b e(1)); that is all "no market enters Complete Adverse Selection" needs. See ledger, ISSUE I6.
 
 \emph{Step 10 (Correction at full take-up).} In the equilibrium of Proposition~\ref{prop:subsidy_ge} the correction at full take-up is $\hat\psi b(\bar\theta-e^*)$ before the policy. After it, the pool belief that sustains $c_0$ is $c_0/b$ (Step~8). So the correction is $b\bar\theta-c_0$ in Partial Pooling and zero in Cost-Deterred Hiding. The fall is therefore
 \begin{equation*}
@@ -578,7 +694,6 @@ because $\rho\le1$ and $\hat\rho=\rho\omega_1$.
         \bar R_{\rm new}\;=\;b_{\rm new}-h\;=\;b_{\rm new}[1-e(1)]+c_0.
     \end{equation*}
 \end{itemize}
-% [CHECK] Using Rbar=b-h requires h<=b_new; this holds (psi=1, e(1)<1) but is not stated. See ledger, ISSUE I7.
 
 \emph{Step 13 (The new threshold is at least $b$).} The market was in Partial Pooling at the calibrated cost, so
 \begin{equation*}
@@ -614,7 +729,6 @@ the gain from hiding at the observed pool. A seller with $c_i<g_0$ hides, so $\h
 \end{equation*}
 
 \emph{Step 3 (The gain after $\psi\to1$).} Raising $\psi$ to one lowers the gain from hiding to $g_0'=b\,e(\sigma_0')$. Here $\sigma_0'=G(g_0')\le\hat\sigma_0$, because the hiding rate falls (Proposition~\ref{prop:att_equilibrium}). Also $g_0'\ge b\hat e$, because $e(\sigma_0')\ge\hat e$.
-% [CHECK] Proposition att_equilibrium treats a single hiding cost; with a cost distribution G the fall in the hiding rate follows from the fixed point sigma=G(b e(sigma)). See ledger, ISSUE A1.
 
 \emph{Step 4 (Each rent falls by at most $\lambda$).} By Step~3,
 \begin{equation*}
@@ -643,7 +757,7 @@ By cost:
 \subsection*{Alternative Readings of the Policy Exercise}
 
 \paragraph{Exact pricing.}
-The exact-pricing solver of Section~\ref{sec:equilibrium} takes the renovation threshold from the full-attention equilibrium rather than setting it to the rating premium. It gives mean thresholds of \euro{}\attRbarCoreEurTwoFiftyApt{} (apartments) and \euro{}\attRbarCoreEurTwoFiftyHouse{} (houses) per m\textsuperscript{2}, against \euro{}\attScBaseRbarApt{} and \euro{}\attScBaseRbarHouse{} under linear pricing, and a share of markets requiring a subsidy at $\hat R=250$ of \attSharePosCoreTwoFiftyApt{} and \attSharePosCoreTwoFiftyHouse{} percent, against \attScBaseShareTwoFiftyApt{} and \attScBaseShareTwoFiftyHouse{}. The thresholds differ by \attRbarGapApt{} (apartments) and \attRbarGapHouse{} (houses) log points on average. The gap is linear versus exact pricing, because attention does not enter the threshold in the regimes the data support. Figure~\ref{fig:policy_core_vs_att} plots the two thresholds against each other.
+The exact-pricing solver of Appendix~\ref{sec:equilibrium} takes the renovation threshold from the full-attention equilibrium rather than setting it to the rating premium. It gives mean thresholds of \euro{}\attRbarCoreEurTwoFiftyApt{} (apartments) and \euro{}\attRbarCoreEurTwoFiftyHouse{} (houses) per m\textsuperscript{2}, against \euro{}\attScBaseRbarApt{} and \euro{}\attScBaseRbarHouse{} under linear pricing, and a share of markets requiring a subsidy at $\hat R=250$ of \attSharePosCoreTwoFiftyApt{} and \attSharePosCoreTwoFiftyHouse{} percent, against \attScBaseShareTwoFiftyApt{} and \attScBaseShareTwoFiftyHouse{}. The thresholds differ by \attRbarGapApt{} (apartments) and \attRbarGapHouse{} (houses) log points on average. The gap is linear versus exact pricing, because attention does not enter the threshold in the regimes the data support. Figure~\ref{fig:policy_core_vs_att} plots the two thresholds against each other.
 
 \paragraph{Hiding cost read off the premium.}
 Reading the hiding cost off each market's premium, $c_0=\hat\Delta_m$, instead of calibrating it to the observed hiding rate, places \attRawNCdApt{} apartment markets in Cost-Deterred Hiding, \attRawNPpApt{} in Partial Pooling and \attRawNCasApt{} in Complete Adverse Selection, \attRawNFlagApt{} of them on the branch where high-quality sellers may also hide and the threshold depends on which equilibrium is selected; the mean threshold is \attRawRbarRatioApt{} of $b$. For houses the counts are \attRawNCdHouse{}, \attRawNPpHouse{} and \attRawNCasHouse{}, with \attRawNFlagHouse{} on that branch, and a mean ratio of \attRawRbarRatioHouse{}. This reading also returns negative costs in \attRawNNegApt{} apartment and \attRawNNegHouse{} house markets, so we do not use it.
@@ -658,7 +772,7 @@ Figure~\ref{fig:policy_sgrid} shows the distribution of the minimum subsidy, Fig
     \includegraphics[width=\linewidth]{fig/visuals/fig_att_policy_sgrid.pdf}
     \vspace{0.4em}
     \begin{minipage}{0.97\linewidth}
-        \footnotesize\textit{Notes.} Rows are property types and columns the renovation-cost benchmark $\hat R\in\{250,500\}$~\euro{}/m\textsuperscript{2}. Each cell shows the cross-market density of $S^*_m=\max\{\hat R-\hat b_m P_m,0\}$ (euros per m\textsuperscript{2}). The dashed line marks the median conditional on $S^*_m>0$; markets with $S^*_m=0$ appear in the left spike.
+        \footnotesize\textit{Notes.} Rows are property types and columns the renovation-cost benchmark $\hat R\in\{250,500\}$~\euro{}/m\textsuperscript{2}. Each cell shows the cross-market density of $S^*_m=\max\{\hat R-\hat b_m P_m/100,0\}$ (euros per m\textsuperscript{2}). The dashed line marks the median conditional on $S^*_m>0$; markets with $S^*_m=0$ appear in the left spike.
     \end{minipage}
 \end{figure}
 
@@ -691,13 +805,13 @@ Figure~\ref{fig:policy_sgrid} shows the distribution of the minimum subsidy, Fig
     \includegraphics[width=\linewidth]{fig/visuals/fig_att_policy_rbar_core_vs_att.pdf}
     \vspace{0.4em}
     \begin{minipage}{0.97\linewidth}
-        \footnotesize\textit{Notes.} Each point is a market. Horizontal axis: threshold of the exact-pricing solver of Section~\ref{sec:equilibrium}; vertical axis: $\bar R=\hat b$. The dashed line is the 45-degree line. The gap is linear versus exact pricing, not attention.
+        \footnotesize\textit{Notes.} Each point is a market. Horizontal axis: threshold of the exact-pricing solver of Appendix~\ref{sec:equilibrium}; vertical axis: $\bar R=\hat b$. The dashed line is the 45-degree line. The gap is linear versus exact pricing, not attention.
     \end{minipage}
 \end{figure}
 
 \subsection*{Belief and Attention Ceilings}
 
-Figure~\ref{fig:att_ceilings} adds the attention ceiling of Proposition~\ref{prop:att_incentives} to the belief ceiling of Figure~\ref{fig:att_belief}.
+Figure~\ref{fig:att_ceilings} adds the attention ceiling of Section~\ref{sec:beliefs} (eq.~\eqref{eq:etilde}) to the belief ceiling of Figure~\ref{fig:att_belief}.
 
 \begin{figure}[htbp]
     \centering
@@ -712,4 +826,4 @@ Figure~\ref{fig:att_ceilings} adds the attention ceiling of Proposition~\ref{pro
 
 \subsection*{A Numerical Illustration}
 
-Take round values close to the apartment means: $\rho=0.5$, $\omega_1=1$, $\omega_0=0.1$ (so $\psi=0.1$), $C_1=185$, $C_0=327$ and $\bar C^{\rm sil}=243$ in kWh-equivalent units, and $C^{\rm def}=0$. The perceived cost of silence is $C^*=24.3$; the energy-efficiency premium is $b=0.5\times(327-185)=71$; the non-disclosure premium is $\Delta=0.5\times(327-24.3)=151$, about twice $b$; and silence sells above a displayed A-to-D rating by $0.5\times(185-24.3)=80$. With $\omega_0=\omega_1$ instead, $C^*=243$ and $\Delta=42$, which is $e\,b$ with $e=0.59$: the prediction of Section~\ref{sec:equilibrium}.
+Take round values close to the apartment means: $\rho=0.5$, $\omega_1=1$, $\omega_0=0.1$ (so $\psi=0.1$), $\zeta_1=185$, $\zeta_0=327$ and $\bar \zeta^{\rm sil}=243$ in kWh-equivalent units, and $\zeta^{\rm def}=0$. The perceived cost of silence is $\zeta^*=24.3$; the energy-efficiency premium is $b=0.5\times(327-185)=71$; the non-disclosure premium is $\Delta=0.5\times(327-24.3)=151$, about twice $b$; and silence sells above a displayed A-to-D rating by $0.5\times(185-24.3)=80$. With $\omega_0=\omega_1$ instead, $\zeta^*=243$ and $\Delta=42$, which is $e\,b$ with $e=0.59$: the prediction of Appendix~\ref{sec:equilibrium}.

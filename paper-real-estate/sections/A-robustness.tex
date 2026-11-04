@@ -18,11 +18,11 @@ places the boundary between C and D.
 
 The second is the treatment of informed sellers who withhold. Because such a listing displays
 no score, its quality cannot be read from the listing itself. The baseline assigns
-$\theta=0$ by revealed preference, invoking Corollary~\ref{cor:hq_disclose}. That assignment
+$\theta=0$ by revealed preference, invoking Corollary~\ref{cor:att_hq}. That assignment
 is an assumption. It makes
 $\hat\sigma_{1,m}$ identically zero by construction, so the corollary cannot be assessed
 against the baseline estimates. The alternative reads the withheld grade from the ADEME
-registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured. Under the limited-attention extension of Section~\ref{ss:attention}, high-quality hiding is possible only if silence outprices a verified efficient rating and the market is in Complete Adverse Selection (Proposition~\ref{prop:att_seller_types}), so the registry reading, which leaves $\hat\sigma_1$ measured, is the specification that does not rule it out.
+registry, which records it for every matched listing, leaving $\hat\sigma_{1,m}$ measured. Under limited attention (Section~\ref{ss:attention}), high-quality hiding is possible only if silence outprices a verified efficient rating and the market is in Complete Adverse Selection (Proposition~\ref{prop:att_seller_types}), so the registry reading, which leaves $\hat\sigma_1$ measured, is the specification that does not rule it out.
 
 Table~\ref{tab:robustness} crosses the two choices.
 
@@ -33,7 +33,7 @@ Table~\ref{tab:robustness} crosses the two choices.
 \small\renewcommand{\arraystretch}{1.25}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{c}@{}}
 \toprule\toprule
-\textbf{Specification} & $N$ & $\hat\rho_m$ & $\hat c_{0,m}$ & $\hat\sigma_{0,m}$ & $\hat\sigma_{1,m}$ & $\hat{\bar\theta}_m$ \\
+\textbf{Specification} & $N$ & $\hat\rho_m$ & $\hat c_{0,m}^{\rm FA}$ & $\hat\sigma_{0,m}$ & $\hat\sigma_{1,m}$ & $\hat{\bar\theta}_m$ \\
 \midrule
 \multicolumn{7}{l}{\textit{Panel A: Apartments}} \\[2pt]
 A--D vs E/F/G, $\sigma_1$ imposed \textbf{(baseline)} & 45 & 49.5\% & 2.41\% & 15.2\% & n/a & 62.5\% \\
@@ -62,16 +62,16 @@ larger under the A--D contrast.
 \end{minipage}
 \end{table}
 
-Three results follow.
+Three results follow; below, ``benchmark cost'' means the full-attention cost $\hat c_{0,m}^{\mathrm{FA}}=\hat\beta_{1,m}\hat e^*_m$ that the table reports. The paper's headline cost under limited attention is the predicted premium, whose mean is $\hat\Delta$ whatever $\hat e^*_m$ is; it moves with the threshold only through the estimation sample.
 
-First, buyer sensitivity is exactly insensitive to the $\sigma_1$ assignment, and the
-concealment cost only mildly so. Holding the threshold fixed, relaxing the restriction leaves
+First, the anchored estimate of effective attention to ratings does not depend on the $\sigma_1$ assignment, and the
+benchmark cost only mildly so. Holding the threshold fixed, relaxing the restriction leaves
 $\hat\rho_m$ completely unchanged in both segments: the anchored estimator
 $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$ (Proposition~\ref{prop:anchored_identification})
 never involves $\sigma_1$ at all, so there is nothing for the assignment to move. $\hat
-c_{0,m}$ moves modestly, from 2.41\% to 2.62\% for apartments and from 3.45\% to 3.56\% for
+c^{\mathrm{FA}}_{0,m}$ moves modestly, from 2.41\% to 2.62\% for apartments and from 3.45\% to 3.56\% for
 houses, through its dependence on $\hat e^*_m$, which does respond to the assignment. The
-concealment cost is therefore not an artefact of the revealed-preference assignment, even
+benchmark cost is therefore not an artefact of the revealed-preference assignment, even
 though $\hat\sigma_{0,m}$ itself is quite sensitive to it: imposing $\theta=0$ places every
 informed non-discloser in the low-quality group and inflates the measured hiding rate by
 roughly a factor of two and a half (15.2\% against 5.9\% for apartments, 6.8\% against 2.8\%
@@ -89,16 +89,16 @@ setting selects is thus also the one under which the behavioural restriction sur
 we read as support for the baseline cut rather than as independent confirmation of the
 corollary.
 
-Third, the threshold matters a great deal for the level of the concealment cost, and this is
-the paper's most consequential specification choice. Moving the cut from C--D to D--E raises
-$\hat c_{0,m}$ from roughly 1.1--1.8\% of property value to 2.4--3.6\%, a little more than a
+Third, the threshold matters a great deal for the level of the benchmark cost, and this is
+the most consequential specification choice for the benchmark cost. Moving the cut from C--D to D--E raises
+$\hat c^{\mathrm{FA}}_{0,m}$ from roughly 1.1--1.8\% of property value to 2.4--3.6\%, a little more than a
 doubling in both segments. The mechanism is transparent. With A--D counted as high quality,
 the average quality of the non-disclosing pool $\hat e^*_m$ rises substantially (the informed
 high-quality share $\hat{\bar\theta}_m$ alone more than doubles, from roughly 27--29\% under
-the C--D cut to 60--66\% under D--E), and $c_{0,m}=\beta_{1,m}\hat e^*_m$
+the C--D cut to 60--66\% under D--E), and $c^{\mathrm{FA}}_{0,m}=\beta_{1,m}\hat e^*_m$
 (Proposition~\ref{prop:what_identified}) scales with it. Readers who prefer the narrower
-definition of ``high quality'' should therefore read the concealment cost as the smaller
-figure throughout; the relative ordering of the concealment cost across apartments and houses
+definition of ``high quality'' should therefore read the benchmark cost as the smaller
+figure throughout; the relative ordering of the benchmark cost across apartments and houses
 is unaffected by the threshold choice.
 
 % =====================================================================
@@ -109,10 +109,12 @@ is unaffected by the threshold choice.
 \section{Identification of $\rho_m$: A Formal Treatment}
 \label{app:rho_identification}
 
-The naive market-by-market ratio $\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ is
+The naive market-by-market ratio $\hat r_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ is
 degenerate: it returns approximately $1$ regardless of the true buyer-sensitivity share, because
 $\rho_m$ cancels between numerator and denominator under the model's own pricing equations. This
 appendix states the identification failure formally, and the external anchor that resolves it.
+
+The statements below are written for the full-attention benchmark. Under limited attention (Section~\ref{ss:attention}), the scale non-identification result (Proposition~\ref{prop:scale_nonid}) and the anchored estimate of $\rho_m$ hold with $\rho_m$ replaced by $\rho_m\omega_1$, the effective attention to a displayed rating, for given $\psi$ and $e^{\rm def}$: prices depend on $\rho_m$ and $\omega_1$ only through $b_m=\rho_m\omega_1\beta_1$ (Lemma~\ref{lem:att_prices}), and a silent listing sells at $b_m\tilde e$ in place of $b_m e$. The other statements are benchmark-only: the identification and bounds of the concealment cost (Proposition~\ref{prop:what_identified}(ii)--(iv)), Lemma~\ref{lem:model_bounds}(i), and the $c_0$ half of Proposition~\ref{prop:anchored_identification}, and the specification test of Corollary~\ref{cor:ratio_specification_test}, whose probability limit is $\tilde e/e^*$ and not one when $\psi<1$ (it is one if $\zeta^{\rm def}=\bar \zeta^{\rm sil}$). Under limited attention the concealment cost is read off the premium, $c_{0,m}=\Delta_m$ in Partial Pooling (Proposition~\ref{prop:att_identification}(iv)).
 
 \subsection*{The scale non-identification result}
 
@@ -121,7 +123,7 @@ implication of the model.
 
 \begin{proposition}[Scale non-identification of buyer sensitivity]
 \label{prop:scale_nonid}
-Under the benchmark pricing rule $\alpha_k=\beta_k$ (Section~\ref{sec:model}), fix any
+Under the Linear Pricing Assumption~\ref{assum:linear_pricing}, fix any
 parameter vector with $\rho_m\in(0,1]$ and $\beta_1>0$ for all markets $m$, and any
 $\lambda\in(0,(\max_m\rho_m)^{-1}]$. The reparametrization $(\rho_m,\beta_1)\mapsto
 (\lambda\rho_m,\beta_1/\lambda)$ is admissible and induces an identical joint distribution of
@@ -133,9 +135,9 @@ markets $M$; only the composites $\{b_m\}$ and $\{c_{0,m}\}$ are.
 
 \begin{proof}
 Every observable implication of the model is a function of $(\rho_m,\beta_1)$ through the
-product $b_m$ alone. For a disclosed listing, $p^*(d=1,\theta)=\beta_0+\rho_m\beta_1\theta
-=\beta_0+b_m\theta$. For a non-disclosed listing, $p^*(d=0)=\beta_0+\rho_m\beta_1
-e=\beta_0+b_m e$. The hiding incentive is $\Delta(\sigma_0)=\rho_m\beta_1 e(\sigma_0)-c_{0,m}
+product $b_m$ alone. For a disclosed listing, $p^*(d=1,\theta)=p_{\rm L}+\rho_m\beta_1\theta
+=p_{\rm L}+b_m\theta$, where $p_{\rm L}$ is the price of a displayed inefficient rating, which the reparametrization leaves unchanged because the free level $\bar V$ absorbs the change. For a non-disclosed listing, $p^*(d=0)=p_{\rm L}+\rho_m\beta_1
+e=p_{\rm L}+b_m e$. The hiding incentive is $\Delta(\sigma_0)=\rho_m\beta_1 e(\sigma_0)-c_{0,m}
 =b_m e(\sigma_0)-c_{0,m}$, so the equilibrium $\sigma_0^*$ solving $\Delta(\sigma_0^*)=0$
 depends on $(\rho_m,\beta_1)$ only through $b_m$. The regime boundaries of
 Proposition~\ref{prop:equilibrium} ($c_{0,m}$ against $b_m\bar\theta_m$ and $b_m e(1)$) involve
@@ -147,8 +149,8 @@ $\lambda\le(\max_m\rho_m)^{-1}$.
 
 \begin{corollary}[The raw ratio is a specification-test statistic, not an estimator]
 \label{cor:ratio_specification_test}
-$\hat\rho_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ satisfies $\mathrm{plim}\,\hat\rho_m=1$
-for every true $\rho_m\in(0,1]$, since under the model $\hat\Delta_m=b_m e^*_m$ and
+$\hat r_m=\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ satisfies $\mathrm{plim}\,\hat r_m=1$
+at full attention ($\psi=\omega_1=1$) and under Assumption~\ref{assum:no_pre_pricing}, for every true $\rho_m\in(0,1]$, since under the model $\hat\Delta_m=b_m e^*_m$ and
 $\hat\beta_{1,m}=b_m$ share the same composite $b_m$ by
 Proposition~\ref{prop:scale_nonid}. It is the sample analogue of the over-identifying
 restriction $\Delta_m=\beta_{1,m}\,e^*_m$ (Lemma~\ref{lem:model_bounds} below), not an
@@ -186,9 +188,8 @@ Proposition~\ref{prop:scale_nonid}.
 \end{proof}
 
 This result has an immediate practical consequence: $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat
-e^*_m(\hat\sigma_{0,m})$ is the primary concealment-cost estimator used in
-Section~\ref{sec:identification}, for both property types, and it does not require $\rho_m$ to
-be identified at all.
+e^*_m(\hat\sigma_{0,m})$ is the full-attention estimator of the concealment cost (Appendix~\ref{app:c0_fullattention}), for both property types, and it does not require $\rho_m$ to
+be identified at all. Under limited attention Section~\ref{sec:identification} reads $c_{0,m}$ off the premium in Partial Pooling and estimates it as the predicted premium.
 
 \begin{lemma}[Model-implied bounds on the non-disclosure premium]
 \label{lem:model_bounds}
@@ -224,7 +225,7 @@ the annual saving over a horizon $T$ at rate $r$.
 
 \begin{proposition}[Point identification of $\rho_m$ under Assumption~\ref{assum:energy_anchor}]
 \label{prop:anchored_identification}
-Under Assumption~\ref{assum:energy_anchor} with $\beta_{1,m}^{\mathrm{anchor}}>0$ known,
+Under Assumption~\ref{assum:energy_anchor} with $\beta_{1,m}^{\mathrm{anchor}}>0$ known and $\omega_1=1$ (otherwise the first equality identifies $\rho_m\omega_1$), and, for the second equality, at $\psi=1$ and in Partial Pooling,
 \begin{equation}
     \rho_m=\frac{\beta_{1,m}}{\beta_{1,m}^{\mathrm{anchor}}}, \qquad
     c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)
@@ -254,11 +255,66 @@ strictly decreasing belief function of Lemma~\ref{lem:belief_monotone}.
 
 \medskip
 \noindent\textit{Diagnostics reported alongside the anchored estimates
-(Table~\ref{tab:did_results} and Appendix~\ref{app:robustness}).} The measured wedge
+(Table~\ref{tab:did_results} and Appendix~\ref{app:robustness}).} At full attention, the measured wedge
 $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$
-(Lemma~\ref{lem:model_bounds}/Corollary~\ref{cor:ratio_specification_test}) is reported per
-market rather than absorbed into $\hat c_{0,m}$; the concentration statistic
+(Lemma~\ref{lem:model_bounds}/Corollary~\ref{cor:ratio_specification_test}) is kept at the market level
+(its mean is in Table~\ref{tab:attention}) rather than absorbed into $\hat c_{0,m}$; the concentration statistic
 $\bar\Lambda'=M^{-1}\sum_m\hat\rho_m(1-\hat\rho_m)$, restricted to markets with
 $\hat\rho_m\in[0,1]$, gates whether the anchored $\hat\rho_m$ sample carries enough interior
 variation to support a covariate index rather than only a common estimate; and the count of
 markets violating $\hat\rho_m\le1$ is reported directly rather than clipped away.
+
+% =====================================================================
+% Material moved from Section 4.4 (Identification) on 2026-11-01.
+% =====================================================================
+
+\subsection*{Supply-Side Stability across the Reform}
+\label{app:supply_stability}
+
+The reform operated on the demand side, and the identification argument of Section~\ref{sec:identification} treats the supply side as stable across July 2021. Two remarks bear on that assumption, an alternative design that fails and the timing of the two gaps.
+
+First, an alternative design based on a Bartik instrument, interacting wholesale gas price variation with the pre-reform share of low-efficiency properties in each market, fails at the first stage ($F$-statistic: 1.0 to 1.6), so it cannot corroborate the assumption. The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike that followed the Russian invasion of Ukraine, and so removed the demand-side variation the instrument was designed to exploit.
+
+Second, the timing of the two gaps is hard to reconcile with a supply-side shift. These two gaps measure distinct economic objects: $\beta_{1,m,t}$ captures buyers' willingness to pay for verified high quality, while $\Delta_{m,t}$ reflects the informational wedge created by strategic non-disclosure. They respond to different primitives of the model. A supply-side confound (a shift in $\pi_m$, $\bar\theta_m$, or seller composition at the reform date) would generically move these two gaps by different amounts and in potentially different directions, since the mechanisms through which supply composition enters each gap differ. The fact that both gaps are jointly flat before July 2021 and both shift upward simultaneously after the reform, at the same markets and on the same calendar date, is difficult to reconcile with a supply-side story. It is exactly what the demand-side interpretation predicts: legal opposability increases the return to EPC quality for sensitive buyers, raising both the price of verified high quality ($\beta_{1,m,t}$) and the information premium extracted by non-disclosers ($\Delta_{m,t}$) at the same moment. Because the disclosure obligation and its associated liability predate the reform (loi ALUR, Article L271-4 CCH), we treat $c_{0,m}$ as unchanged across July 2021. We do not sign the bias a violation of this assumption would introduce into the estimates, since the anchor is constructed independently of the reform-induced price changes and the direction would depend on exactly how a supply-side shift propagates into the disclosed-price gap $\hat\beta_{1,m}$.
+
+\subsection*{The Naive Ratio in the Data}
+\label{app:naive_ratio}
+
+With $\hat\beta_{1,m}$, $\hat\Delta_m$ and $\hat e^*_m$ all in hand, the premium equation $\Delta_m=\rho_m\beta_{1,m}e^*_m$ (Equation~\eqref{eq:premium_derived}) appears to deliver buyer sensitivity by rearrangement, as the ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$, formed either in levels or in reform-induced changes. It does not, and the reason is internal to the model rather than a shortcoming of the data. Buyers who price the certificate and buyers who ignore it are aggregated into a single market price, so the sensitive-buyer share never appears on its own. It appears multiplied by the physical size of the quality difference, and only ever in that combination. The disclosed-price gap equals that product; the gap between silent and intensive listings equals the same product scaled by the pool belief. Their ratio is therefore the pool belief itself, which is exactly what the construction then divides by, so at full attention it returns approximately one whatever the true $\rho_m$ happens to be. Under limited attention its probability limit is $\tilde e/e^*$ and not one, so a ratio above one is the model's prediction when $\psi<1$ and $e^{\rm def}>e^*$. Pooling markets buys nothing, since every market contributes the same degenerate identity. What the ratio does measure is whether the full-attention restriction $\Delta_m=\beta_{1,m}e^*_m$ holds in the data, which makes it a specification statistic rather than an estimator. The results of this appendix state and prove this formally, and Figure~\ref{fig:rho_saturation} shows what it looks like in the data: apartment markets sit almost entirely above the line where $\hat\Delta_m$ would exceed $\hat\beta_{1,m}\hat e^*_m$, which is the region the model predicts when $\psi_\delta<1$, in nearly every market and not in a handful of outliers.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Why the naive ratio saturates: $\hat\Delta_m$ against $\hat\beta_{1,m}\hat e^*_m$, by market}
+    \label{fig:rho_saturation}
+    \includegraphics[width=0.8\textwidth]{fig/visuals/fig_rho_saturation_scatter.pdf}
+    \begin{minipage}{0.95\linewidth}
+        \footnotesize\textit{Notes.} Each point is a market. The 45\textdegree{} line marks $\hat\Delta_m=\hat\beta_{1,m}\hat e^*_m$, i.e.\ where the naive ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ equals one. Points in the shaded region are markets where that ratio exceeds one and the full-attention restriction (Corollary~\ref{cor:ratio_specification_test}) fails --- not markets with unusually high buyer sensitivity, since $\rho_m$ never enters the plotted quantities. \attNLamPosApt{} of \attNMarketsApt{} apartment markets (\attShareLamPosApt{}\%) and \attNLamPosHouse{} of \attNMarketsHouse{} house markets (\attShareLamPosHouse{}\%) fall in this region.
+    \end{minipage}
+\end{figure}
+
+\subsection*{The Full-Attention Estimate of the Hiding Cost}
+\label{app:c0_fullattention}
+
+At full attention ($\psi=1$) the concealment cost is the disclosed-price gap scaled by the belief prevailing at the observed hiding rate, and this full-attention cost, $\hat c_{0,m}^{\rm FA}=\hat\beta_{1,m}\hat e^*_m(\hat\sigma_{0,m})$, uses neither the anchor nor $\rho_m$. It is the equilibrium indifference condition read backwards: in partial pooling the marginal informed hider is exactly indifferent between disclosing and staying silent, so the revenue she gives up by remaining in the pool must be what silence costs her. One free parameter is matched to one observed moment, the hiding rate among informed low-quality sellers, and the match is exact. Appendix~\ref{app:rho_identification} sets out both arguments (Propositions~\ref{prop:what_identified} and~\ref{prop:anchored_identification}). Under limited attention the premium equals the hiding cost in Partial Pooling (Proposition~\ref{prop:att_identification}(iv)), and the paper calibrates the cost to the predicted premium, whose mean is $\hat\Delta$. The two estimates coincide at $\psi=1$ and differ on average by the wedge $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$, which is therefore the quantity that identifies attention to silence. The mean wedge is \attLamApt{} log points for apartments ($t=\attLamTApt$) and \attLamHouse{} for houses ($t=\attLamTHouse$), so the full-attention restriction is rejected in apartments and not in houses.
+
+The dispersion of the anchored estimate across markets is reported here. The anchor gives a point estimate of $\rho_m\omega_1$ in each market rather than
+a value pressed against a boundary. The anchored estimate of effective attention to displayed
+ratings averages $\attRhoMeanApt{}\%$ for apartments and $\attRhoMeanHouse{}\%$ for houses, and markets
+spread around those averages in a way the estimator does not manufacture, with a cross-market
+standard deviation of $\attRhoSdApt{}$ and $\attRhoSdHouse{}$ percentage points respectively. A ratio-based construction returns nothing
+of the kind; it piles the whole distribution onto the upper bound. That bound is now something
+the data can refuse. Since effective attention to displayed ratings cannot exceed one, the anchored estimate requires
+the disclosed-price gap to stay below the energy-bill benchmark, and the requirement fails in
+only \attNRhoGtOneApt{} of \attNMarketsApt{} apartment markets and \attNRhoGtOneHouse{} of \attNMarketsHouse{} house markets. Almost everywhere, the running-cost
+saving an efficient dwelling delivers is large enough on its own terms to account for the price
+advantage certified efficiency commands, without supposing that every buyer is paying attention.
+
+One consequence of the closed-form estimator is worth stating plainly, because it closes off a
+finding the model might otherwise appear to offer. The concealment cost is the disclosed-price
+gap scaled by a belief that is itself confined, by construction, between the value it would take
+if every informed low-quality seller hid and the value it would take if none did. The cost can
+therefore never land outside the Partial Pooling band, and every market in the sample is
+classified as Partial Pooling. Cost-Deterred Hiding and Complete Adverse Selection remain
+possible corner regimes in the model, but a market can only be sorted into one of them when
+buyer sensitivity has been clipped to a boundary. With sensitivity point-identified, that
+sorting cannot arise here, and we report no regime heterogeneity as an empirical finding. This classification is a property of the full-attention hiding cost. Under limited attention, setting $\hat c_{0,m}=\hat\Delta_m$ market by market, the classification differs: \attRawNCdApt{} apartment markets are in Cost-Deterred Hiding, \attRawNCasApt{} in Complete Adverse Selection and \attRawNPpApt{} in Partial Pooling, against \attRawNCdHouse{}, \attRawNCasHouse{} and \attRawNPpHouse{} house markets in the three regimes. The Partial Pooling band narrows by the factor $\psi$ (Corollary~\ref{cor:att_band}), so in apartments a market sits in Partial Pooling only for a narrow range of hiding costs.

@@ -353,6 +353,16 @@ def policy_block(segment: str, m: pd.DataFrame, psi: float) -> tuple[pd.DataFram
     out["rbar_ext"] = out["b1"]
     stats["rbar_gap_mean"] = float((out["rbar_ext"] - out["rbar_core"]).abs().mean())   # log points
     stats["c0_core_mean"] = float(out["c0_core"].mean())
+    stats["rho_mean"] = 100.0 * float(out["rho_m"].mean())
+    stats["n_lam_pos"] = int(((out["dl"] - out["c0_core"]) > 0).sum())
+    stats["share_lam_pos"] = 100.0 * float(((out["dl"] - out["c0_core"]) > 0).mean())
+    stats["n_rho_gt1"] = int((out["rho_m"] > 1).sum())
+    stats["rho_sd"] = 100.0 * float(out["rho_m"].std(ddof=1))
+    stats["pi_mean"] = 100.0 * float(out["pi_hat"].mean())
+    stats["pi_sd"] = 100.0 * float(out["pi_hat"].std(ddof=1))
+    stats["th_mean"] = 100.0 * float(out["theta_bar_hat"].mean())
+    stats["th_sd"] = 100.0 * float(out["theta_bar_hat"].std(ddof=1))
+    stats["sig_sd"] = 100.0 * float(out["sigma_0_hat"].std(ddof=1))
     stats["c0_fit_mean"] = float(out["c0_fit"].mean())
 
     # Salience path, per market, common psi
@@ -378,6 +388,8 @@ def policy_block(segment: str, m: pd.DataFrame, psi: float) -> tuple[pd.DataFram
     stats["resid_ext"] = float((out["dl"] - out["c0_fit"]).mean())
     stats["sd_resid_core"] = float((out["dl"] - out["c0_core"]).std(ddof=0))
     stats["sd_resid_ext"] = float((out["dl"] - out["c0_fit"]).std(ddof=0))
+    stats["dl_sd"] = float(out["dl"].std(ddof=0))   # SD of the observed gap: the constant-prediction RMSE
+    stats["rsq_ext"] = 1.0 - stats["rmse_ext"] ** 2 / stats["dl_sd"] ** 2
     return out, stats, path
 
 
@@ -668,7 +680,7 @@ MACROS: dict[str, tuple[str, str]] = {          # macro stem -> (summary key, fo
     "HighLoss": ("high_loss", "{:.1f}"), "Salience": ("salience", "{:.1f}"),
     "EnforceSil": ("enforce_sil", "{:.2f}"), "SensE": ("sens_e", "{:.2f}"),
     "PsiLevROM": ("psi_lev_rom", "{:.2f}"), "PsiLevSlope": ("psi_lev_slope", "{:.2f}"),
-    "CzeroFit": ("c0_fit_mean", "{:.1f}"), "CzeroCoreMean": ("c0_core_mean", "{:.1f}"),
+    "RhoMean": ("rho_mean", "{:.1f}"), "NLamPos": ("n_lam_pos", "{:d}"), "ShareLamPos": ("share_lam_pos", "{:.0f}"), "NRhoGtOne": ("n_rho_gt1", "{:d}"), "RhoSd": ("rho_sd", "{:.1f}"), "PiMean": ("pi_mean", "{:.1f}"), "PiSd": ("pi_sd", "{:.1f}"), "ThetaBarMean": ("th_mean", "{:.1f}"), "ThetaBarSd": ("th_sd", "{:.1f}"), "SigmaObsSd": ("sig_sd", "{:.1f}"), "CzeroFit": ("c0_fit_mean", "{:.1f}"), "CzeroCoreMean": ("c0_core_mean", "{:.1f}"),
     "RmseCore": ("rmse_core", "{:.1f}"), "RmseExt": ("rmse_ext", "{:.1f}"),
     "CorrCore": ("corr_core", "{:.2f}"), "CorrExt": ("corr_ext", "{:.2f}"),
     "ResidCore": ("resid_core", "{:.1f}"), "ResidExt": ("resid_ext", "{:.1f}"),
@@ -676,6 +688,7 @@ MACROS: dict[str, tuple[str, str]] = {          # macro stem -> (summary key, fo
     "SigmaObs": ("sigma0_obs_mean", "{:.1f}"), "SigmaFull": ("sigma0_full_mean", "{:.1f}"),
     "ShareZeroFull": ("share_zero_full", "{:.0f}"), "PsiZero": ("psi_zero_mean", "{:.2f}"),
     "SdResidCore": ("sd_resid_core", "{:.1f}"), "SdResidExt": ("sd_resid_ext", "{:.1f}"),
+    "DlSd": ("dl_sd", "{:.1f}"), "RsqExt": ("rsq_ext", "{:.2f}"),
     "CfRevealed": ("revealed_ratings", "{:,.0f}"), "CfGainA": ("gain_a", "{:.2f}"),
     "CfGainHiEur": ("gain_eur_hi", "{:.0f}"), "CfGainHiEurLw": ("gain_eur_lw_hi", "{:.0f}"),
     "CfGainMidEur": ("gain_eur_mid", "{:.0f}"),
@@ -785,44 +798,42 @@ def macro_lines(stats: dict[str, dict] | None) -> list[str]:
 
 
 def table_body(stats: dict[str, dict]) -> list[str]:
-    """Table 7: what the data show, what each model predicts for the non-disclosure premium, attention estimates."""
+    """Table 6: what the data show, attention to silence, the test and ceiling, and the fit of the attention model."""
     a, h = stats["Apt"], stats["House"]
     zero = lambda x: 0.0 if abs(x) < 0.05 else x                 # avoid printing a signed zero
     both = lambda lab, ka, kh, f="{:.1f}": f"{lab} & {f.format(zero(a[ka]) if f == '{:.1f}' else a[ka])} & {f.format(zero(h[kh]) if f == '{:.1f}' else h[kh])} \\\\"
     ci = lambda s: tex_num(f"{s['psi']:.2f} [{s['psi_lo']:.2f}, {s['psi_hi']:.2f}]")
     panel = lambda t: f"\\multicolumn{{3}}{{l}}{{\\textit{{{t}}}}} \\\\"
-    rule = r"\cmidrule[1pt]{1-3}"
     return [
         r"\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc@{}}",
         r"\toprule\toprule",
         f" & \\textbf{{Apartments}} ($N={a['n_markets']}$) & \\textbf{{Houses}} ($N={h['n_markets']}$) \\\\",
         r"\midrule",
-        panel("A. What the data show (log points)"),
-        both(r"Energy-efficiency premium $\hat\beta_1$", "b1", "b1"),
-        both(r"Non-disclosure premium $\hat\Delta$", "dl", "dl"),
-        both(r"Ratio $\hat\Delta/\hat\beta_1$ (at most one in the core model)", "ratio", "ratio", "{:.2f}"),
-        f"Markets above the core-model ceiling $\\hat\\Delta=\\hat\\beta_1$ & {a['n_d_gt_b']} of {a['n_markets']} & {h['n_d_gt_b']} of {h['n_markets']} \\\\",
+        panel("A. Prices"),
+        both(r"Energy-efficiency premium $\hat\beta_1$ (log points)", "b1", "b1"),
+        both(r"Non-disclosure premium $\hat\Delta$ (log points)", "dl", "dl"),
+        both(r"Effective belief $\tilde e=\hat\Delta/\hat\beta_1$ (ratio, weighted)", "ratio", "ratio", "{:.2f}"),
         r"\midrule",
-        panel("B. Predicted non-disclosure premium (log points)"),
-        both(r"Core model (full attention): $\hat\beta_1\hat e^*$", "c0_base", "c0_base"),
-        f"\\quad Observed minus predicted ($t$) & {a['lam']:.1f} ({a['lam_t']:.1f}) & {zero(h['lam']):.1f} ({h['lam_t']:.1f}) \\\\",
-        rule,
-        r"$\triangleright$ \textbf{Limited attention: $\hat\beta_1[\hat\psi\hat e^*+(1-\hat\psi)\eta]$} & "
-        + f"\\textbf{{{a['c0_fit_mean']:.1f}}} & \\textbf{{{h['c0_fit_mean']:.1f}}} \\\\",
-        r" \quad \textbf{Observed minus predicted} & "
-        + f"\\textbf{{{zero(a['resid_ext']):.1f}}} & \\textbf{{{zero(h['resid_ext']):.1f}}} \\\\",
-        rule,
-        panel("C. Attention to silence"),
-        f"$\\hat\\psi_\\delta$, ratio of sums [95\\% CI] & {ci(a)} & {ci(h)} \\\\",
-        f"$\\hat\\psi_\\delta$, regression through the origin (s.e.) & {a['psi_ols']:.2f} ({a['psi_ols_se']:.2f}) & {h['psi_ols']:.2f} ({h['psi_ols_se']:.2f}) \\\\",
-        both(r"$t$-statistic, full attention ($\psi_\delta=1$)", "t_full", "t_full"),
-        f"Identified interval for $\\psi_\\delta$ ($C^{{\\rm def}}\\ge0$) & $[0,\\,{a['interval_hi']:.2f}]$ & $[0,\\,{h['interval_hi']:.2f}]$ \\\\",
-        f"Perceived cost of silence $C^*_\\delta$ (kWh$_{{\\rm ep}}$/m$^2$/yr) [95\\% CI] & "
+        panel("B. Attention to silence"),
+        f"Relative attention $\\hat\\psi_\\delta$ under $\\zeta^{{\\rm def}}=0$ [95\\% CI] & {ci(a)} & {ci(h)} \\\\",
+        f"Identified interval for $\\psi_\\delta$ ($\\zeta^{{\\rm def}}\\ge0$) & $[0,\\,{a['interval_hi']:.2f}]$ & $[0,\\,{h['interval_hi']:.2f}]$ \\\\",
+        f"Perceived cost of silence $\\zeta^*_\\delta$ (kWh$_{{\\rm ep}}$/m$^2$/yr) [95\\% CI] & "
         + tex_num(f"{a['c_star_kwh']:.0f} [{a['c_star_lo']:.0f}, {a['c_star_hi']:.0f}] & {h['c_star_kwh']:.0f} [{h['c_star_lo']:.0f}, {h['c_star_hi']:.0f}]") + " \\\\",
-        both(r"Rational cost of the silent pool $\bar C^{\rm sil}$ (kWh$_{\rm ep}$/m$^2$/yr)", "c_sil_kwh", "c_sil_kwh", "{:.0f}"),
+        both(r"Registry cost of the silent pool $\bar\zeta^{\rm sil}$ (kWh$_{\rm ep}$/m$^2$/yr)", "c_sil_kwh", "c_sil_kwh", "{:.0f}"),
+        r"\midrule",
+        panel("C. Test and attention ceiling"),
+        both(r"Registry belief $\hat e^*$ (ratio, weighted)", "e_w", "e_w", "{:.2f}"),
+        f"Attention wedge $\\hat\\lambda=\\hat\\Delta-\\hat\\beta_1\\hat e^*$ (log points; $t$ in parentheses) & {a['lam']:.1f} ({a['lam_t']:.2f}) & {h['lam']:.1f} ({h['lam_t']:.2f}) \\\\",
         both(r"Energy-cost ratio $\eta$ (weighted)", "eta_w", "eta_w", "{:.2f}"),
-        f"Mean slack in the attention ceiling $\\eta\\hat\\beta_1-\\hat\\Delta$ ($t$) & {a['slack']:.2f} ({a['slack_t']:.1f}) & {h['slack']:.2f} ({h['slack_t']:.1f}) \\\\",
         f"Markets above their own attention ceiling & {a['n_viol']} of {a['n_markets']} & {h['n_viol']} of {h['n_markets']} \\\\",
+        r"\midrule",
+        panel("D. Fit of the attention model"),
+        r"Predicted premium $\hat\beta_1[\hat\psi_\delta\hat e^*+(1-\hat\psi_\delta)\eta]$ (log points) & "
+        + f"{a['c0_fit_mean']:.1f} & {h['c0_fit_mean']:.1f} \\\\",
+        f"Root mean squared error (log points) & {a['rmse_ext']:.1f} & {h['rmse_ext']:.1f} \\\\",
+        f"SD of observed $\\hat\\Delta$ (log points; error of a constant prediction) & {a['dl_sd']:.1f} & {h['dl_sd']:.1f} \\\\",
+        f"$R^2$ & {a['rsq_ext']:.2f} & {h['rsq_ext']:.2f} \\\\",
+        f"Correlation of predicted and observed premia & {a['corr_ext']:.2f} & {h['corr_ext']:.2f} \\\\",
         r"\bottomrule\bottomrule",
         r"\end{tabular*}",
     ]

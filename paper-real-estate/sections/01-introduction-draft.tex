@@ -62,15 +62,16 @@ need to assume at all. By matching listings to the ADEME registry we observe dir
 sellers hold a certificate at the moment of listing, and among the apartment listings we can
 match at the address level, 48.8\% hold none.
 Silence in this market is therefore not always a choice, a possibility first identified by
-\citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}. Here it is measured
-rather than inferred.
+\citet{dye_disclosure_1985} and formalised by \citet{jung_kwon_1988}; we measure it
+rather than infer it.
 
 % ---------- ¶5  isolate the assumption at stake ----------
-Whether unraveling describes this market therefore hinges on assumption~(d).
+Where assumption~(a) fails, silence can pay; whether hiding pays against its cost, and how much
+hiding it sustains, depend on assumption~(d).
 Disclosure costs and disclosure credibility have been examined in a large literature, but
 the homogeneity of buyer valuations has received little attention, even though it sets the size of
-the disclosure incentive. A seller's penalty for withholding is proportional to the share of
-buyers who price the withheld attribute. Housing makes the
+the stakes. A seller's reward to a good rating and her gain from hiding a poor one are both
+proportional to the share of buyers who price the attribute. Housing makes the
 assumption particularly implausible. A buyer of a rarely-occupied second home in a mild climate
 may rationally ignore an energy score that a buyer of a primary residence in a cold region
 prices directly, as may an investor facing the impending rental prohibition on the worst-rated
@@ -79,7 +80,8 @@ precisely when recipients are inattentive or heterogeneous in their response
 \citep{loewenstein_disclosure_2014, benshahar_failure_2011}, and
 \citet{fishman_mandatory_2003} show formally that mandated disclosure can be ineffective, or
 welfare-reducing, when buyers differ in their capacity to use the disclosed information. We
-therefore let the share of buyers who price the EPC vary across local markets and estimate it.
+therefore let the share of buyers who price a displayed rating vary across local markets and
+estimate its effective weight with an external anchor.
 
 % ---------- ¶6  data and vantage point  [PRESERVED from current ¶6] ----------
 Testing a theory of strategic concealment requires observing both sides of the information
@@ -102,7 +104,7 @@ listing universe. Within that matched sample, every listing falls into one of fo
 disclosers, strategic hiders who hold a certificate and omit it, genuinely uninformed
 sellers for whom no certificate exists, and a small residual displaying a score without a
 verified audit. The information structure of the disclosure game is therefore observed rather
-than inferred, a vantage point that, to our knowledge, is unique in this literature. Transaction
+than inferred, a vantage point we know of no other study in this literature to share. Transaction
 records enter separately and are not matched to individual listings. We use them to estimate
 the mapping from listing to realised sale price, which supports treating the listing price as
 the relevant outcome, since the negotiation margin in French residential sales is small and
@@ -111,21 +113,21 @@ most properties transact at or near list price
 
 % ---------- ¶7  descriptive findings, enumerated ----------
 The data yield four descriptive findings, drawn from two distinct samples that we keep separate
-throughout. First, silence commands a premium rather than a penalty. Estimated on the panel of
-market-level hedonic price indices, and relative to the pre-reform baseline, listings without a
-score trade approximately 6.9\% above disclosed energy-intensive properties for apartments and
-3.4\% for houses, the opposite of the sign unraveling predicts. Second, the premium widened
+throughout. A fifth, the apartment inversion of Section~\ref{ss:fact5}, rests on the reform estimates alone. First, silence commands a premium rather than a penalty. Estimated on the panel of
+market-level hedonic price indices, the reform raised the price of listings without a score
+relative to disclosed energy-intensive properties by 6.9 log points for apartments and 3.4 for
+houses (about 7\% and 3.5\%), averaged across the markets that pass the volume filter, the opposite of the sign
+unraveling predicts. Second, the premium widened
 abruptly at the reform rather than emerging from trend. The composition-adjusted
-difference-in-differences estimates evolve in parallel before July~2021, averaging $+0.002$ for
-apartments and $+0.008$ for houses with no discernible drift, and then shift sharply upward,
-stabilising around $+0.044$ and $+0.037$ by mid-2024. For apartments the level ordering already
+difference-in-differences estimates evolve in parallel before July~2021, averaging $+0.2$ log points for
+apartments and $+0.8$ for houses with no discernible drift, and then shift sharply upward,
+stabilising around $+4.4$ and $+3.7$ log points in the volume-weighted series by mid-2024. For apartments the level ordering already
 favoured non-disclosers beforehand, so the reform changes the magnitude of the premium, not its sign. Third, turning to the address-matched listing sample, non-disclosure is
 overwhelmingly involuntary. Among apartment listings 79.8\% disclose truthfully, 16.7\% are
 genuinely uninformed, and only 3.5\% hold a certificate and withhold it, with the corresponding
-house shares 90.4\%, 8.5\% and 1.1\%.
+house shares 90.4\%, 8.6\% and 1.1\%.
 Fourth, the non-disclosure rate varies widely across local markets, ranging among
-apartments from 6.5\% to 40.9\% across d\'epartements, around a median of 16.5\%. Together
-these facts are inconsistent with unraveling as a description of this market, while pointing to
+apartments from 6.5\% to 40.9\% across d\'epartements, around a median of 16.5\%. These facts are inconsistent with unraveling as a description of this market and point to
 the mechanism that defeats it. The pool of silent sellers is dominated by the uninformed, which
 blunts the inference buyers can draw from silence and shelters the few who conceal
 deliberately.
@@ -134,42 +136,25 @@ deliberately.
 To recover the forces behind these patterns, we build and estimate a model of the disclosure
 game that allows for, but does not impose, strategic concealment. Sellers differ in whether they
 hold a certified audit and in the quality it would reveal; buyers differ in whether they price
-energy performance. Informed sellers of poor properties choose between publishing a bad score
+energy performance and in how much attention they pay to a listing that shows no rating. Informed sellers of poor properties choose between publishing a bad score
 and accepting the price buyers assign to silence, and that choice depends on how contaminated
 the silent pool is by sellers who simply have no certificate. Because the composition of the
 silent pool is itself the outcome of those choices, the model is closed by a fixed point in
-buyer beliefs, and it nests the classical benchmark. When audit coverage and buyer sensitivity
-are both high, the silent pool empties and the Grossman--Milgrom outcome is recovered. For
-intermediate values, which is where the French data sit, the model predicts partial pooling in
-which some informed sellers conceal and silence carries a premium.
+buyer beliefs, and it nests the classical benchmark. When nearly all sellers are informed and buyers attend fully,
+the silent pool empties and the Grossman--Milgrom outcome is recovered. For
+intermediate values the model predicts partial pooling, in which some informed sellers conceal
+and silence carries a premium. Our calibration places every market in that regime; the data do not
+confirm the placement market by market, so the policy results rest on a bound that holds in every
+regime (Section~\ref{ss:threshold}).
 
 % ---------- ¶9  what the model finds ----------
-The estimates deliver two structural magnitudes and one specification test. Identifying buyer
-energy-sensitivity separately from the concealment cost requires a source of variation external
-to prices, since the two are shown to be identified only as their product by price moments
-alone (Appendix~\ref{app:rho_identification}); we construct one from the capitalised energy-cost
-saving a sensitive buyer attaches to verified high- versus low-quality certification, built from
-ADEME-certified consumption bands rather than from the price data itself. The resulting share of
-buyers who price energy performance averages 49.5\% across apartment markets and 45.8\% across
-house markets, and the cost of withholding a certificate settles at 2.4\% of property value for
-apartments and 3.5\% for houses, on the order of a third of the notary bill a French buyer
-separately pays on the same transaction. Both are economically substantial and of the
-same order in two segments that trade very differently. The model predicts, in the partial-pooling
-equilibrium that describes the bulk of French housing markets, that the non-disclosure premium
-should collapse to this concealment cost exactly, invariant to market composition; we test this
-prediction directly rather than impose it. It holds for houses: the gap between the observed
-premium and the identified concealment cost is small and statistically indistinguishable from
-zero. It does not hold for apartments: the premium exceeds the concealment cost by a wide and
-precisely estimated margin, a specification tension the baseline cannot absorb, because no belief
-about silence can price a silent listing above a verified efficient one.
+The estimates deliver one specification test and three magnitudes. The test is whether the reform's new attention to energy reached silent listings as fully as rated ones, in which case the reform would have raised the price of silence by the energy-efficiency premium times the registry-measured quality of the silent pool. It did in houses. In apartments the premium exceeds that prediction by \attLamApt{} log points ($t=\attLamTApt$), and silent apartments sell above verified efficient ones, an ordering that no belief about silence can produce under full attention.
 % [AUTHOR REWRITE]
-Section~\ref{ss:attention} shows that one change on the buyer side can account for it: if buyers attend
-to energy when a rating is displayed and much less when it is not, the model fits houses as before,
-rejects full attention in apartments, and leaves the estimated buyer sensitivity unchanged.
+The first magnitude is attention to silence. If a buyer who ignores energy subtracts no energy cost, apartment buyers attend to energy on a silent listing at about \attPsiApt{} of the rate on a rated one (95\% CI \attPsiLoApt{} to \attPsiHiApt{}) and house buyers at about \attPsiHouse{}, where one is full attention; any positive default lowers both. The second is the hiding cost. In partial pooling the premium equals it, so the average hiding cost is \attDthreeApt{} log points of price in apartments and \attDthreeHouse{} in houses. Had silent listings been read as carefully as rated ones, the registry belief would have implied \attCzeroBaseApt{} and \attCzeroBaseHouse{}, and the gap is the attention wedge. We report the apartment figure as what the premium implies under limited attention and not as a measured sanction. The third is the scale of attention to displayed ratings, which prices cannot separate from buyers' monetary valuation of energy (Appendix~\ref{app:rho_identification}). An anchor built from ADEME-certified consumption bands, not from the price data, puts the share of buyers who price a displayed rating at \attRhoMeanApt{}\% across apartment markets and \attRhoMeanHouse{}\% across house markets, on average.
 We maintain, rather than test, the model's prediction that informed sellers of high-quality
 properties never conceal; Appendix~\ref{app:robustness} relaxes it by reading the withheld grade
-from the registry and finds the structural estimates essentially unchanged. Under the limited-attention
-extension the prediction survives whenever not every informed low-quality seller hides (Corollary~\ref{cor:att_hq}).
+from the registry and reports the hiding rates and the anchored attention scale under that reading. With limited attention
+the prediction survives whenever not every informed low-quality seller hides (Corollary~\ref{cor:att_hq}).
 
 % ---------- ¶11  contribution 1 ----------
 Our paper contributes to the literature on disclosure by testing the unraveling result in a
@@ -177,10 +162,10 @@ market where the informed and uninformed can be told apart. Prior work has exami
 consequences of uncertainty about information endowment \citep{dye_disclosure_1985,
 jung_kwon_1988}, of disclosure costs, and of disclosure credibility, but has generally had to
 treat sellers' information as latent. By observing it directly we can decompose silence into
-inability and choice, and show that the first dominates the second by an order of magnitude
-while the second is what sustains the price premium. That silence is rewarded rather
-than punished reflects how sensitive the theory's central prediction is to an assumption that
-is rarely examined.
+inability and choice, and show that the first dominates the second several times over
+while the second sets the level of the price premium. That silence is rewarded rather
+than punished reflects the uninformed sellers; that it can sell above a verified efficient rating
+reflects an assumption that is rarely examined, that buyers attend to what a listing leaves out.
 
 % ---------- ¶12  contribution 2 + scope disclaimer ----------
 Our paper also provides an information-based account of the residential energy-efficiency gap
@@ -189,29 +174,39 @@ incentives, credit constraints, and inattention to future energy costs \citep{al
 complementary channel internal to the disclosure game. A seller holding a poor rating can
 renovate and publish a good one, earning the quality premium, or stay silent and earn the
 non-disclosure premium instead, so the premium to opacity looks like an opportunity cost of
-renovation that raises the private hurdle above engineering cost. In equilibrium it does not, except in the corner where every informed low-quality seller hides. Because the equilibrium absorbs enforcement through the fraction of sellers who
+renovation that raises the private hurdle above engineering cost. In equilibrium it does not. Because the equilibrium absorbs enforcement through the fraction of sellers who
 conceal, the renovation threshold depends only on the price gap between disclosed quality
 levels and is independent of enforcement intensity. Renovation subsidies, enforcement against
 concealment, and investment in audit coverage act on three distinct margins and do not substitute for one another,
 contrary to the conventional treatment in
-\citet{gillingham_palmer_2014}. The result holds outside the corner in which every informed low-quality seller hides, and with one concealment cost per market. % [AUTHOR REWRITE] The extension of Section~\ref{ss:attention} brings the inattention
+\citet{gillingham_palmer_2014}. The result holds outside the corner in which every informed low-quality seller hides, and with one concealment cost per market.
+% [AUTHOR REWRITE]
+The attention model of Section~\ref{ss:attention} brings the inattention
 diagnosis inside the disclosure game: buyers who attend less to energy when no rating is shown let
 silence earn a premium that no belief about quality can produce. We offer one reading of these data through a workhorse framework of housing
 disclosure, and state throughout which parameters are point-identified and which are bounded.
 
 % ---------- ¶12.5  policy extension results ----------
 The model also speaks to renovation policy. Extending the framework to an endogenous upgrade
-decision, we show the minimum subsidy needed to make renovation privately worthwhile reduces, in
-the empirically dominant partial-pooling regime, to the price gap between verified high and low
-quality alone, invariant to enforcement against hiding and to how many sellers are informed,
-which act on separate margins instead. Forcing silent listings to be read as carefully as rated ones would change who hides but not who renovates, and only a higher weight on displayed ratings could raise the renovation threshold, within a bound that the data do not pin down. % [AUTHOR REWRITE]
-A uniform national subsidy is accordingly poorly targeted. The
-required cost-share the state must cover varies widely across
-markets, averaging \attBaseCostShareTwoFiftyApt{} percent in apartment markets that need support at all at the light benchmark, and aggregate programme costs among the sellers who can renovate run to
-\euro{}\attScCostBaseTotTwoFifty{}--\attScCostBaseTotFiveHundred{} billion a year in our listing sample at plausible renovation-cost benchmarks, for scale between \attScCostBaseTotTwoFiftyLo{} and
-\attScCostBaseTotFiveHundredHi{} percent of MaPrimeR\'enov's current annual budget. Efficient targeting requires conditioning subsidy design
-on local market composition. Enforcement against strategic hiding and investment in audit
-infrastructure act on separate margins: the first changes who hides, the second who is eligible to renovate, and neither lowers the subsidy a given seller needs.
+decision, we show that the minimum subsidy needed to make renovation privately worthwhile is at
+least the renovation cost less the price gap between verified high and low quality, in every
+regime, and equals it outside the corner in which every informed low-quality seller hides. It does
+not depend on enforcement against hiding or on how many sellers are informed, which act on
+separate margins. With one hiding cost per market, forcing silent listings to be read as carefully
+as rated ones would change who hides but not the minimum subsidy; with heterogeneous costs the
+saving from seller-specific subsidies is bounded at \euro{}\attSavingUbTwoFiftyApt{} billion a year in apartments at the light
+benchmark, and only a higher weight on displayed ratings could raise the threshold, within a bound
+whose location the data do not pin down.
+% [AUTHOR REWRITE]
+A uniform national subsidy is accordingly poorly targeted. The required cost-share, a lower bound,
+varies widely across markets with local price levels and the verified-quality premium, averaging
+\attBaseCostShareTwoFiftyApt{} percent in apartment markets at the illustrative light benchmark.
+The implied bill for the sellers in our listing sample who can renovate runs to
+\euro{}\attScCostBaseTotTwoFifty{}--\attScCostBaseTotFiveHundred{} billion a year at the light and
+medium benchmarks, between \attScCostBaseTotTwoFiftyLo{} and \attScCostBaseTotFiveHundredHi{}
+percent of MaPrimeR\'enov's current annual budget; this is a scale comparison, not a programme
+cost. Matching subsidies to need requires conditioning subsidy design on local price levels and the
+verified-quality premium.
 
 % ---------- ¶13  related literature, three strands ----------
 Our paper draws on three strands of work. It belongs to the literature that estimates
@@ -220,7 +215,7 @@ theory and to recover primitives such as information endowment, disclosure costs
 closest to us is \citet{bourveau_learning_2025}, who structurally examine whether the unraveling
 result describes an unregulated nineteenth-century market and find that full disclosure is
 reached only gradually. Where that literature and the experimental work on disclosure ask how far
-receivers infer the worst from silence \citep{jin_is_2021, hagenbach_motivated_2025}, our extension
+receivers infer the worst from silence \citep{jin_is_2021, hagenbach_motivated_2025}, our model
 asks whether they attend to silence at all, drawing on evidence that limited attention changes how
 disclosed and undisclosed information is priced \citep{hirshleifer_limited_2003, dellavigna_investor_2009}.
 It is closely related to the extensive evidence on the capitalisation of energy labels in

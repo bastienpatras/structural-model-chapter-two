@@ -1,141 +1,161 @@
 % =====================================================================
-% §4 A STRUCTURAL INTERPRETATION — consolidation of the former
-% Model / Equilibrium Analysis / Identification / Results sections.
-% 4.1 is new prose; 4.2-4.5 are relocated verbatim, demoted one level.
-% Labels sec:model, sec:equilibrium, sec:identification, sec:results are
-% carried onto the corresponding subsections (they have live references).
+% §4 A STRUCTURAL INTERPRETATION. The limited-attention model is the model;
+% the full-attention case (psi=1) is the benchmark of Appendix E. Assembled 2026-10-30
+% from the former 04-structural-draft.tex and 04-attention-draft.tex; all labels
+% (sec:model, sec:equilibrium, sec:identification, sec:results, ss:attention,
+% ss:att_*) are unchanged. Numbers are macros from scripts/compute_attention.py;
+% provisional until the G2/G3 re-pulls.
 % =====================================================================
 
 \section{A Structural Interpretation}
 \label{sec:model}
 
+In apartment markets the reform raised the price of silence by more than the price of a verified efficient rating, an ordering that classical disclosure theory cannot generate. We ask what the price of silence reveals about sellers and buyers in a model built to fit it. Section~\ref{ss:att_motivation} shows that no belief about the silent pool produces that ordering when every energy-sensitive buyer weighs energy on every listing. Section~\ref{ss:model} sets out the disclosure game, with uninformed sellers and buyers whose attention to energy depends on whether a rating is shown; the classical game is its full-attention special case, stated in Appendix~\ref{sec:equilibrium}. Equilibrium, and the conditions under which silence outprices a verified rating, are characterised in Section~\ref{ss:att_equilibrium}. Identification follows in Section~\ref{sec:identification}, where the July 2021 reform and the ADEME registry identify attention to silence, the perceived cost of silence and the hiding cost, and where we state which of them need an assumption about the default. The scale of attention to displayed ratings needs the energy-cost anchor. Section~\ref{sec:results} reports the estimates. The model turns two reform-induced price gaps and three registry frequencies into an attention parameter and a hiding cost, and it supplies the structure that Section~\ref{sec:policy} needs to price a renovation subsidy.
+
 \subsection{Motivation}
 \label{ss:model_motivation}
+\label{ss:att_motivation}
 
-To recover the forces behind the patterns documented in
-Section~\ref{sec:setting}, we specify and estimate a model of the seller's disclosure
-decision. The model is a housing-market application of \citet{dye_disclosure_1985}, as
-equilibrium-characterised by \citet{jung_kwon_1988}, with one structural addition,
-heterogeneity in buyer EPC sensitivity ($\rho$). The binary quality space
-($\theta\in\{0,1\}$) and the seller-information heterogeneity ($\pi$) are adapted directly
-from those antecedents. What goes beyond them is the closed-form expression for the
-non-disclosure premium and its invariance to market composition in the partial-pooling
-regime (Proposition~\ref{prop:equilibrium}), the strict cross-regime ordering of the premium
-(Eq.~\ref{eq:premium}), and an identification strategy that uses the directly observed audit
-status $K$ to recover $c_0$ and $\rho$ market by market.
+Section~\ref{sec:setting} documents that silence about energy performance sells above a displayed inefficient rating. Classical disclosure theory accounts for part of this. Unravelling fails when some sellers are uninformed, so that silence pools informed and uninformed sellers \citep{dye_disclosure_1985, jung_kwon_1988}, or when buyers differ in how much they care about energy \citep{fishman_mandatory_2003}. With full attention, however, the premium of silence over a displayed E-to-G rating cannot exceed the energy-efficiency premium, whatever belief buyers hold about the silent pool, provided the belief is no more optimistic than the average verified A-to-D dwelling, since a buyer who believes the best about silence pays no more than she would for a verified efficient rating.
 
-The specification allows for strategic concealment and nothing in it requires informed sellers to
-withhold. The hiding rate is an equilibrium object, the model admits full unravelling as a special
-case, and the estimation determines whether concealment occurs and how much.
+Under Assumption~\ref{assum:no_pre_pricing}, the reform estimates break this bound in apartment markets and not in houses (Section~\ref{ss:fact5}). What we observe directly is the comparison of the two changes, and the assumption is what lets us read it as a statement about the levels of the two premia.
 
-Two considerations motivate this structure. First, the facts in
-Section~\ref{sec:facts} line up with the Dye--Jung-Kwon configuration, in which a silent pool is
-overwhelmingly silent by constraint rather than by choice, a small but non-trivial mass of
-informed sellers withhold, and silence carries a premium rather than a penalty. Second, the binary quality space has an empirical anchor in the rental-ban
-threshold introduced by \emph{loi Climat et R\'esilience}: dwellings rated E, F, or G face a
-progressive prohibition on new lettings, which draws a bright line between the bottom of the
-grade distribution and the rest and maps onto $\theta\in\{0,1\}$ without an arbitrary cutoff.
+Revising the belief about the silent pool cannot close the gap. Every amendment replaces the Bayesian posterior with another number between zero and one, and the bound holds for all of them. Cursed and distrustful buyers are two such cases \citep[e.g.,][]{eyster_cursed_2005, jin_is_2021, hagenbach_motivated_2025}. Over-reaction to a displayed poor rating lowers the price of E-to-G listings, which is the base of both gaps, so it cancels from the comparison between silent and verified efficient listings. The hedonic indices hold observable composition fixed. A change in the unobserved composition of the silent pool remains open, and Section~\ref{sec:identification} takes it up.
 
-A competing explanation must also clear a demanding timing test. Any account that attributes
-the post-reform widening to a supply-side shift has to generate an abrupt change at
-July~2021 in \emph{both} the quality premium and the non-disclosure premium, in the same
-markets and on the same calendar date, while leaving the composition of the listing pool
-undisturbed. The share of listings without a disclosed score is, however, essentially flat
-across the reform in the apartment segment (Section~\ref{ss:fact2}), which is the segment
-where identification is sharpest. A shift in the mix of sellers would generically move the
-two gaps by different amounts, and would show up in that share. Neither is observed.
+% [AUTHOR REWRITE] mechanism paragraphs
+The bound relies on every EPC-sensitive buyer weighing energy on every listing. Once attention is limited, silence can be priced above a verified efficient rating. Buyers under-react to sales taxes, tolls and shipping fees that posted prices leave out \citep{chetty_salience_2009, finkelstein_eztax_2009, brown_shrouded_2010} and to energy operating costs in durable-goods markets \citep[e.g.,][]{allcott_consumers_2011, sallee_rational_2014}, and models of focusing, salience and sparsity formalise the idea that attributes a choice set leaves in the background receive little weight \citep[e.g.,][]{koszegi_model_2013, bordalo_salience_2013, gabaix_sparsity_2014}. Three features of the French setting make this plausible for apartment buyers. First, a listing that discloses shows the rating as a coloured label and, from January 2022, an estimate of the annual energy bill in euros, so disclosure itself puts energy into the buyer's comparison of dwellings.\footnote{Since 1 January 2022, advertisements for the sale of a dwelling must state the estimated annual energy expenditure for standard use, with the reference year of energy prices, and dwellings rated F or G must carry the mention ``logement \`a consommation \'energ\'etique excessive''. Omitting these mentions exposes the advertiser to fines under Article L126-33 of the Code de la construction et de l'habitation. % [CHECK] cite the implementing decree (D\'ecret n\textsuperscript{o} 2020-1609, 17 Dec.\ 2020) against L\'egifrance before submission.
+The obligation also gives a dated test of the mechanism: under limited attention the gap between silent and rated listings should widen again at that date.} A listing that shows nothing does not. Second, heating in many apartment buildings is collective and paid through service charges, so apartment buyers are likely to see energy as part of a monthly charge rather than as an attribute of the dwelling. Third, a missing rating is common, roughly a third of apartment listings (Section~\ref{ss:fact2}), and the model attributes \attShareUninfApt{} percent of silent apartment listings to sellers who hold no certificate (the raw count in Section~\ref{ss:fact3} is about five-sixths), so silence is unremarkable.
 
-The mechanism is the one set out in Section~\ref{sec:unraveling}: sellers who cannot
-disclose dilute the adverse inference buyers draw from silence, which makes withholding
-attractive to informed sellers of poor quality, whose entry the buyer cannot separate from
-the involuntarily silent. France sits in the bottom-right cell of
-Figure~\ref{fig:equilibrium_outcomes}: incomplete registry coverage combined with positive
-buyer EPC-sensitivity. Even where the EPC-sensitive buyer share approaches one, as it does in
-most apartment markets after the reform, incomplete coverage alone sustains the premium: so long as a non-trivial share of non-disclosers hold no certificate, buyers cannot fully
-penalise silence. Full unravelling requires both conditions; France satisfies only one.
+How far silence can rise then depends on how much less often buyers attend to energy on a silent listing than on a rated one. If they attend as often for a silent listing as for a rated one, they price silence at the expected cost of the silent pool, and silence cannot sell above a verified efficient listing. If they attend half as often, half of them still price silence at the expected cost of the pool, while the other half price it at whatever they implicitly assume when energy never comes up. When that default is ``nothing out of the ordinary'', the silent listing gains on rated listings, efficient ones included, provided the default lies below the cost of an efficient dwelling. If buyers never attend to energy on a silent listing, it is priced as if it carried the default cost, which can lie below the cost of an A-rated dwelling, and silence beats every rating. The model in Section~\ref{ss:model} formalises this by letting an EPC-sensitive buyer, who prices energy, attend to a silent listing with probability $\omega_0$ and to a displayed rating with probability $\omega_1\ge\omega_0$.
 
-The model leaves several things unsettled. It takes no stance on
-\emph{why} an informed seller withholds, since deliberate concealment and an unrecorded but
-still-valid certificate are observationally similar in the listing data, and we do not
-attempt to separate them. It assumes no falsification, so a displayed score is taken at face
-value. And it maintains Corollary~\ref{cor:hq_disclose}, $\sigma_1^*=0$, rather than testing
-it; Section~\ref{ss:attention} relaxes the buyer side and shows where this restriction survives. Informed non-disclosers are assigned low quality by revealed preference, which is an
-assumption and not a result. Appendix~\ref{app:robustness} reports estimates that instead read
-the withheld quality from the registry, so the restriction can be assessed. Nor does the
-design pin down $\rho_m$ from the interior in most markets, where the data are consistent with full
-buyer sensitivity but cannot establish how close to one it lies, and we maintain
-$\hat\rho_m = 1$ for those markets and treat $\hat c_{0,m}$ as an upper bound accordingly. We
-propose one way of reading these data through a workhorse framework and make no claim to the one true model of housing disclosure.
-
-\subsection{Setup}
+\subsection{The Model}
+\label{ss:model}
 \label{ss:model_setup}
+\label{ss:attention}
 
-\subsubsection{Environment and Timing}
+We write each buyer's valuation as the dwelling's value net of the energy cost she subtracts, and a buyer who does not think about energy subtracts a default cost instead of the dwelling's own. The seller side keeps the disclosure game of \citet{dye_disclosure_1985} and \citet{jung_kwon_1988}, with a binary quality space and sellers who may be uninformed. The classical game is the case in which every EPC-sensitive buyer attends to every listing (Appendix~\ref{sec:equilibrium}).
 
-A seller owns a property with observable attributes $X$ and an unobservable energy performance level $\theta \in \{0,1\}$, where $\theta=1$ denotes high efficiency. Whether the seller knows $\theta$ depends on whether she has obtained a certified Diagnostic de Performance \'{E}nerg\'{e}tique (DPE) audit prior to listing. With probability $\pi\in(0,1)$, the seller is \emph{informed} ($K=1$) and knows $\theta$; with probability $1-\pi$, she is \emph{uninformed} ($K=0$) and does not. The parameter $\pi$ is not a choice variable: it reflects structural features of local audit markets, including the cost and availability of accredited assessors, the time pressure sellers face (relocation, financial distress, inheritance), and the regulatory requirements in force. It is measured directly from the ADEME registry match, as described in Section~\ref{sec:data}.
+\subsubsection{Players, Information and Timing}
 
-The seller simultaneously chooses a disclosure decision $d\in\{0,1\}$ and a listing price $p^{\text{list}}$. French property law requires that all mandatory diagnostic documents, including the DPE, be appended to the sales agreement at signing (loi ALUR, Article L271-4 CCH), so the disclosure decision and the listing price are set jointly at the time the property is placed on the market. This institutional timing motivates the simultaneous-choice formulation: the seller sets a complete strategy that internalizes how the disclosure decision shifts buyer beliefs and thereby affects both the probability of sale and the expected transaction price, rather than first deciding whether to disclose and then pricing.
+What buyers can infer from silence depends on who stays silent, and that depends on what each seller knows when the listing goes up. A seller owns a property with observable attributes $X$ and an unobservable energy performance level $\theta \in \{0,1\}$, where $\theta=1$ denotes high efficiency. Whether the seller knows $\theta$ depends on whether she has obtained a certified Diagnostic de Performance \'{E}nerg\'{e}tique (DPE) audit prior to listing. With probability $\pi$ the seller is \emph{informed} ($K=1$) and knows $\theta$; with probability $1-\pi$ she is \emph{uninformed} ($K=0$) and does not. The seller does not choose $\pi$. It reflects structural features of local audit markets, including the cost and availability of accredited assessors, the time pressure sellers face (relocation, financial distress, inheritance), and the regulatory requirements in force. It is measured directly from the ADEME registry match, as described in Section~\ref{sec:data}.
 
-\noindent\textbf{Assumption (No Falsification).} \textit{Disclosed EPC scores are verifiable against the ADEME registry. An informed seller with $K=1$ may choose $d\in\{0,1\}$, while an uninformed seller with $K=0$ is constrained to $d=0$: she cannot disclose what she does not possess. This rules out costless misreporting.}
+\begin{assumption}[Independence]\label{ass:independence}
+$K \perp \theta$, with $\Pr(K=1) = \pi\in(0,1)$ and $\Pr(\theta=1) = \bar{\theta}\in(0,1)$.
+\end{assumption}
 
-\medskip
-The key friction is that buyers observe $(d, p^{\text{list}}, X)$ but not the seller's information status $K$: they cannot distinguish a seller who chose not to disclose from one who could not. A buyer then arrives and decides whether to purchase at $p^{\text{list}}$. With probability $\rho\in(0,1)$, the buyer is \emph{EPC-sensitive} and incorporates energy performance into her valuation; with probability $1-\rho$, the buyer is \emph{EPC-insensitive} and conditions her bid solely on observable attributes. Sellers cannot observe buyer type ex ante and optimize against expected demand. The parameter $\rho$ is market-specific, reflecting the local composition of the buyer pool, and is identified from the differential price response to the July 2021 reform across markets, as detailed in Section~\ref{sec:identification}.
+\noindent Independence is most plausible for sales forced by succession, liquidation or divorce, where procedural deadlines determine whether a certificate exists (Appendix~\ref{app:independence}).
 
-We provide a visual representation of the model dynamics and timing in Figure~\ref{fig:timing}; a fuller schematic overview appears later in Figure~\ref{fig:vis_model}.
+\begin{assumption}[No Falsification]\label{assum:no_falsification}
+Disclosed EPC scores are verifiable against the ADEME registry. An informed seller may choose $d\in\{0,1\}$, while an uninformed seller is constrained to $d=0$, since she cannot disclose what she does not possess. This rules out costless misreporting.
+\end{assumption}
+
+\noindent An informed seller chooses a disclosure decision $d\in\{0,1\}$ together with a listing price $p^{\text{list}}$ when the property is placed on the market, since French law requires the mandatory diagnostics, including the DPE, to be appended to the sales agreement at signing (loi ALUR, Article L271-4 CCH). Buyers observe $(d,p^{\text{list}},X)$ but not $K$, so they cannot tell a seller who chose not to disclose from one who could not. Each seller lists at the mean valuation of her display (Assumption~\ref{assum:linear_pricing} below), so her strategic choice is $d$. We look for perfect Bayesian equilibria in which buyers believe a displayed rating (Assumption~\ref{assum:no_falsification}) and hold the Bayesian posterior~\eqref{eq:belief_general} about silence.
+
+A buyer then arrives. With probability $\rho\in(0,1)$ she is \emph{EPC-sensitive} and prices the dwelling's energy performance; with probability $1-\rho$ she is \emph{EPC-insensitive} and values the dwelling on observable attributes only. An EPC-sensitive buyer attends to the listing's energy performance with a probability $\omega_d$ that depends on what the listing shows, $\omega_1$ if a rating is displayed and $\omega_0\le\omega_1$ if it is not (Assumption~\ref{assum:attention} below), and an inattentive one subtracts a default energy cost instead. Sellers cannot observe buyer type or attention ex ante. Figure~\ref{fig:timing} shows the sequence, and a fuller schematic appears in Figure~\ref{fig:vis_model}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{fig/visuals/model_dynamics.png}
-    \caption{Model timing}
+    \caption{Model timing. After the seller's choice, an EPC-sensitive buyer attends to the listing's energy performance with probability $\omega_d$, and an inattentive buyer subtracts the default energy cost. At $\omega_0=\omega_1=1$ the attention step is inactive.}
 \label{fig:timing}
 \end{figure}
 
-\subsubsection{Payoffs and Hiding Costs}
+\subsubsection{The Seller's Choice}
+\label{ss:att_seller}
 
-In French residential markets, listing prices anchor negotiation rather than serving as posted take-it-or-leave-it offers, and the transaction price conditional on a sale typically falls below the listing price by a margin that depends on local market conditions and property characteristics.\footnote{The negotiation margin in France is empirically small. The majority of properties transact at or very near list price, and the average discount rarely exceeds three to five percent. \citet{merlo_bargaining_2004} document similar patterns for England, showing that most residential transactions involve little or no negotiation once a listing price is set. \citet{genesove_loss_2001} provide evidence that list prices act as anchors that constrain final transaction prices. For France specifically, \citet{friggit_marche_2013} documents that the average negotiation margin has remained narrow and declining, with a large share of properties selling without any price reduction.} Buyer arrival and match quality are stochastic, so the seller faces uncertainty over both whether a sale occurs and, conditional on a sale, at what price. Her problem therefore separates into a transaction probability $\Gamma$ and an expected transaction price $\phi$, each depending on the listing price and disclosure decision:
+An informed seller compares two prices. Displaying her rating earns what buyers pay for that rating, and staying silent earns what they pay for a silent listing, less a cost of concealment. We take these prices as given here and derive them in Section~\ref{ss:att_prices}. At the reference property $X$, write $p_{\rm H}$ and $p_{\rm L}$ for the log prices of a listing displaying an efficient rating (A to D) and an inefficient rating (E to G), $p_{\rm rat}(\theta)$ for the price of a displayed rating of quality $\theta$, so that $p_{\rm rat}(0)=p_{\rm L}$ and $p_{\rm rat}(1)=p_{\rm H}$, and $p_{\rm sil}$ for the log price of a silent listing. A seller who displays obtains $p_{\rm rat}(\theta)$, and one who stays silent obtains $p_{\rm sil}$ less the hiding cost
 \begin{equation}
-    \max_{\{d,\,p^{\text{list}}\}} \;\Pi = \underbrace{\mathbb{E}\!\left[p^{\text{trans}}\mid d,p^{\text{list}},X\right]}_{\phi(p^{\text{list}})} \cdot \underbrace{\Pr(T{=}1\mid d,p^{\text{list}},X)}_{\Gamma(p^{\text{list}})} - c(\theta,d)
-    \label{eq:payoff}
+    c(K,\theta,d)\;=\;K\cdot\mathbf 1[d=0]\,(c_0+\theta\,c_1).
+    \label{eq:hiding_cost}
 \end{equation}
-where $\phi(p^{\text{list}}) = \gamma_0+\gamma_1 \cdot p^{\text{list}}+\sum_n\gamma_n X_n$ is the expected transaction price conditional on a sale occurring, and $c(\theta,d)=\mathbf{1}[d=0]\cdot(c_0+\theta c_1)$ is the hiding cost, paid only when the seller withholds information.
-
-The hiding cost has two components. The term $c_0\geq 0$ applies to all non-disclosers, regardless of quality. In the French institutional context it captures the regulatory burden imposed by loi ALUR, from the legal exposure if a buyer later discovers a concealed audit via the public ADEME registry or a notaire liability check, to the informational ambiguity that prolongs negotiation and raises the risk that a sale falls through. The term $c_1\geq 0$ is an additional opportunity cost borne only by high-quality sellers ($\theta=1$) who choose to hide, since by not disclosing they forgo the revenue premium that verified high quality would command from EPC-sensitive buyers. Because $c_1>0$, hiding is strictly cheaper for low-quality sellers than for high-quality ones, so the net gain from concealment is larger for $\theta=0$ sellers at any given pool belief, and this differential is the sorting pressure that drives full separation of high-quality sellers in equilibrium (Corollary~\ref{cor:hq_disclose}). Hiding costs are paid unconditionally on sale, reflecting compliance burdens and reputational exposure that arise at listing time rather than at closing.
-
-$c_0$ is an institutional cost of concealment, fixed within the prevailing enforcement regime, which we recover from the equilibrium price gap in Section~\ref{sec:identification}. It is also a policy object, a margin the regulator can shift through stricter enforcement, and Section~\ref{sec:policy} studies counterfactual variation in $c_0$ on that basis. Estimation reads $c_0$ off the current regime, while the policy exercise perturbs it around that same reading.
-
-\subsubsection{Buyer Valuations and Demand}
-
-The partition of buyers into EPC-sensitive and EPC-insensitive types reflects a well-documented empirical regularity, since willingness to pay for energy efficiency varies sharply with how much of the ongoing energy cost the buyer will actually bear. Primary-residence buyers in northern France with long heating seasons, and investor-buyers who face the impending F/G rental ban under the \textit{loi Climat et R\'{e}silience}, have strong incentives to incorporate EPC scores into their bids. By contrast, a vacation-home buyer who occupies the property only a few weeks a year, or a buyer shopping in a mild climate, has much less riding on it and may rationally discount energy performance. This heterogeneity determines $\rho$, the share of the local buyer pool that is EPC-sensitive.
-
-EPC-sensitive buyers ($B=1$) condition their valuation on energy performance:
+Every informed seller who stays silent pays $c_0\ge0$, and a high-quality one pays an additional $c_1\ge0$. Both are reduced-form costs of concealment (Appendix~\ref{app:hiding_costs}), and we assume they do not depend on buyers' sensitivity or attention (Assumption~\ref{assum:c_indep}). An uninformed seller has nothing to display and nothing to conceal, so she pays no hiding cost and obtains $p_{\rm sil}$. The payoff of a seller with information status $K$ and quality $\theta$ who chooses display $d$ is therefore
 \begin{equation}
-    v_1(\theta,d) = \begin{cases}
-        \beta_0 + \beta_1\cdot\theta + \textstyle\sum_n\beta_n X_n & \text{if } d=1 \;\text{(verified quality)},\\
-        \beta_0 + \beta_1\cdot\mathbb{E}[\theta\mid d{=}0] + \textstyle\sum_n\beta_n \cdot X_n & \text{if } d=0 \;\text{(inferred quality)}.
+    U(K,\theta,d)\;=\;
+    \begin{cases}
+        p_{\rm rat}(\theta) & d=1,\\[2pt]
+        p_{\rm sil}-K\,(c_0+\theta\,c_1) & d=0,
     \end{cases}
+    \label{eq:seller_payoff}
 \end{equation}
-We adopt the benchmark $\alpha_k=\beta_k$, under which buyers value quality equally whether it is certified or inferred. The assumption is conservative in a precise sense. Under the alternative $\alpha_k<\beta_k$, a distrust discount on unverified quality, the non-disclosure premium would be smaller for any given pool composition, so our identified $\rho$ is a lower bound on the true EPC-sensitive buyer share, and the premium we document understates what a fully skeptical buyer would generate. EPC-insensitive buyers ($B=0$) value the property solely on observables, $v_0(X)=\delta_0+\sum_n\delta_n X_n$. The aggregate transaction probability mixes the two buyer types:
-\begin{equation}
-    \Gamma(p^{\text{list}}) = \rho\cdot G\!\left(v_1(d)-p^{\text{list}}\right) + (1-\rho)\cdot G\!\left(v_0-p^{\text{list}}\right)
-    \label{eq:demand}
-\end{equation}
-where $G(\cdot)$ is the logistic CDF governing idiosyncratic taste shocks. The parameter $\rho$ enters the demand function as a weight on the EPC-sensitive buyer valuation, so a higher $\rho$ amplifies the revenue difference between a disclosed high-quality listing and a non-disclosing listing and raises the stakes of the seller's disclosure decision. Empirically, $\rho$ is a market-level structural parameter identified from the cross-market variation in the price response to the July 2021 reform, developed in Section~\ref{sec:identification}.
+with $d=1$ available only to informed sellers, and Table~\ref{tab:att_payoffs} lists the payoff of each seller type under each action. Silence raises a low-quality informed seller's price by $p_{\rm sil}-p_{\rm L}$ and a high-quality one's by $p_{\rm sil}-p_{\rm H}$, and she hides when this gross gain exceeds her hiding cost. We write $\sigma_\theta\equiv\Pr(d=0\mid K=1,\theta)$ for the probability that an informed seller of quality $\theta$ stays silent.
 
-\subsubsection{Buyer Beliefs and the Non-Disclosing Pool}
+\begin{table}[htbp]
+\centering
+\caption{Seller Payoffs by Type and Display}
+\label{tab:att_payoffs}
+\small\renewcommand{\arraystretch}{1.4}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc@{}}
+\toprule\toprule
+\textbf{Seller type} & \textbf{Displays the rating ($d=1$)} & \textbf{Stays silent ($d=0$)} \\
+\midrule
+Informed, $\theta=1$ & $p_{\rm H}$ & $p_{\rm sil}-c_0-c_1$ \\
+Informed, $\theta=0$ & $p_{\rm L}$ & $p_{\rm sil}-c_0$ \\
+Uninformed, either quality & not available & $p_{\rm sil}$ \\
+\bottomrule\bottomrule
+\end{tabular*}
 
-When observing a non-disclosing listing, buyers cannot determine whether the seller is strategically concealing an unfavorable audit or simply lacks a certified EPC. They form a posterior belief about expected quality using Bayes' rule. The structure of this belief depends on the composition of the non-disclosing pool, which is itself an equilibrium object.
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} $p_{\rm H}$, $p_{\rm L}$ and $p_{\rm sil}$ are derived in Lemma~\ref{lem:att_prices}.
+\end{table}
 
-\paragraph{Who Hides?}
+\subsubsection{Buyers and Attention}
 
-Each seller is characterized by two attributes: information status $K \in \{0,1\}$ and quality $\theta \in \{0,1\}$. We maintain the following assumption throughout.
+Buyers' valuations set the three prices. Each buyer values a dwelling at a gross value $\bar V(X)=\beta_0+\sum_n\beta_nX_n$ less an energy cost, and since the gross value cancels from every price gap (Appendix~\ref{app:att_costform}), buyers differ only in the cost they subtract. An EPC-insensitive buyer values the property on observables only, $v_0(X)=\delta_0+\sum_n\delta_n X_n$, which amounts to subtracting the same amount $\zeta^{\rm ins}\equiv\bar V(X)-v_0(X)$ from every listing. An EPC-sensitive buyer who thinks about energy subtracts the dwelling's capitalised energy cost. A dwelling of quality $\theta$ carries the cost $\zeta_\theta$, with $\zeta_0>\zeta_1>0$, built from certified consumption at the energy price, discount rate and horizon of the anchor (Appendix~\ref{app:energy_costs}), and an efficient dwelling saves its buyer $\beta_1\equiv\zeta_0-\zeta_1$.
 
-\begin{assumption}[Independence]\label{ass:independence}
-$K \perp \theta$, with $\Pr(K=1) = \pi$ and $\Pr(\theta=1) = \bar{\theta}$.
+\begin{definition}[Default Energy Cost]
+\label{def:default_cost}
+The \emph{default energy cost} $\zeta^{\rm def}\ge0$ is the energy cost an EPC-sensitive buyer subtracts from a listing's value when she does not attend to energy. It is measured in the same units as $\zeta_\theta$.
+\end{definition}
+
+The term comes from the limited-attention literature, in which an agent who does not attend to an attribute replaces it with a default value instead of an inference \citep{gabaix_sparsity_2014, gabaix_behavioral_2019}. The default is what the buyer implicitly assumes when the question of energy never arises, and it should not be read as a belief about the dwelling's rating. At $\zeta^{\rm def}=0$ energy plays no part in the buyer's valuation, which does not mean she believes the dwelling consumes nothing. If the default equals the prior mean cost $\bar\theta \zeta_1+(1-\bar\theta)\zeta_0$, the inattentive buyer behaves like one who assumes an average dwelling, which amounts to cursedness. If it equals the expected cost of the silent pool, she happens to subtract what an attentive buyer would infer, and attention becomes irrelevant. Which value applies is an empirical question. Proposition~\ref{prop:att_incentives}(iii) shows that limited attention can explain the apartment inversion only if $\zeta^{\rm def}<\zeta_1$, and Proposition~\ref{prop:att_identification}(iii) shows what the data can say about its level.
+
+\begin{assumption}[Display-Dependent Attention]
+\label{assum:attention}
+An EPC-sensitive buyer attends to energy with probability $\omega_1$ when the listing displays a rating and with probability $\omega_0\le\omega_1$ when it does not, with $\omega_1>0$. An attentive buyer subtracts the expected energy cost given what the listing shows: $\zeta_\theta$ if a rating is displayed, $\bar \zeta^{\rm sil}$, the expected cost of the silent pool defined in~\eqref{eq:csil} below, otherwise. An inattentive buyer subtracts the default energy cost $\zeta^{\rm def}$ of Definition~\ref{def:default_cost}, whatever the listing shows.
 \end{assumption}
 
-\noindent Independence is most plausible for transactions driven by exogenous life events (succession following a death, court-ordered liquidation, or divorce settlement), in which legal proceedings impose binding timing constraints that preclude any quality-contingent decision to obtain a certified EPC. In such cases, the seller's information status $K$ is determined by administrative capacity and procedural deadlines rather than the energy performance of the dwelling; a seller under a judicial mandate to liquidate an estate has neither the incentive nor the discretion to condition audit acquisition on $\theta$. In France, forced transactions of this type constitute a substantial share of the resale market, providing a natural mechanism through which $K \perp \theta$ obtains in the data.
+The ratio $\psi\equiv\omega_0/\omega_1\in[0,1]$, which we call the \emph{relative attention to silence}, is the attention a listing without a rating receives per unit of the attention a rated listing receives. The product $\rho\,\omega_d$, the \emph{effective attention} to listings with display $d$, is the share of all buyers who price energy when they look at such a listing. Table~\ref{tab:att_buyers} records what each buyer subtracts.
 
-Table~\ref{tab:who_hides} summarizes disclosure behavior by seller type. Uninformed sellers have no choice, since they cannot disclose information they do not possess (No Falsification Assumption). Informed sellers choose strategically, weighing the revenue gain from disclosure against the option of pooling with the non-disclosing mass. We denote by $\sigma_\theta \equiv \Pr(d=0 \mid K=1, \theta)$ the equilibrium hiding probability for an informed seller with quality $\theta$.
+\begin{table}[htbp]
+\centering
+\caption{Energy Cost Subtracted, by Buyer Type and Listing Display}
+\label{tab:att_buyers}
+\small\renewcommand{\arraystretch}{1.5}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule\toprule
+\textbf{Buyer} & \textbf{Probability} & \textbf{Displayed rating $\theta$} & \textbf{Silent listing} \\
+\midrule
+EPC-insensitive & $1-\rho$ & $\zeta^{\rm ins}$ & $\zeta^{\rm ins}$ \\
+EPC-sensitive, attentive & $\rho\,\omega_d$ & $\zeta_\theta$ & $\bar \zeta^{\rm sil}$ \\
+EPC-sensitive, inattentive & $\rho\,(1-\omega_d)$ & $\zeta^{\rm def}$ & $\zeta^{\rm def}$ \\
+\bottomrule\bottomrule
+\end{tabular*}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} $\omega_d=\omega_1$ for a displayed rating and $\omega_0$ for a silent listing. $\zeta^{\rm ins}\equiv\bar V(X)-v_0(X)$ (Appendix~\ref{app:att_costform}) does not depend on the rating or on whether one is displayed, so it cancels from every price gap.
+\end{table}
+
+Averaging over the three types gives the mean valuation of a listing across buyers,
+\begin{equation}
+    \bar u(X,d,\theta)\;=\;\bar V(X)-(1-\rho)\,\zeta^{\rm ins}-\rho\Big[\omega_d\,\mathcal Z_{\rm att}(d,\theta)+(1-\omega_d)\,\zeta^{\rm def}\Big],
+    \label{eq:mean_valuation}
+\end{equation}
+where $\mathcal Z_{\rm att}(d,\theta)$ is the cost an attentive buyer subtracts, $\zeta_\theta$ for a displayed rating and the expected cost of the silent pool $\bar\zeta^{\rm sil}$ for a silent listing.
+
+\begin{assumption}[Linear Pricing]
+\label{assum:linear_pricing}
+The equilibrium price of a listing equals its mean valuation $\bar u(X,d,\theta)$.
+\end{assumption}
+
+\noindent The assumption is a first-order approximation, because prices are in logs and valuations in levels. It also sets aside the sale-probability margin of the seller's full problem, whose exact logit form is in Appendix~\ref{app:att_exact}, where we discuss, but do not prove, whether the orderings below survive it.
+
+\subsubsection{The Silent Pool}
+
+Of the three buyers in Table~\ref{tab:att_buyers}, only the attentive one forms a belief about a silent listing, and that belief depends on who sits in the silent pool. Under independence the pool has the composition shown in Table~\ref{tab:who_hides}. Uninformed sellers cannot disclose (Assumption~\ref{assum:no_falsification}), so they are always silent, while informed sellers of quality $\theta$ stay silent with probability $\sigma_\theta$.
 
 \begin{table}[htbp]
 \centering
@@ -163,221 +183,299 @@ Uninformed, $\theta=0$ & $(1-\pi) (1-\bar{\theta})$ & No & Always & $(1-\pi) (1-
 \textit{Notes:} $\sigma_\theta \equiv \Pr(d=0 \mid K=1, \theta)$ denotes the hiding probability for an informed seller with quality $\theta$. Uninformed sellers cannot disclose and hide with probability one.
 \end{table}
 
-\paragraph{The Belief Function}
-
-Applying Bayes' rule to the pool composition in Table~\ref{tab:who_hides}, the expected quality among non-disclosers is:
+Applying Bayes' rule to these masses gives the expected quality among non-disclosers,
 \begin{equation}
-    e(\sigma_0, \sigma_1) \equiv \Pr(\theta=1 \mid d=0) = \frac{\pi \bar{\theta} \sigma_1 + (1-\pi) \bar{\theta}}{\pi \bar{\theta} \sigma_1 + \pi (1-\bar{\theta}) \sigma_0 + (1-\pi)}
+    e(\sigma_0, \sigma_1) \equiv \Pr(\theta=1 \mid d=0) = \frac{\pi \bar{\theta} \sigma_1 + (1-\pi) \bar{\theta}}{\pi \bar{\theta} \sigma_1 + \pi (1-\bar{\theta}) \sigma_0 + (1-\pi)}.
     \label{eq:belief_general}
 \end{equation}
+The numerator counts the high-quality mass in the pool, combining informed high-quality sellers who choose to hide ($\pi\bar{\theta}\sigma_1$) with uninformed sellers who happen to have high quality ($(1-\pi)\bar{\theta}$). The denominator is the total non-disclosing mass, so the belief $e$ is a weighted average across two economically distinct populations. When uninformed sellers dominate the pool, because $\pi$ or $\sigma_0$ is small, non-disclosure looks like a constraint rather than a choice and beliefs remain favorable to the seller. If instead strategic low-quality hiders make up most of the pool, with both $\pi$ and $\sigma_0$ large, the pool is contaminated and beliefs deteriorate accordingly. In classical disclosure theory all sellers are informed and silence is unambiguous bad news. Here non-disclosure is ambiguous whenever $\pi < 1$, so unraveling is incomplete.
 
-The numerator counts the high-quality mass in the pool, combining informed high-quality sellers who choose to hide ($\pi\bar{\theta}\sigma_1$) with uninformed sellers who happen to have high quality ($(1-\pi)\bar{\theta}$). The denominator is the total non-disclosing mass, so the belief $e$ is a weighted average across two economically distinct populations. When uninformed sellers dominate the pool, because $\pi$ or $\sigma_0$ is small, non-disclosure looks like a constraint rather than a choice and beliefs remain favorable to the seller. If instead strategic low-quality hiders make up most of the pool, with both $\pi$ and $\sigma_0$ large, the pool is contaminated and beliefs deteriorate accordingly. Unraveling is therefore incomplete, because non-disclosure is inherently ambiguous whenever $\pi < 1$, whereas in classical disclosure theory all sellers are informed and silence is unambiguous bad news.
+A buyer who holds this belief expects a silent dwelling to cost
+\begin{equation}
+    \bar \zeta^{\rm sil}\;\equiv\;\mathbb E[\zeta\mid d=0]\;=\;e\,\zeta_1+(1-e)\,\zeta_0
+    \label{eq:csil}
+\end{equation}
+to heat.
 
 \begin{lemma}[Belief Monotonicity]\label{lem:belief_monotone}
 $e(\sigma_0,\sigma_1)$ is strictly decreasing in $\sigma_0$ and strictly increasing in $\sigma_1$.
 \end{lemma}
-\begin{proof}[Proof sketch]
-Raising $\sigma_0$ adds more low-quality hiders to the denominator while leaving the numerator unchanged, so $e$ falls. Raising $\sigma_1$ instead adds the same term $\pi\bar{\theta}$ to both numerator and denominator, and because $e < 1$ the numerator effect dominates, so $e$ rises. This strict decrease in $e$ as $\sigma_0$ rises is what makes the equilibrium in Section~\ref{sec:equilibrium} unique. As more informed low-quality sellers choose to hide, buyer beliefs worsen, which attenuates the benefit of hiding and restores incentive compatibility.
-\end{proof}
-
-\subsection{Equilibrium}
-\label{sec:equilibrium}
-
-\subsubsection{Disclosure Incentives}
-
-A seller's disclosure decision reduces to one comparison: does withholding the audit, priced off the market's pool belief $e$, fetch more than disclosing the true quality $\theta$ would? A low-quality seller ($\theta=0$) gains by pooling with uninformed sellers and capturing a share of their quality premium; a high-quality seller ($\theta=1$) loses, because pooling with low-quality hiders drags the belief $e$ below 1. That asymmetry drives the results below.
-
-\begin{proposition}[Disclosure Incentives and Seller Sorting]
-\label{prop:premium}
-Under the benchmark $\alpha_k=\beta_k$, a seller of type $(K,\theta)$ strictly prefers disclosure if and only if $\theta > e(\sigma_0^*)$. In particular:
-\begin{enumerate}[label=(\roman*)]
-    \item An informed seller with $\theta=1$ strictly prefers disclosure for any $e(\sigma_0^*)<1$.
-    \item An informed seller with $\theta=0$ strictly prefers non-disclosure whenever $e(\sigma_0^*)>0$.
-\end{enumerate}
-\end{proposition}
 
 \noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
 
-Proposition~\ref{prop:premium} is the familiar adverse-selection asymmetry, worked out for this setting. A high-quality seller has nothing to gain from ambiguity. Disclosure reveals her type exactly; non-disclosure pools her with low-quality hiders, and since $e(\sigma_0^*)<1$ for any non-degenerate pool, that comparison always binds. A low-quality seller faces the opposite incentive: concealment lets her price off $e(\sigma_0^*)$, which is strictly above her true quality of zero whenever any uninformed sellers are present, so the gain from pooling is strictly positive. The hiding cost $c_1>0$ that falls only on high-quality concealers reinforces this separation but is not what drives it under the benchmark $\alpha_k=\beta_k$: pool inference alone is enough to make high-quality sellers disclose, and $c_1$ only starts to matter once $\alpha_k<\beta_k$, the distrust-discount case.
+\subsubsection{Prices and the Effective Belief}
+\label{ss:att_prices}
 
-\begin{corollary}[High-Quality Sellers Always Disclose]
-\label{cor:hq_disclose}
-In any equilibrium, $\sigma_1^*=0$.
+Each of the three prices in the seller's payoffs is the mean valuation~\eqref{eq:mean_valuation} of a display, so it averages what attentive buyers infer from the pool with what inattentive ones assume by default.
+
+\begin{lemma}[Prices and the Perceived Cost of Silence]
+\label{lem:att_prices}
+Under Assumptions~\ref{assum:attention} and~\ref{assum:linear_pricing}, the energy-efficiency premium $b$ and the non-disclosure premium $\Delta$ are
+\begin{align}
+    b&\;\equiv\;p_{\rm H}-p_{\rm L}\;=\;\rho\,\omega_1\,\beta_1, \label{eq:b_att}\\
+    \Delta&\;\equiv\;p_{\rm sil}-p_{\rm L}\;=\;\rho\,\omega_1\,(\zeta_0-\zeta^*),\qquad \zeta^*\;\equiv\;\zeta^{\rm def}+\psi\,\big(\bar \zeta^{\rm sil}-\zeta^{\rm def}\big). \label{eq:premium_att}
+\end{align}
+More generally, a listing displaying a rating with energy cost $\zeta$ sells at $p_{\rm sil}-\rho\,\omega_1\,(\zeta-\zeta^*)$.
+\end{lemma}
+
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
+
+The cost $\zeta^*$ is the energy cost the market behaves as if a silent listing carries. It averages the default and the rational cost of the silent pool, with weight $\psi$ on the latter. The default cancels from the energy-efficiency premium because both listings in that comparison display a rating. It does not cancel from the non-disclosure premium, because a silent listing draws attention $\omega_0$ while a rated listing draws $\omega_1$.
+
+We write $b$ for the premium. For given $\psi$ and default, the price gaps depend on $\rho$ and $\omega_1$ only through the product $\rho\omega_1$, which the differential price response to the July 2021 reform identifies across markets (Section~\ref{sec:identification}), and $\rho$ is separately identified only under the normalisation $\omega_1=1$. In the notation of Appendix~\ref{sec:equilibrium}, $p_{\rm sil}-p_{\rm L}$ is the premium $p_0^*-p_1^*$, where $p_1^*$ is the price of a displayed inefficient rating. With $\omega_1=1$, $b=\rho\beta_1$ is the premium of Appendix~\ref{sec:equilibrium}, and $\hat\beta_{1,m}$ estimates the reform-induced change in $b_m$ (not in $\beta_1$).
+
+Because $\zeta^*$ mixes the pool's belief with the default, the non-disclosure premium no longer reveals a belief directly, as it does in the benchmark of Appendix~\ref{sec:equilibrium}. There the ratio of the non-disclosure premium to the energy-efficiency premium \emph{is} the belief, so one number summarises everything the market thinks about silence. Under limited attention prices aggregate a belief held by some buyers and a default used by others, and no single buyer's belief summarises them. The ratio of the two premia is still observed, and we use it to define the number that plays the role $e$ plays in the benchmark.
+
+\begin{definition}[Effective Belief]
+\label{def:effective_belief}
+The \emph{effective belief} is the ratio of the non-disclosure premium to the energy-efficiency premium, $\tilde e\equiv\Delta/b$, so that $\Delta=b\,\tilde e$ as $\Delta=\rho\beta_1 e$ in Appendix~\ref{sec:equilibrium}.
+\end{definition}
+
+Read through the full-attention case ($\psi=\omega_1=1$, Appendix~\ref{sec:equilibrium}), $\tilde e$ is the belief that rationalises observed prices. If every EPC-sensitive buyer attended to energy and held belief $\tilde e$ about every silent listing, the non-disclosure premium would be exactly $\Delta$. Because that model confines beliefs to $[0,1]$, an effective belief above one says directly that no belief, Bayesian or behavioural, can account for the premium in that model. The gap between $\tilde e$ and the Bayesian belief $e^*$ measured from the registry (Section~\ref{sec:beliefs}) is then what limited attention has to explain.
+
+Writing $\tilde e$ in terms of energy costs shows where that gap comes from. The ratio of the two premia equals $(\zeta_0-\zeta^*)/(\zeta_0-\zeta_1)$, and since $\zeta^*$ is a $\psi$-weighted average of the silent pool's expected cost and the default, $\tilde e$ is the same weighted average of the two beliefs that those costs imply (Appendix~\ref{app:att_etilde}). The first is the attentive buyer's own belief $e$. The second is the default-implied belief $e^{\rm def}$, the point at which an inattentive buyer places every listing, which equals the energy-cost ratio
+\begin{equation}
+    \eta\;\equiv\;\frac{\zeta_0}{\zeta_0-\zeta_1}\;=\;\frac{\bar E_0}{\bar E_0-\bar E_1}\;>\;1
+    \label{eq:eta}
+\end{equation}
+when $\zeta^{\rm def}=0$, and $\eta-\zeta^{\rm def}/(\zeta_0-\zeta_1)$ in general. Here $\bar E_\theta$ is certified consumption, so $\eta$ is computed from the registry alone and does not depend on the energy price, the discount rate or the horizon. The effective belief is therefore
+\begin{equation}
+    \tilde e\;=\;\psi\,e+(1-\psi)\,e^{\rm def},
+    \label{eq:etilde}
+\end{equation}
+a weighted average of the belief of buyers who think about silence and the default of those who do not, with weight $\psi$ on the belief.
+
+The two components live on different ranges. The Bayesian belief is a probability, so $e\le1$. The default-implied belief has no such bound, and it exceeds one whenever $\zeta^{\rm def}<\zeta_1$, that is, whenever a buyer who ignores energy implicitly assumes a lower cost than that of an average efficient dwelling. A buyer who prices no energy cost at all treats a silent listing as better than a verified efficient one, since even a verified efficient listing shows a positive cost. With $\psi=\omega_1=1$ the model is the full-attention benchmark of Appendix~\ref{sec:equilibrium}, and with $\psi=0$ the composition of the silent pool plays no role in prices. Between them, $\tilde e>1$, and hence $\Delta>b$, holds if and only if $(1-\psi)(e^{\rm def}-1)>\psi(1-e)$, which requires $\psi<1$ and $e^{\rm def}>1$.
+
+Since only $e$ depends on the hiding rates in~\eqref{eq:etilde}, the effective belief inherits the monotonicity of Lemma~\ref{lem:belief_monotone}, scaled by $\psi$.
+
+\begin{lemma}[Effective-Belief Monotonicity]
+\label{lem:etilde_monotone}
+$\tilde e(\sigma_0,\sigma_1)$ is weakly decreasing in $\sigma_0$ and weakly increasing in $\sigma_1$, strictly so if and only if $\psi>0$, with $\partial\tilde e/\partial\sigma_j=\psi\,\partial e/\partial\sigma_j$.
+\end{lemma}
+
+\noindent\textit{Proof.} In~\eqref{eq:etilde} only $e$ depends on $(\sigma_0,\sigma_1)$. Differentiate and apply Lemma~\ref{lem:belief_monotone}. $\Box$
+
+Substituting Lemma~\ref{lem:att_prices}, with $b=p_{\rm H}-p_{\rm L}$ and $b\,\tilde e=p_{\rm sil}-p_{\rm L}$, into the payoffs of Table~\ref{tab:att_payoffs} measures every payoff from the price of a displayed inefficient rating,
+\begin{equation}
+    U(K,\theta,d)\;=\;
+    \begin{cases}
+        p_{\rm L}+b\,\theta & d=1,\\[2pt]
+        p_{\rm L}+b\,\tilde e-K\,(c_0+\theta\,c_1) & d=0.
+    \end{cases}
+    \label{eq:seller_payoff_concrete}
+\end{equation}
+An informed low-quality seller therefore strictly prefers silence if and only if $b\,\tilde e>c_0$, and an informed high-quality seller if and only if $b\,\tilde e-b>c_0+c_1$ (Proposition~\ref{prop:att_incentives}). At $\psi=\omega_1=1$, $b\,\tilde e=\rho\,\beta_1\,e$.
+
+Each seller's gain from silence thus depends on $\tilde e$, and $\tilde e$ depends on how many sellers stay silent. This is the feedback that pins down the hiding rate. More concealment worsens the pool, the worse pool lowers the belief, and the lower belief lowers the gain from further concealment. Under limited attention the loop runs at a fraction $\psi$ of its full strength, because inattentive buyers keep subtracting the default whatever the pool contains. Since each informed seller's choice moves the pool belief that sets the other's gain, the hiding rates are a fixed point, and Section~\ref{ss:att_equilibrium} characterises it together with the regimes it generates.
+
+\subsection{Equilibrium with Limited Attention}
+\label{ss:att_equilibrium}
+
+Each informed seller's gain from silence depends on the pool belief, and the pool belief depends on how many informed sellers stay silent. The two informed types do not gain the same amount from silence.
+
+\subsubsection{Who Hides First}
+\label{ss:att_who}
+
+A silent listing sells at the same price whoever lists it, so the two informed types differ only in the displayed price each gives up by hiding. In terms of the effective belief, their gains are
+\begin{equation}
+    g_0\;=\;b\,\tilde e,\qquad g_1\;=\;b\,(\tilde e-1),\qquad g_0-g_1=b.
+    \label{eq:gains}
+\end{equation}
+The low type's gain is the non-disclosure premium itself, $g_0=\Delta$, and the high type's gain is $b$ smaller, so with a common hiding cost the low type is the first to want to hide. Written as a function of the pool belief $e$, her gain is
+\begin{equation}
+    \Delta_\psi(e)\;\equiv\;b\,\big[\psi\,e+(1-\psi)\,e^{\rm def}\big],
+    \label{eq:Delta_psi}
+\end{equation}
+a weighted average of the gain from the pool, which depends on the belief, and a gain against the default, which does not. Here $e^{\rm def}=(\zeta_0-\zeta^{\rm def})/(\zeta_0-\zeta_1)$ is the default-implied belief of Section~\ref{ss:att_prices}. With $\omega_1=\psi=1$ the gain is the full-attention gain $\rho\beta_1 e$ of Appendix~\ref{sec:equilibrium}.
+
+\begin{proposition}[Disclosure Incentives under Limited Attention]
+\label{prop:att_incentives}
+Under Assumption~\ref{assum:attention}:
+\begin{enumerate}[label=(\roman*)]
+    \item an informed seller with $\theta=0$ strictly prefers non-disclosure if and only if $\tilde e>c_0/b$;
+    \item an informed seller with $\theta=1$ strictly prefers non-disclosure if and only if $\tilde e>1+(c_0+c_1)/b$, which requires that silence sell above a verified efficient rating;
+    \item if $\zeta^{\rm def}<\bar \zeta^{\rm sil}$, silence sells above a verified efficient rating ($\tilde e>1$, equivalently $\zeta^*<\zeta_1$) if and only if
+    \begin{equation}
+        \psi\;<\;\bar\psi(e)\;\equiv\;\frac{e^{\rm def}-1}{e^{\rm def}-e}\;=\;\frac{\zeta_1-\zeta^{\rm def}}{\bar \zeta^{\rm sil}-\zeta^{\rm def}},
+        \label{eq:att_psibar}
+    \end{equation}
+    which requires $\zeta^{\rm def}<\zeta_1$;
+    \item if $\psi=1$, then $\tilde e=e$ for any $\omega_1$ and $\zeta^{\rm def}$; conditions (i)--(ii) are then the net-of-cost comparisons underlying Proposition~\ref{prop:equilibrium}, and with $c_0=c_1=0$ they reduce to Proposition~\ref{prop:premium}.
+\end{enumerate}
+\end{proposition}
+
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
+
+By part (iv), inattention that falls equally on rated and silent listings amounts to having fewer EPC-sensitive buyers. It scales both premia together and leaves the benchmark of Appendix~\ref{sec:equilibrium} intact. Attention that differs between the two kinds of listing matters only if the default is optimistic (part iii). A buyer who, without thinking about energy, implicitly assumes an average dwelling is a cursed buyer by another name, and with such buyers silence stays below the price of a verified efficient rating.\footnote{If the default equals the prior mean cost $\bar\theta \zeta_1+(1-\bar\theta)\zeta_0$, it is at least $\zeta_1$, and silence never outprices a verified efficient rating. If it equals the rational cost of the silent pool, attention is irrelevant. The evidence on shrouded costs cited above finds under-weighting toward zero rather than toward the mean, which supports an optimistic default. No housing-specific evidence on this point exists yet, and the model depends on this assumption more than on any other.} Once silence does outprice a verified efficient rating, the high-quality seller loses her automatic preference for disclosure, and only the hiding cost stops her from hiding (part ii).
+
+Lemma~\ref{lem:att_prices} also says where silence should sit among the seven letters of the EPC scale, which the two quality levels of the model do not distinguish. The gap between a rated listing and a silent one should be linear in the letter's energy cost and cross zero at $\zeta^*$. With full attention ($\psi=\omega_1=1$) the crossing lies between D and E (Appendix~\ref{sec:equilibrium}). Limited attention with an optimistic default moves it below the energy cost of an efficient dwelling, $\zeta^*<\zeta_1$, once $\psi<\bar\psi(e)$.
+
+
+\begin{corollary}[High-Quality Sellers Disclose outside Complete Adverse Selection]
+\label{cor:att_hq}
+In any equilibrium with $\sigma_0^*<1$, $\sigma_1^*=0$. In Complete Adverse Selection ($\sigma_0^*=1$), high-quality hiding is possible only if $\tilde e(1,\sigma_1)\ge1+(c_0+c_1)/b$ for some $\sigma_1$, which requires that silence sell at least as high as a verified efficient rating, and strictly above it if $c_0+c_1>0$.
 \end{corollary}
 
-\noindent\textit{Proof.} Follows directly from Proposition~\ref{prop:premium}(i). $\Box$
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-This is a partial-unraveling result. The top of the quality distribution fully separates, since an informed high-quality seller has nothing to gain from staying silent and is actively hurt by being lumped in with low-quality hiders, so she always discloses. That clears high-quality sellers out of the non-disclosing pool in any equilibrium and leaves the entire strategic question to how informed low-quality sellers behave.
+The benchmark's Corollary~\ref{cor:hq_disclose} carries over, though the reason changes. In Appendix~\ref{sec:equilibrium} high-quality sellers disclose because silence costs them money. Under limited attention silence may pay them as well, yet by~\eqref{eq:gains} it always pays them $b$ less than it pays low-quality sellers. Outside Complete Adverse Selection the low type therefore decides and the high type displays.
 
-With $\sigma_1^*=0$, the belief simplifies. Writing $\sigma_0\equiv\Pr(d=0\mid K=1,\theta=0)$ for the fraction of informed low-quality sellers who conceal, the non-disclosing pool now contains only uninformed sellers of both types plus these strategic hiders:
+\subsubsection{Where Hiding Settles}
+\label{ss:att_where}
+
+With the high type displaying, the fixed point reduces to a single hiding rate, that of the informed low-quality seller. Whenever $\sigma_1^*=0$, the pool belief is $e(\sigma_0)=(1-\pi)\bar\theta/[\pi(1-\bar\theta)\sigma_0+(1-\pi)]$ and the effective belief is $\tilde e(\sigma_0)=\psi\,e(\sigma_0)+(1-\psi)\,e^{\rm def}$. Her net gain from hiding is therefore
 \begin{equation}
-    e(\sigma_0) = \frac{(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)}
-    \label{eq:belief_simplified}
+    \Phi_\psi(\sigma_0)\;\equiv\;\Delta_\psi\big(e(\sigma_0)\big)-c_0\;=\;b\Big[\psi\,\frac{(1-\pi)\bar\theta}{\pi(1-\bar\theta)\sigma_0+(1-\pi)}+(1-\psi)\,e^{\rm def}\Big]-c_0,
+    \label{eq:Phi_psi}
 \end{equation}
-$e(\sigma_0)$ falls monotonically in $\sigma_0$, because every additional hider adds weight $\pi(1-\bar{\theta})$ to the denominator without moving the numerator, diluting the pool and worsening what buyers infer from silence.
+and we write $e(1)\equiv(1-\pi)\bar\theta/(1-\pi\bar\theta)$ for the belief when every informed low-quality seller hides. Each additional hiding seller dilutes the silent pool with low-quality listings, which lowers the pool belief and, at rate $\psi$, the effective belief (Lemma~\ref{lem:etilde_monotone}). When $\psi>0$ the net gain therefore falls in $\sigma_0$, and the equilibrium lies where it reaches zero, or at a corner if it never does.
 
-\subsubsection{Equilibrium Characterization}
-
-Write $\Delta(e)\equiv\rho\beta_1 e$ for the revenue a low-quality seller gains from non-disclosure when buyers hold belief $e$, and define the net hiding gain $\Phi(\sigma_0)$ as that revenue gain net of the hiding cost:
-\begin{equation}
-    \Phi(\sigma_0) \;\equiv\; \Delta\!\left(e(\sigma_0)\right) - c_0 \;=\; \frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)} - c_0.
-    \label{eq:Phi}
-\end{equation}
-$\Phi$ is strictly decreasing in $\sigma_0$ (more concealment worsens the pool, which shrinks the gain from concealing further), and this monotone feedback is what pins down a unique equilibrium without any need for refinements. The three regimes below follow from comparing $\Phi$ against zero at its two extremes: $\Phi(0)=\Delta(\bar{\theta})-c_0$, the net gain against the cleanest possible pool, and $\Phi(1)=\Delta(e(1))-c_0$, the net gain against the most contaminated one.
-
-\begin{proposition}[Equilibrium Existence and Uniqueness]
-\label{prop:equilibrium}
-There exists a unique equilibrium, characterized as follows:
+\begin{proposition}[Equilibrium under Limited Attention]
+\label{prop:att_equilibrium}
+Under Assumption~\ref{assum:attention}, an equilibrium exists, and it is characterised as follows.
 \begin{enumerate}[label=(\roman*)]
-    \item If $c_0>\Delta(\bar{\theta})$, the unique equilibrium is \emph{Cost-Deterred Hiding}: $\sigma_0^*=0$ and $e^*=\bar{\theta}$.
-    \item If $c_0<\Delta(e(1))$, the unique equilibrium is \emph{Complete Adverse Selection}: $\sigma_0^*=1$ and $e^*=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$.
-    \item If $\Delta(e(1))\leq c_0\leq\Delta(\bar{\theta})$, the unique equilibrium is \emph{Partial Pooling}: $\sigma_0^*\in(0,1)$ is the unique solution to $\Delta(e(\sigma_0))=c_0$.
+    \item If $c_0>\Delta_\psi(\bar\theta)$, the unique equilibrium is Cost-Deterred Hiding, with $\sigma_0^*=0$ and $e^*=\bar\theta$.
+    \item If $c_0<\Delta_\psi(e(1))$, every informed low-quality seller hides, $\sigma_0^*=1$ (Complete Adverse Selection). Let $\bar g_1(\sigma_1)\equiv b\,[\tilde e(1,\sigma_1)-1]$ be the high type's gain. Then $\sigma_1^*=0$, with $e^*=e(1)$, is an equilibrium if and only if $\bar g_1(0)\le c_0+c_1$, and $\sigma_1^*=1$ is an equilibrium if and only if $\bar g_1(1)\ge c_0+c_1$. Both can hold, in which case at least two equilibria coexist; and if $\bar g_1(0)<c_0+c_1<\bar g_1(1)$ and $\psi>0$, an interior $\sigma_1^*\in(0,1)$ with $\bar g_1(\sigma_1^*)=c_0+c_1$ is also an equilibrium. If $\psi=1$, only $\sigma_1^*=0$ survives.
+    \item If $\Delta_\psi(e(1))\le c_0\le\Delta_\psi(\bar\theta)$, the equilibrium is Partial Pooling. If $\psi>0$ it is unique, with
+    \begin{equation}
+        e^*\;=\;\frac{c_0/b-(1-\psi)\,e^{\rm def}}{\psi},\qquad \sigma_0^*\;=\;\frac{1-\pi}{\pi(1-\bar\theta)}\Big(\frac{\bar\theta}{e^*}-1\Big).
+        \label{eq:att_pp}
+    \end{equation}
+    If $\psi=0$, Partial Pooling requires $c_0=b\,e^{\rm def}$ exactly, and then every $\sigma_0\in[0,1]$ is an equilibrium.
 \end{enumerate}
 \end{proposition}
 
-\noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-\begin{table}[h]
+% [AUTHOR REWRITE] interpretation of the equilibrium
+The three regimes of the classical game, the case $\psi=\omega_1=1$ of Appendix~\ref{sec:equilibrium}, reappear with the same logic, and so does its central result. In Partial Pooling the marginal hider is indifferent between hiding and displaying, so the non-disclosure premium equals her hiding cost, $\Delta^*=c_0$, whatever buyers attend to. Attention changes the belief and the hiding rate that sustain this premium, while the premium itself stays at $c_0$. In the two corner regimes no seller is indifferent, and the corner hiding rate sets the premium. Table~\ref{tab:att_equilibria} collects the conditions, hiding rates and premia of the three regimes.
+
+\begin{table}[htbp]
 \centering
-\caption{Equilibrium Regimes}
-\label{tab:equilibria}
+\caption{Equilibrium Regimes and the Price of Silence under Limited Attention}
+\label{tab:att_equilibria}
 \small\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{lcccc}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule\toprule
-\textbf{Equilibrium} & \textbf{Condition} & \textbf{Strategy $\sigma_0^*$} & \textbf{Belief $e^*$} & \textbf{Premium $p_0^*-p_1^*$} \\
+\textbf{Equilibrium} & \textbf{Condition} & \textbf{$\sigma_0^*$} & \textbf{Premium $\Delta^*$} & \textbf{$\Delta^*>b$ iff} \\
 \midrule
-Cost-Deterred Hiding       & $c_0>\Delta(\bar{\theta})$                     & $0$     & $\bar{\theta}$                                          & $\rho\beta_1\bar{\theta}$ \\
-Complete Adverse Selection & $c_0<\Delta(e(1))$                             & $1$     & $\dfrac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}$        & $\rho\beta_1 e^*$ \\[6pt]
-Partial Pooling            & $\Delta(e(1))\leq c_0\leq\Delta(\bar{\theta})$ & $(0,1)$ & Solves $\Phi(\sigma_0^*)=0$                             & $\rho\beta_1 e(\sigma_0^*)$ \\
+Cost-Deterred Hiding & $c_0>\Delta_\psi(\bar\theta)$ & $0$ & $b\,[\psi\bar\theta+(1-\psi)e^{\rm def}]$ & $e^{\rm def}>1$ and $\psi<\bar\psi(\bar\theta)$ \\
+Partial Pooling & $\Delta_\psi(e(1))\le c_0\le\Delta_\psi(\bar\theta)$ & \eqref{eq:att_pp} & $c_0$ & $c_0>b$ \\
+Complete Adverse Selection & $c_0<\Delta_\psi(e(1))$ & $1$ & $b\,[\psi e(1)+(1-\psi)e^{\rm def}]$ & $e^{\rm def}>1$ and $\psi<\bar\psi(e(1))$ \\
 \bottomrule\bottomrule
-\end{tabular}
+\end{tabular*}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} The premium in Complete Adverse Selection is evaluated at $\sigma_1^*=0$. The threshold $\bar\psi$ is defined in~\eqref{eq:att_psibar}; $\Delta^*>b$ means that silence sells above a verified efficient rating, which never happens if $e^{\rm def}\le1$. At $\psi=\omega_1=1$ the table reduces to Table~\ref{tab:equilibria}.
 \end{table}
 
-Neither corner fits what we observe. Universal concealment would need the non-disclosure premium to beat $c_0$ even against the dirtiest possible pool, and universal disclosure would need concealment to be unprofitable even against the cleanest. The data show something in between, with some low-quality sellers disclosing and the rest pooling with uninformed non-disclosers. Solving~\eqref{eq:Phi} for the interior case $\Phi(\sigma_0^*)=0$ then gives a closed form for the hiding rate,
-\[
-\sigma_0^* = \frac{1}{\pi(1-\bar{\theta})}\left[\frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{c_0} - (1-\pi)\right].
-\]
+Which regime obtains depends on where $c_0$ falls relative to the band of hiding costs that sustains Partial Pooling, and limited attention moves that band and changes its width. Each bound equals $\psi$ times its benchmark counterpart, evaluated at $b$, plus $(1-\psi)\,b\,e^{\rm def}$, the part of the gain that does not depend on the pool. The band therefore moves with the default, and its width shrinks as $\psi$ falls.
 
-The non-disclosure premium follows directly:
-\begin{equation}
-    p_0^*-p_1^* \;=\;
-    \begin{cases}
-        \rho\beta_1\bar{\theta}
-            & \text{Cost-Deterred Hiding }(\sigma_0^*=0), \\[4pt]
-        c_0
-            & \text{Partial Pooling }(\sigma_0^*\in(0,1)), \\[4pt]
-        \rho\beta_1\dfrac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}
-            & \text{Complete Adverse Selection }(\sigma_0^*=1),
-    \end{cases}
-    \quad \text{with}\quad \rho\beta_1\frac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}} < c_0 < \rho\beta_1\bar{\theta}.
-    \label{eq:premium}
-\end{equation}
-
-All three equilibria in Proposition~\ref{prop:equilibrium} come from the same comparison. The hiding gain $\Delta(e)=\rho\beta_1 e$ is evaluated at the two extremes of pool contamination and set against the hiding cost $c_0$. If $c_0$ dominates even at the cleanest pool ($\sigma_0=0$, $e=\bar{\theta}$), no one hides; if the gain survives even the dirtiest pool ($\sigma_0=1$, $e=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$), everyone hides; in between, an interior share hides and the market settles there. The premium inherits a strict ordering across the three regimes, $\rho\beta_1\bar{\theta} > c_0 > \rho\beta_1(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$ (Cost-Deterred Hiding above, Complete Adverse Selection below, and Partial Pooling pinned at $c_0$ in between), and the interior value depends on neither $\pi$ nor $\rho$.
-
-\emph{Cost-Deterred Hiding} is where the hiding cost is prohibitive even against the cleanest pool imaginable, one made up entirely of uninformed sellers drawn from the unconditional quality distribution. No informed low-quality seller finds concealment worth it, so $\sigma_0^*=0$ and the pool stays uncontaminated at $e^*=\bar{\theta}$, and the premium $\rho\beta_1\bar{\theta}$ is just the unconditional quality belief scaled by buyers' EPC sensitivity. The deterrence result echoes \citet{milgrom_good_1981} and \citet{grossman_informational_1981}, but the mechanism differs, since their unraveling runs through a belief penalty, where silence triggers the worst possible inference, while here it runs through the cost $c_0$, precisely because uninformed sellers keep silence from ever carrying that worst-type inference. This is the only regime where the non-disclosing pool is informationally clean.
-
-\emph{Complete Adverse Selection} is the opposite corner. The hiding gain survives even the dirtiest pool the model can produce. Every informed low-quality seller hides, $\sigma_0^*=1$, and buyer beliefs collapse to their floor, $e^*=(1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$, strictly below $\bar{\theta}$, taking the premium down to its lower bound with them. That floor is nonetheless strictly positive, because the uninformed sellers in the pool keep diluting the adverse inference and block the complete belief collapse that Milgrom--Grossman unraveling would otherwise imply. This is the \citet{dye_disclosure_1985} mechanism, in which a residual, non-strategic silent population keeps silence partially informative even once every strategic hider has already piled in.
-
-The indifference condition $\Delta(e(\sigma_0^*))=c_0$ pins down \emph{Partial Pooling}, the interior case between the two corners. $\Phi$ is positive at $\sigma_0=0$ and negative at $\sigma_0=1$, so strict monotonicity delivers a unique such crossing, where the marginal hider is exactly indifferent. The underlying mechanism is a feedback loop. As more low-quality sellers hide, $e(\sigma_0)$ falls, the pool looks worse, and $\Delta(e)$ shrinks, until the shrinking gain reaches the hiding cost. A fraction $\sigma_0^*$ hides and pools with the uninformed; the remaining $1-\sigma_0^*$ disclose rather than keep contaminating the pool for a gain that no longer covers $c_0$.
-
-What makes this regime useful is that the equilibrium premium equals $c_0$ exactly, and stays there regardless of $\pi$ or $\rho$. That invariance is just the indifference condition doing its job. The price gap between the non-disclosing pool and disclosed low quality has to equal the hiding cost, or the marginal seller would strictly prefer one action to the other. Take a rise in $\pi$. Holding $\sigma_0^*$ fixed, it would mechanically dirty the pool and push $e$ down, but equilibrium restores $\Phi=0$ by lowering $\sigma_0^*$ instead, so fewer hiders mean a cleaner pool, $e$ rebounds, and the premium lands back on $c_0$. A change in $\rho$ is absorbed the same way. The non-disclosure premium is therefore a revealed hiding cost rather than a free function of market composition. The observable price gap between non-disclosing and disclosed-low sellers identifies $c_0$ directly, and this is the only regime where $\pi$, $\rho$, and $c_0$ are all jointly identified.
-
-\subsubsection{Comparative Statics}
-
-\begin{proposition}[Comparative Statics]
-\label{prop:comparative_statics}
-The following comparative statics hold:
-\begin{enumerate}[label=(\roman*)]
-    \item In the \emph{Complete Adverse Selection} equilibrium: $\partial(p_0^*-p_1^*)/\partial\pi < 0$ and $\partial(p_0^*-p_1^*)/\partial\rho > 0$.
-    \item In the \emph{Partial Pooling} equilibrium: $\partial\sigma_0^*/\partial c_0 < 0$, $\partial\sigma_0^*/\partial\rho > 0$, and $\partial\sigma_0^*/\partial\pi < 0$.
-\end{enumerate}
-\end{proposition}
-
-\noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
-
-\noindent Part~(i) works through two distinct channels. The effect of $\pi$ runs through the \textit{belief channel}, since a rising share of informed sellers makes non-disclosure more informative of low quality, so $e^*$ falls and the gain from concealment dissipates. The effect of $\rho$ runs through the \textit{revenue channel} instead, since a larger share of EPC-sensitive buyers widens the price spread between quality levels and raises the value of concealment.
-
-Part~(ii) follows from the implicit function theorem applied to $\Phi(\sigma_0^*)=0$. Because $\Phi'(\sigma_0^*)<0$, $\partial\sigma_0^*/\partial c_0 < 0$ follows directly. A higher $\rho$ raises $\Delta$ at any fixed $e$, which shifts $\Phi$ upward and raises the interior equilibrium, so $\partial\sigma_0^*/\partial\rho > 0$. $\pi$ works through the same belief channel as in part~(i). A higher $\pi$ increases the contamination weight $\pi(1-\bar{\theta})$ in the denominator of $e(\sigma_0)$, which reduces $\Delta(e(\sigma_0))$ and shifts $\Phi$ downward, so $\partial\sigma_0^*/\partial\pi < 0$. The parameters $\pi$ and $c_0$ are therefore \textit{policy substitutes}, each reducing strategic hiding through a distinct channel, $\pi$ through beliefs and $c_0$ through costs, with marginal effects on $\sigma_0^*$ that are both negative and quantifiable from the estimated model.
-
-\begin{corollary}[Effect of $\rho$ on the non-disclosure premium]
-\label{cor:rho}
-\begin{enumerate}[label=(\roman*)]
-    \item The non-disclosure premium $\Delta = p_0^* - p_1^*$ is weakly increasing in $\rho$: strictly so in the Cost-Deterred Hiding and Complete Adverse Selection regimes ($\partial\Delta/\partial\rho > 0$), and zero in the Partial Pooling regime ($\partial\Delta/\partial\rho = 0$, with the premium pinned at $c_0$).
-    \item The parameter interval sustaining the Partial Pooling regime, $[\rho\,\beta_1\,e(1),\,\rho\,\beta_1\,\bar{\theta}]$, is weakly expanding in $\rho$: its width $\rho\,\beta_1[\bar{\theta}-e(1)]$ is strictly increasing in $\rho$ whenever $\pi>0$.
-\end{enumerate}
+\begin{corollary}[The Partial Pooling Band]
+\label{cor:att_band}
+The interval of hiding costs that supports Partial Pooling is $[\Delta_\psi(e(1)),\,\Delta_\psi(\bar\theta)]$, of width $\psi\,b\,[\bar\theta-e(1)]$. Its width goes to zero as $\psi\to0$.
 \end{corollary}
 
-\noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-\noindent A larger share of buyers who price the certificate raises what silence is worth, but
-only at the corners. Inside Partial Pooling the premium is pinned to the concealment cost, so a
-rise in $\rho$ shows up as more sellers hiding rather than a wider price gap. Part~(ii) adds that
-higher $\rho$ widens the range of parameters over which Partial Pooling survives at all.
-Empirically, this predicts that within partial-pooling markets the non-disclosure premium should
-be uncorrelated with $\hat\rho_m$ even as the hiding rate rises with it, and that markets with
-higher $\hat\rho_m$ should be less likely to sit in a corner regime --- a pattern we check
-directly against the regime classification in Section~\ref{sec:results}.
+At the apartment estimates of Section~\ref{ss:att_estimates} the band is \attBandWidthApt{} log points wide, against \attBandWidthBaseApt{} in the benchmark, so a single hiding cost per market sustains interior hiding only within a narrow window of costs. Appendix~\ref{app:att_band_fit} reports the band against the market-level premia.
 
+\subsubsection{What Silence Sells For}
+\label{ss:att_what}
 
-\begin{proposition}[Equilibrium effect of $\pi$]
-\label{prop:pi}
-As $\pi$ increases, the lower boundary $\Delta(e(1))$ of the Partial Pooling interval falls ($\partial e(1)/\partial\pi < 0$), so the condition for Complete Adverse Selection ($c_0 < \Delta(e(1))$) becomes harder to satisfy and the equilibrium moves toward the Cost-Deterred Hiding regime. For any fixed hiding cost $c_0$, a sufficiently large increase in $\pi$ drives the equilibrium out of the Partial Pooling region toward full unraveling.
+The regime fixes the price of silence and, through it, what each seller earns. For the puzzle of Section~\ref{ss:att_motivation} the comparison that matters is between a silent listing and a verified efficient rating. Uninformed sellers also earn the price of silence, and since they cannot hide a rating they do not have, they bear no hiding cost.
+
+\begin{proposition}[Prices and Payoffs by Seller Type]
+\label{prop:att_seller_types}
+Under Assumption~\ref{assum:attention}, with $b=\rho\omega_1\beta_1>0$, measure prices and payoffs relative to a listing displaying an inefficient rating, and consider an equilibrium with $\sigma_1^*=0$. A listing displaying an efficient rating sells at $b$, and a silent listing at
+\begin{equation}
+    \Delta^*\;=\;b\,\tilde e^*\;=\;\min\Big\{\max\big\{c_0,\,\Delta_\psi(e(1))\big\},\;\Delta_\psi(\bar\theta)\Big\},
+    \label{eq:att_premium_trunc}
+\end{equation}
+the hiding cost truncated to the Partial Pooling band. An informed high-quality seller earns $b$, an informed low-quality seller earns $\max\{\Delta^*-c_0,\,0\}$, and an uninformed seller of either quality earns $\Delta^*$ (Table~\ref{tab:att_seller_types} in Appendix~\ref{app:att_payoffs}). By regime:
+\begin{itemize}
+    \item in \textbf{Cost-Deterred Hiding}, $\Delta^*=\Delta_\psi(\bar\theta)<c_0$, and every informed low-quality seller displays her rating and earns zero;
+    \item in \textbf{Partial Pooling}, $\Delta^*=c_0$ and $\tilde e^*=c_0/b$. Every informed low-quality seller earns zero, whether she hides or displays, and the uninformed seller earns $c_0$. A silent listing sells above a verified efficient rating if and only if $c_0>b$. Payoffs are then ordered uninformed, informed high quality, informed low quality; if $0<c_0<b$ they are ordered informed high quality, uninformed, informed low quality;
+    \item in \textbf{Complete Adverse Selection}, $\Delta^*=\Delta_\psi(e(1))>c_0$, and every informed low-quality seller hides and earns $\Delta^*-c_0>0$, which is $c_0$ less than the uninformed seller.
+\end{itemize}
+In every regime, a silent listing sells above a verified efficient rating, $\Delta^*>b$, if and only if $e^{\rm def}>1$ and
+\begin{equation}
+    \psi\;<\;\bar\psi(e^*),
+\end{equation}
+the threshold of Proposition~\ref{prop:att_incentives}(iii), defined in~\eqref{eq:att_psibar}, evaluated at the equilibrium belief. The uninformed seller then earns more than an informed high-quality seller and at least as much as any informed seller. In an equilibrium with $\sigma_1^*>0$, which exists only in Complete Adverse Selection, $\Delta^*\ge b+c_0+c_1$.
 \end{proposition}
 
-\noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-\noindent Better registry coverage makes silence more informative, because a larger
-fraction of non-disclosers are hiding by choice rather than by constraint. As a result, buyers
-discount silence more heavily, concealment becomes less attractive, and the market moves toward
-disclosure. The testable content is a cross-market comparative static. Markets with higher
-$\hat\pi_m$ should display lower hiding rates $\hat\sigma_{0,m}$ and should be
-disproportionately represented among the markets classified as fully unravelling in
-Section~\ref{sec:results}.
+\begin{corollary}[Where Silence Sits among Ratings]
+\label{cor:att_ordering}
+Suppose $c_0+c_1>0$. If $e^{\rm def}>1$ and $\psi<\bar\psi(e(1))$, a silent listing sells above a verified efficient rating in every equilibrium, whatever the hiding cost. If $e^{\rm def}\le1$ or $\psi\ge\bar\psi(\bar\theta)$, it sells at most at the price of a verified efficient rating in every equilibrium, whatever the hiding cost. Otherwise, in any equilibrium with $\sigma_1^*=0$, it sells above a verified efficient rating if and only if $c_0>b$. In the benchmark of Appendix~\ref{sec:equilibrium}, $\psi=1$ and, for $\pi<1$, $0<\Delta^*<b$ in every equilibrium.
+\end{corollary}
 
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-\begin{proposition}[Equilibrium effect of $c_0$]
-\label{prop:c0}
-An increase in $c_0$ shifts $\Phi(\sigma_0) = \Delta(e(\sigma_0)) - c_0$ uniformly downward. The upper boundary condition for Partial Pooling ($c_0 \leq \Delta(\bar{\theta})$) becomes harder to satisfy and the condition for Cost-Deterred Hiding ($c_0 > \Delta(\bar{\theta})$) becomes easier, so higher hiding costs push the equilibrium toward the Cost-Deterred Hiding regime. In the interior of the Partial Pooling regime, $\partial\sigma_0^*/\partial c_0 < 0$: higher costs reduce the equilibrium hiding rate.
+Corollary~\ref{cor:att_ordering} answers the puzzle of Section~\ref{ss:att_motivation}. Silence can outprice a verified efficient rating only if the default implies a belief above one, $e^{\rm def}>1$ (equivalently $\zeta^{\rm def}<\zeta_1$), and attention to silence is low enough, $\psi<\bar\psi$. Section~\ref{ss:att_estimates} reports the estimated premia and the effective belief, and Section~\ref{ss:att_pays} places each segment in the corollary. In apartments silence sells above a verified efficient rating, and in houses it sells between the two displayed ratings. Table~\ref{tab:att_seller_types} in Appendix~\ref{app:att_payoffs} gives the payoff of each seller type in each regime.
+
+\subsubsection{Three Channels}
+\label{ss:att_channels}
+
+A policy aimed at disclosure can move the hiding rate only through the primitives, so we ask which of them do and in which direction. Proposition~\ref{prop:att_cs} collects how the equilibrium responds to attention, to the default and to the parameters of the benchmark in Appendix~\ref{sec:equilibrium}.
+
+\begin{proposition}[Comparative Statics under Limited Attention]
+\label{prop:att_cs}
+Suppose $\zeta^{\rm def}<\bar \zeta^{\rm sil}$.
+\begin{enumerate}[label=(\roman*)]
+    \item In Partial Pooling with $\psi>0$ and $\sigma_0^*\in(0,1)$, $\partial\sigma_0^*/\partial\psi<0$, $\partial\sigma_0^*/\partial \zeta^{\rm def}\le0$ (strictly if $\psi<1$), $\partial\sigma_0^*/\partial c_0<0$, $\partial\sigma_0^*/\partial(\rho\omega_1)>0$ and $\partial\sigma_0^*/\partial\pi<0$. The effect of $c_0$ on the equilibrium belief, $\partial e^*/\partial c_0=1/(\psi b)$, grows without bound as $\psi\to0$.
+    \item In the corner regimes with $\sigma_1^*=0$, the premium is decreasing in $\psi$ whenever $\zeta^{\rm def}<\bar\theta \zeta_1+(1-\bar\theta)\zeta_0$ (which implies the corresponding condition at $e(1)$). In Complete Adverse Selection with $\sigma_1^*=0$, $\partial\Delta^*/\partial\pi=\psi\,b\,\partial e(1)/\partial\pi<0$ for $\psi>0$: the belief channel of Proposition~\ref{prop:comparative_statics}(i), scaled by $\psi$.
+\end{enumerate}
 \end{proposition}
 
-\noindent\textit{Proof.} See Appendix~\ref{app:proofs}. $\Box$
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
 
-The premium in~\eqref{eq:premium} generates a transfer from EPC-sensitive buyers to the non-disclosing pool, but it does not accrue symmetrically within that pool. The informed low-quality hider receives the premium but nets zero, because the indifference condition $\Delta(e(\sigma_0^*))=c_0$ ensures that the gross revenue gain from concealment is exactly consumed by the hiding cost. The uninformed seller, who bears no hiding cost, is the residual claimant and pockets the full premium $c_0$ as a pure rent. The welfare cost of the equilibrium splits into two distinct components. The first is an allocative distortion. EPC-sensitive buyers pay a positive premium for assets whose true energy performance falls below the pooled belief $e(\sigma_0^*)$, a misallocation that would be eliminated if the concealed information were transmitted. The second is a deadweight loss, since the hiding cost $c_0$ is incurred by informed sellers at listing time without any counterpart in buyer valuations. This is a social loss only to the extent that $c_0$ represents real resources destroyed, such as legal fees, prolonged negotiation, or administrative burden. Any portion that is instead a transfer, such as the expected value of a fine accruing to the state, is a redistribution rather than a loss. We do not identify this split, so the deadweight-loss component is an upper bound. A formal efficiency characterization of these two components, and of the optimal subsidy that addresses them, is developed in Section~\ref{sec:policy}.
+The \emph{revenue channel} ($\rho\omega_1$) works as in Appendix~\ref{sec:equilibrium}. Greater effective attention to displayed ratings raises the gain from concealment, and with it the hiding rate. The \emph{belief channel} ($\pi$) keeps its sign and, in Complete Adverse Selection, is scaled by $\psi$, because a higher share of informed sellers makes silence more informative only to buyers who think about what silence means. The \emph{attention channel} ($\psi$, $\zeta^{\rm def}$) has no counterpart in the benchmark. More attention to silence, or a less optimistic default, lowers the gain from hiding at a given pool belief and so lowers the hiding rate. A salience policy acts on these margins (Section~\ref{ss:att_policy}). The last statement in part~(i) is the formal reason the single-cost model becomes fragile in apartments. When silence is barely read, a small change in the hiding cost produces a large swing in the hiding rate, because nothing on the buyer side pushes back.
+
+These comparative statics concern low-quality sellers, whose hiding decision drives the equilibrium, and high-quality sellers matter only at the margin. By Proposition~\ref{prop:att_incentives}(ii) and Corollary~\ref{cor:att_hq}, they may hide only if silence sells at least as high as a verified efficient rating, and above it if $c_0+c_1>0$. In the registry, however, high-quality sellers hide at rates close to those of low-quality sellers, which, taken literally, contradicts $\sigma_1^*=0$. Part of that silence is not strategic, for instance listings whose certificate is still pending (Appendix~\ref{app:att_nonstrategic}).
+
+\subsubsection{Who Pays for Inattention}
+\label{ss:att_welfare}
+
+Hiding and inattention also have welfare consequences. Under limited attention the welfare accounting of the benchmark in Appendix~\ref{sec:equilibrium} acquires a third component, and the rest of the benchmark's accounting carries over. The hiding cost $c_0$, implied by the premium in Partial Pooling ($c_0=\Delta$, Proposition~\ref{prop:att_identification}(iv); $\hat c_0=\hat\Delta$ on average at our estimates, Section~\ref{ss:att_pays}), is a deadweight loss to the extent it destroys real resources and a transfer to the extent it reflects expected sanctions. Informed hiders net zero in Partial Pooling and $\Delta^*-c_0>0$ in Complete Adverse Selection (Proposition~\ref{prop:att_seller_types}), and uninformed sellers are priced off the pool, which hiding contaminates. The new component is a behavioural transfer inside the premium itself. Relative to what a fully attentive market would pay, a silent listing sells at a mark-up of
+\begin{equation}
+    p_{\rm sil}-\big(\bar V-(1-\rho)\,\zeta^{\rm ins}-\rho\,\bar \zeta^{\rm sil}\big)\;=\;\rho\,(1-\omega_0)\,\big(\bar \zeta^{\rm sil}-\zeta^{\rm def}\big),
+    \label{eq:att_markup}
+\end{equation}
+which inattentive EPC-sensitive buyers pay and every silent seller receives, uninformed ones included. Rated listings carry a mark-up of the same form, $\rho\,(1-\omega_1)(\zeta_\theta-\zeta^{\rm def})$. A silent listing's mark-up exceeds that of a rated listing with the same energy cost by $\rho\,(\omega_1-\omega_0)(\bar\zeta^{\rm sil}-\zeta^{\rm def})$, which is the part that lower attention to silence adds. The benchmark's redistribution within the pool, Appendix~\ref{sec:equilibrium}, arises because concealed information is not transmitted, whereas this transfer arises because transmitted absence is not read. The model identifies its level only under additional assumptions (Section~\ref{ss:att_identification}), and Section~\ref{ss:att_pays} reports it.
+
+Neither the mark-up nor the attention parameters behind it are observed directly. Section~\ref{sec:identification} sets out which of them the reform and the registry recover, and which need a benchmark from outside the price system.
 
 \subsection{Identification}
 \label{sec:identification}
 
-The model leaves two objects to be recovered market by market: $\rho_m$, the share of buyers who actually price the certificate, and $c_{0,m}$, what it costs an informed seller to keep an unfavourable rating off the listing. Everything else the model needs is something we can count. The ADEME match tells us which sellers hold a certificate ($\pi_m$), what those certificates say ($\bar\theta_m$), and how often a seller holding a poor one lists without it ($\sigma_{0,m}$). The identification problem is therefore two parameters wide, and the two parameters are reached by different routes.
+Taking the model to data means recovering four objects in each market: the effective attention to displayed ratings $\rho\omega_1$, the relative attention $\psi_\delta$ that the reform's new attention gave silent listings, the perceived cost of silence that this spillover enters, and the hiding cost $c_0$. Three of them come from prices and the registry alone. In Partial Pooling the hiding cost equals the non-disclosure premium, $c_{0,m}=\Delta_m$ (Proposition~\ref{prop:att_identification}(iv)). Observed premia are noisy, and with one hiding cost per market most markets would not fall inside their own Partial Pooling band (Section~\ref{ss:att_pays}). We therefore estimate $c_{0,m}$ as the cost that makes the observed hiding rate $\hat\sigma_{0,m}$ an equilibrium at the estimated $\hat\psi_\delta$, which is the predicted premium $\hat\beta_{1,m}[\hat\psi_\delta\hat e^*_m+(1-\hat\psi_\delta)\eta_m]$. Its mean across markets equals $\hat\Delta$. The perceived cost of silence and $\psi_\delta$ come from the two reform-induced price gaps, the registry belief, and certified consumption through the energy-cost ratio $\eta_m$, and $\psi_\delta$, pooled within a segment, is point-identified once the default $\zeta^{\rm def}$ is set to zero. Only the effective attention $\rho\omega_1$ needs a monetary valuation of energy. An energy-cost anchor supplies it, and the anchor fixes that scale and nothing else. The mark-up of Section~\ref{ss:att_welfare} equals $\hat\lambda$ if displayed ratings are fully attended and exceeds it otherwise, and neither the anchor nor the zero default enters $\hat\lambda$.
 
-Three ingredients do the work. The July~2021 reform supplies the price variation: differencing each market's cross-group price gaps around a known date turns them into demand-side objects, purged of the pre-existing level differences that separate one local market from another. The registry supplies the beliefs, because we observe about the non-disclosing pool exactly what a rational buyer would be forming beliefs about, so the equilibrium belief $e^*_m$ can be computed rather than estimated. The third ingredient sits outside the price system altogether. It is the certified energy consumption of the dwellings themselves, and it is what allows buyer sensitivity to be separated from the size of the underlying quality difference. Without it, $\rho_m$ cannot be recovered at all, for a reason internal to the model rather than a shortcoming of the data: the sensitive-buyer share enters every price the model generates in one place only, so it cancels out of any ratio of price gaps one might form. The concealment cost is the easier of the two. It follows from the disclosed-price gap and the observed hiding rate, and needs neither the anchor nor $\rho_m$.
+\subsubsection{The Reform and the Two Price Gaps}
 
-\subsubsection{The July 2021 Reform as a Natural Experiment}
+What the reform changed in prices, and whether that change is a demand response, is read from a panel of monthly hedonic price indices, constructed from the same listing data \citep{patras_mandatory_2024}, that tracks three disclosure groups separately within each local market. The first covers disclosed energy-efficient properties (grades A to~D), the second disclosed energy-intensive ones (grades E to~G), and the third every listing that shows no rating at all, a pooled group that necessarily blends strategic hiders with genuinely uninformed sellers. Each index is the predicted log price per square metre of a reference property, conditional on hedonic controls, so the distance between two of them measures the price wedge attributable to the certificate rather than to differences in what is being sold.
 
-The change in the legal status of the DPE described in Section~\ref{ss:institutions} is the source of identification: it created a precise, legally documented change in the value of a disclosed EPC score to buyers, with a known implementation date of July 1, 2021. Crucially, the reform operated on the \emph{demand} side, that is, on the weight a disclosed rating carries in buyers' valuations and legal recourse, and not on the seller's cost of withholding. The obligation to provide a DPE at sale, and the compliance and liability exposure attached to coming to market without the required diagnostic, were already in force under loi ALUR (Article L271-4 CCH) well before 2021. These are precisely the components of the concealment cost $c_{0,m}$. What July 2021 changed was not whether a seller must disclose, nor the cost she bears for withholding, but how much a \emph{disclosed} rating now matters to the buyer. The reform therefore shifts $\rho_m$ while leaving $c_{0,m}$, governed by the pre-existing disclosure mandate, unchanged across the reform date. This is what licenses reading the DiD change in the premium as the demand response that identifies $\rho_m$, holding the hiding cost fixed. Whether the supply side of the market responded concurrently is a maintained assumption we cannot directly test with the data at hand; we return to it below.\footnote{An alternative strategy based on a Bartik instrument (interacting wholesale gas price variation with the pre-reform share of low-efficiency properties per market) fails at the first stage ($F$-statistic: 1.0 to 1.6). The French \emph{bouclier tarifaire} (energy price shield, October 2021 to 2023) decoupled household energy costs from the TTF gas price spike driven by the Russian invasion of Ukraine, removing the demand-side variation the instrument was designed to exploit.}
+Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ separates the efficient from the intensive disclosed index, and the non-disclosure premium $\Delta_{m,t}$ separates the silent index from the intensive disclosed one. Their reform-induced shifts, $\hat\beta_{1,m}$ and $\hat\Delta_m$, are the differences between post- and pre-reform means of these two series, with the pre-period running from October~2018 to June~2021 and the post-period from July~2021 to July~2024. The volume and sign filters that define the estimation markets are reported in the notes to Table~\ref{tab:did_results}, which covers \attNMarketsApt{} apartment and \attNMarketsHouse{} house markets. Markets whose disclosed-price gap fails to turn positive after the reform are set aside. The choice has a cost, since selecting on the noisy disclosed-price gap can bias the ratio-of-sums estimate of attention to silence toward full attention in apartments, as a Monte Carlo calibrated to our markets shows (Appendix~\ref{app:att_estimator}). The structural moments use listing-level data from 2022 to 2024, because the market had not yet repriced the reform in the second half of 2021, when the pooled apartment estimate $\hat\beta_1$ is about $-1.2$ log points.
 
-The identifying assumption is the standard parallel-trends condition: in the absence of the reform, the cross-group price gaps $\beta_{1,m,t}$ (energy-efficient vs.\ energy-intensive disclosed properties) and $\Delta_{m,t}$ (undisclosed vs.\ energy-intensive) would have continued on their pre-reform trajectory. The DiD does not require that buyers were entirely inattentive to EPC scores before July 2021; it requires only that their relative pricing of disclosure groups was not already trending. Any post-reform shift in the gaps, relative to that pre-reform baseline, is then attributable to the change in buyer incentives induced by legal opposability.
+Identification comes from the change in the legal status of the DPE described in Section~\ref{ss:institutions}, a legally documented change in the value of a disclosed EPC score to buyers with a known implementation date of July 1, 2021. The reform acted on the \emph{demand} side, on the weight a disclosed rating carries in buyers' valuations and legal recourse. The seller's side was already settled, since the obligation to provide a DPE at sale, and the compliance and liability exposure of coming to market without the required diagnostic, had been in force under loi ALUR (Article L271-4 CCH) well before 2021, and these are the components of the hiding cost $c_{0,m}$. The reform therefore raised effective attention to displayed ratings and left $c_{0,m}$ unchanged across the reform date, which is what allows the difference-in-differences change in the gaps to be read as a demand response with the hiding cost held fixed.
 
-Parallel trends licenses reading the two DiDs as the reform's effect. The structural mapping below reads them, in addition, as the post-reform energy components of the two gaps, which requires one further maintained assumption.
+That reading needs the standard parallel-trends condition. In the absence of the reform, the cross-group price gaps $\beta_{1,m,t}$ (energy-efficient vs.\ energy-intensive disclosed properties) and $\Delta_{m,t}$ (undisclosed vs.\ energy-intensive) would have continued on their pre-reform trajectory, which requires only that buyers' relative pricing of disclosure groups was not already trending. Any post-reform shift in the gaps relative to that baseline is then attributable to the change in buyer incentives induced by legal opposability.
+
+Parallel trends makes the two changes the reform's effect. The structural mapping below also reads them as the post-reform energy components of the two gaps, and that requires one further maintained assumption.
 
 \begin{assumption}[No Pre-Reform Energy Pricing]
 \label{assum:no_pre_pricing}
 Before July 2021, buyers did not price the energy content of the disclosure groups: the pre-reform level gaps $\beta_{1,m}^{\rm pre}$ and $\Delta_m^{\rm pre}$ reflect non-energy differences between groups that are constant across the reform.
 \end{assumption}
 
-\noindent The assumption fits the institutional record, since before the reform the DPE carried no legal weight and was routinely ignored in negotiations (Section~\ref{ss:institutions}). Under it, $\hat\rho_m$ measures post-reform buyer sensitivity, $\hat c_{0,m}$ the post-reform concealment cost, and $\hat\lambda_m$ a post-reform specification test. The pre-reform market prices no energy and is therefore not in Partial Pooling, so Lemma~\ref{lem:model_bounds}(ii) does not apply.
+\noindent The assumption fits the institutional record, since before the reform the DPE carried no legal weight and was routinely ignored in negotiations (Section~\ref{ss:institutions}). Under it the estimates below measure post-reform quantities, and the pre-reform market is pinned down as well. A market that prices no energy offers a seller no energy gain from hiding, so with a hiding cost that is positive and constant across the reform the pre-reform market is in Cost-Deterred Hiding, and any pre-reform silence by informed sellers is non-strategic. The registry match does not extend to the pre-reform period, so we cannot test this implication.
 
-The pre-trend evidence supports this assumption directly, and more strongly than a single test would. Both $\beta_{1,m,t}$ and $\Delta_{m,t}$ are statistically flat across all markets in the 33 months before the reform (Figure~\ref{fig:ATT}). These two gaps measure distinct economic objects: $\beta_{1,m,t}$ captures buyers' willingness to pay for verified high quality, while $\Delta_{m,t}$ reflects the informational wedge created by strategic non-disclosure. They respond to different primitives of the model. A supply-side confound (a shift in $\pi_m$, $\bar\theta_m$, or seller composition at the reform date) would generically move these two gaps by different amounts and in potentially different directions, since the mechanisms through which supply composition enters each gap differ. The fact that both gaps are jointly flat before July 2021 and both shift upward simultaneously after the reform, at the same markets and on the same calendar date, is difficult to reconcile with a supply-side story. It is exactly what the demand-side interpretation predicts: legal opposability increases the return to EPC quality for sensitive buyers, raising both the price of verified high quality ($\beta_{1,m,t}$) and the information premium extracted by non-disclosers ($\Delta_{m,t}$) at the same moment.
-
-We acknowledge that supply-side stability (the assumption that $\pi_m$, $\bar\theta_m$, and $c_{0,m}$ did not shift discontinuously at the reform) is maintained rather than directly tested. Our listing data begin in 2021Q3, so pre-reform ADEME match rates are not observable. The timing of audit decisions provides some reassurance: certified DPE audits are commissioned and completed before listing, with a gap of weeks to months, so the audit stock at any listing date reflects decisions made prior to that date. But this is a maintained assumption, and we treat it as such.\footnote{Because the disclosure obligation and its associated liability predate the reform (loi ALUR, Article L271-4 CCH), we treat $c_{0,m}$ as governed by that long-standing mandate and unchanged across July 2021. We do not sign the bias a violation of this assumption would introduce into the anchored estimates below, since the anchor is constructed independently of the reform-induced price changes and the direction would depend on exactly how a supply-side shift propagates into the disclosed-price gap $\hat\beta_{1,m}$ --- a question we leave open rather than resolve by assumption.}
-
-\subsubsection{Two Price Gaps from the Reform}
-
-The price side of the identification rests on a panel of monthly hedonic price indices, constructed in Chapter~1 from the same listing data, that tracks three disclosure groups separately within each local market. The first covers disclosed energy-efficient properties (grades A to~D), the second disclosed energy-intensive ones (grades E to~G), and the third every listing that shows no rating at all, a pooled group that necessarily blends strategic hiders with genuinely uninformed sellers. Each index is the predicted log price per square metre of a reference property, conditional on hedonic controls, so the distance between two of them measures the price wedge attributable to the certificate rather than to differences in what is being sold.
-
-Two of those distances matter. The energy-efficiency premium $\beta_{1,m,t}$ separates the efficient from the intensive disclosed index; the non-disclosure premium $\Delta_{m,t}$ separates the silent index from the intensive disclosed one. Their reform-induced shifts, $\hat\beta_{1,m}$ and $\hat\Delta_m$, are the differences between post- and pre-reform means of these two series, with the pre-period running from October~2018 to June~2021 and the post-period from July~2021 to July~2024. A volume filter requiring at least twenty transactions per month per disclosure group retains 81 apartment markets and 114 house markets. Markets whose disclosed-price gap fails to turn positive after the reform ($\hat\beta_{1,m}\leq0$) are set aside before the structural inversion, which requires a positive quality premium to invert, leaving 49 apartment markets and 104 house markets, of which 45 and 97 also carry the registry coverage the structural estimates require; Table~\ref{tab:did_results} reports every row on those 45 and 97 markets.
-
-The same panel supports a month-by-month event study, normalised to zero in the last pre-reform month and plotted in Figure~\ref{fig:ATT} over the 33 months before and 36 months after July~2021. Both gaps are statistically indistinguishable from zero throughout the pre-period, which is the parallel-trends evidence discussed above, and both rise gradually from the reform date onward, consistent with progressive capitalisation of a rating that only became legally opposable at that moment. The period means used in estimation are averages of these relative-month profiles over their respective windows.
+The pre-trend evidence supports the assumption. Both gaps are statistically flat across all markets in the 33 months before the reform, and both rise gradually from the reform date, consistent with progressive capitalisation of a rating that became legally opposable at that moment (Figure~\ref{fig:ATT}). The period means used in estimation average these profiles over their windows.
 
 \begin{figure}[t]
     \centering
@@ -386,64 +484,153 @@ The same panel supports a month-by-month event study, normalised to zero in the 
     \includegraphics[width=0.85\textwidth]{fig/visuals/fig_did_event_study.pdf}
     \begin{minipage}{0.9\textwidth}
     \vspace{0.5em}
-        \footnotesize{\textbf{Note.} Monthly log price gaps relative to disclosed E/F/G listings, averaged across markets, from the hedonic price-index panel described in Section~\ref{sec:identification}. $\Delta_{m,t}$ (solid) contrasts undisclosed listings; $\beta_{1,m,t}$ (dashed) contrasts disclosed A--D listings, both against disclosed E--G. Shaded bands are 95\% confidence intervals for the movement of each gap relative to its own pre-reform mean (not the cross-market level, which differences out of the DiD and would otherwise overstate the uncertainty of the trajectory itself). Vertical line: July 1, 2021. The post-minus-pre contrast of each series is the corresponding market-average DiD estimate reported in Table~\ref{tab:did_results}, Panel A.}
+        \footnotesize{\textbf{Note.} Monthly log price gaps relative to disclosed E/F/G listings, averaged across markets, from the hedonic price-index panel described in Section~\ref{sec:identification}. $\Delta_{m,t}$ (solid) contrasts undisclosed listings; $\beta_{1,m,t}$ (dashed) contrasts disclosed A--D listings, both against disclosed E--G. Shaded bands are 95\% confidence intervals for the movement of each gap relative to its own pre-reform mean (not the cross-market level, which differences out of the DiD and would otherwise overstate the uncertainty of the trajectory itself). Vertical line: July 1, 2021. The post-minus-pre contrast of each series equals the all-market average in the notes to Table~\ref{tab:attention}.}
     \end{minipage}
 \end{figure}
 
-\subsubsection{Beliefs Read Directly from the Registry}
+The pre-trends speak to buyers. On the supply side, the assumption that $\pi_m$, $\bar\theta_m$, and $c_{0,m}$ did not shift discontinuously at the reform is maintained rather than tested, because our registry-matched listings begin in 2021Q3 and pre-reform ADEME match rates are not observable. The timing of audit decisions offers some reassurance, since certified DPE audits are commissioned and completed weeks to months before listing, so the audit stock at any listing date reflects decisions made before that date. A shift in seller mix would also move the two gaps by different amounts and show up in the share of silent listings, which for apartments stays flat (Section~\ref{ss:fact2}), and Appendix~\ref{app:supply_stability} argues that the joint timing of the two gaps is hard to reconcile with such a shift.
+
+None of this addresses a change in the \emph{unobserved} composition of the silent pool, most of which consists of sellers without a certificate. If the dwellings that were silent after the reform were of better unobserved quality, the non-disclosure premium would rise without any change in buyer attention. Such a change would also violate the second clause of Assumption~\ref{assum:no_pre_pricing}, that the non-energy gaps stayed constant across the reform. We treat this case as open.
+
+\subsubsection{What the Registry Measures}
 \label{sec:beliefs}
 
-The equilibrium belief $e^*_m$, the quality a buyer rationally attributes to a listing that shows no rating, is normally the hardest object in a disclosure model to take to data: it is a fixed point, and it has to be estimated jointly with everything else. Here it can be read off. The registry gives us, market by market, precisely the three frequencies the belief function depends on --- the share of sellers holding a post-reform certificate ($\hat\pi_m$), the share of those certificates falling in the efficient band ($\hat{\bar\theta}_m$), and the share of sellers holding an inefficient certificate who nonetheless list without one ($\hat\sigma_{0,m}$). Substituting them into the belief function of Section~\ref{sec:model} (Equation~\eqref{eq:belief_simplified}, evaluated at $\sigma_1^*=0$ by Corollary~\ref{cor:hq_disclose}) returns $\hat e^*_m$ directly:
+The model reads both gaps through what a buyer infers from silence, and prices alone do not reveal that inference. The registry does. The equilibrium belief $e^*_m$, the quality a buyer rationally attributes to a listing that shows no rating, is normally the hardest object in a disclosure model to take to data, because it is a fixed point and has to be estimated jointly with everything else. Here it can be read off. The registry gives us, market by market, the three frequencies the belief function depends on: the share of sellers holding a post-reform certificate ($\hat\pi_m$), the share of those certificates falling in the efficient band ($\hat{\bar\theta}_m$), and the share of sellers holding an inefficient certificate who nonetheless list without one ($\hat\sigma_{0,m}$). Substituting them into the belief function (Equation~\eqref{eq:belief_general}, evaluated at $\sigma_1^*=0$ by Corollary~\ref{cor:att_hq}) returns $\hat e^*_m$ directly:
 \begin{equation}
     \hat{e}^*_m = \frac{(1-\hat\pi_m)\,\hat{\bar\theta}_m}{\hat\pi_m\,(1-\hat{\bar\theta}_m)\,\hat\sigma_{0,m} + (1-\hat\pi_m)}
     \label{eq:estar}
 \end{equation}
 the uninformed high-quality mass sitting in the non-disclosing pool, divided by the total mass of that pool. Nothing is estimated at this step; $\hat e^*_m$ is a function of observed sample proportions from the four-group classification of Section~\ref{sec:data}.
 
-What this number tracks is why silence is not damning. The pool of silent listings is dominated by sellers with no certificate to withhold, and their presence holds the quality a buyer infers from silence well above what it would be if every silent seller were concealing something. The registry lets us measure that dilution rather than assume it.
+What this number tracks is why silence is not damning. The pool of silent listings is dominated by sellers with no certificate to withhold, and their presence holds the quality a buyer infers from silence well above what it would be if every silent seller were concealing something. The registry lets us measure that dilution rather than assume it. The same classification identifies the markets in Partial Pooling, those with an interior hiding rate $\hat\sigma_{0,m}\in(0,1)$, and the energy-cost ratio $\eta_m$ of Section~\ref{ss:att_prices} comes from certified consumption in the registry alone.
 
-\subsubsection{An Energy-Cost Anchor for Buyer Sensitivity}
+The model takes no stance on \emph{why} an informed seller withholds, since deliberate concealment and an unrecorded but still-valid certificate look alike in the listing data, and we do not attempt to separate them. A seller who holds a valid pre-reform certificate and does not display it is recorded as uninformed rather than as a strategic hider, so the measured hiding rate understates the true one and $\hat e^*_m$ overstates the belief (Section~\ref{sec:data}). Informed non-disclosers are assigned low quality by revealed preference, which is an assumption and not a result. Outside Complete Adverse Selection $\sigma_1^*=0$ is a prediction of the model (Corollary~\ref{cor:att_hq}), and estimation imposes it rather than tests it. Appendix~\ref{app:robustness} reports estimates that instead read the withheld quality from the registry, so the restriction can be assessed.
 
-With $\hat\beta_{1,m}$, $\hat\Delta_m$ and $\hat e^*_m$ all in hand, the premium equation $\Delta_m=\rho_m\beta_{1,m}e^*_m$ (Equation~\eqref{eq:premium}) appears to deliver buyer sensitivity by rearrangement, as the ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$, formed either in levels or in reform-induced changes. It does not, and the reason is internal to the model rather than a shortcoming of the data. Buyers who price the certificate and buyers who ignore it are aggregated into a single market price, so the sensitive-buyer share never appears on its own. It appears multiplied by the physical size of the quality difference, and only ever in that combination. The disclosed-price gap equals that product; the gap between silent and intensive listings equals the same product scaled by the pool belief. Their ratio is therefore the pool belief itself, which is exactly what the construction then divides by, so it returns approximately one whatever the true $\rho_m$ happens to be. Pooling markets buys nothing, since every market contributes the same degenerate identity. What the ratio does measure is whether the model's own restriction $\Delta_m=\beta_{1,m}e^*_m$ holds in the data, which makes it a specification test rather than an estimator. Appendix~\ref{app:rho_identification} states and proves this formally, and Figure~\ref{fig:rho_saturation} shows what it looks like in the data: apartment markets sit almost entirely above the line where $\hat\Delta_m$ would exceed $\hat\beta_{1,m}\hat e^*_m$, which is exactly the boundary the ratio construction has to clip against in nearly every market, not a handful of outliers.
+\subsubsection{Attention to Silence and the Cost of Hiding}
+\label{ss:att_identification}
 
-\begin{figure}[htbp]
-    \centering
-    \caption{Why the naive ratio saturates: $\hat\Delta_m$ against $\hat\beta_{1,m}\hat e^*_m$, by market}
-    \label{fig:rho_saturation}
-    \includegraphics[width=0.8\textwidth]{fig/visuals/fig_rho_saturation_scatter.pdf}
-    \begin{minipage}{0.95\linewidth}
-        \footnotesize\textit{Notes.} Each point is a market. The 45\textdegree{} line marks $\hat\Delta_m=\hat\beta_{1,m}\hat e^*_m$, i.e.\ where the naive ratio $\hat\Delta_m/(\hat\beta_{1,m}\hat e^*_m)$ equals one. Points in the shaded region are markets where that ratio exceeds one and the model's over-identifying restriction (Corollary~\ref{cor:ratio_specification_test}) fails --- not markets with unusually high buyer sensitivity, since $\rho_m$ never enters the plotted quantities. 40 of 45 apartment markets (89\%) and 54 of 97 house markets (56\%) fall in this region.
-    \end{minipage}
-\end{figure}
-
-Separating the two therefore requires information the price system does not contain, and we take it from the physical energy performance of the dwellings themselves. Every ADEME-matched listing carries a certified primary-energy consumption figure in kilowatt-hours per square metre per year, so within each market we can compute the average consumption gap between dwellings certified in the intensive band and those certified in the efficient one. Valued at an energy tariff and discounted over the period a buyer expects to own the property, that gap is the running-cost saving an efficient dwelling delivers. Expressed relative to the local price level, it is what a buyer who attends to the energy bill, and to nothing else the certificate conveys, should be prepared to pay extra for verified efficiency. This benchmark, $\hat\beta_{1,m}^{\mathrm{anchor}}$, is built entirely from certified consumption records and an energy price. No listing price enters it, which is what makes it an independent source of identification rather than a rearrangement of moments we have already used.
-
-Converting the consumption gap into euros requires three calibrated inputs: an energy price of about \euro0.21 per kWh (CRE/Eurostat, 2022--2024 average, blended across the national heating-vector mix), a discount rate of $3.75\%$ (the contemporary French mortgage rate), and a ten-year horizon. The horizon is shorter than full capitalisation of the energy stream would justify, and deliberately so. It matches the typical holding period, and the energy-efficiency-gap literature finds buyers behaving in revealed preference as though they discount durable energy attributes over exactly such truncated horizons \citep{allcott_is_2012}. The consumption averages pool disclosed and withheld matched listings, since restricting them to disclosed listings would condition on the seller's own hiding decision and reintroduce the selection the anchor exists to avoid. Assumption~\ref{assum:energy_anchor} and Equation~\eqref{eq:energy_anchor} in Appendix~\ref{app:rho_identification} give the construction in full.
-
-Given the anchor, both structural parameters follow in closed form:
+With the two gaps and the registry belief in hand, the question becomes how much of the reform's new attention reached listings that show no rating. Because the estimands are reform-induced changes, attention enters through how the reform moved it. For any object $x$, write $\delta x\equiv x^{\rm post}-x^{\rm pre}$ for its change across the July 2021 reform, so that $\hat\beta_{1,m}$ estimates $\delta b_m$ and $\hat\Delta_m$ estimates $\delta\Delta_m$. If the reform raised effective attention to rated listings by $\delta(\rho\omega_1)$ and to silent listings by $\delta(\rho\omega_0)$, the \emph{relative attention of the reform} $\psi_\delta\equiv\delta(\rho\omega_0)/\delta(\rho\omega_1)$ is the share of the reform's new attention to energy that reached listings showing no rating. Since buyers did not price energy before July 2021 (Assumption~\ref{assum:no_pre_pricing}), $\psi_\delta$ also equals post-reform relative attention. Setting the default to zero, equations~\eqref{eq:b_att}--\eqref{eq:premium_att} in differences give
 \begin{equation}
-    \hat\rho_m = \frac{\hat\beta_{1,m}}{\hat\beta_{1,m}^{\mathrm{anchor}}}, \qquad
-    \hat c_{0,m} = \hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m}).
+    \hat\lambda_m\;\equiv\;\hat\Delta_m-\hat\beta_{1,m}\,\hat e^*_m\;=\;(1-\psi_\delta)\,\hat\beta_{1,m}\,\big(\eta_m-\hat e^*_m\big).
+    \label{eq:att_lambda}
+\end{equation}
+Since $\eta_m>1\ge\hat e^*_m$ and $\hat\beta_{1,m}>0$ in the estimation sample, the attention wedge is positive whenever $\psi_\delta<1$ and zero at full attention, so it tests whether silent listings received the same new attention as rated ones. It is the part of the reform's price effect that silence escaped. Had silent listings received the same increase in attention as rated ones, their price relative to E-to-G listings would have moved by $\hat\beta_1\hat e^*$, as Appendix~\ref{sec:equilibrium} predicts. They received less, and $\hat\lambda$ is that shortfall priced at the cost of the silent pool. We take $\psi_\delta$ to be common within a segment and pool markets with the ratio-of-sums estimator of Appendix~\ref{app:att_estimator}.
+
+\begin{proposition}[Identification under Limited Attention]
+\label{prop:att_identification}
+Under Assumptions~\ref{assum:attention} and~\ref{assum:no_pre_pricing} and the maintained assumptions of Section~\ref{sec:identification}:
+\begin{enumerate}[label=(\roman*)]
+    \item under Assumption~\ref{assum:energy_anchor}, $\hat\rho_m=\hat\beta_{1,m}/\hat\beta^{\rm anchor}_{1,m}$ identifies $\delta(\rho\omega_1)$, the reform-induced increase in effective attention to displayed ratings; with $\omega_1=1$ and Assumption~\ref{assum:no_pre_pricing} it is the post-reform $\rho_m$;
+    \item $\hat\Delta_m/\hat\beta_{1,m}$ identifies the perceived cost of silence $\zeta^*_\delta\equiv \zeta^{\rm def}+\psi_\delta(\bar \zeta^{\rm sil}-\zeta^{\rm def})$, in units of certified consumption;
+    \item given $\zeta^{\rm def}=0$,~\eqref{eq:att_lambda} point-identifies $\psi_\delta$; without that assumption, $\psi_\delta\in[0,\,\zeta^*_\delta/\bar \zeta^{\rm sil}]$ and, if $\zeta^{\rm def}\le\bar \zeta^{\rm sil}$, $\zeta^{\rm def}\in[0,\zeta^*_\delta]$;
+    \item in Partial Pooling, the hiding cost of the informed low-quality seller equals the post-reform non-disclosure premium, $\delta\Delta$, which $\hat\Delta_m$ estimates.
+\end{enumerate}
+\end{proposition}
+
+\noindent\textit{Proof.} See Appendix~\ref{app:attention}. $\Box$
+
+Only part~(i) uses the energy-cost anchor, which the last part of this section constructs. Parts~(ii) to~(iv) rely on nothing from it beyond the proportionality of energy cost to certified consumption (Appendix~\ref{app:energy_costs}), and the test of $\psi_\delta=1$ needs only $\zeta^{\rm def}<\bar\zeta^{\rm sil}$, not the zero-default assumption. Part~(iv) also gives the attention wedge $\hat\lambda_m$ a second reading, as the gap between the premium $\Delta_m$, which equals the hiding cost in Partial Pooling, and the full-attention cost $\hat\beta_{1,m}\hat e^*_m$ (Appendix~\ref{app:c0_fullattention}).
+
+A spillover of one means the reform made energy something buyers ask about whether or not a rating is shown. A $\psi_\delta$ near zero means it made the rating something buyers read but not something they ask for. Where the spillover lies between these poles is a point only under the zero-default assumption, and part~(iii) states what the design cannot do without it. The two gaps pin down one number per market, the perceived cost of silence, and low attention with a modest default fits them as well as slightly higher attention with an even more optimistic one. Setting the default to zero delivers the largest attention compatible with the data.\footnote{The same algebra in levels identifies relative attention at a point in time rather than $\psi_\delta$. We do not estimate it, because across apartment markets the level gaps carry a large market-specific component that is unrelated to energy and that the differences-in-differences remove: the ratio of mean level gaps and the cross-market slope of one level gap on the other imply very different values, $\attPsiLevROMApt$ and $\attPsiLevSlopeApt$ post-reform. We use levels only for signs.}
+
+Three testable implications follow. By~\eqref{eq:etilde}, $\Delta/b\le\eta$ whenever $\zeta^{\rm def}\ge0$, and since $\eta_m$ comes from the registry alone this is a market-by-market bound on the two estimated gaps, the \emph{attention ceiling} $\Delta\le\eta b$. Equation~\eqref{eq:att_lambda} has no constant: a market where the reform did not move the energy-efficiency premium should show no attention wedge. And the registry belief $\hat e^*_m$ enters~\eqref{eq:att_lambda} with a weight proportional to $\psi_\delta$ (Lemma~\ref{lem:etilde_monotone}), so where attention to silence is low, mismeasurement of the silent pool's composition has little bearing on the estimate.\footnote{At the apartment estimates an error of 0.1 in $\hat e^*$ moves $\hat\psi_\delta$ by about $0.1\times\attSensEApt$. In house markets the sensitivity is about \attSensRatio{} times larger, as in Appendix~\ref{sec:equilibrium}, and the measurement of the silent pool matters correspondingly more there. For the same reason, the restriction $\sigma_1=0$ imposed in $\hat e^*$ (Section~\ref{sec:beliefs}) matters little for the apartment estimate.}
+
+\subsubsection{The Scale of Attention}
+
+Part~(i) is the one result that needs information from outside the price system. The scale of attention cannot come from the price gaps, because $\rho\omega_1$ enters them only as a multiple of the energy difference, and Appendix~\ref{app:naive_ratio} shows that a ratio of the gaps cannot recover it. We therefore take the scale from the physical energy performance of the dwellings themselves. Every ADEME-matched listing carries a certified primary-energy consumption figure in kilowatt-hours per square metre per year, so within each market we can compute the average consumption gap between dwellings certified in the intensive band and those certified in the efficient one. Valued at an energy tariff and discounted over the period a buyer expects to own the property, that gap is the running-cost saving an efficient dwelling delivers. Expressed relative to the local price level, it is what a buyer who attends to the energy bill, and to nothing else the certificate conveys, should be prepared to pay extra for verified efficiency. This benchmark, $\hat\beta_{1,m}^{\mathrm{anchor}}$, is built entirely from certified consumption records and an energy price. No listing price enters it, which is what makes it an independent source of identification rather than a rearrangement of moments we have already used.
+
+Appendix~\ref{app:energy_costs} gives the energy price, discount rate and holding period used to value the consumption gap, and Assumption~\ref{assum:energy_anchor} and Proposition~\ref{prop:anchored_identification} in Appendix~\ref{app:rho_identification} give the construction in full. None of these choices enters $\psi_\delta$ or $\zeta^*_\delta$, which use certified consumption only through $\eta_m$. Given the anchor,
+\begin{equation}
+    \hat\rho_m = \frac{\hat\beta_{1,m}}{\hat\beta_{1,m}^{\mathrm{anchor}}},
     \label{eq:anchored_estimator_main}
 \end{equation}
-Buyer sensitivity is the fraction of the energy-bill benchmark that the market actually pays. The concealment cost is the disclosed-price gap scaled by the belief prevailing at the observed hiding rate, and the second of these expressions uses neither the anchor nor $\rho_m$. It is the equilibrium indifference condition read backwards: in partial pooling the marginal informed hider is exactly indifferent between disclosing and staying silent, so the revenue she gives up by remaining in the pool must be what silence costs her. One free parameter is matched to one observed moment --- the hiding rate among informed low-quality sellers, a group the registry identifies precisely and which is therefore free of the uninformed sellers who contaminate the raw non-disclosure premium --- and the match is exact. Appendix~\ref{app:rho_identification} sets out both arguments (Propositions~\ref{prop:what_identified} and~\ref{prop:anchored_identification}).
+the fraction of the energy-bill benchmark that the market actually pays, which under limited attention is the effective attention $\rho\omega_1$ and equals $\rho$ when $\omega_1=1$.
 
-The anchor also turns an assumption into a test. Since $\rho_m$ is a share, the model requires $\rho_m\leq1$, which under \eqref{eq:anchored_estimator_main} means the observed disclosed-price gap must not exceed the energy-bill benchmark. The data can now refuse this, and mostly do not: the inequality fails in 1 of 45 apartment markets and in 5 of 97 house markets. In the overwhelming majority of markets, the energy-cost saving is large enough on its own terms to rationalise the price advantage certified efficiency commands, without appealing to universal buyer sensitivity. The ratio construction offers no comparable check, because it places every estimable market at the bound by construction.
+We do not clip $\hat\rho_m$, so the model's requirement that an attention share not exceed one becomes something the data can refuse. The requirement $\hat\rho_m\le1$ holds when the observed disclosed-price gap does not exceed the energy-bill benchmark, and it fails in \attNRhoGtOneApt{} of \attNMarketsApt{} apartment markets and in \attNRhoGtOneHouse{} of \attNMarketsHouse{} house markets. In most markets, then, the energy-cost saving is large enough on its own terms to rationalise the price advantage certified efficiency commands.
 
-One prediction of the model plays no part in the estimation and can therefore be tested against it. In partial pooling, the indifference condition implies that the raw non-disclosure premium should equal the concealment cost exactly. Because $\hat c_{0,m}$ is built from a different moment, the difference between the two, $\hat\lambda_m\equiv\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$, is a genuine over-identifying restriction (Lemma~\ref{lem:model_bounds}, Corollary~\ref{cor:ratio_specification_test}). We report it rather than absorb it into the cost estimate. This is also why we do not simply set $\hat c_{0,m}=\hat\Delta_m$, which the indifference condition would seem to license: that shortcut imposes the restriction we want to examine. For houses the wedge is small and statistically indistinguishable from zero (mean $0.4$ log points, $t=1.10$), and the restriction survives. For apartments it is large and precisely estimated (mean $6.1$ log points, $t=6.78$), and the restriction is decisively rejected --- the premium non-disclosers command in apartment markets substantially exceeds what the disclosed-price gap and the registry-measured belief say it should be. We treat that rejection as a genuine specification tension rather than as noise, and return to it in Section~\ref{sec:results}, Section~\ref{ss:attention} and Appendix~\ref{app:robustness}. Section~\ref{ss:attention} uses the restriction instead to measure how much attention silent listings receive, at which point the hiding cost is read off $\hat\Delta_m$ (Proposition~\ref{prop:att_identification}).
-
-The structural estimates use listing-level data from 2022 to 2024.\footnote{The year 2021 is excluded from the listing-level analysis because the market had not yet fully repriced the reform: the pooled hedonic estimate of $\hat\beta_{1}$ for apartments in H2~2021 is approximately $-0.012$, indicating the EPC quality premium had not yet turned positive, which renders the structural equation $\Delta_m = \rho_m\cdot\beta_{1,m}\cdot e^*_m$ unreliable for that period.} The estimation sample comprises 45 apartment markets and 97 house markets.
+How large attention, the spillover and the hiding cost turn out to be is the subject of Section~\ref{sec:results}.
 
 \subsection{Estimates}
 \label{sec:results}
 
-\subsubsection{Main Estimates}
+How much of the reform's attention reached silent listings, and what does that imply about what sellers pay to hide? Silent apartments are priced as if energy cost \attCstarApt{} kWh$_{\rm ep}$/m$^2$/yr rather than the \attCsilApt{} the registry assigns to the silent pool, which gives $\hat\psi_\delta=\attPsiApt{}$ under a zero default (\attPsiHouse{} in houses, where silent listings are priced close to the registry cost). Full attention to silence is rejected in apartments (attention wedge $t=\attLamTApt$) and not in houses ($t=\attLamTHouse$). The premium implies an average hiding cost of \attDthreeApt{} log points in apartments and \attDthreeHouse{} in houses.
 
-Table~\ref{tab:did_results} reports market-level estimates for both property types. Panel A covers the DiD estimates from the price index panel; Panel B covers the two-step structural estimates; Panel C covers supply-side observables from the ADEME match.
+\subsubsection{Attention to Silence}
+\label{ss:att_estimates}
+
+Table~\ref{tab:attention} reports the estimates and the fit of the attention model. For each segment we estimate $1-\psi_\delta$ as the ratio of the cross-market sums of the two sides of~\eqref{eq:att_lambda} (Appendix~\ref{app:att_estimator}).
+
+\begin{table}[htbp]
+\centering
+\caption{The non-disclosure premium, attention to silence and the fit of the attention model}
+\label{tab:attention}
+\small\renewcommand{\arraystretch}{1.3}
+\input{../results/tables/table_attention_body}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} Difference-in-differences estimates on the estimation sample of Table~\ref{tab:did_results}; entries are means across markets unless stated. $\hat\psi_\delta$ is the ratio of the cross-market sums of the two sides of~\eqref{eq:att_lambda}, and $\tilde e$, $\hat e^*$, $\eta$, $\zeta^*_\delta$ and $\bar\zeta^{\rm sil}$ weight markets by $\hat\beta_{1,m}$; $\hat\beta_1$, $\hat\Delta$ and $\hat\lambda$ are unweighted means. Brackets are 95\% bootstrap intervals over markets (\attNBoot{} draws), not truncated to the admissible range $[0,1]$ of $\psi_\delta$; the only parentheses hold the $t$-statistic of the wedge. The identified interval allows any default $\zeta^{\rm def}\in[0,\zeta^*_\delta]$, and the point estimate of $\psi_\delta$ is its upper end. The attention ceiling of panel~C is $\eta_m\hat\beta_{1,m}$ (Section~\ref{ss:att_identification}). Panel~D has one parameter per segment, so a zero mean residual holds by construction and the fit is not an out-of-sample test; the reference for the RMSE is the standard deviation of the observed $\hat\Delta_m$. On all 81 apartment and 114 house markets that pass the volume filter, including those whose quality premium does not turn positive (the sample of Figure~\ref{fig:ATT}), $\hat\beta_{1,m}$ and $\hat\Delta_m$ average 1.7 and 6.9 for apartments and 5.1 and 3.4 for houses. $\eta_m$ and $\bar\zeta^{\rm sil}$ value registry letters at DPE band midpoints; values are provisional pending certified consumption.
+\end{table}
+
+Figure~\ref{fig:att_contrast} compares the perceived cost of silence with the registry cost of the silent pool.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Perceived cost of silence and registry cost of the silent pool, apartments and houses}
+    \label{fig:att_contrast}
+    \includegraphics[width=0.6\linewidth]{fig/visuals/fig_att_F3_contrast.pdf}
+    \begin{minipage}{0.95\linewidth}
+        \vspace{0.5em}
+        \footnotesize\textit{Notes.} Perceived cost of silence $\zeta^*_\delta$ in kWh$_{\rm ep}$/m$^2$/yr with 95\% bootstrap intervals (apartments \attCstarApt{} [\attCstarLoApt, \attCstarHiApt]; houses \attCstarHouse{} [\attCstarLoHouse, \attCstarHiHouse]), against the registry cost of the silent pool (\attCsilApt{} and \attCsilHouse{}; hollow markers). The dashed line marks zero energy cost. Intervals are not truncated. The estimates of $\psi_\delta$ by estimator are in Figure~\ref{fig:att_psi_estimators} of Appendix~\ref{app:att_qualifications}.
+    \end{minipage}
+\end{figure}
+
+% [AUTHOR REWRITE] interpretation of the estimates
+The effective belief $\tilde e=\hat\Delta/\hat b$ is \attRatioApt{} in apartments, above the value of one that full attention cannot exceed and below the ceiling $\eta=\attEtaApt{}$, and \attRatioHouse{} in houses. In apartments the perceived cost of silence is $\hat\zeta^*_\delta=\attCstarApt{}$ kWh$_{\rm ep}$/m$^2$/yr (95\% CI \attCstarLoApt{} to \attCstarHiApt{}), a small fraction of the \attCsilApt{} kWh that the registry assigns to the silent pool, so silent apartments are priced roughly as though energy were not part of the transaction. In houses it is \attCstarHouse{} (\attCstarLoHouse{} to \attCstarHiHouse{}), close to the registry cost of the silent pool, and the difference across segments has $t=\attDiffCstarT$. This perceived cost needs no assumption about the default, but it values registry letters at DPE band midpoints, so the kWh figures are provisional until certified consumption replaces them. The level of attention does need the zero-default assumption. Under $\zeta^{\rm def}=0$ the estimate is $\hat\psi_\delta=\attPsiApt{}$ in apartments and \attPsiHouse{} in houses, and by Proposition~\ref{prop:att_identification}(iii) each is the upper end of its identified interval, since any positive default lowers it. The inversion behind it assumes linear pricing, whose approximation error can move the estimate in either direction (Appendix~\ref{app:att_exact}). The apartment value is not robust to the estimator: regression through the origin gives \attPsiOLSApt{} and a regression with a constant \attPsiConstApt{} (Appendix~\ref{app:att_qualifications}). Selecting markets on $\hat\beta_{1,m}>0$ may bias it toward one (Appendix~\ref{app:att_estimator}). Two limits belong next to these estimates. Apartment prices sit at the attention ceiling on average (mean slack \attSlackApt{} log points, $t=\attSlackTApt$), and \attNViolApt{} of \attNMarketsApt{} apartment markets exceed their own ceiling. With mean slack indistinguishable from zero, about half of the markets would exceed it from sampling error alone, so the count does not point to a second force. And the house estimate says that house prices are consistent with silence priced at the cost of the silent pool. It does not show that house buyers are attentive in any absolute sense.
+
+The model takes no stance on why apartment buyers fail to attend to energy when no rating is shown. Energy may be bundled into service charges, and apartment buyers, often moving from rented housing in which heating was included, may have no habit of pricing it. Fast urban markets may also leave little room to ask. Whichever applies, the implication for prices, and the estimate, is the same. Appendix~\ref{app:att_qualifications} reports how the estimates depend on the estimator and on the valuation of the open-ended G band, and the year-by-year values of $1-\hat\psi_\delta$, which are too imprecise to interpret.
+
+\subsubsection{What Silence Pays}
+\label{ss:att_pays}
+
+Given that attention, where does each segment fall in Corollary~\ref{cor:att_ordering}, and what hiding cost does the premium imply?
+
+% [AUTHOR REWRITE] empirical reading of the ordering corollary
+At $\hat\psi_\delta=\attPsiApt{}$, below its threshold $\bar\psi(e(1))=\attPsiBarOneApt{}$, apartments fall in the first case of the corollary, so silence outprices a verified efficient rating whatever the hiding cost. Houses ($\hat\psi_\delta=\attPsiHouse{}$ against $\bar\psi(\bar\theta)=\attPsiBarThetaHouse{}$) fall in the second, and silence sells between the two displayed ratings. Which case applies depends on the zero-default assumption $\zeta^{\rm def}=0$. The thresholds differ across markets and $\psi$ is common within a segment, so not every market follows its segment: \attNBetweenApt{} of \attNMarketsApt{} apartment markets lie between the two displayed ratings and \attNDgtBApt{} above a verified efficient one. In houses \attNBetweenHouse{} of \attNMarketsHouse{} markets lie between the two displayed ratings and \attNDgtBHouse{} above a verified efficient one. \attRawNNegApt{} apartment and \attRawNNegHouse{} house markets lie below a displayed inefficient rating, which cannot arise in the model when $\zeta^{\rm def}\le\zeta_0$ and reflects sampling error or heterogeneity that we do not model.
+
+% [CHECK: source for the notary-fee range below]
+Section~\ref{sec:identification} defines the market-level hiding cost as the cost that makes $\hat\sigma_{0,m}$ an equilibrium at $\hat\psi_\delta$, the predicted premium, and not as the observed premium $\hat\Delta_m$. With one hiding cost per market the Partial Pooling band is only \attBandWidthApt{} log points wide in apartments, and the observed premium falls inside its own band in \attShareInBandApt{} percent of apartment markets and \attShareInBandHouse{} percent of house markets (Appendix~\ref{app:att_band_fit}). The predicted premium is used again in Section~\ref{sec:policy}. Its mean equals the mean non-disclosure premium, $\hat c_0=\hat\Delta$, by the zero-residual property of the ratio-of-sums estimator. The average hiding cost is therefore \attDthreeApt{} log points in apartments and \attDthreeHouse{} in houses. For scale, the apartment cost exceeds the notary fees a buyer pays on the same transaction, roughly 7 to 8 percent of the price of an existing dwelling since \attDthreeApt{} log points is about 8.9\% of the price. The cost is the one the premium implies under limited attention, a calibrated quantity rather than a measured sanction. The hiding rate among informed low-quality sellers is $\hat\sigma_0=\attSigmaObsApt{}\%$ in apartments and \attSigmaObsHouse{}\% in houses, or 5.9\% and 2.8\% when quality is read from the registry (Table~\ref{tab:robustness}), about two and a half times lower in both segments. Because $c_0$ is calibrated to $\hat\sigma_0$, the model takes the higher apartment hiding rate as given. Lower attention to silence raises hiding and the higher calibrated cost lowers it, in proportions the data do not separate.
+
+Read through Partial Pooling, an uninformed apartment seller earns \attDthreeApt{} log points over a displayed inefficient rating, an informed high-quality seller \attBthreeApt{}, and an informed low-quality seller nothing, whether she hides or not. High-quality sellers do not hide in the model although silence pays more than a verified rating, an implication of Partial Pooling (Appendix~\ref{app:att_nonstrategic} reports how often they do in the data). Their gain, \attExcessApt{} log points, falls short of the hiding cost \attDthreeApt{} that keeps low-quality sellers indifferent. The uninformed seller's premium follows from the maintained assumptions that uninformed sellers have no strategy, bear no hiding cost and are exogenous in number. The behavioural transfer of Section~\ref{ss:att_welfare}, the mark-up of a silent listing over what a fully attentive market would pay, equals $\hat\lambda$ when displayed ratings are fully attended and there is no pre-reform energy pricing, about \attLamApt{} log points per silent apartment sale. If displayed ratings are not fully attended, $\hat\lambda$ is a lower bound.
+
+
+
+
+\subsubsection{Fit and the Scale of Attention}
+\label{ss:att_fit}
+
+The model is estimated on aggregates, so how well it fits market by market is a separate question.
+
+% [AUTHOR REWRITE] fit claim
+Because $\psi_\delta$ is just-identified from the aggregate ratio, the zero mean residual holds by construction, as the ratio-of-sums estimator sets the cross-market sum of residuals to zero (Figure~\ref{fig:att_fit}). The right reference for the rest is a constant prediction at the mean premium, whose root mean squared error is the standard deviation of the observed premia, \attDlSdApt{} log points in apartments and \attDlSdHouse{} in houses. The model's root mean squared error is \attRmseExtApt{} and \attRmseExtHouse{}, an $R^2$ of \attRsqExtApt{} and \attRsqExtHouse{}, and the correlation between predicted and observed premia is \attCorrExtApt{} and \attCorrExtHouse{}. That correlation, and the $R^2$, are partly mechanical, since $\hat\beta_{1,m}$ enters the prediction and both gaps are built on the same comparison with E-to-G listings. Limited attention accounts for silent apartments selling above verified efficient ones, with one parameter fitted to that fact, and does not account for which markets carry the largest premia. The substantive evidence is that the perceived cost of silence is close to zero (Figure~\ref{fig:att_contrast}), equivalently that apartment premia sit at their ceiling, and not the aggregate fit. This reading presumes that the unobserved quality of the silent pool did not change across the reform (Section~\ref{sec:identification}). Appendices~\ref{app:att_band_fit} and~\ref{app:att_nonstrategic} report the market-level fit of the Partial Pooling band and the non-strategic silence of high-quality sellers, and Appendix~\ref{app:att_payoffs} the payoffs by seller type.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Observed and predicted non-disclosure premium, attention model}
+    \label{fig:att_fit}
+    \includegraphics[width=\linewidth]{fig/visuals/fig_att_F1_fit.pdf}
+    \begin{minipage}{0.95\linewidth}
+        \vspace{0.5em}
+        \footnotesize\textit{Notes.} Observed premium $\hat\Delta_m$ (vertical axis, log points) against the premium predicted by the attention model, $\hat\beta_{1,m}[\hat\psi_\delta\hat e^*_m+(1-\hat\psi_\delta)\eta_m]$, one marker per market. The dashed line marks observed equal to predicted and the dotted line the mean observed premium. The box reports the root mean squared error, the standard deviation of $\hat\Delta_m$ (the error of a constant prediction), the correlation and $R^2$. The zero mean residual holds by construction, because the ratio-of-sums estimator sets the cross-market sum of residuals to zero. The apartment sample has \attNMarketsApt{} markets and the house sample \attNMarketsHouse{}.
+    \end{minipage}
+\end{figure}
+
+How large is attention in absolute terms? That scale is the one object that needs the energy-cost anchor of Section~\ref{sec:identification}, and Table~\ref{tab:did_results} reports it with the registry inputs. Effective attention $\hat\rho_m$ averages \attRhoMeanApt{}\% in apartments and \attRhoMeanHouse{}\% in houses, so under the ten-year anchor the market pays about half of the energy-bill benchmark for verified efficiency.
 
 \begin{table}[t]
 \centering
-\caption{Market-level estimates by property type}
+\caption{Registry inputs and the anchored attention scale by property type}
 \label{tab:did_results}
 \small\renewcommand{\arraystretch}{1.3}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{c}@{}}
@@ -452,141 +639,17 @@ Table~\ref{tab:did_results} reports market-level estimates for both property typ
 \cmidrule(lr){2-4}\cmidrule(lr){5-7}
 \textbf{Parameter} & \textbf{Mean} & \textbf{Std} & \textbf{N} & \textbf{Mean} & \textbf{Std} & \textbf{N} \\
 \midrule
-\multicolumn{7}{l}{\textit{Panel A: DiD estimates from price index panel}} \\[2pt]
-$\hat\beta_{1,m}$ (energy-efficiency premium) & 4.1 & 1.9 & 45  & 5.8 & 3.2 & 97 \\
-$\hat\Delta_m$ (non-disclosure premium)       & 8.5 & 6.4 & 45  & 3.9 & 4.4 & 97 \\
-\midrule
-\multicolumn{7}{l}{\textit{Panel B: Anchored structural estimates, pooled 2022 to 2024}} \\[2pt]
-$\hat\rho_m$ (buyer EPC-sensitivity)          & 49.5\% & 25.0 & 45 & 45.8\% & 26.7 & 97 \\
-$\hat c_{0,m}$ (hiding cost)                  &  2.4 &  1.2 & 45 &  3.5 &  2.0 & 97 \\
-$\hat\lambda_m$ (over-ID wedge, $\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m$) & 6.1 & --- & 45 ($t=6.78$) & 0.4 & --- & 97 ($t=1.10$) \\
-\midrule
-\multicolumn{7}{l}{\textit{Panel C: Supply-side observables from ADEME match}} \\[2pt]
-$\hat\pi_m$ (registry-matched share)          & 50.7\% &  7.4 & 45 & 41.9\% &  4.4 & 97 \\
-$\hat{\bar\theta}_m$ (mean quality $K{=}1$)   & 62.5\% &  8.8 & 45 & 60.5\% & 10.4 & 97 \\
-$\hat\sigma_{0,m}$ (informed hiding rate)     & 15.2\% &  9.8 & 45 &  6.8\% &  5.9 & 97 \\
+$\hat\pi_m$ (registry-matched share)          & \attPiMeanApt{}\% & \attPiSdApt{} & \attNMarketsApt & \attPiMeanHouse{}\% & \attPiSdHouse{} & \attNMarketsHouse \\
+$\hat{\bar\theta}_m$ (mean quality $K{=}1$)   & \attThetaBarMeanApt{}\% & \attThetaBarSdApt{} & \attNMarketsApt & \attThetaBarMeanHouse{}\% & \attThetaBarSdHouse{} & \attNMarketsHouse \\
+$\hat\sigma_{0,m}$ (informed hiding rate)     & \attSigmaObsApt{}\% & \attSigmaObsSdApt{} & \attNMarketsApt & \attSigmaObsHouse{}\% & \attSigmaObsSdHouse{} & \attNMarketsHouse \\
+$\hat\rho_m$ (effective attention to ratings) & \attRhoMeanApt{}\% & \attRhoSdApt{} & \attNMarketsApt & \attRhoMeanHouse{}\% & \attRhoSdHouse{} & \attNMarketsHouse \\
+Markets with $\hat\rho_m>1$                   & \multicolumn{3}{c}{\attNRhoGtOneApt{}} & \multicolumn{3}{c}{\attNRhoGtOneHouse{}} \\
 \bottomrule\bottomrule
 \end{tabular*}
 \vspace{0.5em}
 \begin{minipage}{\linewidth}
-\footnotesize\textit{Notes.} Panel A: market-level DiD estimates from the price index panel (pre: Oct 2018 to Jun 2021; post: Jul 2021 to Jul 2024), volume-filtered at $\geq 20$ transactions/month/EPC category, on the same $N=45$ apartment / $N=97$ house markets as Panels B--C: markets with $\hat\beta_{1,m}>0$ that also carry a valid registry-based structural estimate. All three panels therefore share one sample, and $\hat\lambda_m=\hat\Delta_m-\hat c_{0,m}$ holds market by market and on average. Averaged instead over all 81 apartment / 114 house markets that pass the volume filter, including those whose quality premium does not turn positive (the sample of Figure~\ref{fig:ATT}), $\hat\beta_{1,m}$ and $\hat\Delta_m$ are 1.7 and 6.9 for apartments and 5.1 and 3.4 for houses. $\hat\Delta_m$ is no longer treated as an upper bound for $c_{0,m}$; see Panel~B's $\hat\lambda_m$ row. Panel B: anchored structural estimates (Equation~\eqref{eq:anchored_estimator_main}, Appendix~\ref{app:rho_identification}). $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$, not clipped to $[0,1]$ (1 apartment / 5 house markets violate the bound; see Appendix~\ref{app:rho_identification}); $\hat c_{0,m}=\hat\beta_{1,m}\cdot\hat e^*_m(\hat\sigma_{0,m})$, independent of $\rho_m$. $\hat\lambda_m$ is the mean over-identifying wedge with its $t$-statistic against $H_0:\text{mean}(\hat\lambda_m)=0$ (a simple test, not optimal-GMM); it is not folded into $\hat c_{0,m}$. Panel C: supply-side moments computed as sample frequencies from the ADEME match. Price gaps (Panel~A and the $\hat c_{0,m}$/$\hat\lambda_m$ rows of Panel~B) are in log points ($\times 100$). Share parameters in Panels~B and~C ($\hat\rho_m$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$) are in percent. Standard-deviation columns are cross-market standard deviations in the same units as the mean.
+\footnotesize\textit{Notes.} The price panel runs from October 2018 to July 2024 (pre-period to June 2021), and the structural moments are pooled over 2022 to 2024. A volume filter of at least 20 transactions per month and EPC category retains 81 apartment and 114 house markets. Setting aside markets whose disclosed-price gap does not turn positive after the reform leaves 49 and 104, of which \attNMarketsApt{} and \attNMarketsHouse{} also carry the registry coverage the estimates require. The differences-in-differences estimates for these markets are in Table~\ref{tab:attention}, panel~A. $\hat\rho_m=\hat\beta_{1,m}/\hat\beta_{1,m}^{\mathrm{anchor}}$ (Equation~\eqref{eq:anchored_estimator_main}, Appendix~\ref{app:rho_identification}) is not clipped to $[0,1]$. $\hat\pi_m$, $\hat{\bar\theta}_m$ and $\hat\sigma_{0,m}$ are sample frequencies from the ADEME match. Entries other than $N$ and the count are in percent, and standard deviations are cross-market sample standard deviations in the units of the mean.
 \end{minipage}
 \end{table}
 
-\vspace{-1em}
-
-Table~\ref{tab:did_results} yields a coherent and interpretable picture across all three panels.
-In Panel~A, the energy-efficiency premium $\hat\beta_{1,m}$ is 4.1 log points for
-apartments and 5.8 for houses: disclosing an energy-efficient EPC score commands that price advantage
-over disclosing an energy-intensive score, after the July~2021 reform. The non-disclosure premium
-$\hat\Delta_m$ (8.5 log points for apartments and 3.9 for houses) measures how much more
-non-disclosers earn over low-quality disclosed properties compared with the pre-reform
-baseline. Both are measured on the estimation sample of Panels~B--C; over all 81 apartment and 114 house
-markets of the event study, which include markets whose quality premium does not turn positive, the
-corresponding averages are 1.7 and 6.9 for apartments and 5.1 and 3.4 for houses; we no longer read this as an upper bound on the concealment cost, since $c_{0,m}$ is
-now identified independently of $\Delta_m$ (Panel~B; see the $\hat\lambda_m$ discussion below).
-Panel~B translates the disclosed-price gap into seller-side parameters via the energy-cost
-anchor: $\hat\rho_m = 49.5\%$ for apartments and 45.8\% for houses indicate that roughly half of
-buyers in the average market price energy performance into their offers --- a far more moderate,
-and far more plausible, reading than the near-universal sensitivity a ratio-based estimator
-mechanically returns (Appendix~\ref{app:rho_identification}) --- while the identified hiding
-cost $\hat{c}_{0,m}$ settles at 2.4\% of property value for apartments and 3.5\% for houses.
-These remain economically material magnitudes once set against the transaction costs a French
-buyer already faces. Notary fees on an existing dwelling run to
-roughly 7 to 8\% of the sale price, and lenders ordinarily require a personal contribution of at
-least 10\%.\footnote{Transfer duties (\emph{droits de mutation \`a titre on\'ereux}) were raised
-to a maximum of 6.31\% for transactions concluded from April 2025, an increase adopted by 84 of
-the 101 \emph{d\'epartements}, with first-time buyers exempt; total notary fees on an existing
-dwelling accordingly sit near 7 to 8\% of the price. The 10\% personal contribution is not a
-legal requirement but the threshold applied by most lenders, and is intended to cover precisely
-these ancillary costs.} The cost of withholding a certificate is therefore of the order of a
-third of the notary bill, and roughly a quarter to a third of the minimum deposit a bank would
-demand: not a rounding error in the transaction, though well short of the sums that routinely
-change hands around it. That two segments trading very differently land within roughly one percentage point
-of each other reinforces the reading that this cost is set by the disclosure regime rather than
-by the property (in the baseline; Section~\ref{ss:att_estimates} reports the alternative reading implied by limited attention). Panel~C
-turns to the supply side: just over half of apartment sellers (50.7\%) and 41.9\% of house
-sellers carry a post-2021 registry record at listing ($\hat\pi_m$), and among those, roughly
-six in ten hold a property rated A--D ($\hat{\bar\theta}_m = 62.5\%$ and $60.5\%$).
-The most striking contrast across property types lies in the strategic-hiding rate
-$\hat\sigma_{0,m}$: 15.2\% of informed apartment sellers who hold an E/F/G rating choose to
-withhold it, versus 6.8\% for houses, a difference that mirrors the larger quality premium in
-house markets (5.8 against 4.1 log points), since a larger forgone quality premium makes concealment
-a costlier choice for house sellers.
-
-\subsubsection{Structural Estimates and Economic Interpretation}
-
-Buyer sensitivity emerges from the anchor as a genuine point estimate in each market rather than
-as a value pressed against a boundary. About half the buyers in the average market price energy
-performance into their offers --- $0.495$ for apartments, $0.458$ for houses --- and markets
-spread around those averages in a way the estimator does not manufacture, with a cross-market
-standard deviation of $0.25$ and $0.27$ respectively. A ratio-based construction returns nothing
-of the kind; it piles the whole distribution onto the upper bound. That bound is now something
-the data can refuse. Since the sensitive share cannot exceed one, the anchored estimate requires
-the disclosed-price gap to stay below the energy-bill benchmark, and the requirement fails in
-only 1 of 45 apartment markets and 5 of 97 house markets. Almost everywhere, the running-cost
-saving an efficient dwelling delivers is large enough on its own terms to account for the price
-advantage certified efficiency commands, without supposing that every buyer is paying attention.
-
-One consequence of the closed-form estimator is worth stating plainly, because it closes off a
-finding the model might otherwise appear to offer. The concealment cost is the disclosed-price
-gap scaled by a belief that is itself confined, by construction, between the value it would take
-if every informed low-quality seller hid and the value it would take if none did. The cost can
-therefore never land outside the Partial Pooling band, and every market in the sample is
-classified as Partial Pooling. Cost-Deterred Hiding and Complete Adverse Selection remain
-possible corner regimes in the model, but a market can only be sorted into one of them when
-buyer sensitivity has been clipped to a boundary. With sensitivity point-identified, that
-sorting cannot arise here, and we report no regime heterogeneity as an empirical finding. This classification is a property of the baseline. Under limited attention the Partial Pooling band narrows by the factor $\psi$ (Corollary~\ref{cor:att_band}), so in apartments a market sits in Partial Pooling only for a narrow range of hiding costs.
-
-The cost of keeping an unfavourable rating off the listing is economically material and
-strikingly similar across the two segments: 0.024 log points, roughly 2.4\% of property value,
-for apartments, and 0.035 log points, or 3.5\%, for houses. Two segments that otherwise trade
-very differently landing within about a percentage point of each other points to a cost set by
-the legal disclosure regime rather than by the property. This is the baseline reading; under the limited-attention extension the hiding cost implied for apartments is larger (Section~\ref{ss:att_estimates}).
-
-Nothing in this construction forces the concealment cost to sit below the non-disclosure premium,
-and it need not. The two are built from different moments, and the distance between them is the
-model's over-identifying restriction (Lemma~\ref{lem:model_bounds}), which we report rather than
-resolve by fiat. In house markets that wedge averages $0.4$ log points and cannot be
-distinguished from zero ($t=1.10$), so the restriction survives. In apartment markets it is $6.1$
-log points and precisely estimated ($t=6.78$): non-disclosers there command substantially more
-than the disclosed-price gap and the registry-measured belief say they should under Partial
-Pooling. Truncating the post-reform window to one or two years instead of the full three leaves
-both results standing (Appendix~\ref{app:robustness}), so neither turns on the endpoint we
-happened to choose. If anything the two move apart as the window lengthens, the apartment wedge
-widening and the house wedge narrowing further, a divergence rather than a coincidence of the
-final year of data.
-
-The apartment wedge has a specific shape. It is not that silent apartments sell slightly above what
-the registry-measured pool would justify, but that the reform raised the price of silence by more
-than it raised the price of a verified efficient rating. By Lemma~\ref{lem:model_bounds}(i) no pool
-belief can deliver that in the model above, so the wedge is a matter neither of calibration nor of
-mismeasured beliefs. The point-identified $\hat\rho_m$ and $\hat c_{0,m}$ reported here stand on the
-anchor and the registry match alone; within the baseline, the wedge is a diagnostic on top of them
-rather than a correction to them. Section~\ref{ss:attention} shows that one change on the buyer side,
-attention to energy that depends on whether a rating is displayed, can account for the wedge and
-nests the model above. It leaves $\hat\rho_m$ unchanged as a number but implies a larger concealment
-cost for apartments, which we report as an alternative reading while keeping the baseline estimate
-as the paper's measure.
-
-The contrast between the property types is itself informative. The energy-efficiency premium in
-house markets runs about 40 percent above what it does in apartments on the estimation sample,
-0.058 against 0.041 log points (a ratio that rises to roughly three, 0.051 against 0.017, over all
-event-study markets). We do not test why, and more than one channel fits. Houses are larger and older on
-average, so heating weighs more heavily in a buyer's running expenses. They also sit
-predominantly outside city centres, in markets where demand pressure is weaker and price
-formation depends less on locational scarcity, which leaves more of the price free to respond to
-an attribute such as energy performance. In tight urban apartment markets the opposite holds:
-location dominates valuation and compresses the share any single characteristic can claim.
-Separating these explanations would require variation we do not exploit here.
-
-What follows from the larger premium is easier to pin down. A seller who hides a poor rating in a
-house market forgoes more by doing so, and the data reflect that exactly. The hiding rate among
-informed low-quality sellers is well under half the apartment figure, 6.8\% against 15.2\%, and
-strategic hiders make up 1.1\% of house listings against 3.5\% of apartment listings. The
-non-disclosure premium follows in turn, 0.039 for houses against 0.085 for apartments, because a
-thinner pool of strategic hiders leaves buyers less pessimistic about what silence conceals.
-% [AUTHOR] rewrite: a thinner pool of strategic hiders raises the pool belief and the premium, so the causal clause above needs rephrasing.
-Higher quality premium, lower hiding rate, lower non-disclosure premium: the ordering of hiding
-rates is what the model's equilibrium comparative statics predict when markets differ in the return to
-verified quality, although the level of the apartment premium is not (Section~\ref{ss:attention}).
+Section~\ref{sec:policy} takes three results from this section. Full attention to silence is rejected in apartments and not in houses. If a buyer who ignores energy subtracts no energy cost, apartment buyers attend to energy on a silent listing at about \attPsiApt{} of the rate on a rated one (95\% CI \attPsiLoApt{} to \attPsiHiApt{}), and house buyers at nearly the full rate. The hiding cost that keeps the marginal informed seller indifferent averages \attDthreeApt{} log points in apartments and \attDthreeHouse{} in houses. The apartment figure is what the premium implies under limited attention, so it is a calibrated quantity, not a measured sanction. The premium that a verified efficient rating commands, $\hat b=\hat\beta_1$, is identified from prices alone, and only its split into attention and a monetary value of energy needs the energy-cost anchor. Section~\ref{sec:policy} prices a renovation subsidy for sellers who choose between hiding and displaying a poor rating, using $\hat b$, the hiding cost $c_0$ calibrated to the predicted premium, and the attention parameter $\hat\psi_\delta$.

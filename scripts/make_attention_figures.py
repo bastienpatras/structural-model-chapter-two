@@ -1,18 +1,19 @@
-"""Paper-quality static figures for the limited-attention extension.
+"""Paper-quality static figures for the limited-attention model.
 
 Five exhibits, all read from the CSVs written by ``scripts/compute_attention.py``
 (``results/attention/``). Nothing is re-estimated here: every number printed on a
 figure is read from those files.
 
-  F1 ``fig_att_F1_fit.pdf``         observed vs predicted non-disclosure premium,
-                                    core model (beta1 e*) vs extension (c0_fit)
+  F1 ``fig_att_F1_fit.pdf``         observed vs attention-model predicted
+                                    non-disclosure premium (c0_fit)
   F2 ``fig_att_F2_ceilings.pdf``    premium vs green premium with the belief
                                     ceiling (Delta = b) and the attention ceiling
-                                    (Delta = eta_bar b)
-  F3 ``fig_att_F3_contrast.pdf``    forest plot: perceived cost of silence C* in
-                                    kWh_ep/m2/yr and the relative-attention
-                                    estimators psi_hat
-  F5 ``fig_att_F5_hiding_cost.pdf`` per-market hiding cost, core vs extension
+                                    (Delta = eta_bar b); F2a has the psi = 1 ceiling only
+  F3 ``fig_att_F3_contrast.pdf``    perceived cost of silence zeta* vs the registry
+                                    cost of the silent pool, kWh_ep/m2/yr
+  F3b ``fig_att_F3b_psi_estimators.pdf``  relative attention psi_hat by estimator
+  F5 ``fig_att_F5_hiding_cost.pdf`` per-market hiding cost, psi = 1 vs attention model
+                                    (not drawn by main(); function kept)
   F6 ``fig_att_F6_salience.pdf``    salience counterfactual: premium net of the
                                     attention wedge, and the hiding rate as a
                                     function of relative attention psi
@@ -148,22 +149,29 @@ def _save(fig: plt.Figure, out_dir: Path, name: str) -> Path:
 
 
 # ---------------------------------------------------------------------------
-# F1 - fit to the non-disclosure premium, core vs extension
+# F1 - fit of the attention model to the non-disclosure premium
 # ---------------------------------------------------------------------------
 
 def make_f1(data: dict, out_dir: Path) -> Path:
+    """Observed vs attention-model predicted non-disclosure premium, by market.
+
+    No error bars on the observed premium: the attention CSVs carry no market-level
+    standard error for Delta-hat_m. The dotted line at the mean observed premium is
+    the constant-prediction reference against which RMSE and R-squared are read.
+    """
     s = data["summary"]
     fig, axes = plt.subplots(1, 2, figsize=(8.0, 4.3))
     for ax, (seg, col, _) in zip(axes, SEGMENTS):
         p = data["policy"][seg]
         c = SEG_COLORS[seg]
-        x_core, x_ext, y = p["c0_core"], p["c0_fit"], p["dl"]
+        x, y = p["c0_fit"], p["dl"]
+        y_bar = float(s.loc["dl", col])
 
-        lo = float(min(x_core.min(), x_ext.min(), y.min()))
-        hi = float(max(x_core.max(), x_ext.max(), y.max()))
+        lo = float(min(x.min(), y.min()))
+        hi = float(max(x.max(), y.max()))
         pad = 0.05 * (hi - lo)
-        xlo = min(0.0, float(min(x_core.min(), x_ext.min()))) - pad
-        xhi = float(max(x_core.max(), x_ext.max())) + pad
+        xlo = min(0.0, float(x.min())) - pad
+        xhi = float(x.max()) + pad
         # Extra head-room below the data for the fit-statistics box, so it never
         # hides a market.
         yhi = float(y.max()) + pad
@@ -173,40 +181,31 @@ def make_f1(data: dict, out_dir: Path) -> Path:
         ax.axvline(0, color="#cccccc", lw=0.6, zorder=1)
         d = np.array([min(xlo, ylo), max(xhi, yhi)])
         ax.plot(d, d, color=GREY, ls="--", lw=0.9, zorder=2)
-        # Same market: core -> extension prediction at the same observed premium.
-        ax.hlines(y, x_core, x_ext, color=c, alpha=0.18, lw=0.6, zorder=2)
-        ax.scatter(x_core, y, s=20, facecolor="white", edgecolor=c, lw=0.9,
-                   marker=SEG_MARKERS[seg], zorder=3)
-        ax.scatter(x_ext, y, s=20, facecolor=c, edgecolor="white", lw=0.4,
+        ax.axhline(y_bar, color=INK, ls=":", lw=1.0, zorder=2)
+        ax.scatter(x, y, s=22, facecolor=c, edgecolor="white", lw=0.4,
                    marker=SEG_MARKERS[seg], alpha=0.9, zorder=4)
 
         ax.set_xlim(xlo, xhi)
         ax.set_ylim(ylo, yhi)
         ax.set_title(f"{SEG_LABELS[seg]} (N = {int(s.loc['n_markets', col])})",
                      fontsize=10.5, color=INK)
-        ax.set_xlabel(r"Predicted premium $\hat\Delta_m$ (log points)")
+        ax.set_xlabel(r"Predicted premium (log points)")
 
-        txt = (f"{'':<10}mean resid.   RMSE   corr.\n"
-               f"{'Core':<10}{fmt(s.loc['resid_core', col]):>11}"
-               f"{fmt(s.loc['rmse_core', col]):>7}{fmt(s.loc['corr_core', col], 2):>7}\n"
-               f"{'Extension':<10}{fmt(s.loc['resid_ext', col]):>11}"
-               f"{fmt(s.loc['rmse_ext', col]):>7}{fmt(s.loc['corr_ext', col], 2):>7}\n"
-               "(extension mean residual zero by construction)")
+        txt = (f"RMSE {fmt(s.loc['rmse_ext', col])}  "
+               rf"(SD of $\hat\Delta_m$: {fmt(s.loc['dl_sd', col])})" "\n"
+               f"Correlation {fmt(s.loc['corr_ext', col], 2)}\n"
+               rf"$R^2$ {fmt(s.loc['rsq_ext', col], 2)}")
         ax.text(0.97, 0.025, txt, transform=ax.transAxes, ha="right", va="bottom",
-                fontsize=7.2, family="monospace", color=INK, bbox=BOX, zorder=6)
+                fontsize=8, color=INK, bbox=BOX, linespacing=1.3, zorder=6)
 
     axes[0].set_ylabel(r"Observed premium $\hat\Delta_m$ (log points)")
     handles = [
-        Line2D([0], [0], marker="o", ls="none", mfc="white", mec=INK, mew=0.9, ms=5.5,
-               label=r"Core model: $\hat\beta_{1}\hat e^{*}$"),
-        Line2D([0], [0], marker="o", ls="none", mfc=INK, mec="white", ms=5.5,
-               label=r"Extension: $\hat\beta_{1}[\hat\psi\hat e^{*}+(1-\hat\psi)\eta]$"),
-        Line2D([0], [0], color=GREY, alpha=0.6, lw=0.8, label="Same market"),
         Line2D([0], [0], color=GREY, ls="--", lw=0.9, label="Observed = predicted"),
+        Line2D([0], [0], color=INK, ls=":", lw=1.0, label="Mean observed premium"),
     ]
-    fig.subplots_adjust(bottom=0.24, wspace=0.22)
-    fig.legend(handles=handles, ncol=4, frameon=False, loc="lower center",
-               bbox_to_anchor=(0.5, 0.0), fontsize=8.3)
+    fig.subplots_adjust(bottom=0.22, wspace=0.22)
+    fig.legend(handles=handles, ncol=2, frameon=False, loc="lower center",
+               bbox_to_anchor=(0.5, 0.0), fontsize=8.5)
     return _save(fig, out_dir, "fig_att_F1_fit")
 
 
@@ -217,9 +216,9 @@ def make_f1(data: dict, out_dir: Path) -> Path:
 def make_f2(data: dict, out_dir: Path, belief_only: bool = False) -> Path:
     """Non-disclosure premium against the energy-efficiency premium, by market.
 
-    ``belief_only=True`` writes the core-model exhibit (Figure 10, shown before the
-    attention extension): the only ceiling drawn is Delta = beta1, and every element
-    is labelled in words directly on the panel (no legend, no symbol ``b``).
+    ``belief_only=True`` writes the exhibit with the single ceiling at full attention
+    (psi = 1), Delta = beta1; every element is labelled in words directly on the panel
+    (no legend, no symbol ``b``).
     ``belief_only=False`` writes the full version with the attention ceilings.
     """
     s = data["summary"]
@@ -230,7 +229,7 @@ def make_f2(data: dict, out_dir: Path, belief_only: bool = False) -> Path:
         for ax, (seg, col, _) in zip(axes, SEGMENTS):
             m = data["markets"][seg]
             c, mk = SEG_COLORS[seg], SEG_MARKERS[seg]
-            above = (m["dl"] > m["b1"]).to_numpy()     # strictly above the core ceiling
+            above = (m["dl"] > m["b1"]).to_numpy()     # strictly above the psi = 1 ceiling
             n_above, n_tot = int(above.sum()), len(m)
             assert n_above == int(s.loc["n_d_gt_b", col]), f"{seg}: n_d_gt_b drift"
             assert n_tot == int(s.loc["n_markets", col]), f"{seg}: n_markets drift"
@@ -254,7 +253,7 @@ def make_f2(data: dict, out_dir: Path, belief_only: bool = False) -> Path:
                        facecolor=c, edgecolor="white", lw=0.4, zorder=4)
 
             # Region label, top-left of the rose area.
-            ax.text(0.03, 0.97, "Core model cannot\nproduce a premium here",
+            ax.text(0.03, 0.97, "Full attention cannot\nproduce a premium here",
                     transform=ax.transAxes, ha="left", va="top", fontsize=8.6,
                     color=dark_red, linespacing=1.15, zorder=6)
 
@@ -286,8 +285,12 @@ def make_f2(data: dict, out_dir: Path, belief_only: bool = False) -> Path:
                 return np.hypot(*(q - (a_ + s_[:, None] * v)).T)
 
             best = None
-            for k, lab in enumerate((r"Core-model ceiling: $\hat\Delta = \hat\beta_{1}$",
-                                     "Core-model ceiling:\n" r"$\hat\Delta = \hat\beta_{1}$")):
+            # "Ceiling at full attention (psi = 1)" is a few points too wide for any
+            # clear spot in the house panel; this is the shortest wording that keeps psi = 1.
+            for k, lab in enumerate((r"Ceiling, full attention ($\psi = 1$): "
+                                     r"$\hat\Delta = \hat\beta_{1}$",
+                                     "Ceiling, full attention ($\\psi = 1$):\n"
+                                     r"$\hat\Delta = \hat\beta_{1}$")):
                 probe = ax.text(0, 0, lab, fontsize=8.2, linespacing=1.15)
                 ext = probe.get_window_extent(rdr)
                 w, h = ext.width + 2 * pt, ext.height + 2 * pt
@@ -312,6 +315,9 @@ def make_f2(data: dict, out_dir: Path, belief_only: bool = False) -> Path:
                         if np.hypot(dx, dy).min() < r_mk + 6 * pt:
                             continue                              # box too close to a market
                         foot = corners[i] - sd[i] * nrm
+                        t_foot = ((foot - p0) @ u) / np.hypot(*(p1 - p0))
+                        if not 0.08 <= t_foot <= 0.95:
+                            continue                              # leader must meet the drawn line
                         if _seg_dist(pts, corners[i], foot).min() < r_mk + 2 * pt:
                             continue                              # leader crosses a market
                         score = abs(sd[i]) + 40 * pt * k          # strongly prefer one line
@@ -415,14 +421,23 @@ def _gband_label(key: str) -> str:
     return f"G-band midpoint {words[tag]}"
 
 
-def make_f3(data: dict, out_dir: Path) -> Path:
-    s = data["summary"]
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.0, 4.0),
-                                   gridspec_kw={"width_ratios": [1.0, 1.15]})
-    off = {"apartment": +0.14, "house": -0.14}
+F3_OFFSET = {"apartment": +0.14, "house": -0.14}   # vertical dodge, apartments above
 
-    # (a) C* in kWh_ep/m2/yr --------------------------------------------------
-    rows_a = ["Perceived cost of silence $C^{*}$"]
+
+def _segment_handles() -> list:
+    return [
+        Line2D([0], [0], marker="o", ls="none", color=NAVY, ms=5.5, label="Apartments"),
+        Line2D([0], [0], marker="^", ls="none", color=SPRED, ms=5.5, label="Houses"),
+    ]
+
+
+def make_f3(data: dict, out_dir: Path) -> Path:
+    """Perceived cost of silence zeta* against the registry cost of the silent pool."""
+    s = data["summary"]
+    fig, ax1 = plt.subplots(figsize=(6.0, 2.9))
+    off = F3_OFFSET
+
+    rows_a = [r"Perceived cost of silence $\zeta^{*}$"]
     for seg, col, _ in SEGMENTS:
         c = SEG_COLORS[seg]
         y0 = 0 + off[seg]
@@ -437,17 +452,26 @@ def make_f3(data: dict, out_dir: Path) -> Path:
                     edgecolor=c, lw=1.2, zorder=3)
         ax1.text(csil + 12, -1 + off[seg], f"{csil:.0f}", ha="left", va="center",
                  fontsize=7.6, color=c)
-    rows_a.append(r"Rational silent-pool cost $\bar C^{\rm sil}$")
+    rows_a.append(r"Registry cost of the silent pool $\bar\zeta^{\rm sil}$")
     ax1.axvline(0, color=GREY, ls="--", lw=0.8)
     ax1.set_yticks([0, -1])
     ax1.set_yticklabels(rows_a)
     ax1.set_ylim(-1.6, 0.6)
     ax1.set_xlim(-60, 310)
     ax1.grid(axis="y", visible=False)
-    ax1.set_xlabel(r"kWh$_{\rm ep}$/m$^2$/yr")
-    ax1.set_title("Cost of silence", fontsize=10.5, color=INK, loc="left")
+    ax1.set_xlabel(r"Energy cost (kWh$_{\rm ep}$/m$^2$/yr)")
 
-    # (b) psi estimators ------------------------------------------------------
+    fig.subplots_adjust(bottom=0.30)
+    fig.legend(handles=_segment_handles(), ncol=2, frameon=False, loc="lower center",
+               bbox_to_anchor=(0.5, 0.0), fontsize=8.3)
+    return _save(fig, out_dir, "fig_att_F3_contrast")
+
+
+def make_f3b(data: dict, out_dir: Path) -> Path:
+    """Relative attention psi-hat by estimator, with the G-band midpoint sensitivity."""
+    s = data["summary"]
+    fig, ax2 = plt.subplots(figsize=(6.0, 3.6))
+    off = F3_OFFSET
     est_rows = [
         ("Ratio of sums (95% bootstrap CI)", "psi", ("psi_lo", "psi_hi")),
         ("Regression through origin (±1.96 s.e.)", "psi_ols", "psi_ols_se"),
@@ -479,22 +503,19 @@ def make_f3(data: dict, out_dir: Path) -> Path:
     ax2.set_ylim(-len(est_rows) + 0.4, 0.9)
     ax2.grid(axis="y", visible=False)
     ax2.set_xlabel(r"Relative attention $\hat\psi$")
-    ax2.set_title(r"Relative attention $\hat\psi$", fontsize=10.5, color=INK, loc="left")
 
-    handles = [
-        Line2D([0], [0], marker="o", ls="none", color=NAVY, ms=5.5, label="Apartments"),
-        Line2D([0], [0], marker="^", ls="none", color=SPRED, ms=5.5, label="Houses"),
+    handles = _segment_handles() + [
         Line2D([0], [0], marker="o", ls="none", mfc="white", mec=INK, ms=5.5,
                label="Hollow: G-band sensitivity of the ratio of sums"),
     ]
-    fig.subplots_adjust(left=0.19, bottom=0.24, wspace=0.95)
+    fig.subplots_adjust(bottom=0.24)
     fig.legend(handles=handles, ncol=3, frameon=False, loc="lower center",
                bbox_to_anchor=(0.5, 0.0), fontsize=8.3)
-    return _save(fig, out_dir, "fig_att_F3_contrast")
+    return _save(fig, out_dir, "fig_att_F3b_psi_estimators")
 
 
 # ---------------------------------------------------------------------------
-# F5 - hiding cost by market, core vs extension
+# F5 - hiding cost by market, psi = 1 vs attention model (orphan: not called by main)
 # ---------------------------------------------------------------------------
 
 def make_f5(data: dict, out_dir: Path) -> Path:
@@ -516,23 +537,23 @@ def make_f5(data: dict, out_dir: Path) -> Path:
         ax.axhline(m_core, color=c, ls=":", lw=1.0, zorder=1)
         ax.axhline(m_fit, color=c, ls="--", lw=1.0, zorder=1)
         ax.axhline(0, color="#cccccc", lw=0.6, zorder=1)
-        ax.text(0.03, 0.97, f"segment mean: core {fmt(m_core)} → extension {fmt(m_fit)}",
+        ax.text(0.03, 0.97, f"mean: benchmark {fmt(m_core)} → attention {fmt(m_fit)}",
                 transform=ax.transAxes, ha="left", va="top", fontsize=8, color=INK,
                 bbox=BOX, zorder=6)
         ax.set_xlim(0, len(p) + 1)
         ax.set_title(f"{SEG_LABELS[seg]} (N = {len(p)})", fontsize=10.5, color=INK)
-        ax.set_xlabel(r"Market rank by extension hiding cost $\hat c_{0,m}$")
+        ax.set_xlabel(r"Market rank by attention-model hiding cost $\hat c_{0,m}$")
         ax.grid(axis="x", visible=False)
     axes[0].set_ylabel(r"Hiding cost $\hat c_{0,m}$ (log points)")
     handles = [
         Line2D([0], [0], marker="o", ls="none", mfc="white", mec=INK, mew=0.8, ms=5,
-               label=r"Core: $\hat\beta_1\hat e^{*}$"),
+               label=r"Full attention: $\hat\beta_1\hat e^{*}$"),
         Line2D([0], [0], marker="o", ls="none", mfc=INK, mec="none", ms=5,
-               label=r"Extension: $\hat\beta_1[\hat\psi\hat e^{*}+(1-\hat\psi)\eta]$"),
+               label=r"Attention model: $\hat\beta_1[\hat\psi\hat e^{*}+(1-\hat\psi)\eta]$"),
         Line2D([0], [0], marker="_", ls="none", color=GREY, ms=8, mew=1.0,
                label=r"Observed premium $\hat\Delta_m$"),
-        Line2D([0], [0], color=INK, ls=":", lw=1.0, label="Core mean"),
-        Line2D([0], [0], color=INK, ls="--", lw=1.0, label="Extension mean"),
+        Line2D([0], [0], color=INK, ls=":", lw=1.0, label="Full-attention mean"),
+        Line2D([0], [0], color=INK, ls="--", lw=1.0, label="Attention-model mean"),
     ]
     fig.subplots_adjust(bottom=0.24, wspace=0.06)
     fig.legend(handles=handles, ncol=5, frameon=False, loc="lower center",
@@ -651,7 +672,9 @@ def main(argv: list[str] | None = None) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     data = load()
-    for make in (make_f1, make_f2, make_f3, make_f5, make_f6):
+    # make_f5 (hiding cost, psi = 1 vs attention model) is kept but no longer drawn:
+    # the main text does not compare against full attention.
+    for make in (make_f1, make_f2, make_f3, make_f3b, make_f6):
         make(data, out_dir)
     make_f2(data, out_dir, belief_only=True)
     return 0
