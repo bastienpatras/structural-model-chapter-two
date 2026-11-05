@@ -1,0 +1,121 @@
+% ============================================================
+% APPENDIX A. Parameters and Data
+% First appendix section. Replaces the old "Figures" and "Data and Model Objects" sections;
+% keeps the labels app:energy_costs and app:independence that Section 4 cites.
+% ============================================================
+\section{Parameters and Data}
+\label{app:parameters}
+
+This appendix lists every object the model and the estimation use and the data each one comes from. Table~\ref{tab:app_data} describes the data sources. Tables~\ref{tab:app_seller} to~\ref{tab:app_policy} list the parameters by block: the seller side, the buyer side, the estimates from the reform, and the hiding-cost and renovation objects of Section~\ref{sec:policy}. The status column says how each object enters: \emph{observed} (read from the data), \emph{estimated} (an estimate from the data), \emph{computed} (a function of other estimates, nothing new estimated), \emph{calibrated} (set to match a moment or an external figure), or \emph{imposed} (an assumption that is not tested). Subscript $m$ denotes a market; the estimation uses 110 markets in the hedonic panel, those passing the volume filter enter the estimates.
+
+\begin{table}[htbp]
+\centering
+\caption{Data sources}
+\label{tab:app_data}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule\toprule
+\textbf{Source} & \textbf{Content and coverage} & \textbf{Objects it supplies} \\
+\midrule
+\parbox[t]{.16\textwidth}{\raggedright SeLoger listings} & \parbox[t]{.52\textwidth}{\raggedright Residential sale listings across metropolitan France, 2021Q3 to 2024Q4: 843,621 apartment and 687,878 house listings; 2022 to 2024 for estimation (about 767,000 and 633,000). For each listing, the price, the characteristics (area, rooms, floor, construction era, location) and whether a rating is displayed, with the letter when it is.} & \parbox[t]{.24\textwidth}{\raggedright $p$, $X$, $d$, $\text{EPC}^{\rm listing}$} \\[12pt]
+\parbox[t]{.16\textwidth}{\raggedright ADEME registry} & \parbox[t]{.52\textwidth}{\raggedright National registry of certified energy audits (DPE). Listings are matched to it on address, floor, property type and area (Section~\ref{sec:data}); the match gives $K=1$ for 51.2\% of apartment and 40.3\% of house listings. Reports the certified grade (A to G) and certified primary-energy consumption (kWh$_{\rm ep}$/m$^2$/yr).} & \parbox[t]{.24\textwidth}{\raggedright $K$, $\theta$, $\hat\pi_m$, $\hat{\bar\theta}_m$, $\hat\sigma_{0,m}$, $\bar E_{\theta,m}$, $\eta_m$} \\[12pt]
+\parbox[t]{.16\textwidth}{\raggedright Hedonic price-index panel} & \parbox[t]{.52\textwidth}{\raggedright Market-level indices of the price gaps between listing types, built in \citet{patras_mandatory_2024}: 110 markets (\textit{zones d'emploi}), monthly from October 2018 to July 2024. The reform estimates come from difference-in-differences around July 2021, with pre-trends from the same panel.} & \parbox[t]{.24\textwidth}{\raggedright $\hat b_m$ ($=\hat\beta_{1,m}$), $\hat\Delta_m$, pre-trend and event-study estimates} \\[12pt]
+\parbox[t]{.16\textwidth}{\raggedright Transaction records} & \parbox[t]{.52\textwidth}{\raggedright Realised sale prices. Not matched to listings; used only for the mapping from listing price to sale price in the seller's payoff (Section~\ref{sec:data}).} & \parbox[t]{.24\textwidth}{\raggedright $\gamma_0$, $\gamma_1$} \\[12pt]
+\parbox[t]{.16\textwidth}{\raggedright External figures} & \parbox[t]{.52\textwidth}{\raggedright Energy price (CRE and Eurostat, 2022 to 2024 average, blended across heating vectors); the French mortgage rate; renovation-cost benchmarks based on the \textit{MaPrimeR\'{e}nov'} schedule.} & \parbox[t]{.24\textwidth}{\raggedright $p^E$, $r$, $\hat R$} \\[12pt]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Parameters: the seller side}
+\label{tab:app_seller}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Status} & \textbf{Data and construction} \\
+\midrule
+\parbox[t]{.09\textwidth}{\raggedright $K$} & \parbox[t]{.30\textwidth}{\raggedright Information status: whether a certificate for the dwelling exists in the registry at listing time} & \parbox[t]{.14\textwidth}{\raggedright observed} & \parbox[t]{.37\textwidth}{\raggedright ADEME match. A seller with no post-July-2021 record is $K=0$; under no falsification she is a truthful discloser if the listing displays a score and uninformed if it is silent.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\theta\in\{0,1\}$} & \parbox[t]{.30\textwidth}{\raggedright Binary quality, $\theta=1$ for grades A to D in the baseline} & \parbox[t]{.14\textwidth}{\raggedright observed; imposed for hidden listings} & \parbox[t]{.37\textwidth}{\raggedright Certified grade for matched and disclosed listings. Informed non-disclosers are assigned $\theta=0$ (revealed preference); Appendix~\ref{app:robustness} varies the cut and the assignment.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $d\in\{0,1\}$} & \parbox[t]{.30\textwidth}{\raggedright Rating displayed on the listing} & \parbox[t]{.14\textwidth}{\raggedright observed} & \parbox[t]{.37\textwidth}{\raggedright SeLoger.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\pi_m$} & \parbox[t]{.30\textwidth}{\raggedright Share of sellers holding a post-reform certificate (informed)} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Share of listings in market $m$ with $K=1$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\bar\theta_m$} & \parbox[t]{.30\textwidth}{\raggedright Share of certificates in the efficient band} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Share of $K=1$ listings with $\theta=1$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\sigma_{0,m}$} & \parbox[t]{.30\textwidth}{\raggedright Hiding rate of the informed low-quality seller} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Share of $K=1$, $\theta=0$ listings that are silent. The measured rate understates the true one, since a valid pre-reform certificate that is not displayed is recorded as uninformed.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\sigma_{1,m}$} & \parbox[t]{.30\textwidth}{\raggedright Hiding rate of the informed high-quality seller} & \parbox[t]{.14\textwidth}{\raggedright imposed} & \parbox[t]{.37\textwidth}{\raggedright Zero in the baseline (a prediction of the model outside Complete Adverse Selection); Appendix~\ref{app:robustness} relaxes it.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $e^*_m$} & \parbox[t]{.30\textwidth}{\raggedright Pool belief: the quality a Bayesian buyer attributes to a silent listing} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright $(1-\hat\pi_m)\hat{\bar\theta}_m/[\hat\pi_m(1-\hat{\bar\theta}_m)\hat\sigma_{0,m}+(1-\hat\pi_m)]$; no new estimation.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $c_{0,m}$} & \parbox[t]{.30\textwidth}{\raggedright Hiding cost of the informed low-quality seller} & \parbox[t]{.14\textwidth}{\raggedright calibrated} & \parbox[t]{.37\textwidth}{\raggedright Set to the predicted non-disclosure premium; its mean is $\hat\Delta$. A net cost of silence: compliance and sanction cost plus any sale-probability loss (Appendix~\ref{app:hiding_costs}). Identified only in Partial Pooling.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $c_{1}$} & \parbox[t]{.30\textwidth}{\raggedright Additional hiding cost of the informed high-quality seller} & \parbox[t]{.14\textwidth}{\raggedright not identified} & \parbox[t]{.37\textwidth}{\raggedright Not separately identified; set to zero where the renovation analysis needs it (Lemma~\ref{lem:renov_behaviour}).} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $G$} & \parbox[t]{.30\textwidth}{\raggedright Distribution of hiding costs across sellers within a market} & \parbox[t]{.14\textwidth}{\raggedright not estimated} & \parbox[t]{.37\textwidth}{\raggedright Used only for the bound on the saving from seller-specific subsidies (Proposition~\ref{prop:att_saving}).} \\[12pt]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Parameters: the buyer side and the estimates from the reform}
+\label{tab:app_buyer}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Status} & \textbf{Data and construction} \\
+\midrule
+\parbox[t]{.09\textwidth}{\raggedright $\rho_m$} & \parbox[t]{.30\textwidth}{\raggedright Share of buyers who are EPC-sensitive} & \parbox[t]{.14\textwidth}{\raggedright estimated, up to $\omega_1$} & \parbox[t]{.37\textwidth}{\raggedright Prices and the energy anchor identify $\delta(\rho\omega_1)$ only, through $\hat\rho_m=\hat\beta_{1,m}/\hat\beta^{\rm anchor}_{1,m}$. It is the post-reform $\rho_m$ if $\omega_1=1$ and no energy was priced before the reform; it is not clipped to $[0,1]$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\omega_1$, $\omega_0$} & \parbox[t]{.30\textwidth}{\raggedright Probability that a sensitive buyer attends to the energy performance of a rated (silent) listing} & \parbox[t]{.14\textwidth}{\raggedright identified only as $\rho\omega_1$ and $\psi$} & \parbox[t]{.37\textwidth}{\raggedright Prices depend on them only through $\rho\omega_1$ (anchor) and $\psi=\omega_0/\omega_1$ (the wedge $\hat\lambda_m$). $\omega_1$ and $\omega_0=\psi\omega_1$ alone are not identified.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\psi_\delta$} & \parbox[t]{.30\textwidth}{\raggedright Relative attention of the reform: $\delta(\rho\omega_0)/\delta(\rho\omega_1)$} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Ratio of cross-market sums of the two reform effects, through the wedge $\hat\lambda_m=\hat\Delta_m-\hat\beta_{1,m}\hat e^*_m=(1-\psi_\delta)\hat\beta_{1,m}(\eta_m-\hat e^*_m)$. Point identified given $\zeta^{\rm def}=0$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\zeta_{\theta,m}$} & \parbox[t]{.30\textwidth}{\raggedright Capitalised energy cost of a quality-$\theta$ dwelling} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright Certified consumption $\bar E_{\theta,m}$ times the conversion in Table~\ref{tab:app_calib}; $\beta^{\rm anchor}_{1,m}=\zeta_{0,m}-\zeta_{1,m}$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\bar\zeta^{\rm sil}_m$} & \parbox[t]{.30\textwidth}{\raggedright Expected energy cost of the silent pool} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright Registry cost of silent listings, mixing the qualities in the pool.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\zeta^{\rm def}$} & \parbox[t]{.30\textwidth}{\raggedright Energy cost a buyer who ignores energy subtracts by default} & \parbox[t]{.14\textwidth}{\raggedright imposed} & \parbox[t]{.37\textwidth}{\raggedright Zero for point identification; otherwise $\psi_\delta$ is bounded (Proposition~\ref{prop:att_identification}).} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\eta_m$} & \parbox[t]{.30\textwidth}{\raggedright Cost ratio $(\zeta_0-\zeta^{\rm def})/(\zeta_0-\zeta_1)$; the ceiling on $\Delta/b$} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright Certified consumption in the registry alone.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\hat b_m$} & \parbox[t]{.30\textwidth}{\raggedright Reform-induced rise in the price gap between listings with a verified efficient rating and disclosed E/F/G listings} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Difference in differences on the hedonic panel around July 2021; estimation sample is 2022 to 2024.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\hat\Delta_m$} & \parbox[t]{.30\textwidth}{\raggedright Reform-induced rise in the price gap between silent and disclosed E/F/G listings (the non-disclosure premium)} & \parbox[t]{.14\textwidth}{\raggedright estimated} & \parbox[t]{.37\textwidth}{\raggedright Same panel and design.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\tilde e_m$} & \parbox[t]{.30\textwidth}{\raggedright Effective belief $\Delta/b=\psi e+(1-\psi)e^{\rm def}$} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright $\hat\Delta_m/\hat b_m$.} \\[12pt]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Parameters: hiding costs and renovation}
+\label{tab:app_policy}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Status} & \textbf{Data and construction} \\
+\midrule
+\parbox[t]{.09\textwidth}{\raggedright $\hat R$} & \parbox[t]{.30\textwidth}{\raggedright Renovation cost per m$^2$} & \parbox[t]{.14\textwidth}{\raggedright calibrated} & \parbox[t]{.37\textwidth}{\raggedright Two benchmarks, \euro{}250 (light, \textit{geste par geste}) and \euro{}500 (medium, two measures), based on the \textit{MaPrimeR\'{e}nov'} schedule.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\bar R_m$} & \parbox[t]{.30\textwidth}{\raggedright Renovation threshold: the gain from renovating that a seller gets without a subsidy} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright $\bar R_m=\hat b_m P_m/100$ outside Complete Adverse Selection, $\bar R_m\le b$ always; $P_m$ is the market's median price per m$^2$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $S^*_m$} & \parbox[t]{.30\textwidth}{\raggedright Minimum incentive-compatible subsidy} & \parbox[t]{.14\textwidth}{\raggedright computed} & \parbox[t]{.37\textwidth}{\raggedright $\max\{\hat R-\bar R_m,0\}$. A lower bound, not a welfare optimum.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\mu$} & \parbox[t]{.30\textwidth}{\raggedright Social cost of a euro of public funds} & \parbox[t]{.14\textwidth}{\raggedright not calibrated} & \parbox[t]{.37\textwidth}{\raggedright Appears only in the welfare remark of Section~\ref{sec:policy}.} \\[12pt]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Energy Costs from the Registry}
+\label{app:energy_costs}
+
+A dwelling of quality $\theta$ in market $m$ carries a capitalised energy cost $\zeta_{\theta,m}=\kappa\,p^E a(r,T)\,\bar E_{\theta,m}/P_m$, in the units of the log price gaps (a first-order approximation), with $\zeta_{0,m}>\zeta_{1,m}>0$. The conversion factor $\kappa p^Ea(r,T)/P_m$ is common to both qualities, so any energy cost can equivalently be expressed in kWh$_{\rm ep}$/m$^2$/yr. A silent dwelling of quality $\theta$ is assumed to cost the same to heat as a rated one. Table~\ref{tab:app_calib} gives the inputs. The consumption averages pool disclosed and withheld matched listings, since restricting them to disclosed listings would condition on the seller's own hiding decision and reintroduce the selection the anchor exists to avoid. The ten-year horizon is shorter than full capitalisation would justify, and deliberately so: it matches the typical holding period, and the energy-efficiency-gap literature finds buyers behaving as though they discount durable energy attributes over such truncated horizons \citep{allcott_is_2012}. Assumption~\ref{assum:energy_anchor} and Equation~\eqref{eq:energy_anchor} in Appendix~\ref{app:rho_identification} give the construction in full.
+
+\begin{table}[htbp]
+\centering
+\caption{Calibration inputs of the energy-cost anchor}
+\label{tab:app_calib}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Value} & \textbf{Source} \\
+\midrule
+\parbox[t]{.09\textwidth}{\raggedright $p^E$} & \parbox[t]{.28\textwidth}{\raggedright Blended primary-energy-equivalent price} & \parbox[t]{.18\textwidth}{\raggedright about \euro0.21 per kWh} & \parbox[t]{.36\textwidth}{\raggedright CRE and Eurostat, 2022 to 2024 average, blended across the national heating-vector mix.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $r$} & \parbox[t]{.28\textwidth}{\raggedright Discount rate} & \parbox[t]{.18\textwidth}{\raggedright $3.75\%$} & \parbox[t]{.36\textwidth}{\raggedright Contemporary French mortgage rate.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $T$} & \parbox[t]{.28\textwidth}{\raggedright Horizon} & \parbox[t]{.18\textwidth}{\raggedright 10 years} & \parbox[t]{.36\textwidth}{\raggedright Typical holding period.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $a(r,T)$} & \parbox[t]{.28\textwidth}{\raggedright Annuity factor $[1-(1+r)^{-T}]/r$} & \parbox[t]{.18\textwidth}{\raggedright 8.21} & \parbox[t]{.36\textwidth}{\raggedright Computed from $r$ and $T$.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\kappa$} & \parbox[t]{.28\textwidth}{\raggedright Unit conversion} & \parbox[t]{.18\textwidth}{\raggedright ---} & \parbox[t]{.36\textwidth}{\raggedright Converts kWh$_{\rm ep}$/m$^2$/yr into the units of the price gaps.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $\bar E_{\theta,m}$} & \parbox[t]{.28\textwidth}{\raggedright Mean certified primary-energy consumption of quality-$\theta$ dwellings} & \parbox[t]{.18\textwidth}{\raggedright kWh$_{\rm ep}$/m$^2$/yr} & \parbox[t]{.36\textwidth}{\raggedright ADEME-matched listings in market $m$, disclosed and hidden pooled.} \\[12pt]
+\parbox[t]{.09\textwidth}{\raggedright $P_m$} & \parbox[t]{.28\textwidth}{\raggedright Local price level} & \parbox[t]{.18\textwidth}{\raggedright \euro/m$^2$} & \parbox[t]{.36\textwidth}{\raggedright Median price per m$^2$ in market $m$.} \\[12pt]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Independence of Information and Quality}
+\label{app:independence}
+
+Independence of information status and quality, $K\perp\theta$, is most plausible for transactions driven by exogenous life events such as succession following a death, court-ordered liquidation or divorce settlement, in which legal proceedings impose binding timing constraints that preclude any quality-contingent decision to obtain a certified EPC. In such cases the seller's information status is determined by administrative capacity and procedural deadlines rather than by the energy performance of the dwelling. Independence among forced sales does not by itself deliver it in the whole population, because sellers may select into audits by quality. Appendix~\ref{app:robustness} reports estimates that relax the treatment of high-quality hiding.
