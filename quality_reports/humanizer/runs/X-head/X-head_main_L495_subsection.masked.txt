@@ -1,0 +1,1 @@
+Lemma A.1 (Profit is Increasing in Sensitive-Buyer Valuation)

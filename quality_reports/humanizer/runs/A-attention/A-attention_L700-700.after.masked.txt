@@ -1,0 +1,1 @@
+Figure{{M001}}{{M002}} adds the attention ceiling of Proposition{{M003}}{{M004}} to the belief ceiling of Figure{{M005}}{{M006}}.

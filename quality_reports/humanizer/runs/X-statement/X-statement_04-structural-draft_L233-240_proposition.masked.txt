@@ -1,0 +1,7 @@
+{{M010}}
+There exists a unique equilibrium, characterized as follows:
+{{M011}}
+    {{M012}} If {{M001}}, the unique equilibrium is {{M013}}Cost-Deterred Hiding{{M014}}: {{M002}} and {{M003}}.
+    {{M015}} If {{M004}}, the unique equilibrium is {{M016}}Complete Adverse Selection{{M017}}: {{M005}} and {{M006}}.
+    {{M018}} If {{M007}}, the unique equilibrium is {{M019}}Partial Pooling{{M020}}: {{M008}} is the unique solution to {{M009}}.
+{{M021}}

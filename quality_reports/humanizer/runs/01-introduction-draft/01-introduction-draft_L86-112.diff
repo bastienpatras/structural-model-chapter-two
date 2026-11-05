@@ -1,0 +1,15 @@
+--- before
++++ after
+@@ -16,9 +16,9 @@
+ thing buyers can never observe. Because the match requires a geocoded address, the matched
+ sample is the subset of listings that can be located at the address level rather than the full
+-listing universe. Within that matched sample, every listing falls into one of four groups, namely
+-truthful disclosers, strategic hiders who hold a certificate and omit it, genuinely uninformed
++listing universe. Within that matched sample, every listing falls into one of four groups: truthful
++disclosers, strategic hiders who hold a certificate and omit it, genuinely uninformed
+ sellers for whom no certificate exists, and a small residual displaying a score without a
+ verified audit. The information structure of the disclosure game is therefore observed rather
+-than inferred, a vantage point that to our knowledge is unique in this literature. Transaction
++than inferred, a vantage point that, to our knowledge, is unique in this literature. Transaction
+ records enter separately and are not matched to individual listings. We use them to estimate
+ the mapping from listing to realised sale price, which supports treating the listing price as

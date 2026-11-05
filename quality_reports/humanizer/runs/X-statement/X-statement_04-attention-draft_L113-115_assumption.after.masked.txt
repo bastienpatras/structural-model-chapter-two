@@ -1,0 +1,2 @@
+{{M006}}
+An EPC-sensitive buyer attends to energy with probability {{M001}} when the listing displays a rating and with probability {{M002}} when it does not. An attentive buyer subtracts the expected energy cost given what the listing shows: {{M003}} if a rating is displayed, {{M004}} otherwise. An inattentive buyer subtracts the default energy cost {{M005}} of Definition{{M007}}{{M008}}, whatever the listing shows.

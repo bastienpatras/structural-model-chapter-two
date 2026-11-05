@@ -1,0 +1,4 @@
+An increase in {{M002}} shifts the function {{M003}} downward. The boundaries become:
+{{M001}}
+
+The condition for full unraveling, {{M004}}, becomes easier to satisfy. The condition for partial separation, {{M005}}, becomes harder to satisfy.

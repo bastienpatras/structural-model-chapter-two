@@ -1,0 +1,4 @@
+{{M006}}
+{{M007}}
+{{M008}}Notes:{{M009}} Payoffs are measured relative to a disclosed low rating. {{M001}} is the rating premium, {{M002}} the net gain from hiding and {{M003}} the renovation cost net of the subsidy. An informed high-quality seller earns {{M004}} by disclosing and {{M005}} by hiding. An uninformed seller has no strategy.
+{{M010}}

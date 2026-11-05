@@ -1,0 +1,6 @@
+The first three assumptions have received sustained attention. The fourth has not, even though
+it governs the strength of the entire mechanism. What drives a seller to disclose is the revenue
+lost when buyers price silence pessimistically, and that loss is proportional to the share of
+buyers who care about the attribute in the first place. Whether unraveling describes any
+particular market is therefore an empirical question, and answering it requires knowing which of
+these assumptions fails there.

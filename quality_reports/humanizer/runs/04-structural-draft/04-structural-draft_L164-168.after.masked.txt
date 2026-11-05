@@ -1,0 +1,5 @@
+{{M003}}
+{{M004}}
+{{M005}}
+{{M006}}Notes:{{M007}} {{M001}} denotes the hiding probability for an informed seller with quality {{M002}}. Uninformed sellers cannot disclose and hide with probability one.
+{{M008}}

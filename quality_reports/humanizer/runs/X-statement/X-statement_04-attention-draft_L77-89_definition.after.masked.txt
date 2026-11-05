@@ -1,0 +1,6 @@
+{{M005}}
+The {{M006}}gross value{{M007}} of a dwelling with attributes {{M003}} is
+{{M001}}
+its value before any energy cost is subtracted. A buyer's {{M008}}cost-form valuation{{M009}} of a listing is
+{{M002}}
+where {{M004}} is the energy cost she subtracts, given what the listing shows and what she attends to.

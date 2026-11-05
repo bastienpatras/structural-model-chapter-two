@@ -1,0 +1,10 @@
+--- before
++++ after
+@@ -1,5 +1,5 @@
+ % ---------- ¶5  isolate the assumption at stake ----------
+-The descriptiveness of unraveling in this market accordingly hinges on assumption~(d).
+-Unlike disclosure costs and disclosure credibility, which a large literature has examined,
++Whether unraveling describes this market therefore hinges on assumption~(d).
++Disclosure costs and disclosure credibility have been examined in a large literature, but
+ the homogeneity of buyer valuations has received little attention, even though it sets the size of
+ the disclosure incentive. A seller's penalty for withholding is proportional to the share of

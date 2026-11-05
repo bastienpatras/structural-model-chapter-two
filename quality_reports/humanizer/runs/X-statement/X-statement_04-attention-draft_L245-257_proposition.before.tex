@@ -1,0 +1,12 @@
+\label{prop:att_equilibrium}
+Under Assumption~\ref{assum:attention}, an equilibrium exists, and it is characterised as follows.
+\begin{enumerate}[label=(\roman*)]
+    \item If $c_0>\Delta_\psi(\bar\theta)$, the unique equilibrium is Cost-Deterred Hiding, with $\sigma_0^*=0$ and $e^*=\bar\theta$.
+    \item If $c_0<\Delta_\psi(e(1))$, every informed low-quality seller hides, $\sigma_0^*=1$ (Complete Adverse Selection). Let $\bar g_1(\sigma_1)\equiv b\,[\tilde e(1,\sigma_1)-1]$ be the high type's gain. Then $\sigma_1^*=0$, with $e^*=e(1)$, is an equilibrium if and only if $\bar g_1(0)\le c_0+c_1$, and $\sigma_1^*=1$ is an equilibrium if and only if $\bar g_1(1)\ge c_0+c_1$. Both can hold, so equilibrium need not be unique in this regime. If $\psi=1$, only $\sigma_1^*=0$ survives.
+    \item If $\Delta_\psi(e(1))\le c_0\le\Delta_\psi(\bar\theta)$, the equilibrium is Partial Pooling. If $\psi>0$ it is unique, with
+    \begin{equation}
+        e^*\;=\;\frac{c_0/b-(1-\psi)\,e^{\rm def}}{\psi},\qquad \sigma_0^*\;=\;\frac{1-\pi}{\pi(1-\bar\theta)}\Big(\frac{\bar\theta}{e^*}-1\Big).
+        \label{eq:att_pp}
+    \end{equation}
+    If $\psi=0$, Partial Pooling requires $c_0=b\,e^{\rm def}$ exactly, and then every $\sigma_0\in[0,1]$ is an equilibrium.
+\end{enumerate}

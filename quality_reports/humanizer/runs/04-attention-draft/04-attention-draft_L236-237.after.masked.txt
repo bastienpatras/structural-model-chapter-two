@@ -1,0 +1,2 @@
+{{M001}}
+By analogy with{{M002}}{{M003}}, define the net hiding gain under limited attention,

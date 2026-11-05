@@ -1,0 +1,1 @@
+where {{M001}} is the expected transaction price conditional on a sale occurring, and {{M002}} is the hiding cost, paid only when the seller withholds information.

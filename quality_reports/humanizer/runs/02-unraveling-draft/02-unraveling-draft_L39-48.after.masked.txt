@@ -1,0 +1,10 @@
+The argument rests on four assumptions. First, (a){{M001}}buyers know
+that sellers possess private information about quality; if a seller may simply not know, silence
+no longer implies unwillingness to reveal. Second, (b){{M002}}disclosure is costless, or at least cheap
+relative to the price consequences of silence; a large literature examines how disclosure costs
+truncate the unraveling process and leave a residual pool of non-disclosers
+{{M003}}. Third, (c){{M004}}disclosure is credible, so that a claim about
+quality cannot be fabricated; without verifiability, disclosure degenerates into cheap talk and
+the unraveling logic never starts {{M005}}. Fourth, (d){{M006}}buyers are homogeneous in how much they value the
+disclosed attribute, so that the price penalty for silence is felt by every seller with equal
+force.

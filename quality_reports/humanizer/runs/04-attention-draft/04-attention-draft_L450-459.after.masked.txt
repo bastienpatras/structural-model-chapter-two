@@ -1,0 +1,10 @@
+{{M007}}
+    {{M008}}
+    {{M001}}
+    {{M009}}
+    {{M010}}
+    {{M011}}
+        {{M012}}
+        {{M013}}{{M014}}Notes.{{M015}} Each market appears twice at the same observed premium {{M002}} (vertical axis, log points): at the core-model prediction {{M003}} (hollow) and at the limited-attention prediction {{M004}} (filled), joined by a thin line. The dashed line marks observed equal to predicted. The box reports the mean residual, the root mean squared error and the correlation of each prediction with {{M005}}. The zero mean residual of the extension holds by construction, because {{M006}} is estimated from the same aggregate ratio. The apartment sample has {{M016}} markets and the house sample {{M017}}.
+    {{M018}}
+{{M019}}

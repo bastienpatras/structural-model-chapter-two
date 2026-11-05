@@ -1,0 +1,8 @@
+From Proposition {{M009}}, the non-disclosure premium exists if and only if {{M002}}.
+
+For a high-quality seller ({{M003}}), this condition requires {{M004}}. But {{M005}}, so {{M006}} always. Therefore the condition never holds: high-quality sellers never earn a premium from hiding.
+
+In fact, the inequality is strict whenever the non-disclosing pool contains any low-quality sellers. In that case {{M007}}, so:
+{{M001}}
+
+Disclosure yields a strictly higher valuation, and therefore strictly higher profit. Adding hiding costs {{M008}} only reinforces this: disclosure dominates hiding.

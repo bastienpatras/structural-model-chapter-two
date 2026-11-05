@@ -1,0 +1,39 @@
+\upshape
+\emph{Idea.} Salience can save only what hiders lose, their rent $g_0-c_i$; that rent falls by at most $\lambda$, and the subsidy moves one for one with the rent only over a window of length $\min\{b,\hat R\}$. \emph{Notation.} $c_i$, $g_0$, $r_i$, $\bar R_i$ and $S_i^*$ are defined in Steps~1--2; $\lambda=(1-\hat\psi)b(e^{\rm def}-\hat e)$.
+
+\emph{Step 1 (Gain and hiding rate).} Let $c_i\sim G$ be seller $i$'s hiding cost and
+\begin{equation*}
+    g_0\;=\;b\,[\hat\psi\hat e+(1-\hat\psi)e^{\rm def}]
+\end{equation*}
+the gain from hiding at the observed pool. A seller with $c_i<g_0$ hides, so $\hat\sigma_0=G(g_0)$.
+
+\emph{Step 2 (Individual threshold and subsidy).} A hider earns the rent $g_0-c_i$, which renovation destroys up to the premium $b$. With $r_i=(g_0-c_i)^+$, her threshold and minimum subsidy are
+\begin{equation*}
+    \bar R_i\;=\;b-\min\{(g_0-c_i)^+,b\},\qquad S_i^*\;=\;(\hat R-b+\min\{r_i,b\})^+.
+\end{equation*}
+
+\emph{Step 3 (The gain after $\psi\to1$).} Raising $\psi$ to one lowers the gain from hiding to $g_0'=b\,e(\sigma_0')$. Here $\sigma_0'=G(g_0')\le\hat\sigma_0$, because the hiding rate falls (Proposition~\ref{prop:att_equilibrium}). Also $g_0'\ge b\hat e$, because $e(\sigma_0')\ge\hat e$.
+% [CHECK] Proposition att_equilibrium treats a single hiding cost; with a cost distribution G the fall in the hiding rate follows from the fixed point sigma=G(b e(sigma)). See ledger, ISSUE A1.
+
+\emph{Step 4 (Each rent falls by at most $\lambda$).} By Step~3,
+\begin{equation*}
+    g_0-g_0'\;\le\;g_0-b\hat e\;=\;\lambda.
+\end{equation*}
+By cost:
+\begin{itemize}
+    \item \emph{$c_i<g_0'$:} the rent falls by $g_0-g_0'\le\lambda$;
+    \item \emph{$g_0'\le c_i<g_0$:} the rent falls from $g_0-c_i\le g_0-g_0'\le\lambda$ to zero;
+    \item \emph{$c_i\ge g_0$:} the seller has no rent.
+\end{itemize}
+
+\emph{Step 5 (Each subsidy falls by at most $\min\{\lambda,b,\hat R\}$).} The function $r\mapsto(\hat R-b+\min\{r,b\})^+$ is non-decreasing, flat for $r\ge b$ and for $r\le b-\hat R$, with slope one in between. So a fall in $r$ of at most $\lambda$ (Step~4) lowers it by at most $\min\{\lambda,b,\hat R\}$: the slope region has length $\min\{b,\hat R\}$.
+
+\emph{Step 6 (The bound).} Only the share $\hat\sigma_0$ of sellers has a positive rent (Steps~1 and~4). Averaging Step~5 over sellers gives the bound $\hat\sigma_0\min\{\lambda,b,\hat R\}$.
+
+\emph{Step 7 (Cases with zero saving).}
+\begin{itemize}
+    \item \emph{Cost-Deterred Hiding.} $\hat\sigma_0=0$.
+    \item \emph{A programme that reaches only the share $1-\hat\sigma_0$ of sellers who disclose today.} It pays them $\hat R-b$ before and after, because their rent is zero.
+    % [CHECK] Strictly (\hat R-b)^+; the two coincide when \hat R>=b. See ledger, ISSUE A2.
+    \item \emph{One common cost, in Partial Pooling.} The rent is zero for every seller.
+\end{itemize}

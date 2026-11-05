@@ -1,0 +1,2 @@
+{{M002}}
+Of the three buyer types in Table{{M003}}{{M004}}, only the attentive EPC-sensitive buyer forms a belief about a silent listing. Her belief is the Bayesian {{M001}} of{{M005}}{{M006}}, unchanged: the share of efficient dwellings among silent listings. The insensitive buyer does not care about energy, and the inattentive sensitive buyer would care but does not think about it on this listing, so she subtracts the default instead. The Bayesian belief therefore reaches prices only through attentive buyers.

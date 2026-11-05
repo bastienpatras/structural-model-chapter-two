@@ -1,0 +1,16 @@
+{{M001}}
+Our paper draws on three strands of work. It belongs to the literature that estimates
+disclosure models structurally in order to assess the descriptiveness of classical disclosure
+theory and to recover primitives such as information endowment, disclosure costs, and beliefs;
+closest to us is {{M002}}, who structurally examine whether the unraveling
+result describes an unregulated nineteenth-century market and find that full disclosure is
+reached only gradually. Where that literature and the experimental work on disclosure ask how far
+receivers infer the worst from silence {{M003}}, our extension
+asks whether they attend to silence at all, drawing on evidence that limited attention changes how
+disclosed and undisclosed information is priced {{M004}}.
+It is closely related to the extensive evidence on the capitalisation of energy labels in
+housing, which documents consistent premia for efficient properties wherever labels have been
+studied {{M005}}; that literature establishes that labels are priced, whereas our question
+is why their {{M006}}absence{{M007}} is priced favourably. And it builds on work on information
+asymmetry in real-estate markets, where the informational advantage of one side of the
+transaction has been inferred from prices and time-on-market {{M008}}.

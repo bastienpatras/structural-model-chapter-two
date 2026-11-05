@@ -1,0 +1,2 @@
+{{M006}}
+{{M001}} is weakly decreasing in {{M002}} and weakly increasing in {{M003}}, strictly so if and only if {{M004}}, with {{M005}}.

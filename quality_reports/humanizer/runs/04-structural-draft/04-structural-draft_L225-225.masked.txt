@@ -1,0 +1,1 @@
+Write {{M001}} for the revenue a low-quality seller gains from non-disclosure when buyers hold belief {{M002}}, and define the net hiding gain {{M003}} as that revenue gain net of the hiding cost:

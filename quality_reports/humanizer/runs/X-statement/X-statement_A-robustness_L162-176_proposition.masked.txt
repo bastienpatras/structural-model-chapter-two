@@ -1,0 +1,14 @@
+{{M018}}
+Given consistent estimates of {{M001}} from the ADEME registry match
+and {{M002}} from the disclosed-price DiD:
+{{M019}}
+    {{M020}} {{M003}} is point identified: {{M004}}.
+    {{M021}} If {{M005}} (Partial Pooling), {{M006}} is point identified,
+        {{M022}}without reference to {{M007}} or {{M008}} separately{{M023}}:
+        {{M009}}.
+    {{M024}} If {{M010}} (Cost-Deterred Hiding), {{M011}}; if
+        {{M012}} (Complete Adverse Selection), {{M013}}.
+    {{M025}} {{M014}} is an over-identifying restriction: {{M015}},
+        i.e.{{M026}}{{M016}} in Partial Pooling.
+    {{M027}} {{M017}} itself is not identified (Proposition{{M028}}{{M029}}).
+{{M030}}

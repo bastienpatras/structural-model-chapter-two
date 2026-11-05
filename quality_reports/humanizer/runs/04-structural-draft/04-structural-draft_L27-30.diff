@@ -1,0 +1,10 @@
+--- before
++++ after
+@@ -1,4 +1,3 @@
+-We allow for, but do not impose, strategic concealment. Nothing in the specification requires
+-informed sellers to withhold. The hiding rate is an equilibrium object, the model admits full
+-unravelling as a special case, and whether concealment occurs, and how much, is what the
+-estimation determines.
++The specification allows for strategic concealment and nothing in it requires informed sellers to
++withhold. The hiding rate is an equilibrium object, the model admits full unravelling as a special
++case, and the estimation determines whether concealment occurs and how much.

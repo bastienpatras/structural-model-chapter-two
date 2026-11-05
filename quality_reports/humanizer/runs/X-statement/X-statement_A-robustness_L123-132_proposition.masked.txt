@@ -1,0 +1,8 @@
+{{M013}}
+Under the benchmark pricing rule {{M001}} (Section{{M014}}{{M015}}), fix any
+parameter vector with {{M002}} and {{M003}} for all markets {{M004}}, and any
+{{M005}}. The reparametrization {{M006}} is admissible and induces an identical joint distribution of
+observed prices, an identical equilibrium hiding rate {{M007}}, and an identical
+equilibrium regime, in every market and every period. Consequently {{M008}} and {{M009}}
+are not separately identified by any price-based moment implied by the model, for any number of
+markets {{M010}}; only the composites {{M011}} and {{M012}} are.

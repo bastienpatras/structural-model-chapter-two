@@ -1,0 +1,5 @@
+{{M012}}
+{{M013}}
+{{M014}}
+{{M015}}Notes:{{M016}} Equilibria with {{M001}}. A dash marks a seller type that is not on the equilibrium path; in Cost-Deterred Hiding a low-quality seller who deviated to silence would earn {{M002}}. Displayed prices do not depend on beliefs (Lemma{{M017}}{{M018}}) and are defined in every regime. {{M003}} is defined in{{M019}}{{M020}} for {{M004}}; if {{M005}} silence never sells above an efficient rating. Uninformed sellers bear no hiding cost; relative to her own verified price, an uninformed high-quality seller earns {{M006}}. In Complete Adverse Selection with {{M007}} (Proposition{{M021}}{{M022}}), {{M008}} and an informed high-quality seller hides and earns {{M009}}. At {{M010}} the silent price is {{M011}} in every column (Table{{M023}}{{M024}}).
+{{M025}}

@@ -1,0 +1,8 @@
+The Jacobian of {{M002}} with respect to {{M003}} at a Partial
+Pooling equilibrium, holding {{M004}} fixed, is
+{{M001}}
+with determinant {{M005}} whenever
+{{M006}} and {{M007}}. Local identification follows; global
+identification follows from strict monotonicity of {{M008}} in
+{{M011}} and, given {{M009}}, of {{M010}} through the
+strictly decreasing belief function of Lemma{{M012}}{{M013}}.

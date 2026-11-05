@@ -1,0 +1,42 @@
+\upshape
+\emph{Idea.} When $\sigma_1=0$, the low type's net gain $\Phi_\psi(\sigma_0)$ is continuous and weakly decreasing, so the regimes follow from its sign at $\sigma_0=0$ and $\sigma_0=1$, as in Proposition~\ref{prop:equilibrium}. What is new is that, once every low type hides, high-quality hiding improves the pool and reinforces itself, so equilibria can be multiple. Objects used: $\Phi_\psi$ in~\eqref{eq:Phi_psi}, $\Delta_\psi$ in~\eqref{eq:Delta_psi}, the high type's gain $\bar g_1(\sigma_1)=b\,[\tilde e(1,\sigma_1)-1]$, and $e(1,1)=\bar\theta$.
+
+\emph{Step 1 (preliminaries).} Whenever $\sigma_0^*<1$, $\sigma_1^*=0$ by Corollary~\ref{cor:att_hq}. $\Phi_\psi$ is continuous on $[0,1]$. By Lemma~\ref{lem:etilde_monotone}, it is strictly decreasing if $\psi>0$ and constant if $\psi=0$.
+
+\emph{Step 2 (Cost-Deterred Hiding, $c_0>\Delta_\psi(\bar\theta)$).} This follows as in Proposition~\ref{prop:equilibrium}. By Step~1, $\Phi_\psi(\sigma_0)\le\Phi_\psi(0)=\Delta_\psi(\bar\theta)-c_0<0$ for every $\sigma_0$, so $\sigma_0^*=0$ and $e^*=\bar\theta$.
+% [CHECK] Gap in the original: "as in Proposition prop:equilibrium" does not rule out equilibria with
+% [CHECK] sigma_1^*>0, which cannot arise in the core model. Proposed fix: Step 6 below uses only
+% [CHECK] c_0 >= Delta_psi(e(1)), which holds here, so it applies verbatim (the proof of
+% [CHECK] Proposition prop:att_seller_types already says so). See ledger, ISSUE 2.
+
+\emph{Step 3 (Complete Adverse Selection: every low type hides).} Let $c_0<\Delta_\psi(e(1))$. Since $\Phi_\psi$ is decreasing,
+\begin{equation*}
+    \Phi_\psi(\sigma_0)\;\ge\;\Phi_\psi(1)\;=\;\Delta_\psi(e(1))-c_0\;>\;0\qquad\text{for every }\sigma_0 .
+\end{equation*}
+Hiding is strictly profitable for every low-quality seller, a fortiori when $\sigma_1>0$ because $\tilde e$ is weakly increasing in $\sigma_1$ (Lemma~\ref{lem:etilde_monotone}). So $\sigma_0^*=1$.
+
+\emph{Step 4 (Complete Adverse Selection: high-quality best responses).} Given $\sigma_0=1$, a high-quality seller hides iff $\bar g_1(\sigma_1)>c_0+c_1$. By Lemma~\ref{lem:etilde_monotone}, $\bar g_1$ is continuous and increasing in $\sigma_1$: high-quality hiding is self-reinforcing because it improves the pool. Hence
+\begin{itemize}
+    \item $\sigma_1=0$ is a best response to itself iff $\bar g_1(0)\le c_0+c_1$;
+    \item $\sigma_1=1$ is a best response to itself iff $\bar g_1(1)\ge c_0+c_1$.
+\end{itemize}
+In both cases $\sigma_0=1$ remains a best response, because by~\eqref{eq:gains} a low-quality seller's gain exceeds a high-quality seller's by $b$.
+
+\emph{Step 5 (Complete Adverse Selection: existence and multiplicity).} One of the two conditions of Step~4, or an interior crossing of $\bar g_1$ with $c_0+c_1$, always holds, so an equilibrium exists. Uniqueness can fail. With $\pi=0.5$, $\bar\theta=0.6$, $e^{\rm def}=2.3$ and $\psi=0.5$,
+\begin{equation*}
+    \bar g_1(0)/b\;=\;0.364,\qquad\bar g_1(1)/b\;=\;0.450,
+\end{equation*}
+so any $(c_0+c_1)/b$ between the two supports both. If $\psi=1$, then $\tilde e(1,\sigma_1)=e(1,\sigma_1)<1$, so $\bar g_1<0$ and only $\sigma_1^*=0$ survives.
+
+\emph{Step 6 (Partial Pooling: no high-quality hiding).} Let $\Delta_\psi(e(1))\le c_0\le\Delta_\psi(\bar\theta)$. An equilibrium with $\sigma_1^*>0$ would need $\sigma_0^*=1$ and $\bar g_1(\sigma_1)\ge c_0+c_1\ge\Delta_\psi(e(1))$. By Lemma~\ref{lem:etilde_monotone} and $e(1,1)=\bar\theta$, $\bar g_1(\sigma_1)\le\bar g_1(1)=\Delta_\psi(\bar\theta)-b$, so it would need $\Delta_\psi(\bar\theta)-\Delta_\psi(e(1))\ge b$. But, by~\eqref{eq:Delta_psi},
+\begin{equation*}
+    \Delta_\psi(\bar\theta)-\Delta_\psi(e(1))\;=\;\psi\,b\,\big[\bar\theta-e(1)\big]\;<\;b.
+\end{equation*}
+
+\emph{Step 7 (Partial Pooling with $\psi>0$).} By Step~6, $\sigma_1^*=0$. In the band, $\Phi_\psi(0)=\Delta_\psi(\bar\theta)-c_0\ge0\ge\Delta_\psi(e(1))-c_0=\Phi_\psi(1)$, so the intermediate value theorem gives a zero of $\Phi_\psi$. It is unique by strict monotonicity (Step~1). Solving $\Delta_\psi(e^*)=c_0$ gives
+\begin{equation*}
+    e^*\;=\;\frac{c_0/b-(1-\psi)\,e^{\rm def}}{\psi},
+\end{equation*}
+the first expression in~\eqref{eq:att_pp}. Inverting~\eqref{eq:belief_simplified} at $e^*$ gives $\sigma_0^*$.
+
+\emph{Step 8 (Partial Pooling with $\psi=0$).} $\Phi_0$ is constant. If it is non-zero, one of the corners obtains. If it is zero, every $\sigma_0$ is a best response.

@@ -1,0 +1,2 @@
+{{M004}}
+{{M001}} is strictly decreasing in {{M002}} and strictly increasing in {{M003}}.

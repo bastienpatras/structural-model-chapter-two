@@ -1,0 +1,5 @@
+--- before
++++ after
+@@ -1 +1 @@
+-The model does not take a stance on why apartment buyers fail to attend to energy when no rating is shown. It may be that energy is bundled into service charges. It may be that apartment buyers, often moving from rented housing in which heating was included, have no habit of pricing it. Or it may be that decisions in fast urban markets leave little room to ask. Irrespective of which applies, the implication for prices is the same, and so is the estimate.
++The model does not take a stance on why apartment buyers fail to attend to energy when no rating is shown. Energy may be bundled into service charges; apartment buyers, often moving from rented housing in which heating was included, may have no habit of pricing it; or decisions in fast urban markets may leave little room to ask. Whichever applies, the implication for prices is the same, and so is the estimate.

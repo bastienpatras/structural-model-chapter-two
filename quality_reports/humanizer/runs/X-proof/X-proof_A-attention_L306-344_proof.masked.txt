@@ -1,0 +1,30 @@
+{{M037}}
+{{M038}}Idea.{{M039}} Under Assumption{{M040}}{{M041}}, the reform-induced changes in the two premia are the post-reform premia of Lemma{{M042}}{{M043}}. Their ratio cancels {{M013}} and leaves the perceived cost of silence on the quality scale. Shorthand: {{M014}}, {{M015}} and {{M016}}.
+
+{{M044}}Step 1 (attention to displayed ratings, (i)).{{M045}} With {{M017}},{{M046}}{{M047}} in differences gives
+{{M001}}
+which {{M018}} estimates. Dividing by the anchor gives {{M019}}.
+{{M005}}
+{{M006}}
+{{M007}}
+
+{{M048}}Step 2 (the non-disclosure premium in differences).{{M049}} Under Assumption{{M050}}{{M051}} the pre-reform energy terms vanish. By{{M052}}{{M053}}, in differences,
+{{M002}}
+where {{M020}} is evaluated at the post-reform pool.
+
+{{M054}}Step 3 (the perceived cost of silence, (ii)).{{M055}} Dividing Step{{M056}}2 by Step{{M057}}1,
+{{M003}}
+Since {{M021}} and {{M022}} are known, the ratio pins down {{M023}}.
+
+{{M058}}Step 4 (point identification under {{M024}}, (iii)).{{M059}} Subtract {{M025}} from Step{{M060}}3 and multiply by {{M026}}:
+{{M004}}
+Setting {{M027}} (so {{M028}}) and replacing {{M029}} and {{M030}} by their estimates gives{{M061}}{{M062}}.
+
+{{M063}}Step 5 (the identified set, (iii)).{{M064}} The identified set follows because {{M031}} is a convex combination of {{M032}} and {{M033}}. In particular {{M034}}.
+{{M008}}
+{{M009}}
+{{M010}}
+{{M011}}
+{{M012}}
+
+{{M065}}Step 6 (the hiding cost, (iv)).{{M066}} In Partial Pooling the indifference of the informed low-quality seller gives {{M035}} (Proposition{{M067}}{{M068}}). Under Assumption{{M069}}{{M070}} the post-reform premium equals {{M036}}.

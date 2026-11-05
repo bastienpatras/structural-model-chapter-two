@@ -1,0 +1,1 @@
+We provide a visual representation of the model dynamics and timing in Figure{{M001}}{{M002}}; a fuller schematic overview appears later in Figure{{M003}}{{M004}}.

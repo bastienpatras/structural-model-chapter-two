@@ -1,0 +1,2 @@
+{{M002}}
+The seller's problem is{{M003}}{{M004}}, with hiding cost {{M001}}, interpreted as in Section{{M005}}{{M006}}. The extension leaves the seller side of the model unchanged. It changes only how buyers price what a listing shows, and therefore what a seller gains by showing nothing.

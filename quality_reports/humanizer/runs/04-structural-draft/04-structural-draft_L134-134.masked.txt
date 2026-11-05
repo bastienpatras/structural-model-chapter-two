@@ -1,0 +1,1 @@
+Each seller is characterized by two attributes: information status {{M001}} and quality {{M002}}. We maintain the following assumption throughout.

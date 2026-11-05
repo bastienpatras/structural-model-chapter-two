@@ -1,0 +1,10 @@
+{{M006}}
+    {{M007}}
+    {{M001}}
+    {{M008}}
+    {{M009}}
+    {{M010}}
+    {{M011}}
+        {{M012}}{{M013}}Notes.{{M014}} Each panel shows the cross-market distribution of {{M002}} (euros per m{{M015}}) for one property type, with {{M003}} the market's median price per m{{M016}}. Vertical lines mark the renovation-cost benchmarks {{M004}} and {{M005}}. Every market is in Partial Pooling at the estimated attention, so the threshold is the rating premium throughout (Proposition{{M017}}{{M018}}).
+    {{M019}}
+{{M020}}

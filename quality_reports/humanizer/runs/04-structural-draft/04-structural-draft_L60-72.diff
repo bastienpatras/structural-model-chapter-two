@@ -1,0 +1,13 @@
+--- before
++++ after
+@@ -1,3 +1,3 @@
+-Finally, we are explicit about what the model does not settle. It takes no stance on
++The model leaves several things unsettled. It takes no stance on
+ \emph{why} an informed seller withholds, since deliberate concealment and an unrecorded but
+ still-valid certificate are observationally similar in the listing data, and we do not
+@@ -10,4 +10,3 @@
+ buyer sensitivity but cannot establish how close to one it lies, and we maintain
+ $\hat\rho_m = 1$ for those markets and treat $\hat c_{0,m}$ as an upper bound accordingly. We
+-do not purport to estimate the one true model of housing disclosure; we propose one way of
+-reading these data through a workhorse framework.
++propose one way of reading these data through a workhorse framework and make no claim to the one true model of housing disclosure.

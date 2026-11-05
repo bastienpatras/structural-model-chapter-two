@@ -1,0 +1,15 @@
+The Jacobian of $(\beta_{1,m},\sigma_{0,m})$ with respect to $(\rho_m,c_{0,m})$ at a Partial
+Pooling equilibrium, holding $\beta_{1,m}^{\mathrm{anchor}}$ fixed, is
+\[
+\begin{pmatrix}
+\beta_{1,m}^{\mathrm{anchor}} & 0 \\[2pt]
+k\,\beta_{1,m}^{\mathrm{anchor}} & -k\,\rho_m\,\beta_{1,m}^{\mathrm{anchor}}/c_{0,m}
+\end{pmatrix},
+\qquad
+k\equiv\frac{(1-\pi_m)\bar\theta_m}{c_{0,m}\,\pi_m(1-\bar\theta_m)},
+\]
+with determinant $-k\,\rho_m\,(\beta_{1,m}^{\mathrm{anchor}})^2/c_{0,m}\ne0$ whenever
+$\rho_m,c_{0,m}>0$ and $\pi_m,\bar\theta_m\in(0,1)$. Local identification follows; global
+identification follows from strict monotonicity of $\beta_{1,m}\mapsto\rho_m$ in
+\eqref{eq:anchored_estimator} and, given $\rho_m$, of $\sigma_{0,m}\mapsto c_{0,m}$ through the
+strictly decreasing belief function of Lemma~\ref{lem:belief_monotone}.

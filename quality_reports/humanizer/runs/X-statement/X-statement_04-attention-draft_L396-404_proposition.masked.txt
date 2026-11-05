@@ -1,0 +1,8 @@
+{{M013}}
+Under Assumptions{{M014}}{{M015}} and{{M016}}{{M017}} and the maintained assumptions of Section{{M018}}{{M019}}:
+{{M020}}
+    {{M021}} {{M001}} identifies {{M002}}, the reform-induced increase in effective attention to displayed ratings; with {{M003}} it is the {{M004}} of Section{{M022}}{{M023}};
+    {{M024}} {{M005}} identifies the perceived cost of silence {{M006}}, in units of certified consumption;
+    {{M025}} given {{M007}},{{M026}}{{M027}} point-identifies {{M008}}; without that normalisation, {{M009}} and {{M010}};
+    {{M028}} in Partial Pooling, the hiding cost of the informed low-quality seller equals the post-reform non-disclosure premium, {{M011}}, which {{M012}} estimates.
+{{M029}}

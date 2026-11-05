@@ -1,0 +1,12 @@
+The model leaves several things unsettled. It takes no stance on
+{{M005}}why{{M006}} an informed seller withholds, since deliberate concealment and an unrecorded but
+still-valid certificate are observationally similar in the listing data, and we do not
+attempt to separate them. It assumes no falsification, so a displayed score is taken at face
+value. And it maintains Corollary{{M007}}{{M008}}, {{M001}}, rather than testing
+it; Section{{M009}}{{M010}} relaxes the buyer side and shows where this restriction survives. Informed non-disclosers are assigned low quality by revealed preference, which is an
+assumption and not a result. Appendix{{M011}}{{M012}} reports estimates that instead read
+the withheld quality from the registry, so the restriction can be assessed. Nor does the
+design pin down {{M002}} from the interior in most markets, where the data are consistent with full
+buyer sensitivity but cannot establish how close to one it lies, and we maintain
+{{M003}} for those markets and treat {{M004}} as an upper bound accordingly. We
+propose one way of reading these data through a workhorse framework and make no claim to the one true model of housing disclosure.

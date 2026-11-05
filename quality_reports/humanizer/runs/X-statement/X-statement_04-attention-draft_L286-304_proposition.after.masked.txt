@@ -1,0 +1,12 @@
+{{M022}}
+Under Assumption{{M023}}{{M024}}, with {{M003}}, measure prices and payoffs relative to a listing displaying an inefficient rating, and consider an equilibrium with {{M004}}. A listing displaying an efficient rating sells at {{M005}}, and a silent listing at
+{{M001}}
+the hiding cost truncated to the Partial Pooling band. An informed high-quality seller earns {{M006}}, an informed low-quality seller earns {{M007}}, and an uninformed seller of either quality earns {{M008}} (Table{{M025}}{{M026}}). By regime:
+{{M027}}
+    {{M028}} in {{M029}}Cost-Deterred Hiding{{M030}}, {{M009}}, and every informed low-quality seller displays her rating and earns zero;
+    {{M031}} in {{M032}}Partial Pooling{{M033}}, {{M010}} and {{M011}}. Every informed low-quality seller earns zero, whether she hides or displays, and the uninformed seller earns {{M012}}. A silent listing sells above a verified efficient rating if and only if {{M013}}. Payoffs are then ordered uninformed, informed high quality, informed low quality; if {{M014}} they are ordered informed high quality, uninformed, informed low quality;
+    {{M034}} in {{M035}}Complete Adverse Selection{{M036}}, {{M015}}, and every informed low-quality seller hides and earns {{M016}}, which is {{M017}} less than the uninformed seller.
+{{M037}}
+In every regime, a silent listing sells above a verified efficient rating, {{M018}}, if and only if {{M019}} and
+{{M002}}
+the threshold of Proposition{{M038}}{{M039}}(iii) evaluated at the equilibrium belief. The uninformed seller then earns more than an informed high-quality seller and at least as much as any informed seller. In an equilibrium with {{M020}}, which exists only in Complete Adverse Selection, {{M021}}.

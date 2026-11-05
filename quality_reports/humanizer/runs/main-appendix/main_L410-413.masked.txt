@@ -1,0 +1,4 @@
+{{M004}}
+    {{M005}} {{M001}}: whether a verified EPC exists at listing time
+    {{M006}} {{M002}}: the true (verified) EPC score (if {{M003}})
+{{M007}}

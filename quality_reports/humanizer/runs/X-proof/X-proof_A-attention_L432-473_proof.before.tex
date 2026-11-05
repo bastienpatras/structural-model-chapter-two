@@ -1,0 +1,41 @@
+\upshape
+\emph{Idea.} Renovation buys the rating premium $b$ and forfeits the rent from hiding; that rent is zero unless every informed low-quality seller hides, so $\bar R=b$ outside Complete Adverse Selection. \emph{Notation.} $h=g_0-c_0$, $\tilde e(1,0)=\psi e(1)+(1-\psi)e^{\rm def}$, $S^*=\max\{\hat R-\bar R,0\}$.
+
+\emph{Step 1 (The threshold formula).} A renovating seller chooses between Strategies~3 and~4 and earns $\max\{b,h\}-(\hat R-S)$. A seller who does not renovate earns $\max\{0,h\}$. The threshold is therefore
+\begin{equation*}
+    \bar R=\max\{b,h\}-\max\{0,h\}=b-\min\big\{\max\{h,0\},\,b\big\}\;\in\;[0,b].
+\end{equation*}
+
+\emph{Step 2 (The bound in every regime).} By Step~1, $\bar R\le b$ in every regime. Hence $S^*=\max\{\hat R-\bar R,0\}\ge\max\{\hat R-b,0\}$, which is the bound stated before the regimes.
+% [CHECK] The original proof calls this bound "part (iii)"; the statement has no part (iii). See ledger, ISSUE T1.
+
+\emph{Step 3 (Cost-Deterred Hiding and Partial Pooling: $\bar R=b$).}
+\begin{itemize}
+    \item \emph{Cost-Deterred Hiding.} At the equilibrium pool $c_0>\Delta_\psi(\bar\theta)=g_0$, so $h<0$ and Step~1 gives $\bar R=b$.
+    \item \emph{Partial Pooling.} The marginal informed low-quality seller is indifferent between hiding and disclosing, $g_0=c_0$ by~\eqref{eq:att_pp}. So $h=0$ and Step~1 gives $\bar R=b$.
+\end{itemize}
+
+\emph{Step 4 (Properties of $b$).} The expression $b=\rho\omega_1\beta_1$ contains neither $c_0$, $\pi$, $\psi$ nor $C^{\rm def}$, and $\partial b/\partial(\rho\omega_1)=\beta_1$.
+% [CHECK] The statement also signs this derivative (>0); the proof does not say beta_1=C_0-C_1>0. See ledger, ISSUE T2.
+
+\emph{Step 5 (Complete Adverse Selection, $\sigma_1^*=0$).} In Complete Adverse Selection $c_0<\Delta_\psi(e(1))$, so $h=g_0-c_0>0$ at the pool $e(1)$. With $\sigma_1^*=0$, $g_1\le c_0$ gives $h\le b$ (since $h-b=g_1-c_0$). Step~1 then gives
+\begin{equation*}
+    \bar R=b-h=b\,[1-\tilde e(1,0)]+c_0,\qquad \tilde e(1,0)=\psi e(1)+(1-\psi)e^{\rm def}.
+\end{equation*}
+$h>0$ gives $\bar R<b$, and $h\le b$ gives $\bar R\ge0$.
+
+\emph{Step 6 (Complete Adverse Selection, $\sigma_1^*>0$).} Now $g_1\ge c_0$, which gives $h\ge b$. So $\max\{b,h\}=h$, and Step~1 gives $\bar R=0$.
+
+\emph{Step 7 (Derivatives in Table~\ref{tab:threshold_cs}).} Write the threshold of Step~5 as
+\begin{equation*}
+    \bar R=b\,[1-\psi e(1)-(1-\psi)e^{\rm def}]+c_0.
+\end{equation*}
+Differentiating,
+\begin{align*}
+    \partial\bar R/\partial c_0&=1, & \partial\bar R/\partial\psi&=b\,[e^{\rm def}-e(1)],\\
+    \partial\bar R/\partial\pi&=-b\,\psi\,e'(1),\quad e'(1)=\frac{\bar\theta(\bar\theta-1)}{(1-\pi\bar\theta)^2}<0, & \partial\bar R/\partial(\rho\omega_1)&=\beta_1(1-\tilde e).
+\end{align*}
+The last uses that $e(1)$ and $e^{\rm def}$ do not depend on $\rho\omega_1$.
+% [CHECK] The table's C^def row, rho omega_1 (1-psi), is not derived here. See ledger, ISSUE T3.
+
+\emph{Step 8 (Full attention).} At $\psi=\omega_1=1$, $\tilde e=e$, and only $\sigma_1^*=0$ survives in Complete Adverse Selection (Proposition~\ref{prop:att_equilibrium}(ii)). This is the full-attention statement.

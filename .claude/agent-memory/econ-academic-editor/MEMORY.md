@@ -1,0 +1,3 @@
+- [user_profile.md](user_profile.md) — Bastien Patras: PhD student, Sciences Po Paris, housing markets and structural econometrics
+- [project_paper.md](project_paper.md) — Full notation, identification strategy, estimates, and conventions for "Mandatory Disclosure and Housing Market Dynamics"
+- [estimation_diagnostics.md](estimation_diagnostics.md) — Apts (40 mkts, all clipped); Houses (100 mkts, 8 interior, 25 Cost-Deterred Hiding, 67 clipped); σ̂₁_m=0 robust both types

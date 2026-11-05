@@ -1,0 +1,5 @@
+Let {{M002}} denote the optimal price given sensitive-buyer valuation {{M003}}. By the envelope theorem, the effect of a small increase in {{M004}} on maximized profit is:
+{{M001}}
+where we evaluate the partial derivative of the objective holding {{M005}} fixed at the optimum.
+
+All three terms are positive: {{M006}} (expected transaction price is positive), {{M007}} (by assumption), and {{M008}} (logistic density is everywhere positive). Therefore {{M009}}.

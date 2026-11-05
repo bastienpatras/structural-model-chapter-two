@@ -1,0 +1,10 @@
+{{M033}}
+Take a market in Partial Pooling at the observed hiding rate, with beliefs held fixed in the renovation decision, and assume {{M002}}, as in our estimates, where {{M003}} gives {{M004}}.
+{{M034}}
+    {{M035}} {{M036}}Raising the share of informed sellers {{M005}} to one,{{M037}} with the off-path belief after silence equal to zero, leaves {{M006}} and the minimum subsidy unchanged. It raises the population who can renovate from the informed to every low-quality dwelling, and removes hiding whenever {{M007}}, which holds in any market that starts in Partial Pooling, since with no uninformed sellers a silent listing is priced at the default.
+    {{M038}} {{M039}}Making silence as salient as a rating{{M040}} (raising {{M008}} to {{M009}}, so {{M010}}, with {{M011}} and {{M012}} fixed). What a displayed rating is worth, {{M013}}, does not change; only the price of silent listings falls, by {{M014}}. The threshold stays at {{M015}} and the minimum subsidy {{M016}} is unchanged, and with beliefs held fixed so is the share of informed low-quality sellers who renovate at any subsidy. The hiding rate falls weakly, to zero if {{M017}}. In the equilibrium of Proposition{{M041}}{{M042}} the subsidy needed for full take-up falls by {{M018}}, which is {{M019}} when the market moves to Cost-Deterred Hiding.
+    {{M043}} {{M044}}Full attention{{M045}} (every EPC-sensitive buyer attends to energy on every listing, rated or not: {{M020}}, so also {{M021}}). The rating premium rises to {{M022}}. The data identify only {{M023}}, so {{M024}} and the change in the threshold satisfies
+    {{M001}}
+    The lower bound is the maintained reading {{M025}} and the upper bound corresponds to {{M026}}. Where {{M027}} the threshold is unchanged. Outside Complete Adverse Selection {{M028}}; in a market that moves into it the threshold is {{M029}}, which is at least {{M030}}.
+    {{M046}} {{M047}}Enforcement.{{M048}} A rise in {{M031}} leaves {{M032}} unchanged outside Complete Adverse Selection and moves the market toward Cost-Deterred Hiding.
+{{M049}}

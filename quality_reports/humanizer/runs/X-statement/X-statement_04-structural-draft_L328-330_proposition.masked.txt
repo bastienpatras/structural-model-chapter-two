@@ -1,0 +1,2 @@
+{{M007}}
+As {{M001}} increases, the lower boundary {{M002}} of the Partial Pooling interval falls ({{M003}}), so the condition for Complete Adverse Selection ({{M004}}) becomes harder to satisfy and the equilibrium moves toward the Cost-Deterred Hiding regime. For any fixed hiding cost {{M005}}, a sufficiently large increase in {{M006}} drives the equilibrium out of the Partial Pooling region toward full unraveling.

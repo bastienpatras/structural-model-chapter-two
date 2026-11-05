@@ -1,0 +1,5 @@
+{{M008}}
+{{M009}}
+{{M010}}
+{{M011}}Notes:{{M012}} Hiding cost held at its calibrated value in every column. {{M001}}: relative attention at the estimate. {{M002}}: attention to silent listings raised to that of rated listings. {{M003}}: every dwelling's owner is informed. Full attention: all buyers attend to energy on every listing ({{M004}}) and {{M005}} (the estimated {{M006}} is capped at one market by market). Annual costs aggregate over informed low-quality listings (all low-quality listings under {{M007}}) over the {{M013}} years of listings in the estimation markets. In the last column the rating premium rises while the single hiding cost is held fixed, so in the markets that move into Complete Adverse Selection every informed seller switches to hiding at once. Values are provisional pending certified energy consumption and certificate dates.
+{{M014}}

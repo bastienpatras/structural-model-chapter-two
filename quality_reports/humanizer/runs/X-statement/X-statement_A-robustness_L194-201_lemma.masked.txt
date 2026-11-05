@@ -1,0 +1,7 @@
+{{M008}}
+(i) {{M001}}, since the belief function is bounded
+above by {{M002}} (attained at {{M003}}). (ii) If the market is in Partial Pooling both before and after the July{{M009}}2021 reform and {{M004}} is
+invariant to it (the identifying assumption of
+Section{{M010}}{{M011}}), the model predicts a DiD non-disclosure premium of zero:
+since {{M005}} in Partial Pooling at every date {{M006}}, its post-minus-pre change is
+zero whenever {{M007}} does not move at the reform.

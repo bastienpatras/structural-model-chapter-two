@@ -1,0 +1,2 @@
+Two maintained choices in the baseline specification deserve separate scrutiny, because each
+is an assumption rather than an estimate.

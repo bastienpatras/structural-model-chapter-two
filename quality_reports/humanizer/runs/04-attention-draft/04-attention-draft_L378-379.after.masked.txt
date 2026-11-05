@@ -1,0 +1,2 @@
+{{M003}}
+The welfare accounting of Section{{M004}}{{M005}} acquires a third component. As before, the hiding cost {{M001}} is a deadweight loss to the extent it destroys real resources and a transfer to the extent it reflects expected sanctions, informed hiders net zero in Partial Pooling and {{M002}} in Complete Adverse Selection (Proposition{{M006}}{{M007}}), and uninformed sellers earn the non-disclosure premium as a rent. The premium itself now contains a behavioural transfer. Relative to what a fully attentive market would pay, a silent listing sells at a mark-up of

@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -10,5 +10,5 @@
+ disclosed and undisclosed information is priced \citep{hirshleifer_limited_2003, dellavigna_investor_2009}.
+ It is closely related to the extensive evidence on the capitalisation of energy labels in
+-housing, which documents robust premia for efficient properties wherever labels have been
++housing, which documents consistent premia for efficient properties wherever labels have been
+ studied \citep{brounen_kok_2011, hyland_lyons_2013, fuerst_energy_2016, frondel_power_2018,
+ myers_mandatory_2022}; that literature establishes that labels are priced, whereas our question

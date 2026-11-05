@@ -1,0 +1,4 @@
+We allow for, but do not impose, strategic concealment. Nothing in the specification requires
+informed sellers to withhold. The hiding rate is an equilibrium object, the model admits full
+unravelling as a special case, and whether concealment occurs, and how much, is what the
+estimation determines.

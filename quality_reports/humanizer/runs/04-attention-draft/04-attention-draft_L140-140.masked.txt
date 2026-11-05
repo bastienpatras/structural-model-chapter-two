@@ -1,0 +1,1 @@
+Each buyer values a listing by{{M002}}{{M003}}, with {{M001}} given by Table{{M004}}{{M005}}. The transaction probability generalises{{M006}}{{M007}} to three buyer segments,

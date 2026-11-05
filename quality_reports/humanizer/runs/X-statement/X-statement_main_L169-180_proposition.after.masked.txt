@@ -1,0 +1,11 @@
+{{M019}}
+Let {{M001}} and take the equilibrium regime of Proposition{{M020}}{{M021}}. In every regime {{M002}}, so the minimum subsidy satisfies {{M003}}. By regime:
+{{M022}}
+    {{M023}} {{M024}}Cost-Deterred Hiding and Partial Pooling.{{M025}} {{M004}}. It does not depend on {{M005}}, {{M006}}, {{M007}} or {{M008}}, and {{M009}}.
+    {{M026}} {{M027}}Complete Adverse Selection{{M028}} (every informed low-quality seller hides, so {{M010}}).
+    {{M029}}
+        {{M030}} {{M031}}High-quality sellers disclose{{M032}} ({{M011}}): {{M012}}, with {{M013}}. Table{{M033}}{{M034}} gives the derivatives.
+        {{M035}} {{M036}}High-quality sellers also hide{{M037}} ({{M014}}): {{M015}}.
+    {{M038}}
+{{M039}}
+At {{M016}} the proposition is the full-attention statement: {{M017}}, {{M018}}, and only the case in which high-quality sellers disclose exists in Complete Adverse Selection.

@@ -1,0 +1,1 @@
+Limited attention also changes the location and the width of the band of hiding costs that sustains Partial Pooling. Both bounds shift up by {{M001}}, the part of the gain that does not depend on the pool, and the width shrinks by the factor {{M002}}.

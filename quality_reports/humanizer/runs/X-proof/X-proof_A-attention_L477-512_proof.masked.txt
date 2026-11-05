@@ -1,0 +1,25 @@
+{{M043}}
+{{M044}}Idea.{{M045}} In Partial Pooling the indifference of the marginal hider pins the pool belief and hence the number of hiders, so renovators come out of the disclosers until these run out; after that the pool improves and the threshold falls. {{M046}}Notation.{{M047}} {{M007}}: share of informed low-quality sellers who renovate; {{M008}}: share of the unrenovated ones who hide; {{M009}} as in the statement.
+
+{{M048}}Step 1 (The pool belief).{{M049}} Renovators become informed high-quality sellers who disclose (Lemma{{M050}}{{M051}}). The silent pool therefore consists of the uninformed, of whom {{M010}} per listing are efficient, and of the unrenovated informed low-quality sellers who hide. If a share {{M011}} of the {{M012}} unrenovated informed low-quality sellers hide, the pool belief is
+{{M001}}
+
+{{M052}}Step 2 (Phase{{M053}}1: the hider mass does not move).{{M054}} In Partial Pooling the premium equals the cost, {{M013}}, which pins {{M014}}. Solving the display of Step{{M055}}1 for the mass of hiders gives
+{{M002}}
+which does not depend on {{M015}}.
+
+{{M056}}Step 3 (Phase{{M057}}1: hiding share and threshold).{{M058}} By Step{{M059}}2 the share that hides is {{M016}}. It is feasible ({{M017}}) if and only if {{M018}}. In that range {{M019}}, so {{M020}} by Proposition{{M060}}{{M061}}.
+
+{{M062}}Step 4 (Phase{{M063}}2: every remaining seller hides).{{M064}} Let {{M021}}. Even {{M022}} then gives a hider mass {{M023}}, so the belief {{M024}} exceeds {{M025}}. Hiding therefore pays strictly, {{M026}}, and every remaining informed low-quality seller hides.
+
+{{M065}}Step 5 (Phase{{M066}}2: the threshold falls).{{M067}} Using {{M027}} from Step{{M068}}2,
+{{M003}}
+Since {{M028}} and {{M029}}, {{M030}}. So a renovated seller displays (Lemma{{M069}}{{M070}}) and {{M031}}. The belief {{M032}} is increasing in {{M033}}, so {{M034}} is decreasing.
+
+{{M071}}Step 6 (Equilibrium: uniqueness).{{M072}} The renovating share solves {{M035}}, with {{M036}} a continuous distribution function. The map {{M037}} is non-increasing, because {{M038}} is non-increasing (Steps{{M073}}3 and{{M074}}5) and {{M039}} is non-decreasing. Hence
+{{M004}}
+is strictly increasing. Since {{M040}}, the root is unique.
+{{M006}}
+
+{{M075}}Step 7 (Common cost).{{M076}} Under a common cost, all renovate if and only if {{M041}}. Since {{M042}}, Step{{M077}}5 gives
+{{M005}}

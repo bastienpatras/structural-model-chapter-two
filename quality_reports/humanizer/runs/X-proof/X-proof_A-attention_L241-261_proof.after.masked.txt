@@ -1,0 +1,17 @@
+{{M034}}
+{{M035}}Idea.{{M036}} The sign of {{M002}} is that of {{M003}}, and {{M004}} is increasing; since every equilibrium silent price lies between its values at {{M005}} and {{M006}}, comparing {{M007}} with {{M008}} at the two ends classifies every equilibrium.
+
+{{M037}}Step 1 (two facts when {{M009}}).{{M038}} Let {{M010}}. By the identity in the proof of Proposition{{M039}}{{M040}},
+{{M001}}
+so {{M011}}. Any equilibrium with {{M012}} has {{M013}} by{{M041}}{{M042}}.
+
+{{M043}}Step 2 (the three cases when {{M014}}).{{M044}}
+{{M045}}
+    {{M046}} If {{M015}}, then {{M016}}. Any equilibrium with {{M017}} has {{M018}}.
+    {{M047}} If {{M019}}, then {{M020}}. Moreover {{M021}} by Lemma{{M048}}{{M049}} and {{M022}}, so no equilibrium has {{M023}}.
+    {{M050}} Otherwise {{M024}}, so {{M025}} lies inside the band. By{{M051}}{{M052}}, {{M026}} if and only if {{M027}}.
+{{M053}}
+
+{{M054}}Step 3 (the case {{M028}}).{{M055}} Then {{M029}} at every pool, and the second case applies by the same argument.
+
+{{M056}}Step 4 (the model of Section{{M057}}{{M058}}).{{M059}} With {{M030}}, {{M031}}. And {{M032}} gives {{M033}}.

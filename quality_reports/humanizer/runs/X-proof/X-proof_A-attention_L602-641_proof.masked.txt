@@ -1,0 +1,33 @@
+{{M047}}
+{{M048}}Idea.{{M049}} Salience can save only what hiders lose, their rent {{M006}}; that rent falls by at most {{M007}}, and the subsidy moves one for one with the rent only over a window of length {{M008}}. {{M050}}Notation.{{M051}} {{M009}}, {{M010}}, {{M011}}, {{M012}} and {{M013}} are defined in Steps{{M052}}1--2; {{M014}}.
+
+{{M053}}Step 1 (Gain and hiding rate).{{M054}} Let {{M015}} be seller {{M016}}'s hiding cost and
+{{M001}}
+the gain from hiding at the observed pool. A seller with {{M017}} hides, so {{M018}}.
+
+{{M055}}Step 2 (Individual threshold and subsidy).{{M056}} A hider earns the rent {{M019}}, which renovation destroys up to the premium {{M020}}. With {{M021}}, her threshold and minimum subsidy are
+{{M002}}
+
+{{M057}}Step 3 (The gain after {{M022}}).{{M058}} Raising {{M023}} to one lowers the gain from hiding to {{M024}}. Here {{M025}}, because the hiding rate falls (Proposition{{M059}}{{M060}}). Also {{M026}}, because {{M027}}.
+{{M004}}
+
+{{M061}}Step 4 (Each rent falls by at most {{M028}}).{{M062}} By Step{{M063}}3,
+{{M003}}
+By cost:
+{{M064}}
+    {{M065}} {{M066}}{{M029}}:{{M067}} the rent falls by {{M030}};
+    {{M068}} {{M069}}{{M031}}:{{M070}} the rent falls from {{M032}} to zero;
+    {{M071}} {{M072}}{{M033}}:{{M073}} the seller has no rent.
+{{M074}}
+
+{{M075}}Step 5 (Each subsidy falls by at most {{M034}}).{{M076}} The function {{M035}} is non-decreasing, flat for {{M036}} and for {{M037}}, with slope one in between. So a fall in {{M038}} of at most {{M039}} (Step{{M077}}4) lowers it by at most {{M040}}: the slope region has length {{M041}}.
+
+{{M078}}Step 6 (The bound).{{M079}} Only the share {{M042}} of sellers has a positive rent (Steps{{M080}}1 and{{M081}}4). Averaging Step{{M082}}5 over sellers gives the bound {{M043}}.
+
+{{M083}}Step 7 (Cases with zero saving).{{M084}}
+{{M085}}
+    {{M086}} {{M087}}Cost-Deterred Hiding.{{M088}} {{M044}}.
+    {{M089}} {{M090}}A programme that reaches only the share {{M045}} of sellers who disclose today.{{M091}} It pays them {{M046}} before and after, because their rent is zero.
+    {{M005}}
+    {{M092}} {{M093}}One common cost, in Partial Pooling.{{M094}} The rent is zero for every seller.
+{{M095}}

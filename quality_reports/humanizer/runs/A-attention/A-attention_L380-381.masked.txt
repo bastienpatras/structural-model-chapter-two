@@ -1,0 +1,2 @@
+{{M001}}
+The first term attenuates {{M002}} toward zero. The second is negative whenever {{M003}}. Both push the estimate toward full attention.

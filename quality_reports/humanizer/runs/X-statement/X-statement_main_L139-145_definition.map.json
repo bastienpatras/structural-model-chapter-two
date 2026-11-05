@@ -1,0 +1,1 @@
+{"mapping": {"M001": "\\begin{equation}\n    \\bar{R}\\;\\equiv\\;\\max\\{b,\\,h\\}\\;-\\;\\max\\{0,\\,h\\}\\;=\\;b-\\min\\big\\{\\max\\{h,0\\},\\,b\\big\\}\\;\\in\\;[0,\\,b].\n    \\label{eq:threshold}\n\\end{equation}", "M002": "\\label{def:threshold}"}, "footnotes": []}

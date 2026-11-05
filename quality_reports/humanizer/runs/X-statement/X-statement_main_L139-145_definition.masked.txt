@@ -1,0 +1,3 @@
+{{M002}}
+The renovation threshold is the highest renovation cost, net of subsidy, at which an informed low-quality seller prefers to renovate to her best option without renovating:
+{{M001}}

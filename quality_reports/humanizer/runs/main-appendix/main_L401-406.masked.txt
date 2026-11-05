@@ -1,0 +1,6 @@
+{{M006}}
+{{M007}} {{M001}}: listing price
+{{M008}} {{M002}}: vector of property characteristics (such as size, age, location, etc.)
+{{M009}} {{M003}}: indicator of whether the Energy Performance Certificate (EPC) score is displayed in the listing
+{{M010}} {{M004}}: the EPC score displayed on the listing (if {{M005}})
+{{M011}}

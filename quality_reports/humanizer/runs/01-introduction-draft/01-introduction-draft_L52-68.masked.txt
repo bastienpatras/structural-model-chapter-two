@@ -1,0 +1,17 @@
+{{M001}}
+The unraveling prediction rests on four assumptions: (a){{M002}}buyers know sellers possess private
+information about quality, (b){{M003}}disclosure is costless, (c){{M004}}disclosure is credible, and
+(d){{M005}}buyers are homogeneous in how much they value the disclosed attribute. Three of the four are
+either directly satisfied in this setting or can be dispensed with. Assumption{{M006}}(c) holds by
+construction after July{{M007}}2021, since the DPE is issued by a certified third-party diagnostician,
+archived in the registry of the {{M008}}Agence de la Transition {{M009}}cologique{{M010}} (ADEME), and legally
+binding on the seller. Assumption{{M011}}(b) is close to satisfied, because a DPE is a one-off outlay of
+roughly 100--250{{M012}}{{M013}} according to ADEME's own estimates, negligible relative to
+residential transaction values, and it is the seller's obligation rather than the buyer's.
+Assumption{{M014}}(a), which the theoretical literature treats as a maintained hypothesis, we do not
+need to assume at all. By matching listings to the ADEME registry we observe directly which
+sellers hold a certificate at the moment of listing, and among the apartment listings we can
+match at the address level, 48.8{{M015}} hold none.
+Silence in this market is therefore not always a choice, a possibility first identified by
+{{M016}} and formalised by {{M017}}, and here it is measured
+rather than inferred.

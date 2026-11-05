@@ -1,0 +1,9 @@
+From Eq.{{M011}}{{M012}}, the equilibrium belief under partial separation is:
+{{M001}}
+
+Taking the derivative:
+{{M002}}
+
+As {{M003}} increases, {{M004}} falls: the pool quality under partial separation deteriorates because fewer uninformed sellers are available to provide cover.
+
+Since {{M005}} is increasing in {{M006}}, {{M007}} falls. The condition for partial separation, {{M008}}, becomes harder to satisfy. For fixed {{M009}}, an increase in {{M010}} can push the equilibrium from partial separation into the mixed or full unraveling region.

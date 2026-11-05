@@ -1,0 +1,10 @@
+{{M007}}
+    {{M008}}
+    {{M001}}
+    {{M009}}
+    {{M010}}
+    {{M011}}
+    {{M012}}
+        {{M013}}{{M014}}Notes.{{M015}} {{M002}}{{M016}}{{M017}}/m{{M018}}. Left panel: apartment markets; right panel: house markets. Projection: Lambert-93 (EPSG:2154). Bubble colour encodes the cost-sharing ratio {{M003}}, the share of the renovation cost the regulator must cover, in fixed bins comparable across the two benchmarks (Appendix{{M019}}{{M020}} shows {{M004}}). Bubble size encodes the threshold {{M005}} (euros per m{{M021}}). Markets with {{M006}} are dashed hollow circles. Near-coincident markets are offset by about 15{{M022}}km for legibility.
+    {{M023}}
+{{M024}}

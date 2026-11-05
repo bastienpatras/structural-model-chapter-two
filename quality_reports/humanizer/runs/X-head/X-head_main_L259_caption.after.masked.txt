@@ -1,0 +1,1 @@
+Spatial distribution of the minimum incentive-compatible subsidy, {{M001}}

@@ -1,0 +1,23 @@
+Under the benchmark {{M004}}, the equilibrium price of a listing equals its expected buyer valuation. For a low-quality seller who discloses ({{M005}}, {{M006}}), both buyer types value the property at {{M007}} (sensitive buyers: {{M008}}; insensitive buyers: {{M009}}), so {{M010}}. For a non-disclosing listing, sensitive buyers assign expected quality {{M011}} and value the property at {{M012}}, while insensitive buyers value it at {{M013}}. Weighting by buyer composition yields {{M014}}, so the non-disclosure premium is:
+{{M001}}
+The three cases of{{M033}}{{M034}} follow by substituting the equilibrium {{M015}} from each regime of Proposition{{M035}}{{M036}} into{{M037}}{{M038}}.
+
+{{M039}}
+{{M040}}Case 1: Cost-Deterred Hiding ({{M016}}).{{M041}}
+Evaluating{{M042}}{{M043}} at {{M017}}:
+{{M002}}
+Substituting into{{M044}}{{M045}}: {{M018}}.
+
+{{M046}}
+{{M047}}Case 2: Complete Adverse Selection ({{M019}}).{{M048}}
+With {{M020}} by Corollary{{M049}}{{M050}}, evaluating{{M051}}{{M052}} at {{M021}}:
+{{M003}}
+Substituting into{{M053}}{{M054}}: {{M022}}.
+
+{{M055}}
+{{M056}}Case 3: Partial Pooling ({{M023}}).{{M057}}
+By Proposition{{M058}}{{M059}}, {{M024}} solves the indifference condition {{M025}}, i.e., {{M026}}. But the left-hand side is {{M027}} by{{M060}}{{M061}}, so {{M028}}.
+
+{{M062}}
+{{M063}}Ordering.{{M064}}
+Since {{M029}} is strictly decreasing by Lemma{{M065}}{{M066}}, we have {{M030}} for all {{M031}}, hence {{M032}}, confirming the strict ordering stated after{{M067}}{{M068}}.

@@ -1,0 +1,1 @@
+{{M001}} is the hiding gain{{M005}}{{M006}}, {{M002}} the pool belief when every informed low-quality seller hides, and {{M003}}, {{M004}} the Partial Pooling belief and hiding rate{{M007}}{{M008}}.

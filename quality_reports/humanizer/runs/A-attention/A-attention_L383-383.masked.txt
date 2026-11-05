@@ -1,0 +1,1 @@
+{{M002}}Step 3 (Ratio of sums, no selection).{{M003}} The ratio-of-sums estimator is {{M001}}. Absent selection it is consistent, because the noise in each sum has mean zero.

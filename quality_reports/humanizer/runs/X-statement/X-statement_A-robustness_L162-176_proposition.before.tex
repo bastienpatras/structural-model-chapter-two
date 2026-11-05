@@ -1,0 +1,14 @@
+\label{prop:what_identified}
+Given consistent estimates of $(\pi_m,\bar\theta_m,\sigma_{0,m})$ from the ADEME registry match
+and $\hat\beta_{1,m}$ from the disclosed-price DiD:
+\begin{enumerate}[label=(\roman*)]
+    \item $b_m$ is point identified: $b_m=\beta_{1,m}$.
+    \item If $\sigma_{0,m}\in(0,1)$ (Partial Pooling), $c_{0,m}$ is point identified,
+        \emph{without reference to $\rho_m$ or $\beta_1$ separately}:
+        $c_{0,m}=\beta_{1,m}\cdot e(\sigma_{0,m};\pi_m,\bar\theta_m)$.
+    \item If $\sigma_{0,m}=0$ (Cost-Deterred Hiding), $c_{0,m}\ge\beta_{1,m}\bar\theta_m$; if
+        $\sigma_{0,m}=1$ (Complete Adverse Selection), $c_{0,m}\le\beta_{1,m}\,e(1)$.
+    \item $\Delta_m$ is an over-identifying restriction: $\Delta_m=\beta_{1,m}\,e(\sigma_{0,m})$,
+        i.e.\ $\Delta_m=c_{0,m}$ in Partial Pooling.
+    \item $\rho_m$ itself is not identified (Proposition~\ref{prop:scale_nonid}).
+\end{enumerate}

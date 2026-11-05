@@ -1,0 +1,37 @@
+\upshape
+\emph{Idea.} In Partial Pooling the indifference condition pins $e^*$ in closed form by~\eqref{eq:att_pp}, and $\sigma_0^*$ is a strictly decreasing function of $e^*$. Each sign in~(i) therefore follows from differentiating $e^*$. The corner premia are linear in $\psi$.
+
+\emph{Step 1 (attention, $\psi$).} From~\eqref{eq:att_pp},
+\begin{equation*}
+    \frac{\partial e^*}{\partial\psi}\;=\;\frac{e^{\rm def}-c_0/b}{\psi^2}.
+\end{equation*}
+
+\emph{Step 2 (sign of Step 1).} In Partial Pooling $c_0/b=\tilde e^*=\psi e^*+(1-\psi)e^{\rm def}$, so $e^{\rm def}-c_0/b=\psi\,(e^{\rm def}-e^*)$. This is positive whenever $e^*<e^{\rm def}$, which holds when $C^{\rm def}\le\bar C^{\rm sil}$, since then $e^{\rm def}\ge q(\bar C^{\rm sil})=e^*$. So $\partial e^*/\partial\psi>0$.
+% [CHECK] The weak inequalities only give e^def >= e^*, i.e. de^*/dpsi >= 0. The proposition assumes
+% [CHECK] C^def < Csil (strict), which gives e^def > e^* and the strict sign. Proposed fix: replace
+% [CHECK] "\le" and "\ge" by "<" and ">" in this sentence. See ledger, ISSUE 3.
+
+\emph{Step 3 (the other parameters).} Differentiating~\eqref{eq:att_pp},
+\begin{equation*}
+    \frac{\partial e^*}{\partial c_0}\;=\;\frac{1}{\psi\,b}\;>\;0,\qquad
+    \frac{\partial e^*}{\partial C^{\rm def}}\;=\;\frac{1-\psi}{\psi\,(C_0-C_1)}\;\ge\;0,
+\end{equation*}
+and $\partial e^*/\partial(\rho\omega_1)<0$ through $b=\rho\omega_1\beta_1$.
+% [CHECK] de^*/dC^def = 0 at psi = 1, so dsigma_0^*/dC^def = 0 there, while the statement claims a strict
+% [CHECK] "< 0". Proposed fix: "dsigma_0^*/dC^def <= 0, strictly if psi < 1" in Proposition prop:att_cs(i).
+% [CHECK] See ledger, ISSUE 4.
+
+\emph{Step 4 (hiding rate).} By~\eqref{eq:att_pp}, $\sigma_0^*$ is strictly decreasing in $e^*$, so Steps~1--3 give the signs in~(i) for $\psi$, $C^{\rm def}$, $c_0$ and $\rho\omega_1$. The effect of $\pi$ operates only through the inversion of~\eqref{eq:belief_simplified}, exactly as in Proposition~\ref{prop:comparative_statics}(ii).
+
+\emph{Step 5 (corner premia and attention, (ii)).} The Cost-Deterred premium $b[\psi\bar\theta+(1-\psi)e^{\rm def}]$ has derivative $b[\bar\theta-e^{\rm def}]$ in $\psi$. It is negative iff
+\begin{equation*}
+    C^{\rm def}\;<\;C_0-\bar\theta\,(C_0-C_1)\;=\;\bar\theta C_1+(1-\bar\theta)C_0 .
+\end{equation*}
+The Complete Adverse Selection premium has derivative $b[e(1)-e^{\rm def}]<b[\bar\theta-e^{\rm def}]$, since $e(1)<\bar\theta$. The same condition therefore makes it decreasing in $\psi$.
+
+\emph{Step 6 (Complete Adverse Selection premium and $\pi$, (ii)).} That premium has derivative $\psi\,b\,\partial e(1)/\partial\pi$ in $\pi$, with
+\begin{equation*}
+    \frac{\partial e(1)}{\partial\pi}\;=\;-\frac{\bar\theta\,(1-\bar\theta)}{(1-\pi\bar\theta)^2}\;<\;0 .
+\end{equation*}
+% [CHECK] psi*b*de(1)/dpi is < 0 only for psi > 0 (it is 0 at psi = 0). Proposed fix: add "for psi > 0"
+% [CHECK] in Proposition prop:att_cs(ii). See ledger, ISSUE 5.

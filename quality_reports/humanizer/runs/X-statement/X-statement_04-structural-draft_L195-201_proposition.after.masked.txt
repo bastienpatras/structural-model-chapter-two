@@ -1,0 +1,6 @@
+{{M008}}
+Under the benchmark {{M001}}, a seller of type {{M002}} strictly prefers disclosure if and only if {{M003}}. In particular:
+{{M009}}
+    {{M010}} An informed seller with {{M004}} strictly prefers disclosure for any {{M005}}.
+    {{M011}} An informed seller with {{M006}} strictly prefers non-disclosure whenever {{M007}}.
+{{M012}}

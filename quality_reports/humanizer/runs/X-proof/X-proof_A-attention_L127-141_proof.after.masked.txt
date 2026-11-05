@@ -1,0 +1,12 @@
+{{M017}}
+{{M018}}Idea.{{M019}} By{{M020}}{{M021}}, silence always pays a high-quality seller {{M006}} less than a low-quality one, while hiding costs her at least as much. So she can want to hide only once every low-quality seller does.
+
+{{M022}}Step 1 (if {{M007}}, then {{M008}}).{{M023}} If {{M009}}, some informed low-quality seller weakly prefers disclosure, so {{M010}}. By{{M024}}{{M025}}, {{M011}}, hence
+{{M001}}
+Every informed high-quality seller strictly prefers disclosure, so {{M012}}.
+
+{{M026}}Step 2 (Complete Adverse Selection).{{M027}} If {{M013}}, a high-quality seller hides only if {{M014}} at the prevailing {{M015}}. As in Step{{M028}}2 of the proof of Proposition{{M029}}{{M030}}, this requires {{M016}}.
+{{M002}}
+{{M003}}
+{{M004}}
+{{M005}}

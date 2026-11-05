@@ -1,0 +1,8 @@
+{{M009}}
+The environment is that of Section{{M010}}{{M011}}, with one addition on the buyer side: after seeing the listing, an EPC-sensitive buyer either attends to its energy performance or does not, with a probability that depends on what the listing shows. The timing is as follows.
+{{M012}}
+    {{M013}} Nature draws the seller's quality {{M001}} and information status {{M002}}, independently, with {{M003}} and {{M004}}.
+    {{M014}} The seller lists the property, choosing the display {{M005}} (only if {{M006}}) and the listing price.
+    {{M015}} A buyer arrives. She is EPC-sensitive with probability {{M007}}. If sensitive, she attends to energy with a probability {{M008}} that depends on the display.
+    {{M016}} She values the property given what she attends to, and buys or not.
+{{M017}}

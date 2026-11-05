@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -3,5 +3,5 @@
+ what they expect to receive on average. Sellers of genuinely good products are then underpaid,
+ and may withdraw from the market altogether, leaving buyers facing a pool of worse quality than
+-they had hoped for \citep{akerlof_lemons_1970}. The outcome is bad for both sides. Buyers pay for
++they had hoped for \citep{akerlof_lemons_1970}. Buyers pay for
+ uncertainty they would rather not bear, and the best sellers cannot capture the value of what
+ they own.

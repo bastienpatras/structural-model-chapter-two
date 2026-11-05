@@ -1,0 +1,34 @@
+By Corollary~\ref{cor:hq_disclose}, $\sigma_1^* = 0$ in any equilibrium. The strategic problem reduces to characterising $\sigma_0^* \in [0,1]$, the hiding probability of informed low-quality sellers. The incentive to hide is
+\[
+    \Phi(\sigma_0) \;\equiv\; \Delta\!\left(e(\sigma_0)\right) - c_0
+    \;=\; \frac{\rho\,\beta_1\,(1-\pi)\bar{\theta}}{\pi(1-\bar{\theta})\sigma_0 + (1-\pi)} - c_0,
+\]
+where $e(\sigma_0)$ is the equilibrium pool belief (Equation~\eqref{eq:belief_simplified}). Since $e(\sigma_0)$ is strictly decreasing in $\sigma_0$ (Section~\ref{sec:beliefs}) and $\Delta$ is strictly increasing in $e$, $\Phi$ is \emph{strictly decreasing} in $\sigma_0$, with boundary values
+\[
+    \Phi(0) = \Delta(\bar{\theta}) - c_0, \qquad
+    \Phi(1) = \Delta\!\left(\tfrac{(1-\pi)\bar{\theta}}{1-\pi\bar{\theta}}\right) - c_0.
+\]
+
+\medskip
+\textbf{Case 1: Cost-Deterred Hiding.} Suppose $c_0 > \Delta(\bar{\theta})$, i.e., $\Phi(0) < 0$.
+
+Since $\Phi$ is strictly decreasing, $\Phi(\sigma_0) \leq \Phi(0) < 0$ for all $\sigma_0 \in [0,1]$. Hiding is strictly unprofitable at every hiding rate, including the most favourable case $\sigma_0 = 0$. Disclosure strictly dominates for every informed low-quality seller, so the unique equilibrium is $\sigma_0^* = 0$ with equilibrium belief $e^* = \bar{\theta}$.
+
+\textit{Interpretation.} All informed low-quality sellers disclose; the non-disclosing pool consists exclusively of uninformed sellers. Buyers correctly infer quality $\bar{\theta}$ from non-disclosure. Unlike the classical Grossman--Milgrom outcome, silence is uninformative rather than damning: non-disclosure carries no stigma because it reveals nothing beyond the seller's lack of a certified audit.
+
+\medskip
+\textbf{Case 2: Complete Adverse Selection.} Suppose $c_0 < \Delta(e(1))$, i.e., $\Phi(1) > 0$.
+
+Since $\Phi$ is strictly decreasing, $\Phi(\sigma_0) \geq \Phi(1) > 0$ for all $\sigma_0 \in [0,1]$. Hiding is strictly profitable at every hiding rate, including the least favourable case $\sigma_0 = 1$. Hiding is therefore strictly dominant for every informed low-quality seller regardless of the strategies of others, so the unique equilibrium is $\sigma_0^* = 1$ with equilibrium belief $e^* = (1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$.
+
+\textit{Interpretation.} All informed low-quality sellers pool with uninformed sellers. The non-disclosure premium $\rho\cdot\beta_1\cdot e(1)$ is the maximum attainable across all regimes (Equation~\eqref{eq:premium}).
+
+\medskip
+\textbf{Case 3: Partial Pooling.} Suppose $\Delta(e(1)) \leq c_0 \leq \Delta(\bar{\theta})$, i.e., $\Phi(1) \leq 0 \leq \Phi(0)$.
+
+$\Phi$ is continuous and strictly decreasing on $[0,1]$, with $\Phi(0) \geq 0$ and $\Phi(1) \leq 0$. By the intermediate value theorem, there exists $\sigma_0^* \in [0,1]$ with $\Phi(\sigma_0^*) = 0$; strict monotonicity of $\Phi$ implies uniqueness. When the boundary inequalities hold strictly, $\sigma_0^*$ lies in the open interval $(0,1)$; at the boundaries, $\sigma_0^* \in \{0,1\}$ and the regime collapses to Case 1 or Case 2.
+
+At $\sigma_0^*$, informed low-quality sellers are exactly indifferent between hiding and disclosing; mixing at rate $\sigma_0^*$ is self-confirming through the belief function. This regime generates the closed-form hiding rate and is the empirically dominant regime in the estimation sample.
+
+\medskip
+\textbf{Uniqueness and exhaustiveness.} In Cases 1 and 2, uniqueness follows from strict dominance: $\Phi$ has constant sign on $[0,1]$ so no other $\sigma_0$ is consistent with optimality. In Case 3, uniqueness follows from the unique zero of $\Phi$. The three conditions $c_0 > \Delta(\bar{\theta})$, $c_0 < \Delta(e(1))$, and $\Delta(e(1)) \leq c_0 \leq \Delta(\bar{\theta})$ partition $\mathbb{R}_{+}$ since $\Delta(\bar{\theta}) \geq \Delta(e(1))$ (as $e(0) = \bar{\theta} \geq e(1)$ and $\Delta$ is increasing). Equilibrium exists and is unique for all parameter values.

@@ -1,0 +1,2 @@
+- [feedback_style_rules.md](feedback_style_rules.md) — Hard style constraints: no telegraphic signposting, no bold-as-bullet headers, no em-dashes as sentence breaks
+- [project_paper.md](project_paper.md) — Paper identity, notation, empirical numbers, and figure filenames for §7.5 and policy section

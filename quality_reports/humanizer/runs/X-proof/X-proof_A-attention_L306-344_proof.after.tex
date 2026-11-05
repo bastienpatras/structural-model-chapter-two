@@ -1,0 +1,38 @@
+\upshape
+\emph{Idea.} Under Assumption~\ref{assum:no_pre_pricing}, the reform-induced changes in the two premia are the post-reform premia of Lemma~\ref{lem:att_prices}. Their ratio cancels $\rho\omega_1$ and leaves the perceived cost of silence on the quality scale. Shorthand: $\delta x\equiv x^{\rm post}-x^{\rm pre}$, $\psi_\delta\equiv\delta(\rho\omega_0)/\delta(\rho\omega_1)$ and $C^*_\delta\equiv C^{\rm def}+\psi_\delta(\bar C^{\rm sil}-C^{\rm def})$.
+
+\emph{Step 1 (attention to displayed ratings, (i)).} With $\beta_1^{\rm anchor}=C_0-C_1=\beta_1$,~\eqref{eq:b_att} in differences gives
+\begin{equation*}
+    \delta b\;=\;\delta(\rho\omega_1)\,\beta_1,
+\end{equation*}
+which $\hat\beta_1$ estimates. Dividing by the anchor gives $\delta(\rho\omega_1)$.
+% [CHECK] The clause "with omega_1 = 1 it is the rho_m of Section sec:identification" is not argued in the
+% [CHECK] original. One-line fix: with omega_1 = 1 and Assumption assum:no_pre_pricing, delta(rho omega_1)
+% [CHECK] = rho^post, the post-reform rho_m measured there. See ledger, ISSUE 6 (minor).
+
+\emph{Step 2 (the non-disclosure premium in differences).} Under Assumption~\ref{assum:no_pre_pricing} the pre-reform energy terms vanish. By~\eqref{eq:premium_att}, in differences,
+\begin{equation*}
+    \delta\Delta\;=\;\delta(\rho\omega_1)\,(C_0-C^{\rm def})-\delta(\rho\omega_0)\,(\bar C^{\rm sil}-C^{\rm def}),
+\end{equation*}
+where $\bar C^{\rm sil}$ is evaluated at the post-reform pool.
+
+\emph{Step 3 (the perceived cost of silence, (ii)).} Dividing Step~2 by Step~1,
+\begin{equation*}
+    \frac{\delta\Delta}{\delta b}\;=\;e^{\rm def}-\psi_\delta\,(e^{\rm def}-e)\;=\;\frac{C_0-C^*_\delta}{C_0-C_1}.
+\end{equation*}
+Since $C_0$ and $C_1$ are known, the ratio pins down $C^*_\delta$.
+
+\emph{Step 4 (point identification under $C^{\rm def}=0$, (iii)).} Subtract $e$ from Step~3 and multiply by $\delta b$:
+\begin{equation*}
+    \delta\Delta-e\,\delta b\;=\;(1-\psi_\delta)\,\delta b\,\big(e^{\rm def}-e\big).
+\end{equation*}
+Setting $C^{\rm def}=0$ (so $e^{\rm def}=\eta$) and replacing $\delta b$ and $\delta\Delta$ by their estimates gives~\eqref{eq:att_lambda}.
+
+\emph{Step 5 (the identified set, (iii)).} The identified set follows because $C^*_\delta$ is a convex combination of $C^{\rm def}\ge0$ and $\bar C^{\rm sil}$. In particular $\psi_\delta\bar C^{\rm sil}=C^*_\delta-(1-\psi_\delta)C^{\rm def}\le C^*_\delta$.
+% [CHECK] The bound C^def <= C^*_delta holds only if C^def <= Csil (equivalently C^*_delta <= Csil when
+% [CHECK] psi_delta < 1): with Csil = 1, C^def = 3, psi_delta = 0.5, C^*_delta = 2 < C^def. The bound on
+% [CHECK] psi_delta holds unconditionally. Proposed fix: add "if C^*_delta <= Csil" (or assume
+% [CHECK] C^def <= Csil, as in Propositions prop:att_incentives(iii) and prop:att_cs) to part (iii).
+% [CHECK] See ledger, ISSUE 7.
+
+\emph{Step 6 (the hiding cost, (iv)).} In Partial Pooling the indifference of the informed low-quality seller gives $\Delta=c_0$ (Proposition~\ref{prop:att_equilibrium}). Under Assumption~\ref{assum:no_pre_pricing} the post-reform premium equals $\delta\Delta$.

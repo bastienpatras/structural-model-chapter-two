@@ -1,0 +1,29 @@
+\upshape
+\emph{Idea.} A price is the buyer-share-weighted average of valuations. The gross value and the insensitive buyer's cost are common to all listings and cancel from every gap, so only what sensitive buyers subtract survives. Shorthand: $C^*=\psi\,\bar C^{\rm sil}+(1-\psi)\,C^{\rm def}$, which is the $C^*$ of~\eqref{eq:premium_att}, and $\omega_0=\psi\omega_1$.
+
+\emph{Step 1 (weights).} By Assumption~\ref{assum:attention} and Table~\ref{tab:att_buyers}, a buyer values a listing at $\bar V$ minus the energy cost she subtracts. The three buyer types arrive with probabilities $1-\rho$, $\rho\omega_d$ and $\rho(1-\omega_d)$, which sum to one. Under the pricing rule used to derive~\eqref{eq:premium_derived}, a listing's price is the probability-weighted average of these valuations.
+
+\emph{Step 2 (the two prices).} Expand term by term and collect the $\bar V$ terms, whose weights sum to one by Step~1. A listing displaying a rating with energy cost $C$ ($\omega_d=\omega_1$) sells at
+\begin{equation*}
+    p\;=\;\bar V-(1-\rho)\,C^{\rm ins}-\rho\,\big[\omega_1\,C+(1-\omega_1)\,C^{\rm def}\big].
+\end{equation*}
+A silent listing ($\omega_d=\omega_0$, attentive buyers subtract $\bar C^{\rm sil}$) sells at
+\begin{equation*}
+    p_{\rm sil}\;=\;\bar V-(1-\rho)\,C^{\rm ins}-\rho\,\big[\omega_0\,\bar C^{\rm sil}+(1-\omega_0)\,C^{\rm def}\big].
+\end{equation*}
+
+\emph{Step 3 (price gap).} Subtract the two lines of Step~2. The common term $\bar V-(1-\rho)C^{\rm ins}$ cancels, and the default terms collect to $\rho(\omega_1-\omega_0)C^{\rm def}$. Using $\omega_0=\psi\omega_1$ and the definition of $C^*$,
+\begin{align*}
+    p-p_{\rm sil}
+    &\;=\;-\rho\,\omega_1C+\rho\,\omega_0\,\bar C^{\rm sil}+\rho\,(\omega_1-\omega_0)\,C^{\rm def}\\
+    &\;=\;-\rho\,\omega_1\big[C-\psi\,\bar C^{\rm sil}-(1-\psi)\,C^{\rm def}\big]\;=\;-\rho\,\omega_1\,(C-C^*).
+\end{align*}
+This is the last statement of the lemma.
+
+\emph{Step 4 (the two premia).} Apply Step~3 with $C=C_1$ and with $C=C_0$, and subtract. $C^*$ cancels, and
+\begin{equation*}
+    b\;=\;p_{\rm H}-p_{\rm L}\;=\;\rho\,\omega_1\,(C_0-C_1)\;=\;\rho\,\omega_1\beta_1,
+\end{equation*}
+which is~\eqref{eq:b_att}. Applying Step~3 with $C=C_0$ alone gives $\Delta=p_{\rm sil}-p_{\rm L}=\rho\,\omega_1\,(C_0-C^*)$, which is~\eqref{eq:premium_att}.
+
+\emph{Step 5 (nesting).} With $\omega_1=\omega_0=1$ and $C^{\rm ins}=C_0$, the two prices of Step~2 reduce to $p_1^*$ and $p_0^*$ of~\eqref{eq:premium_derived}.

@@ -1,0 +1,32 @@
+{{M054}}
+{{M055}}Idea.{{M056}} Renovation buys the rating premium {{M008}} and forfeits the rent from hiding; that rent is zero unless every informed low-quality seller hides, so {{M009}} outside Complete Adverse Selection. {{M057}}Notation.{{M058}} {{M010}}, {{M011}}, {{M012}}.
+
+{{M059}}Step 1 (The threshold formula).{{M060}} A renovating seller chooses between Strategies{{M061}}3 and{{M062}}4 and earns {{M013}}. A seller who does not renovate earns {{M014}}. The threshold is therefore
+{{M001}}
+
+{{M063}}Step 2 (The bound in every regime).{{M064}} By Step{{M065}}1, {{M015}} in every regime. Hence {{M016}}, which is the bound stated before the regimes.
+{{M005}}
+
+{{M066}}Step 3 (Cost-Deterred Hiding and Partial Pooling: {{M017}}).{{M067}}
+{{M068}}
+    {{M069}} {{M070}}Cost-Deterred Hiding.{{M071}} At the equilibrium pool {{M018}}, so {{M019}} and Step{{M072}}1 gives {{M020}}.
+    {{M073}} {{M074}}Partial Pooling.{{M075}} The marginal informed low-quality seller is indifferent between hiding and disclosing, {{M021}} by{{M076}}{{M077}}. So {{M022}} and Step{{M078}}1 gives {{M023}}.
+{{M079}}
+
+{{M080}}Step 4 (Properties of {{M024}}).{{M081}} The expression {{M025}} contains neither {{M026}}, {{M027}}, {{M028}} nor {{M029}}, and {{M030}}.
+{{M006}}
+
+{{M082}}Step 5 (Complete Adverse Selection, {{M031}}).{{M083}} In Complete Adverse Selection {{M032}}, so {{M033}} at the pool {{M034}}. With {{M035}}, {{M036}} gives {{M037}} (since {{M038}}). Step{{M084}}1 then gives
+{{M002}}
+{{M039}} gives {{M040}}, and {{M041}} gives {{M042}}.
+
+{{M085}}Step 6 (Complete Adverse Selection, {{M043}}).{{M086}} Now {{M044}}, which gives {{M045}}. So {{M046}}, and Step{{M087}}1 gives {{M047}}.
+
+{{M088}}Step 7 (Derivatives in Table{{M089}}{{M090}}).{{M091}} Write the threshold of Step{{M092}}5 as
+{{M003}}
+Differentiating,
+{{M004}}
+The last uses that {{M048}} and {{M049}} do not depend on {{M050}}.
+{{M007}}
+
+{{M093}}Step 8 (Full attention).{{M094}} At {{M051}}, {{M052}}, and only {{M053}} survives in Complete Adverse Selection (Proposition{{M095}}{{M096}}(ii)). This is the full-attention statement.

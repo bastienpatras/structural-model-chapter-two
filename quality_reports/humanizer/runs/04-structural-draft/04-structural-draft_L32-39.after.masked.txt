@@ -1,0 +1,7 @@
+Two considerations motivate this structure. First, the facts in
+Section{{M002}}{{M003}} line up with the Dye--Jung-Kwon configuration, in which a silent pool is
+overwhelmingly silent by constraint rather than by choice, a small but non-trivial mass of
+informed sellers withhold, and silence carries a premium rather than a penalty. Second, the binary quality space has an empirical anchor in the rental-ban
+threshold introduced by {{M004}}loi Climat et R{{M005}}silience{{M006}}: dwellings rated E, F, or G face a
+progressive prohibition on new lettings, which draws a bright line between the bottom of the
+grade distribution and the rest and maps onto {{M001}} without an arbitrary cutoff.

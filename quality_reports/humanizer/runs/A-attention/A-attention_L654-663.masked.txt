@@ -1,0 +1,10 @@
+{{M006}}
+    {{M007}}
+    {{M001}}
+    {{M008}}
+    {{M009}}
+    {{M010}}
+    {{M011}}
+        {{M012}}{{M013}}Notes.{{M014}} Rows are property types and columns the renovation-cost benchmark {{M002}}{{M015}}{{M016}}/m{{M017}}. Each cell shows the cross-market density of {{M003}} (euros per m{{M018}}). The dashed line marks the median conditional on {{M004}}; markets with {{M005}} appear in the left spike.
+    {{M019}}
+{{M020}}

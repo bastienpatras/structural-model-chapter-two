@@ -1,0 +1,5 @@
+--- before
++++ after
+@@ -1 +1 @@
+-$c_0$ serves two purposes here. It is an institutional cost of concealment, fixed within the prevailing enforcement regime, which we recover from the equilibrium price gap in Section~\ref{sec:identification}. It is also a policy object, a margin the regulator can shift through stricter enforcement, and Section~\ref{sec:policy} studies counterfactual variation in $c_0$ on that basis. Estimation reads $c_0$ off the current regime, while the policy exercise perturbs it around that same reading.
++$c_0$ is an institutional cost of concealment, fixed within the prevailing enforcement regime, which we recover from the equilibrium price gap in Section~\ref{sec:identification}. It is also a policy object, a margin the regulator can shift through stricter enforcement, and Section~\ref{sec:policy} studies counterfactual variation in $c_0$ on that basis. Estimation reads $c_0$ off the current regime, while the policy exercise perturbs it around that same reading.

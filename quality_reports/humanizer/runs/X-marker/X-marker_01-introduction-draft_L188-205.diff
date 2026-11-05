@@ -1,0 +1,18 @@
+--- before
++++ after
+@@ -6,6 +6,5 @@
+ renovate and publish a good one, earning the quality premium, or stay silent and earn the
+ non-disclosure premium instead, so the premium to opacity looks like an opportunity cost of
+-renovation that raises the private hurdle above engineering cost. In equilibrium it does not, except in the corner where every informed low-quality seller hides. This has an unexpected policy
+-implication. Because the equilibrium absorbs enforcement through the fraction of sellers who
++renovation that raises the private hurdle above engineering cost. In equilibrium it does not, except in the corner where every informed low-quality seller hides. Because the equilibrium absorbs enforcement through the fraction of sellers who
+ conceal, the renovation threshold depends only on the price gap between disclosed quality
+ levels and is independent of enforcement intensity. Renovation subsidies, enforcement against
+@@ -14,5 +13,4 @@
+ \citet{gillingham_palmer_2014}. The result holds outside the corner in which every informed low-quality seller hides, and with one concealment cost per market. % [AUTHOR REWRITE] The extension of Section~\ref{ss:attention} brings the inattention
+ diagnosis inside the disclosure game: buyers who attend less to energy when no rating is shown let
+-silence earn a premium that no belief about quality can produce. We do not claim to have estimated the one true model of housing
+-disclosure; we propose one way of reading these data through a workhorse framework, and we are
+-explicit throughout about which parameters are point-identified and which are bounded.
++silence earn a premium that no belief about quality can produce. We offer one reading of these data through a workhorse framework of housing
++disclosure, and state throughout which parameters are point-identified and which are bounded.

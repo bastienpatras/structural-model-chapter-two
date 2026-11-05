@@ -1,0 +1,6 @@
+{{M006}}
+The following comparative statics hold:
+{{M007}}
+    {{M008}} In the {{M009}}Complete Adverse Selection{{M010}} equilibrium: {{M001}} and {{M002}}.
+    {{M011}} In the {{M012}}Partial Pooling{{M013}} equilibrium: {{M003}}, {{M004}}, and {{M005}}.
+{{M014}}

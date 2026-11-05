@@ -1,0 +1,13 @@
+\textbf{Part~(i).}
+From~\eqref{eq:premium_derived}, the non-disclosure premium is $\Delta = \rho\,\beta_1\,e(\sigma_0^*)$. We differentiate with respect to $\rho$ in each regime, holding the regime-specific equilibrium $\sigma_0^*$ fixed where appropriate.
+
+\medskip
+\textit{Cost-Deterred Hiding ($\sigma_0^* = 0$).} Here $e(0) = \bar{\theta}$ by~\eqref{eq:belief_simplified}, independent of $\rho$. Therefore $\partial\Delta/\partial\rho = \beta_1\bar{\theta} > 0$.
+
+\textit{Complete Adverse Selection ($\sigma_0^* = 1$).} Here $e(1) = (1-\pi)\bar{\theta}/(1-\pi\bar{\theta})$, also independent of $\rho$. Therefore $\partial\Delta/\partial\rho = \beta_1\,e(1) > 0$.
+
+\textit{Partial Pooling ($\sigma_0^*\in(0,1)$).} The indifference condition $\rho\,\beta_1\,e(\sigma_0^*) = c_0$ pins $\Delta = c_0$. Changes in $\rho$ induce compensating adjustments in $\sigma_0^*$, as established in Proposition~\ref{prop:comparative_statics}(ii): $\partial\sigma_0^*/\partial\rho > 0$. The premium satisfies $\partial\Delta/\partial\rho = 0$.
+
+\medskip
+\textbf{Part~(ii).}
+From Proposition~\ref{prop:equilibrium}, the \emph{Partial Pooling} regime requires $\Delta(e(1)) \leq c_0 \leq \Delta(\bar{\theta})$, i.e., $\rho\,\beta_1\,e(1) \leq c_0 \leq \rho\,\beta_1\,\bar{\theta}$. Differentiating both bounds with respect to $\rho$: $\partial[\rho\,\beta_1\,e(1)]/\partial\rho = \beta_1\,e(1) > 0$ and $\partial[\rho\,\beta_1\,\bar{\theta}]/\partial\rho = \beta_1\,\bar{\theta} > 0$. Both boundaries increase with $\rho$. The width of the partial-pooling interval is $\rho\,\beta_1\,[\bar{\theta} - e(1)]$, which is increasing in $\rho$ since $\bar{\theta} > e(1)$ whenever $\pi > 0$. The regime is therefore weakly expanding in $\rho$.

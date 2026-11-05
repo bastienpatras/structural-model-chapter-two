@@ -1,0 +1,20 @@
+{{M001}}
+The data yield four descriptive findings, drawn from two distinct samples that we keep separate
+throughout. First, silence commands a premium rather than a penalty. Estimated on the panel of
+market-level hedonic price indices, and relative to the pre-reform baseline, listings without a
+score trade approximately 6.9{{M006}} above disclosed energy-intensive properties for apartments and
+3.4{{M007}} for houses, the opposite of the sign unraveling predicts. Second, the premium widened
+abruptly at the reform rather than emerging from trend. The composition-adjusted
+difference-in-differences estimates evolve in parallel before July{{M008}}2021, averaging {{M002}} for
+apartments and {{M003}} for houses with no discernible drift, and then shift sharply upward,
+stabilising around {{M004}} and {{M005}} by mid-2024. For apartments the level ordering already
+favoured non-disclosers beforehand, so the reform changes the magnitude of the premium, not its sign. Third, turning to the address-matched listing sample, non-disclosure is
+overwhelmingly involuntary. Among apartment listings 79.8{{M009}} disclose truthfully, 16.7{{M010}} are
+genuinely uninformed, and only 3.5{{M011}} hold a certificate and withhold it, with the corresponding
+house shares 90.4{{M012}}, 8.5{{M013}} and 1.1{{M014}}.
+Fourth, the non-disclosure rate varies widely across local markets, ranging among
+apartments from 6.5{{M015}} to 40.9{{M016}} across d{{M017}}partements, around a median of 16.5{{M018}}. Together
+these facts are inconsistent with unraveling as a description of this market, while pointing to
+the mechanism that defeats it. The pool of silent sellers is dominated by the uninformed, which
+blunts the inference buyers can draw from silence and shelters the few who conceal
+deliberately.

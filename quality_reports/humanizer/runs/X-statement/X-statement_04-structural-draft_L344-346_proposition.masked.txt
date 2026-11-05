@@ -1,0 +1,2 @@
+{{M006}}
+An increase in {{M001}} shifts {{M002}} uniformly downward. The upper boundary condition for Partial Pooling ({{M003}}) becomes harder to satisfy and the condition for Cost-Deterred Hiding ({{M004}}) becomes easier, so higher hiding costs push the equilibrium toward the Cost-Deterred Hiding regime. In the interior of the Partial Pooling regime, {{M005}}: higher costs reduce the equilibrium hiding rate.

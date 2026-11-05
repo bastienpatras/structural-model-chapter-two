@@ -1,0 +1,1 @@
+Applying Bayes' rule to the pool composition in Table{{M001}}{{M002}}, the expected quality among non-disclosers is:

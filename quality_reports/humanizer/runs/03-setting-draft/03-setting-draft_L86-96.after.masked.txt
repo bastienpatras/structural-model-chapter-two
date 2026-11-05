@@ -1,0 +1,11 @@
+{{M002}}
+{{M003}}
+{{M004}}{{M005}}Notes.{{M006}} Shares of the full listing sample of each property type, computed from the
+listing--registry match. The ``disclosed, unmatched'' group displays an EPC score for which no record
+appears in the public ADEME registry, which contains only certificates issued from July{{M007}}2021 onward;
+these listings are classified as truthful disclosers under the no-falsification assumption. Sellers
+with no post-2021 registry record ({{M001}}) therefore account for 48.8{{M008}} of apartment and 61.1{{M009}} of
+house listings, the large majority of whom do disclose a score. Columns may not sum to exactly 100{{M010}}
+because of rounding.
+{{M011}}
+{{M012}}

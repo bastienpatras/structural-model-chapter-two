@@ -1,0 +1,10 @@
+{{M014}}
+For each market {{M002}}, an external, non-price estimate of the sensitive buyer's willingness to
+pay for verified quality is available as the capitalised energy-cost saving:
+{{M001}}
+where {{M003}} is mean certified primary-energy consumption (kWh{{M004}}/m{{M005}}/yr)
+of quality-{{M006}} dwellings among ADEME-matched ({{M007}}) listings in market {{M008}} (pooling
+{{M015}}both{{M016}} disclosed and strategically-hidden listings, since restricting to disclosed-only
+listings would reintroduce selection on the seller's own hiding decision), {{M009}} is a
+blended primary-energy-equivalent price, {{M010}} is the local price level, and {{M011}} discounts
+the annual saving over a horizon {{M012}} at rate {{M013}}.

@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -9,5 +9,5 @@
+ house markets, and the cost of withholding a certificate settles at 2.4\% of property value for
+ apartments and 3.5\% for houses, on the order of a third of the notary bill a French buyer
+-separately pays on the same transaction. Both are economically substantial magnitudes, and of the
++separately pays on the same transaction. Both are economically substantial and of the
+ same order in two segments that trade very differently. The model predicts, in the partial-pooling
+ equilibrium that describes the bulk of French housing markets, that the non-disclosure premium

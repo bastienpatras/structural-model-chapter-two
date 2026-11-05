@@ -1,0 +1,46 @@
+\upshape
+\emph{Idea.} The silent price is pinned at a corner by the extreme pool and in Partial Pooling by the indifference of the marginal hider, which gives the truncation formula; payoffs follow from who bears a hiding cost. Normalise $p_{\rm L}=0$.
+
+\emph{Step 1 (prices).} By Lemma~\ref{lem:att_prices}, a listing displaying an efficient rating sells at $b=\rho\omega_1\beta_1$ and a silent listing at $\Delta=b\,\tilde e$, with $\tilde e=\psi e+(1-\psi)e^{\rm def}$ evaluated at the equilibrium pool by~\eqref{eq:etilde}. Displayed prices depend on no belief, so they are the same in every regime and are defined even where no seller displays a given rating. With $\sigma_1^*=0$ the pool belief is $e^*=e(\sigma_0^*)$ of~\eqref{eq:belief_simplified}, so $\Delta^*=\Delta_\psi(e^*)$ by~\eqref{eq:Delta_psi}.
+
+\emph{Step 2 (the band is ordered).} Since $b>0$ and $\psi\ge0$, $\Delta_\psi$ is weakly increasing in $e$. Since $e(1)<\bar\theta$, $\Delta_\psi(e(1))\le\Delta_\psi(\bar\theta)$.
+
+\emph{Step 3 (the silent price).} By Proposition~\ref{prop:att_equilibrium}:
+\begin{itemize}
+    \item \emph{Cost-Deterred Hiding:} $e^*=\bar\theta$ and $c_0>\Delta_\psi(\bar\theta)$, so $\Delta^*=\Delta_\psi(\bar\theta)$;
+    \item \emph{Partial Pooling:} $\Delta_\psi(e^*)=c_0$, with $c_0$ in the band (if $\psi=0$, $\Delta_0\equiv b\,e^{\rm def}=c_0$ at every $e$);
+    \item \emph{Complete Adverse Selection} with $\sigma_1^*=0$: $e^*=e(1)$ and $c_0<\Delta_\psi(e(1))$, so $\Delta^*=\Delta_\psi(e(1))$.
+\end{itemize}
+In each case $\Delta^*$ is $c_0$ truncated to $[\Delta_\psi(e(1)),\Delta_\psi(\bar\theta)]$, an interval by Step~2. This is~\eqref{eq:att_premium_trunc}. In Partial Pooling, Definition~\ref{def:effective_belief} gives $\tilde e^*=\Delta^*/b=c_0/b$.
+
+\emph{Step 4 (payoffs).} A seller's net payoff is the price of her listing less the hiding cost, which only an informed seller who withholds a rating bears.
+\begin{itemize}
+    \item An informed high-quality seller displays when $\sigma_1^*=0$ and earns $b$.
+    \item An informed low-quality seller earns $0$ by displaying and $\Delta^*-c_0$ by hiding. In Cost-Deterred Hiding $\Delta^*-c_0<0$, so she displays. In Partial Pooling $\Delta^*-c_0=0$, so both actions earn zero. In Complete Adverse Selection $\Delta^*-c_0>0$, so she hides. Her equilibrium payoff is therefore $\max\{\Delta^*-c_0,0\}$.
+    \item An uninformed seller cannot display (No Falsification), bears no hiding cost, and earns $\Delta^*$ whatever her quality.
+\end{itemize}
+In Partial Pooling the four payoffs are $b$, $0$, $0$ and $c_0$. This gives the two orderings in the statement, and $\Delta^*>b$ if and only if $c_0>b$.
+
+\emph{Step 5 (silence above an efficient rating: $e^{\rm def}\le1$).} Since $b>0$, $\Delta^*>b$ if and only if $\tilde e^*>1$. Also $e(1)\le e^*\le\bar\theta<1$. If $e^{\rm def}\le1$, then $\tilde e^*$ is a weighted average of $e^*<1$ and $e^{\rm def}\le1$, so $\tilde e^*\le1$.
+
+\emph{Step 6 (silence above an efficient rating: $e^{\rm def}>1$).} Then $e^{\rm def}>e^*$ and, for any $e\neq e^{\rm def}$,
+\begin{equation*}
+    \tilde e-1\;=\;\psi e+(1-\psi)e^{\rm def}-1\;=\;\big(e^{\rm def}-e\big)\big(\bar\psi(e)-\psi\big).
+\end{equation*}
+Since $e^{\rm def}-e^*>0$, $\tilde e^*>1$ if and only if $\psi<\bar\psi(e^*)$.
+
+\emph{Step 7 (the threshold in cost units).} The quality scale $q$ maps $C_1$ to $1$, $C^{\rm def}$ to $e^{\rm def}$ and $\bar C^{\rm sil}$ to $e$. Hence $e^{\rm def}-1=(C_1-C^{\rm def})/(C_0-C_1)$ and $e^{\rm def}-e=(\bar C^{\rm sil}-C^{\rm def})/(C_0-C_1)$, and at the equilibrium pool
+\begin{equation*}
+    \bar\psi(e^*)\;=\;\frac{C_1-C^{\rm def}}{\bar C^{\rm sil}-C^{\rm def}},
+\end{equation*}
+which is the threshold of Proposition~\ref{prop:att_incentives}(iii).
+
+\emph{Step 8 (the uninformed seller's rank).} When $\Delta^*>b$, the uninformed seller earns $\Delta^*>b$. She also earns $\Delta^*\ge\max\{\Delta^*-c_0,0\}$, since $c_0\ge0$ and $\Delta^*>0$.
+
+\emph{Step 9 (high-quality sellers when $\sigma_1^*=0$).} An informed high-quality seller gains $g_1=\Delta^*-b$ from silence by~\eqref{eq:gains}. In Cost-Deterred Hiding and Partial Pooling $\Delta^*\le c_0$, so
+\begin{equation*}
+    g_1-(c_0+c_1)\;\le\;-(b+c_1)\;<\;0 .
+\end{equation*}
+She strictly prefers to display even when $g_1>0$. In Partial Pooling the slack is exactly $b+c_1$.
+
+\emph{Step 10 (equilibria with $\sigma_1^*>0$).} By Corollary~\ref{cor:att_hq}, $\sigma_1^*>0$ requires $\sigma_0^*=1$ and $\Delta^*-b\ge c_0+c_1$. It cannot arise with $c_0\ge\Delta_\psi(e(1))$: that would give $\Delta_\psi(\bar\theta)-\Delta_\psi(e(1))\ge b$, whereas the difference is $\psi\,b\,[\bar\theta-e(1)]<b$ (proof of Proposition~\ref{prop:att_equilibrium}). So it arises only in Complete Adverse Selection, where $\Delta^*\ge b+c_0+c_1$. At $\sigma_1^*=1$ every seller is silent, $e(1,1)=\bar\theta$ and $\Delta^*=\Delta_\psi(\bar\theta)$. At an interior $\sigma_1^*$ the high-quality seller is indifferent and $\Delta^*=b+c_0+c_1$.

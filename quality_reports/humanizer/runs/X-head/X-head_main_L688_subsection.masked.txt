@@ -1,0 +1,1 @@
+Proof of Proposition {{M002}} (Equilibrium effect of {{M001}}: equilibrium moves toward full unraveling)

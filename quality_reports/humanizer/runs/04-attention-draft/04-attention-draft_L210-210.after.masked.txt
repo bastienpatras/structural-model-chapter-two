@@ -1,0 +1,1 @@
+which equals {{M001}} when {{M002}}. This one substitution carries the equilibrium analysis of Section{{M003}}{{M004}} over to limited attention: the hiding gain is a weighted average of the gain in Section{{M005}}{{M006}}, which depends on the pool, and a gain against the default, which does not.

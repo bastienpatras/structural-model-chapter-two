@@ -1,0 +1,7 @@
+Every observable implication of the model is a function of {{M001}} through the
+product {{M002}} alone. For a disclosed listing, {{M003}}. For a non-disclosed listing, {{M004}}. The hiding incentive is {{M005}}, so the equilibrium {{M006}} solving {{M007}}
+depends on {{M008}} only through {{M009}}. The regime boundaries of
+Proposition{{M019}}{{M020}} ({{M010}} against {{M011}} and {{M012}}) involve
+{{M013}} the same way. Since {{M014}} is
+invariant under the stated map and {{M015}} is untouched, the reparametrized vector reproduces
+every observable channel exactly. Admissibility requires {{M016}} for all {{M017}}, i.e.{{M021}}{{M018}}.

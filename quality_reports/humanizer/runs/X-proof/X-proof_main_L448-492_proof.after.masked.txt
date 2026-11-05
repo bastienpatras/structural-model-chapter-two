@@ -1,0 +1,32 @@
+
+The optimal price {{M007}} satisfies the first-order condition:
+{{M001}}
+
+Define the left-hand side as {{M008}} and the right-hand side as {{M009}}. The optimal price is determined by the intersection {{M010}}.
+
+{{M024}}Monotonicity of each side in {{M011}}.{{M025}}
+
+The left-hand side is strictly decreasing in {{M012}}:
+{{M002}}
+
+The right-hand side is strictly increasing in {{M013}}. Since {{M014}} is the logistic CDF, {{M015}} for all {{M016}}. Therefore:
+{{M003}}
+
+A strictly decreasing function intersects a strictly increasing function at most once, so {{M017}} is unique.
+
+{{M026}}Effect of {{M018}} on the right-hand side.{{M027}}
+
+At any fixed {{M019}}, the right-hand side is strictly decreasing in {{M020}}:
+{{M004}}
+
+An increase in {{M021}} shifts the RHS curve downward.
+
+{{M028}}Comparative static.{{M029}}
+
+Using the chain rule, differentiating the equilibrium condition with respect to {{M022}}:
+{{M005}}
+
+Rearranging:
+{{M006}}
+
+The numerator is negative. The denominator is negative (sum of two negative terms). Therefore {{M023}}.

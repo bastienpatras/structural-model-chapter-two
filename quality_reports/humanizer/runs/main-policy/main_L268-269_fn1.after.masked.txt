@@ -1,0 +1,1 @@
+A dwelling listed more than once in the sample is counted each time, so the figure is an upper bound on the number of dwellings. Counting every listing, as an earlier version of this section did, would multiply the bill several-fold by treating verified efficient dwellings as renovators.

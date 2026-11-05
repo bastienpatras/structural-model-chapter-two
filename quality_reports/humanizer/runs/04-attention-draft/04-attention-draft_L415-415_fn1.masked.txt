@@ -1,0 +1,1 @@
+The estimators rank by how much weight they place on markets with a large energy-efficiency premium: the median of market ratios gives {{M001}}, the ratio of sums {{M002}}, the regression through the origin {{M003}}, and a regression with a constant, which the model excludes, {{M004}} (intercept {{M005}}, s.e.{{M007}}{{M006}}).

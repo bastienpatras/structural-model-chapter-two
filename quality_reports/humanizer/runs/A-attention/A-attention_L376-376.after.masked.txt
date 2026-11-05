@@ -1,0 +1,1 @@
+{{M006}}Step 2 (Regression through the origin).{{M007}} Regress {{M001}} through the origin on {{M002}}. By Step{{M008}}1, {{M003}} and {{M004}}, so the probability limit of {{M005}} is

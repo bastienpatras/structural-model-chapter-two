@@ -1,0 +1,8 @@
+{{M015}}
+Under Assumption{{M016}}{{M017}}:
+{{M018}}
+    {{M019}} an informed seller with {{M001}} strictly prefers non-disclosure if and only if {{M002}};
+    {{M020}} an informed seller with {{M003}} strictly prefers non-disclosure if and only if {{M004}}, which requires that silence sell above a verified efficient rating;
+    {{M021}} if {{M005}}, silence sells above a verified efficient rating ({{M006}}, equivalently {{M007}}) if and only if {{M008}}, which requires {{M009}};
+    {{M022}} if {{M010}}, then {{M011}} for any {{M012}} and {{M013}}; conditions (i)--(ii) are then the net-of-cost comparisons underlying Proposition{{M023}}{{M024}}, and with {{M014}} they reduce to Proposition{{M025}}{{M026}}.
+{{M027}}

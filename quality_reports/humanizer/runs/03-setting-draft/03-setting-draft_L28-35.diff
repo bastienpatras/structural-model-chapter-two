@@ -1,0 +1,7 @@
+--- before
++++ after
+@@ -6,3 +6,3 @@
+ grade can be checked against the registry. And the registry is centralised and public, so the
+ \emph{existence} of an audit is verifiable independently of both the seller and the listing
+-platform. That second property is what makes the empirical exercise in this paper possible.
++platform. The second property makes the empirical exercise in this paper possible.

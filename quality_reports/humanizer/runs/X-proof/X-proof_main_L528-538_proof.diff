@@ -1,0 +1,9 @@
+--- before
++++ after
+@@ -3,5 +3,5 @@
+ For a high-quality seller ($\theta = 1$), this condition requires $\mathbb{E}[\theta \mid d=0] > 1$. But $\theta \in \{0, 1\}$, so $\mathbb{E}[\theta \mid d=0] \leq 1$ always. Therefore the condition never holds: high-quality sellers never earn a premium from hiding.
+ 
+-In fact, the inequality is strict whenever the non-disclosing pool contains any low-quality sellers. In that case $\mathbb{E}[\theta \mid d=0] < 1$, so:
++The inequality is strict whenever the non-disclosing pool contains any low-quality sellers. In that case $\mathbb{E}[\theta \mid d=0] < 1$, so:
+ \begin{equation}
+     v_1(d=1, \theta=1) - v_1(d=0) = \beta_1 \cdot (1 - \mathbb{E}[\theta \mid d=0]) > 0

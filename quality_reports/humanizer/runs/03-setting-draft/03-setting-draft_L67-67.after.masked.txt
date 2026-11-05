@@ -1,0 +1,1 @@
+Combining the listing disclosure decision {{M001}} with the ADEME information status {{M002}} generates four mutually exclusive groups, summarized in Table{{M003}}{{M004}}.
